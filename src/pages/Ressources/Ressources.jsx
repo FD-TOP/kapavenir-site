@@ -172,7 +172,6 @@ export default function Ressources() {
       <LogoSticker size={70} bottom="8%" left="2%" rotation={-18} opacity={0.1} animation="float" hideMobile />
 
       <section className="res-hero">
-        <p className="res-kicker">Ressources KapAvenir</p>
         <h1>FAQ & Glossaire retraite</h1>
         <p>Retrouvez des réponses claires et des définitions utiles pour mieux comprendre votre retraite.</p>
       </section>

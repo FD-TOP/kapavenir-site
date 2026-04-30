@@ -369,7 +369,6 @@ export default function PourQui() {
         ))}
         <div className="PQ-Overlay" aria-hidden="true" />
         <div className="PQ-Stage">
-          <span className="PQ-Tag">Pour qui ?</span>
           <h1 className="PQ-Title">
             Un accompagnement <span className="PQ-Accent" style={{ "--ac": slide.color }}>adapté</span><br />à chaque situation
           </h1>

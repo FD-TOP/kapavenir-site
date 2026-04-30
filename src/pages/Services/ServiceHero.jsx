@@ -22,7 +22,6 @@ export default function ServiceHero() {
 
         {/* TEXTE À GAUCHE */}
         <div className="SH-Text-Side">
-          <span className="SH-Badge">Service Hero</span>
           <h1 className="SH-Main-Title">
             Nos services pour préparer votre{' '}
             <span className="SH-Highlight">retraite sereinement</span>

@@ -92,7 +92,6 @@ export default function Etapes() {
 
       <section className="etp-hero">
         <div className="etp-left">
-          <span className="etp-label">Comment ca marche</span>
           <h1 className="etp-title">
             Un accompagnement <span>simple,</span>
             <br />
