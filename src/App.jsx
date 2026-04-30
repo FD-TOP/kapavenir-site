@@ -11,6 +11,7 @@ import Etapes       from './pages/Etapes/Etapes';
 import KafeRetraitePage from './pages/KafeRetraite/KafeRetraitePage';
 import Ressources   from './pages/Ressources/Ressources';
 import APropos      from './pages/APropos/APropos';
+import Contact      from './pages/Contact/Contact';
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
         <Route path="/glossaire"               element={<Ressources />} />
         <Route path="/blog"                    element={<Ressources />} />
         <Route path="/guides"                  element={<Ressources />} />
-        <Route path="/contact"                 element={<Ressources />} />
+        <Route path="/contact"                 element={<Contact />} />
         <Route path="/a-propos"                element={<APropos />} />
         <Route path="/histoire"                element={<APropos />} />
         <Route path="/mission"                 element={<APropos />} />
