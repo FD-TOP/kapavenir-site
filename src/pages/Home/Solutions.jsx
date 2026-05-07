@@ -51,7 +51,7 @@ const Solutions = () => {
             <span className="sol-gradient-text">pour préparer votre retraite</span>
           </h2>
           <p className="sol-p">
-            Chez KapAvenir, nous simplifions la retraite pour que vous puissiez prendre vos décisions en toute sérénité. Du Bilan retraite à l’Aide au départ, nous vous accompagnons pas à pas avec des conseils clairs et un suivi personnalisé adapté à votre situation.
+            Chez KapAvenir, nous simplifions la retraite pour que vous puissiez prendre vos décisions en toute sérénité. Du Bilan retraite à l’Aide au départ, nous vous accompagnons pas à pas ,avec des conseils clairs et un suivi personnalisé adapté à votre situation.
           </p>
         </div>
 
@@ -70,7 +70,6 @@ const Solutions = () => {
                     <img src={sol.image} alt={sol.title} />
                     <div className="sol-front-overlay">
                       <div className="sol-front-header">
-                        <span className="sol-badge">Expertise</span>
                         <h3>{sol.title}</h3>
                       </div>
                       <span className="sol-hint">Détails de la solution <ArrowRight size={16} /></span>
