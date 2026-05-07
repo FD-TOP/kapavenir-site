@@ -1,0 +1,31 @@
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Derrière le contenu */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.15; /* Très léger pour ne pas gêner la lecture */
+  filter: blur(40px); /* Effet doux et moderne */
+  animation: float 20s infinite alternate ease-in-out;
+}
+
+/* Couleurs et Formes */
+.shape-1 { width: 300px; height: 300px; background: #00b6de; border-radius: 50%; top: 10%; left: -5%; }
+.shape-2 { width: 250px; height: 250px; background: #00bf63; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; top: 40%; right: -5%; animation-duration: 25s; }
+.shape-3 { width: 350px; height: 350px; background: #00b6de; border-radius: 40%; bottom: 10%; left: 15%; animation-duration: 18s; }
+.shape-4 { width: 200px; height: 200px; background: #00bf63; border-radius: 50%; top: 15%; right: 20%; animation-duration: 30s; }
+.shape-5 { width: 280px; height: 280px; background: #00b6de; border-radius: 50%; bottom: 30%; right: 10%; }
+.shape-6 { width: 220px; height: 220px; background: #00bf63; border-radius: 50%; top: 60%; left: 5%; animation-duration: 22s; }
+
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  50% { transform: translate(40px, 60px) rotate(15deg) scale(1.1); }
+  100% { transform: translate(-20px, -40px) rotate(-10deg) scale(1); }
+}

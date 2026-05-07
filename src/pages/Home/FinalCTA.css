@@ -1,0 +1,133 @@
+.final-cta-section {
+  padding: 120px 5%;
+  position: relative;
+  z-index: 2;
+}
+
+.final-cta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* --- STYLE DU CADRE IMAGE --- */
+.cta-image-wrapper {
+  position: relative;
+}
+
+.cta-image-frame {
+  position: relative;
+  z-index: 2;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  line-height: 0; /* Évite les espaces blancs sous l'image */
+}
+
+.cta-image-frame img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cta-image-frame:hover img {
+  transform: scale(1.05);
+}
+
+/* Décorateur (Ligne bleue/verte derrière l'image) */
+.frame-decorator {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--blue-kap);
+  border-radius: 30px;
+  z-index: -1;
+}
+
+/* --- STYLE DU TEXTE --- */
+.cta-main-title {
+  font-size: 3.2rem;
+  color: white;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.cta-main-title span {
+  color: var(--blue-kap);
+  background: linear-gradient(90deg, var(--blue-kap), var(--green-kap));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-subtitle {
+  font-size: 1.3rem;
+  color: #ccc;
+  margin-bottom: 45px;
+  line-height: 1.5;
+  border-left: 4px solid var(--green-kap);
+  padding-left: 20px;
+}
+
+/* --- BOUTONS --- */
+.cta-buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-primary-cta, .btn-secondary-cta {
+  width: fit-content;
+  padding: 18px 35px;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-cta {
+  background: var(--blue-kap);
+  color: white;
+  border: none;
+}
+
+.btn-secondary-cta {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-primary-cta:hover {
+  background: var(--green-kap);
+  transform: translateX(10px);
+}
+
+.btn-secondary-cta:hover {
+  border-color: var(--blue-kap);
+  color: var(--blue-kap);
+  transform: translateX(10px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .final-cta-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 60px;
+  }
+  
+  .cta-image-frame img { height: 350px; }
+  .cta-subtitle { border-left: none; padding-left: 0; }
+  .cta-buttons-group { align-items: center; }
+  .cta-main-title { font-size: 2.4rem; }
+}

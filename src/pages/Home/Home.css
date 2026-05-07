@@ -1,0 +1,18 @@
+.home-wrapper {
+  width: 100%;
+}
+
+/* Conteneur partagé : fond blanc + AnimatedBG en dessous */
+.content-with-bg {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* On laisse chaque section gérer son display et son padding */
+.content-with-bg section {
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}

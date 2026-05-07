@@ -1,0 +1,191 @@
+#FinalCTA.F-ethereal-layout {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+  z-index: 1; /* Inférieur au footer (z-index: 30) → la femme passe par-dessus */
+}
+
+/* Bloc contenu de la card */
+.F-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- BACKGROUND IMAGE SYSTEM --- */
+.F-bg-image-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.F-bg-parallax {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  filter: brightness(0.7);
+  transition: transform 0.8s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.F-ethereal-layout:hover .F-bg-parallax {
+  transform: scale(1.02);
+}
+
+.F-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+}
+
+/* --- GLASS CARD --- */
+.F-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.F-premium-cta {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.F-glass-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08); /* Effet verre très transparent */
+  backdrop-filter: blur(25px); /* Flou intense */
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  padding: 80px 60px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.3);
+}
+
+.F-pre-title {
+  display: block;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  color: #00b6de;
+  margin-bottom: 20px;
+}
+
+.F-main-title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -3px;
+  margin-bottom: 30px;
+}
+
+.F-gradient-text {
+  background: linear-gradient(90deg, #00b6de, #00bf63);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.F-separator {
+  width: 60px;
+  height: 4px;
+  background: #00bf63;
+  margin: 0 auto 40px;
+  border-radius: 2px;
+}
+
+.F-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+
+/* --- BOUTONS --- */
+.F-action-footer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.F-btn-primary {
+  background: #00bf63;
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 100px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.F-btn-primary:hover {
+  background: #00b6de;
+  transform: translateY(-5px) scale(1.02);
+}
+
+.F-arrow {
+  transition: transform 0.3s ease;
+}
+
+.F-btn-primary:hover .F-arrow {
+  transform: translateX(5px);
+}
+
+.F-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px 40px;
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.F-btn-secondary:hover {
+  background: white;
+  color: #000;
+}
+
+/* --- ACCENT LUMINEUX --- */
+.F-card-border-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  #FinalCTA.F-ethereal-layout { height: auto; min-height: 100vh; padding: 80px 0; }
+  .F-glass-card { padding: 50px 30px; border-radius: 28px; }
+  .F-main-title { letter-spacing: -1px; }
+  .F-description { font-size: 1.1rem; margin-bottom: 35px; }
+  .F-btn-primary, .F-btn-secondary { width: 100%; justify-content: center; padding: 18px 30px; font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .F-glass-card { padding: 36px 20px; border-radius: 20px; }
+  .F-pre-title { font-size: 0.7rem; letter-spacing: 2px; }
+  .F-main-title { letter-spacing: -0.5px; }
+  .F-separator { margin-bottom: 25px; }
+  .F-description { font-size: 1rem; margin-bottom: 28px; }
+  .F-action-footer { gap: 12px; }
+}

@@ -1,0 +1,284 @@
+/* --- VARIABLES --- */
+:root {
+  --nav-bg: linear-gradient(100deg, rgba(0, 113, 188,0.92) 0%, rgba(0,182,222,0.92) 55%, rgba(0,191,99,0.92) 100%);
+  --nav-border: rgba(255, 255, 255, 0.22);
+  --blue-primary: #00b6de;
+  --green-primary: #00bf63;
+  --text-dark: #1a1a1b;
+  --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- WRAPPER FLOTTANT --- */
+.nav-container {
+  position: fixed;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 9999;
+  transition: var(--transition);
+}
+
+.nav-container.is-scrolled {
+  top: 15px;
+}
+
+/* --- LA PILULE (PILL) --- */
+.nav-pill {
+  width: 95%;
+  max-width: 1300px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 10px 25px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--nav-border);
+  box-shadow: 0 8px 32px rgba(0, 113, 188, 0.22), 0 2px 8px rgba(0,191,99,0.08);
+  transition: var(--transition);
+}
+
+.is-scrolled .nav-pill {
+  background: linear-gradient(100deg, rgba(0,70,130,0.97) 0%, rgba(0,162,200,0.97) 55%, rgba(0,171,88,0.97) 100%);
+  box-shadow: 0 16px 44px rgba(0, 113, 188, 0.28);
+  transform: scale(0.98);
+}
+
+/* --- LOGO --- */
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* --- MENU DESKTOP --- */
+.nav-menu-desktop {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.nav-item-desktop { position: relative; }
+
+.nav-link-desktop {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.nav-link-desktop:hover, .nav-link-desktop.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.nav-link-desktop svg { transition: 0.3s; }
+.nav-link-desktop svg.rotate { transform: rotate(180deg); }
+
+/* DROPDOWN DESKTOP */
+.nav-dropdown-desktop {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  background: white;
+  min-width: 280px;
+  padding: 12px;
+  border-radius: 24px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  border: none;
+}
+
+.nav-dropdown-desktop.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: #444;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.nav-dropdown-item:hover {
+  background: #f4faff;
+  color: var(--blue-primary);
+  padding-left: 22px;
+}
+
+.item-arrow { opacity: 0; transform: translateX(-10px); transition: 0.3s; }
+.nav-dropdown-item:hover .item-arrow { opacity: 1; transform: translateX(0); }
+
+/* --- CTA --- */
+.nav-right-group { display: flex; align-items: center; gap: 15px; }
+
+.nav-cta-btn {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  transition: 0.3s;
+}
+
+.nav-cta-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.nav-mobile-trigger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/* --- MOBILE OVERLAY (ACCORDEON) --- */
+.nav-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.nav-mobile-overlay.is-open { transform: translateY(0); }
+
+.mobile-header {
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-content {
+  padding: 20px 30px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.mobile-accordion-item {
+}
+
+.mobile-accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.mobile-accordion-header svg { transition: 0.3s; }
+.mobile-accordion-header.expanded { color: var(--blue-primary); }
+.mobile-accordion-header.expanded svg { transform: rotate(180deg); }
+
+.mobile-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-accordion-body.is-visible {
+  max-height: 400px;
+  padding-bottom: 25px;
+}
+
+.mobile-sublink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f9f9f9;
+  border: none;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1.05rem;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobile-final-cta {
+  display: block;
+  background: linear-gradient(90deg, var(--blue-primary), var(--green-primary));
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  margin-top: 30px;
+  font-size: 1.1rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+  .nav-menu-desktop, .nav-cta-btn { display: none; }
+  .nav-mobile-trigger { display: block; }
+}
+
+@media (max-width: 480px) {
+  .nav-container { top: 12px; }
+  .nav-pill { padding: 8px 18px; width: 92%; }
+  .nav-logo-img { height: 30px; }
+  .mobile-header { padding: 20px; }
+  .mobile-content { padding: 16px 20px; }
+  .mobile-accordion-header { font-size: 1.1rem; padding: 20px 0; }
+  .mobile-sublink { font-size: 0.95rem; padding: 13px 16px; }
+  .mobile-final-cta { padding: 16px; font-size: 1rem; margin-top: 24px; }
+}
