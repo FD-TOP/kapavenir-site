@@ -45,10 +45,6 @@ export default function Testimonials() {
 
       <div className="T-container">
         <header className="T-header">
-          <div className="T-mini-badge">
-            <CheckCircle size={14} className="T-icon-green" />
-            <span>Confiance & Expertise</span>
-          </div>
           <h2 className="T-title">Ce que nos clients <br /><span className="T-gradient">disent de nous</span></h2>
         </header>
 
