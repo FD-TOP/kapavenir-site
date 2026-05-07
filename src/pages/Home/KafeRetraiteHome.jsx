@@ -7,8 +7,8 @@ import './KafeRetraiteHome.css';
 const highlights = [
   'Comprendre leur situation retraite',
   'Poser leurs questions librement',
-  'Etre accompagnes de maniere personnalisee',
-  'Passer a l action (bilan, optimisation, strategie)',
+  'Être accompagnés de manière personnalisée',
+  'Passer à l\'action (bilan, optimisation, stratégie)',
 ];
 
 export default function KafeRetraiteHome() {
@@ -24,11 +24,11 @@ export default function KafeRetraiteHome() {
           <div className="KH-intro">
             <p className="KH-kicker">Kafe retraite</p>
             <h2 className="KH-title">
-              Le Kafe Retraite est un format d accompagnement humain et accessible qui permet de demystifier la retraite
+              Le Kafé Retraite est un format d'accompagnement humain et accessible qui permet de démystifier la retraite
               dans un cadre convivial.
             </h2>
             <div className="KH-main-pill">
-              KapAvenir propose des rencontres (physiques ou digitales) ou les participants peuvent :
+              KapAvenir propose des rencontres (physiques ou digitales) où les participants peuvent :
             </div>
             <button className="KH-btn" onClick={() => navigate('/kafe-retraite')}>
               En savoir plus <ArrowRight size={16} />
@@ -38,7 +38,7 @@ export default function KafeRetraiteHome() {
           <div className="KH-track" aria-label="Parcours Kafe Retraite">
             {highlights.map((item, idx) => (
               <article key={item} className="KH-step-card">
-                <span className="KH-step-index">{`0${idx + 1}`}</span>
+                <span className="KH-step-index">★</span>
                 <p>{item}</p>
               </article>
             ))}
