@@ -41,8 +41,7 @@ const Problematic = () => {
         {/* TEXTE : Typographie avec effet brillance */}
         <div className="prob-text-side">
           <h2 className="prob-h2-title">
-            Vous êtes dans l’un de <br />
-            <span className="prob-shiny-text">ces cas ?</span>
+            Vous êtes dans l’un de <span className="prob-shiny-text">ces cas ?</span>
           </h2>
 
           <div className="prob-interactive-stack">
