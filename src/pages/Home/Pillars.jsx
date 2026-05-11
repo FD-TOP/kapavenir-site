@@ -1,13 +1,13 @@
 import React from 'react';
-import { Eye, Rocket, HeartHandshake } from 'lucide-react';
+import { Eye, Banknote, HeartHandshake } from 'lucide-react';
 import './Pillars.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 
 const Pillars = () => {
   const pillarData = [
-    { title: "Clarté", desc: "vous comprenez enfin votre situation", icon: <Eye size={32} />, id: 1 },
-    { title: "Optimisation", desc: "vous maximisez votre retraite", icon: <Rocket size={32} />, id: 2 },
-    { title: "Accompagnement humain", desc: "vous n’êtes jamais seul", icon: <HeartHandshake size={32} />, id: 3 }
+    { title: "Clarté", desc: "vous comprenez enfin votre situation", icon: <Eye size={34} strokeWidth={2} />, id: 1 },
+    { title: "Optimisation", desc: "vous maximisez votre retraite", icon: <Banknote size={34} strokeWidth={2} />, id: 2 },
+    { title: "Accompagnement humain", desc: "vous n’êtes jamais seul", icon: <HeartHandshake size={34} strokeWidth={2} />, id: 3 }
   ];
 
   return (
@@ -29,16 +29,14 @@ const Pillars = () => {
 
         <div className="pil-grid">
           {pillarData.map((item, idx) => (
-            <div key={idx} className={`pil-card card-cycle-${idx + 1}`}>
-              <div className="pil-icon-box">
+            <div key={item.id} className={`pil-item pil-item--${idx + 1}`}>
+              <div className="pil-icon-wrap" aria-hidden>
                 {item.icon}
               </div>
               <div className="pil-text">
                 <h3>{item.title} :</h3>
                 <p>{item.desc}</p>
               </div>
-              {/* Lueur colorée en fond */}
-              <div className="pil-card-glow"></div>
             </div>
           ))}
         </div>

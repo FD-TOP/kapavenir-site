@@ -16,7 +16,7 @@
 
 .pil-header {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 56px;
 }
 
 .pil-title {
@@ -30,6 +30,7 @@
 .pil-gradient {
   background: linear-gradient(90deg, #00b6de, #00bf63);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -41,164 +42,150 @@
   line-height: 1.6;
 }
 
-/* --- GRILLE --- */
+/* --- Grille : colonnes sans cartes --- */
 .pil-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: clamp(28px, 4vw, 48px);
+  align-items: start;
 }
 
-/* --- CARTES ET ANIMATIONS --- */
-.pil-card {
-  position: relative;
-  background: #ffffff;
-  padding: 50px 30px;
-  border-radius: 28px;
-  border: 1px solid #e2e8f0;
+.pil-item {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 2;
-  overflow: hidden;
+  gap: 18px;
+  padding: 8px 12px;
 }
 
-/* Barre gradient en haut des cartes au survol */
-.pil-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #00b6de, #00bf63);
-  border-radius: 28px 28px 0 0;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.pil-card:hover::before,
-.card-cycle-1.pil-card::before,
-.card-cycle-2.pil-card::before,
-.card-cycle-3.pil-card::before { opacity: 1; }
-
-.pil-icon-box {
-  width: 70px;
-  height: 70px;
-  background: #f8fafc;
-  color: #1a1a1b;
-  border-radius: 20px;
+/* Icônes en couleur (héritent currentColor) */
+.pil-icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 25px;
-  transition: all 0.5s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  line-height: 0;
+  transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.pil-icon-wrap svg {
+  flex-shrink: 0;
+}
+
+.pil-item:hover .pil-icon-wrap {
+  transform: translateY(-4px) scale(1.05);
 }
 
 .pil-text h3 {
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
   font-weight: 800;
-  margin-bottom: 12px;
-  transition: color 0.5s ease;
-  color: #1a1a1b;
+  margin: 0 0 10px;
+  line-height: 1.25;
 }
 
 .pil-text p {
-  color: #64748b;
-  font-size: 1rem;
-  line-height: 1.6;
+  margin: 0;
+  font-size: clamp(0.98rem, 1.6vw, 1.08rem);
+  line-height: 1.55;
+  color: #475569;
 }
 
-/* --- LOGIQUE D'ANIMATION CYCLIQUE (9s total) --- */
-
-/* Carte 1 & 3 (Bleu) */
-.card-cycle-1, .card-cycle-3 { animation: glowBlue 9s infinite; }
-.card-cycle-3 { animation-delay: 6s; }
-
-/* Carte 2 (Vert) */
-.card-cycle-2 { animation: glowGreen 9s infinite; animation-delay: 3s; }
-
-.card-cycle-1,
-.card-cycle-2,
-.card-cycle-3 {
-  background: var(--kap-premium-gradient);
-  border-color: transparent;
+/* --- Couleurs par pilier --- */
+.pil-item--1 .pil-icon-wrap {
+  color: #0071bc;
 }
 
-.card-cycle-1 .pil-text h3,
-.card-cycle-2 .pil-text h3,
-.card-cycle-3 .pil-text h3,
-.card-cycle-1 .pil-text p,
-.card-cycle-2 .pil-text p,
-.card-cycle-3 .pil-text p {
-  color: #ffffff;
+.pil-item--1 .pil-text h3 {
+  background: linear-gradient(100deg, #0071bc 0%, #00b6de 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Animation Icônes */
-.card-cycle-1 .pil-icon-box, .card-cycle-3 .pil-icon-box { animation: iconBlue 9s infinite; }
-.card-cycle-3 .pil-icon-box { animation-delay: 6s; }
-.card-cycle-2 .pil-icon-box { animation: iconGreen 9s infinite; animation-delay: 3s; }
+.pil-item--1 .pil-text p {
+  color: #334155;
+}
 
-/* --- KEYFRAMES --- */
+.pil-item--2 .pil-icon-wrap {
+  color: #00a356;
+}
 
-@keyframes glowBlue {
-  0%, 33% { 
-    transform: translateY(-15px); 
-    border-color: #00b6de; 
-    box-shadow: 0 20px 40px rgba(0, 182, 222, 0.15); 
+.pil-item--2 .pil-text h3 {
+  background: linear-gradient(100deg, #00b6de 0%, #00bf63 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pil-item--2 .pil-text p {
+  color: #334155;
+}
+
+.pil-item--3 .pil-icon-wrap {
+  color: #00b6de;
+}
+
+.pil-item--3 .pil-text h3 {
+  background: linear-gradient(100deg, #00b6de 0%, #0071bc 55%, #00bf63 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pil-item--3 .pil-text p {
+  color: #334155;
+}
+
+@supports not (-webkit-background-clip: text) {
+  .pil-item--1 .pil-text h3 {
+    color: #0071bc;
+    -webkit-text-fill-color: unset;
   }
-  34%, 100% { transform: translateY(0); border-color: #e2e8f0; box-shadow: none; }
-}
-
-@keyframes glowGreen {
-  0%, 33% { 
-    transform: translateY(-15px); 
-    border-color: #00bf63; 
-    box-shadow: 0 20px 40px rgba(0, 191, 99, 0.15); 
+  .pil-item--2 .pil-text h3 {
+    color: #00a356;
+    -webkit-text-fill-color: unset;
   }
-  34%, 100% { transform: translateY(0); border-color: #e2e8f0; box-shadow: none; }
+  .pil-item--3 .pil-text h3 {
+    color: #00b6de;
+    -webkit-text-fill-color: unset;
+  }
 }
 
-@keyframes iconBlue {
-  0%, 33% { background: #00b6de; color: white; transform: rotate(10deg); }
-  34%, 100% { background: #f8fafc; color: #1a1a1b; transform: rotate(0deg); }
-}
-
-@keyframes iconGreen {
-  0%, 33% { background: #00bf63; color: white; transform: rotate(-10deg); }
-  34%, 100% { background: #f8fafc; color: #1a1a1b; transform: rotate(0deg); }
-}
-
-/* --- RESPONSIVE --- */
+/* --- Responsive --- */
 @media (max-width: 1024px) {
   .pil-grid {
     grid-template-columns: 1fr;
-    max-width: 450px;
+    max-width: 520px;
     margin: 0 auto;
-  }
-
-  @keyframes glowBlue {
-    0%, 33% { transform: scale(1.05); border-color: #00b6de; }
-    34%, 100% { transform: scale(1); border-color: #e2e8f0; }
-  }
-  @keyframes glowGreen {
-    0%, 33% { transform: scale(1.05); border-color: #00bf63; }
-    34%, 100% { transform: scale(1); border-color: #e2e8f0; }
+    gap: 40px;
   }
 }
 
 @media (max-width: 600px) {
-  .pil-section { padding: 70px 0; }
-  .pil-header { margin-bottom: 50px; }
-  .pil-subtitle { font-size: 1rem; padding: 0 10px; }
-  .pil-grid { max-width: 100%; padding: 0 20px; }
-  .pil-card { padding: 36px 24px; }
-  .pil-text h3 { font-size: 1.25rem; }
+  .pil-section {
+    padding: 70px 0;
+  }
+  .pil-header {
+    margin-bottom: 44px;
+  }
+  .pil-subtitle {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  .pil-grid {
+    max-width: 100%;
+    padding: 0 8px;
+  }
 }
 
 @media (max-width: 480px) {
-  .pil-section { padding: 50px 0; }
-  .pil-card { padding: 28px 20px; }
-  .pil-icon-box { width: 58px; height: 58px; }
-  .pil-text h3 { font-size: 1.15rem; }
-  .pil-text p { font-size: 0.92rem; }
+  .pil-section {
+    padding: 50px 0;
+  }
+  .pil-text h3 {
+    font-size: 1.15rem;
+  }
+  .pil-text p {
+    font-size: 0.95rem;
+  }
 }
