@@ -104,8 +104,10 @@
   flex-shrink: 0;
 }
 
-.SH-Blue-Bg  { background: #4381C1; }
-.SH-Green-Bg { background: #00bf63; }
+.SH-Blue-Bg,
+.SH-Green-Bg {
+  background: var(--kap-premium-gradient);
+}
 
 .SH-Btn-Glass span {
   font-weight: 700;

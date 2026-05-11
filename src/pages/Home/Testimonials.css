@@ -126,7 +126,11 @@
 /* --- PAGINATION --- */
 .T-dots-navigation { display: flex; justify-content: center; gap: 12px; margin-top: 40px; }
 .T-dot-btn { width: 12px; height: 12px; border-radius: 50%; background: #e2e8f0; border: none; cursor: pointer; transition: 0.3s; }
-.T-dot-btn.is-active { width: 35px; border-radius: 10px; background: #00b6de; }
+.T-dot-btn.is-active {
+  width: 35px;
+  border-radius: 10px;
+  background: var(--kap-premium-gradient);
+}
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {

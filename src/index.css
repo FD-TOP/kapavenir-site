@@ -44,6 +44,8 @@ body {
   --blue-mid:   #4381C1;
   --kap-gradient:         linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
   --kap-premium-gradient: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+  /* Ombre type CTA plein dégradé (réutilisable sur les boutons charte) */
+  --kap-btn-glow: 0 12px 28px rgba(0, 113, 188, 0.28), 0 4px 12px rgba(0, 191, 99, 0.15);
   --white:      #ffffff;
   --gray-light: #f8fafc;
   --gray-text:  #64748b;

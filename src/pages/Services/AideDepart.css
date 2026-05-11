@@ -151,15 +151,15 @@
 }
 
 .AD-Btn--primary {
-  background: #4381C1;
+  background: var(--kap-premium-gradient);
   color: #fff;
-  box-shadow: 0 6px 20px rgba(67, 129, 193, 0.32);
+  box-shadow: var(--kap-btn-glow);
 }
 
 .AD-Btn--primary:hover {
-  background: #2f6aad;
+  filter: brightness(1.06);
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(67, 129, 193, 0.42);
+  box-shadow: 0 14px 34px rgba(0, 113, 188, 0.35), 0 6px 16px rgba(0, 191, 99, 0.22);
 }
 
 .AD-Btn--outline {
@@ -795,13 +795,14 @@
 }
 
 .AD-Modal-Cta--green {
-  background: #00bf63;
+  background: var(--kap-premium-gradient);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(0,191,99,0.3);
+  box-shadow: var(--kap-btn-glow);
 }
 .AD-Modal-Cta--green:hover {
-  background: #00a855;
+  filter: brightness(1.06);
   transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 113, 188, 0.32), 0 4px 14px rgba(0, 191, 99, 0.2);
 }
 
 .AD-Modal-Cta--outline {

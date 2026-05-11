@@ -350,10 +350,10 @@
 }
 
 .BR-Card--featured .BR-Btn:hover {
-  background: #00bf63;
-  border-color: #00bf63;
+  background: var(--kap-premium-gradient);
+  border-color: transparent;
   color: #fff;
-  box-shadow: 0 8px 24px rgba(0, 191, 99, 0.38);
+  box-shadow: var(--kap-btn-glow);
 }
 
 /* ================================================================
@@ -600,14 +600,14 @@
 }
 
 .BR-Modal-Cta--green {
-  background: #00bf63;
+  background: var(--kap-premium-gradient);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(0, 191, 99, 0.3);
+  box-shadow: var(--kap-btn-glow);
 }
 
 .BR-Modal-Cta--green:hover {
-  background: #00a855;
-  box-shadow: 0 8px 22px rgba(0, 191, 99, 0.44);
+  filter: brightness(1.06);
+  box-shadow: 0 10px 28px rgba(0, 113, 188, 0.35), 0 4px 14px rgba(0, 191, 99, 0.22);
   transform: translateY(-1px);
 }
 

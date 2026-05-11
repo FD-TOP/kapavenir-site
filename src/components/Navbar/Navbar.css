@@ -255,7 +255,7 @@
 
 .mobile-final-cta {
   display: block;
-  background: linear-gradient(90deg, var(--blue-primary), var(--green-primary));
+  background: var(--kap-premium-gradient);
   color: white;
   text-align: center;
   padding: 20px;
@@ -264,6 +264,7 @@
   text-decoration: none;
   margin-top: 30px;
   font-size: 1.1rem;
+  box-shadow: var(--kap-btn-glow);
 }
 
 /* --- RESPONSIVE --- */

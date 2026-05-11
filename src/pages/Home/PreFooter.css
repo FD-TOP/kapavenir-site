@@ -118,7 +118,7 @@
 }
 
 .F-btn-primary {
-  background: #00bf63;
+  background: var(--kap-premium-gradient);
   color: white;
   border: none;
   padding: 20px 40px;
@@ -129,12 +129,14 @@
   align-items: center;
   gap: 15px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--kap-btn-glow);
 }
 
 .F-btn-primary:hover {
-  background: #00b6de;
+  filter: brightness(1.07);
   transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 44px rgba(0, 113, 188, 0.35), 0 8px 20px rgba(0, 191, 99, 0.22);
 }
 
 .F-arrow {
@@ -162,7 +164,7 @@
 
 .F-btn-secondary:hover {
   background: white;
-  color: #000;
+  color: #0071bc;
 }
 
 /* --- ACCENT LUMINEUX --- */
