@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Target, Sparkles } from 'lucide-react';
 import './Problematic.css';
@@ -59,7 +59,10 @@ const Problematic = () => {
           <div className="prob-final-block">
             <div className="prob-quote-line">
               <Target size={24} className="target-icon" />
-              <p>Vous n’êtes pas seul(e). Et surtout, <strong>des solutions existent.</strong></p>
+              <p>
+                Vous n’êtes pas seul(e). Et surtout,{' '}
+                <strong className="prob-quote-highlight">des solutions existent.</strong>
+              </p>
             </div>
             <button className="prob-btn-main" onClick={() => navigate('/services')}>
               <span>Découvrir nos solutions</span>
