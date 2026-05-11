@@ -72,10 +72,24 @@
   margin-bottom: 0;
 }
 
-.sol-gradient-text {
-  background: linear-gradient(90deg, #00b6de, #00bf63);
+.sol-h2-gradient {
+  display: inline-block;
+  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@supports not (-webkit-background-clip: text) {
+  .sol-h2-gradient {
+    color: #0071bc;
+    -webkit-text-fill-color: unset;
+  }
+}
+
+.sol-h2-lead {
+  color: #0a0a0a;
+  -webkit-text-fill-color: #0a0a0a;
 }
 
 .sol-p {

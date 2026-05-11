@@ -47,8 +47,9 @@ const Solutions = () => {
       <div className="sol-flex-container">
         <div className="sol-text-side">
           <h2 className="sol-h2">
-            Nos solutions <br />
-            <span className="sol-gradient-text">pour préparer votre retraite</span>
+            <span className="sol-h2-gradient">Nos solutions</span>
+            <br />
+            <span className="sol-h2-lead">pour préparer votre retraite</span>
           </h2>
           <p className="sol-p">
             Chez KapAvenir, nous simplifions la retraite pour que vous puissiez prendre vos décisions en toute sérénité. Du Bilan retraite à l’Aide au départ, nous vous accompagnons pas à pas ,avec des conseils clairs et un suivi personnalisé adapté à votre situation.
