@@ -42,7 +42,7 @@ export default function KafeRetraiteHome() {
           <h2 className="KH-title">
             Le Kafé Retraite est un format d'accompagnement{' '}
             <span className="KH-gradient">humain et accessible</span>{' '}
-            qui permet de démystifier la retraite dans un cadre convivial.
+            qui permet de mieux comprendre la retraite dans un cadre convivial.
           </h2>
           <p className="KH-subtitle">
             KapAvenir propose des rencontres (physiques ou digitales) où les participants peuvent :

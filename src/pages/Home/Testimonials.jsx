@@ -4,12 +4,12 @@ import './Testimonials.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 
 const allReviews = [
-  { id: 1, name: "Jean-Pierre Martin", role: "Ancien Cadre Dirigeant", company: "Renault Group", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&h=200&fit=crop", text: "Grâce au bilan KapAvenir, j'ai pu découvrir des trimestres oubliés de mon début de carrière. Une expertise indispensable pour partir l'esprit tranquille.", stars: 5 },
-  { id: 2, name: "Marie-Claire Durand", role: "Responsable RH", company: "L'Oréal", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&h=200&fit=crop", text: "Une approche d'une grande clarté. KapAvenir a su traduire la complexité de ma carrière multi-statuts en une stratégie de départ sereine.", stars: 5 },
-  { id: 3, name: "Marc Lefebvre", role: "Ingénieur Senior", company: "Airbus", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&h=200&fit=crop", text: "L'accompagnement va bien au-delà du simple calcul. C'est un véritable coaching de fin de carrière qui sécurise nos droits.", stars: 5 },
-  { id: 4, name: "Luc Sophie", role: "Directeur Commercial", company: "TotalEnergies", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&h=200&fit=crop", text: "Analyse fine et précise. J'ai pu optimiser mon départ de deux ans par rapport à mes prévisions initiales. Une aide précieuse.", stars: 5 },
-  { id: 5, name: "Isabelle G.", role: "Chef de Projet", company: "Orange", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&h=200&fit=crop", text: "Le stress administratif a disparu. KapAvenir s'est occupé de tout le lien avec les caisses de retraite. Je recommande vivement.", stars: 5 },
-  { id: 6, name: "Thomas B.", role: "Expert Comptable", company: "Cabinet Indépendant", image: "https://images.unsplash.com/photo-1463453091185-61582044d556?q=80&w=200&h=200&fit=crop", text: "En tant qu'expert, j'ai apprécié la rigueur technique des dossiers présentés. Un partenaire de confiance pour sécuriser sa retraite.", stars: 5 }
+  { id: 1, name: "Jean-Pierre Martin", role: "Conducteur (retraité)", company: "RATP", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&h=200&fit=crop", text: "Grâce au bilan KapAvenir, j'ai pu découvrir des trimestres oubliés de mon début de carrière. Une expertise indispensable pour partir l'esprit tranquille.", stars: 5 },
+  { id: 2, name: "Marie-Claire Durand", role: "Secrétaire médicale", company: "Clinique Saint-Joseph", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&h=200&fit=crop", text: "Une approche d'une grande clarté. KapAvenir a su traduire la complexité de ma carrière multi-statuts en une stratégie de départ sereine.", stars: 5 },
+  { id: 3, name: "Marc Lefebvre", role: "Technicien aéronautique", company: "Airbus", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&h=200&fit=crop", text: "L'accompagnement va bien au-delà du simple calcul. C'est un véritable coaching de fin de carrière qui sécurise nos droits.", stars: 5 },
+  { id: 4, name: "Luc Sophie", role: "Commerçant de proximité", company: "Alimentation générale", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&h=200&fit=crop", text: "Analyse fine et précise. J'ai pu optimiser mon départ de deux ans par rapport à mes prévisions initiales. Une aide précieuse.", stars: 5 },
+  { id: 5, name: "Isabelle G.", role: "Infirmière libérale", company: "Cabinet de soins", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&h=200&fit=crop", text: "Le stress administratif a disparu. KapAvenir s'est occupé de tout le lien avec les caisses de retraite. Je recommande vivement.", stars: 5 },
+  { id: 6, name: "Thomas B.", role: "Artisan électricien", company: "Artisan local", image: "https://images.unsplash.com/photo-1463453091185-61582044d556?q=80&w=200&h=200&fit=crop", text: "En tant que professionnel du terrain, j'ai apprécié la rigueur technique des dossiers présentés. Un partenaire de confiance pour sécuriser sa retraite.", stars: 5 }
 ];
 
 export default function Testimonials() {
@@ -45,7 +45,9 @@ export default function Testimonials() {
 
       <div className="T-container">
         <header className="T-header">
-          <h2 className="T-title">Ce que nos clients <br /><span className="T-gradient">disent de nous</span></h2>
+          <h2 className="T-title">
+            Ce que nos clients <span className="T-gradient">disent de nous</span>
+          </h2>
         </header>
 
         <div className="T-slider-viewport">
