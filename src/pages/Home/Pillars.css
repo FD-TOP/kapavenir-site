@@ -57,23 +57,125 @@
   align-items: center;
   gap: 18px;
   padding: 8px 12px;
+  will-change: transform;
 }
 
-/* Icônes en couleur (héritent currentColor) */
+/* Icônes en couleur (héritent currentColor) + zone pour le pulse cyclique */
 .pil-icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 0;
-  transition: transform 0.35s ease, color 0.35s ease;
+  padding: 14px;
+  border-radius: 22px;
+  background: transparent;
+  transition: box-shadow 0.4s ease;
 }
 
 .pil-icon-wrap svg {
   flex-shrink: 0;
 }
 
-.pil-item:hover .pil-icon-wrap {
-  transform: translateY(-4px) scale(1.05);
+/* --- Animation cyclique (9 s) comme l’ancienne version, sans cartes --- */
+@keyframes pilPulseLift {
+  0%,
+  33% {
+    transform: translateY(-14px);
+  }
+  34%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pilIconBlue1 {
+  0%,
+  33% {
+    background: #00b6de;
+    color: #ffffff;
+    transform: rotate(10deg) scale(1.08);
+    box-shadow: 0 16px 40px rgba(0, 182, 222, 0.4);
+  }
+  34%,
+  100% {
+    background: transparent;
+    color: #0071bc;
+    transform: rotate(0) scale(1);
+    box-shadow: none;
+  }
+}
+
+@keyframes pilIconBlue3 {
+  0%,
+  33% {
+    background: #00b6de;
+    color: #ffffff;
+    transform: rotate(10deg) scale(1.08);
+    box-shadow: 0 16px 40px rgba(0, 182, 222, 0.4);
+  }
+  34%,
+  100% {
+    background: transparent;
+    color: #00b6de;
+    transform: rotate(0) scale(1);
+    box-shadow: none;
+  }
+}
+
+@keyframes pilIconGreen {
+  0%,
+  33% {
+    background: #00bf63;
+    color: #ffffff;
+    transform: rotate(-10deg) scale(1.08);
+    box-shadow: 0 16px 40px rgba(0, 191, 99, 0.38);
+  }
+  34%,
+  100% {
+    background: transparent;
+    color: #00a356;
+    transform: rotate(0) scale(1);
+    box-shadow: none;
+  }
+}
+
+.pil-item--1 {
+  animation: pilPulseLift 9s ease-in-out infinite;
+}
+
+.pil-item--1 .pil-icon-wrap {
+  animation: pilIconBlue1 9s ease-in-out infinite;
+}
+
+.pil-item--2 {
+  animation: pilPulseLift 9s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.pil-item--2 .pil-icon-wrap {
+  animation: pilIconGreen 9s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.pil-item--3 {
+  animation: pilPulseLift 9s ease-in-out infinite;
+  animation-delay: 6s;
+}
+
+.pil-item--3 .pil-icon-wrap {
+  animation: pilIconBlue3 9s ease-in-out infinite;
+  animation-delay: 6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pil-item--1,
+  .pil-item--2,
+  .pil-item--3,
+  .pil-item--1 .pil-icon-wrap,
+  .pil-item--2 .pil-icon-wrap,
+  .pil-item--3 .pil-icon-wrap {
+    animation: none !important;
+  }
 }
 
 .pil-text h3 {
@@ -153,6 +255,23 @@
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {
+  @keyframes pilPulseLiftMobile {
+    0%,
+    33% {
+      transform: scale(1.05);
+    }
+    34%,
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .pil-item--1,
+  .pil-item--2,
+  .pil-item--3 {
+    animation-name: pilPulseLiftMobile;
+  }
+
   .pil-grid {
     grid-template-columns: 1fr;
     max-width: 520px;
