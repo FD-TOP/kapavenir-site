@@ -5,10 +5,18 @@ import './Process.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 
 const steps = [
-  { id: 1, title: "Prise de contact", icon: <Phone size={24} />, color: "#00b6de" },
-  { id: 2, title: "Analyse de votre carrière", icon: <Search size={24} />, color: "#00bf63" },
-  { id: 3, title: "Restitution claire et recommandations", icon: <FileText size={24} />, color: "#00b6de" },
-  { id: 4, title: "Accompagnement jusqu'à la retraite", icon: <UserCheck size={24} />, color: "#00bf63" }
+  { id: 1, title: "Prise de contact", icon: <Phone size={28} />, color: "#00b6de" },
+  { id: 2, title: "Analyse de votre carrière", icon: <Search size={28} />, color: "#00bf63" },
+  { id: 3, title: "Restitution claire et recommandations", icon: <FileText size={28} />, color: "#00b6de" },
+  { id: 4, title: "Accompagnement jusqu'à la retraite", icon: <UserCheck size={28} />, color: "#00bf63" }
+];
+
+/** Dégradé de bordure / fond pour l’étape mise en avant (une teinte par étape) */
+const STEP_GRADIENTS = [
+  "linear-gradient(125deg, #0071bc 0%, #00b6de 100%)",
+  "linear-gradient(125deg, #00b6de 0%, #00bf63 100%)",
+  "linear-gradient(125deg, #0071bc 0%, #00b6de 45%, #00bf63 100%)",
+  "linear-gradient(125deg, #00bf63 0%, #00b6de 55%, #0071bc 100%)"
 ];
 
 export default function Process() {
@@ -37,7 +45,10 @@ export default function Process() {
 
       <div className="P-container">
         <header className="P-header">
-          <h2 className="P-h2">Un accompagnement <span className="P-gradient">simple en 4 étapes</span></h2>
+          <h2 className="P-h2">
+            <span className="P-h2-gradient">Un accompagnement</span>{" "}
+            <span className="P-h2-lead">simple en 4 étapes</span>
+          </h2>
           <p className="P-subtitle">Notre méthode rigoureuse pour garantir la sérénité de votre futur.</p>
         </header>
 
@@ -51,7 +62,10 @@ export default function Process() {
               <div 
                 key={step.id} 
                 className={`P-step-card ${idx === active ? 'is-active' : ''} ${idx < active ? 'is-done' : ''}`}
-                style={{ "--accent": step.color }}
+                style={{
+                  "--accent": step.color,
+                  "--step-gradient": STEP_GRADIENTS[idx]
+                }}
               >
                 <div className="P-card-inner">
                   <div className="P-icon-container">
