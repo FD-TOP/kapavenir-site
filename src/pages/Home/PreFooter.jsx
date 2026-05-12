@@ -25,8 +25,8 @@ export default function PreFooter() {
             <header className="F-header">
               <span className="F-pre-title">Sécurisez votre avenir</span>
               <h2 className="F-main-title">
-                Ne laissez pas votre retraite <br />
-                <span className="F-gradient-text">au hasard</span>
+                Ne laissez pas votre <br />
+                retraite <span className="F-gradient-text">au hasard</span>
               </h2>
               <div className="F-separator"></div>
             </header>

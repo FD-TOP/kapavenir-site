@@ -26,8 +26,8 @@ const FinalCTA = () => {
         {/* TEXTE ET BOUTONS À DROITE */}
         <div className="cta-content-right">
           <h2 className="cta-main-title">
-            Ne laissez pas votre retraite <br />
-            <span>au hasard</span>
+            Ne laissez pas votre <br />
+            retraite <span>au hasard</span>
           </h2>
           <p className="cta-subtitle">
             Un simple échange peut faire toute la différence 
