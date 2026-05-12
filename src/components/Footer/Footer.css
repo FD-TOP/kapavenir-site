@@ -1,151 +1,124 @@
 /* ============================================================
-   FOOTER — KapAvenir  (réécriture complète)
-
-   LOGIQUE DE POSITIONNEMENT :
-   ─ KF-Body          : padding-top 60px  → crée l'espace pour le badge
-   ─ KF-Inner         : padding 16px 5% 0 → conteneur centré max-1300px
-   ─ KF-LogoBadge     : top -44px / left 5% DANS KF-Inner
-                        → 60 - 44 = 16px depuis le haut de la zone bleue
-                        → left 5% de KF-Inner = aligné avec le texte ✓
-   ─ KF-FemmeImg      : bottom 0 / right 5% / z-index 35
-                        → pied de la femme = bas de la section
-   ─ KF-Bulle         : bottom 50px / right 5% / z-index 55
-                        → même right que la femme, DEVANT elle (55 > 35)
+   FOOTER — KapAvenir (design maquette : bleu, coins arrondis haut,
+   colonne gauche logo + texte, bloc Liens + Contact, visuel droite)
    ============================================================ */
 
-/* ── ROOT ────────────────────────────────────────────────── */
 .KF-Root {
   position: relative;
   z-index: 30;
   width: 100%;
+  box-sizing: border-box;
 }
 
-/* ── ZONE BLEUE ──────────────────────────────────────────── */
 .KF-Body {
-  background: #4381C1;
+  background: #4a76b8;
   width: 100%;
+  margin: 0 auto;
   position: relative;
-  overflow: visible;          /* la femme dépasse vers le haut */
-  padding-top: 60px;          /* CRUCIAL : donne de la place au badge */
+  overflow: visible;
+  padding-top: 48px;
   padding-bottom: 0;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -4px 40px rgba(0, 0, 0, 0.06);
 }
 
-/* ── PHOTO FEMME ─────────────────────────────────────────── */
 .KF-FemmeImg {
   position: absolute;
   bottom: 0;
-  right: 5%;
-  height: 520px;
+  right: 4%;
+  height: 500px;
   width: auto;
-  z-index: 35;                /* SOUS la bulle */
+  z-index: 35;
   pointer-events: none;
-  filter: drop-shadow(-8px 0 24px rgba(0, 0, 0, 0.13));
+  filter: drop-shadow(-6px 0 20px rgba(0, 0, 0, 0.12));
 }
 
-/* ── BULLE "SÉRÉNITÉ" ────────────────────────────────────── */
-/*
- * right: 5% → même bord droit que la femme
- * z-index: 55 → devant les bras croisés
- * bottom: 50px → niveau des bras
- */
 .KF-Bulle {
   position: absolute;
-  bottom: 50px;
-  right: 5%;
+  bottom: 56px;
+  right: 4%;
   background: #ffffff;
-  border-radius: 18px 18px 4px 18px;
-  padding: 16px 22px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+  border-radius: 36px 48px 28px 40px;
+  padding: 18px 24px 20px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.14);
   z-index: 55;
-  min-width: 178px;
+  min-width: 200px;
+  max-width: 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .KF-BulleLogo {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
 }
 
 .KF-BulleLogo img {
-  height: 26px;
+  height: 28px;
 }
 
 .KF-BulleText {
-  font-size: 0.88rem;
+  margin: 0;
+  font-size: 0.95rem;
   font-weight: 800;
-  color: #4381C1;
-  text-align: center;
-  line-height: 1.4;
-}
-
-.KF-BulleGreen {
-  color: #00bf63;
   font-style: italic;
+  color: #66bb6a;
+  text-align: center;
+  line-height: 1.35;
 }
 
-/* ── CONTENU INTÉRIEUR ───────────────────────────────────── */
 .KF-Inner {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 5% 0;         /* padding-top minimal : KF-Body en prend 60px */
+  padding: 8px 5% 0;
   position: relative;
   z-index: 10;
 }
 
-/* ── LOGO BADGE ──────────────────────────────────────────── */
-/*
- * Ancré dans KF-Inner (position: relative)
- * top: -44px  → 60(body-pad) - 44 = 16px sous le haut du bleu  ✓ DANS le bleu
- * left: 5%    → 5% de KF-Inner = même x que le texte en dessous ✓ ALIGNÉ
- */
-.KF-LogoBadge {
-  position: absolute;
-  top: -44px;
-  left: 5%;
-  background: #ffffff;
-  padding: 10px 22px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-  z-index: 40;
-  display: flex;
-  align-items: center;
+.KF-BioLogo {
+  margin-bottom: 20px;
 }
 
-.KF-LogoBadge img {
-  height: 32px;
+.KF-BioLogo img {
+  height: 36px;
   display: block;
 }
 
-/* ── GRILLE 3 COLONNES ───────────────────────────────────── */
-/*
- * padding-right réserve la place pour la femme (~350px) + bulle (~180px)
- * On laisse ~40% de la largeur libre à droite.
- */
 .KF-Grid {
   display: grid;
-  grid-template-columns: 1.8fr 0.9fr 1fr;
-  gap: 40px;
-  margin-bottom: 32px;
-  padding-right: clamp(200px, 40%, 530px);
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1.15fr) minmax(80px, 0.35fr);
+  gap: 36px 40px;
+  margin-bottom: 40px;
+  padding-right: clamp(200px, 36%, 480px);
+  align-items: start;
 }
 
-/* ── COLONNE BIO ─────────────────────────────────────────── */
+.KF-MidCluster {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 36px;
+  align-content: start;
+}
+
+.KF-VisualSpacer {
+  min-height: 1px;
+}
+
 .KF-Bio {
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 0.87rem;
-  line-height: 1.7;
-  margin-bottom: 10px;
-  max-width: 300px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin: 0 0 12px;
+  max-width: 380px;
 }
 
 .KF-Bio--small {
-  font-size: 0.81rem;
-  opacity: 0.78;
-  margin-bottom: 18px;
+  font-size: 0.84rem;
+  opacity: 0.92;
+  margin-bottom: 20px;
 }
 
 .KF-Socials {
@@ -155,7 +128,7 @@
 
 .KF-Socials a {
   color: #fff;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.16);
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -166,16 +139,15 @@
 }
 
 .KF-Socials a:hover {
-  background: #00bf63;
-  transform: translateY(-3px);
+  background: #66bb6a;
+  transform: translateY(-2px);
 }
 
-/* ── COLONNES LIENS + CONTACT ────────────────────────────── */
 .KF-Col h4 {
   color: #ffffff;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin: 0 0 18px;
 }
 
 .KF-Col ul {
@@ -185,12 +157,12 @@
 }
 
 .KF-Col li {
-  margin-bottom: 9px;
+  margin-bottom: 10px;
 }
 
 .KF-Col a {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.86rem;
   text-decoration: none;
   transition: color 0.2s, padding-left 0.2s;
   display: inline-block;
@@ -198,185 +170,216 @@
 
 .KF-Col a:hover {
   color: #fff;
-  padding-left: 4px;
+  padding-left: 3px;
 }
 
 .KF-ContactList {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 10px;
 }
 
 .KF-ContactItem span {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.84rem;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.86rem;
+  line-height: 1.55;
 }
 
-/* ── BARRE COPYRIGHT ─────────────────────────────────────── */
 .KF-Copyright {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 18px 0 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 22px 0 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.76rem;
-  color: rgba(255, 255, 255, 0.45);
-  padding-right: clamp(200px, 40%, 530px);  /* même espace que la grille */
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.85);
+  padding-right: clamp(200px, 36%, 480px);
+}
+
+.KF-Copyright > p {
+  margin: 0;
 }
 
 .KF-Legal {
   display: flex;
-  gap: 14px;
+  flex-wrap: wrap;
+  gap: 20px;
   align-items: center;
+  justify-content: flex-end;
 }
 
-.KF-Legal a {
-  color: rgba(255, 255, 255, 0.62);
+.KF-LegalLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  transition: color 0.2s;
-  font-size: 0.76rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
 }
 
-.KF-Legal a:hover { color: #fff; }
-
-.KF-Sep {
-  opacity: 0.25;
-  font-size: 0.6rem;
+.KF-LegalLink:hover {
+  opacity: 0.85;
 }
 
-/* ================================================================
-   RESPONSIVE
-   ================================================================ */
+.KF-LegalIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+  flex-shrink: 0;
+}
 
-/* ── ≤ 1300px ────────────────────────────────────────────── */
+/* ── Responsive ─────────────────────────────────────────── */
+
 @media (max-width: 1300px) {
-  .KF-FemmeImg { height: 440px; }
-  .KF-Grid,
-  .KF-Copyright { padding-right: clamp(170px, 36%, 460px); }
-}
-
-/* ── ≤ 1100px ────────────────────────────────────────────── */
-@media (max-width: 1300px) {
-  .KF-FemmeImg { height: 370px; }
-  .KF-Bulle {
-    bottom: 100px;
-    min-width: 155px;
-    padding: 13px 17px;
-  }
-  .KF-BulleText { font-size: 0.83rem; }
-  .KF-Grid,
-  .KF-Copyright { padding-right: clamp(145px, 32%, 400px); }
-}
-
-/* ── ≤ 900px : femme ancrée par le HAUT pour dépasser vers le haut ── */
-/*
- * En responsive le footer est plus haut → bottom:0 + hauteur fixe
- * ne suffit plus pour sortir au-dessus du cadre bleu.
- * Solution : top:-60px ancre la femme 60px AU-DESSUS du footer bleu
- * → elle dépasse vers le haut quelle que soit la hauteur du footer.
- *
- * Grille : Bio (col1 / 2 lignes) | Liens rapides + Contact (col2 empilés)
- */
-@media (max-width: 900px) {
   .KF-FemmeImg {
-    top: -60px;         /* ancre au-dessus du bord bleu */
-    bottom: auto;       /* annule le bottom:0 du desktop */
-    height: 320px;
+    height: 420px;
+  }
+  .KF-Grid,
+  .KF-Copyright {
+    padding-right: clamp(170px, 34%, 420px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .KF-FemmeImg {
+    height: 360px;
+  }
+  .KF-Bulle {
+    bottom: 88px;
+    min-width: 176px;
+    padding: 14px 18px 16px;
+  }
+  .KF-BulleText {
+    font-size: 0.88rem;
+  }
+  .KF-Grid,
+  .KF-Copyright {
+    padding-right: clamp(140px, 30%, 360px);
+  }
+  .KF-MidCluster {
+    gap: 20px 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .KF-Body {
+    border-radius: 22px 22px 0 0;
+    padding-top: 40px;
+  }
+  .KF-FemmeImg {
+    top: -52px;
+    bottom: auto;
+    height: 300px;
     right: 2%;
   }
-  .KF-Bulle { display: none; }
-
-  .KF-Grid {
-    grid-template-columns: 1.2fr 1fr;
-    grid-template-rows: auto auto;
-    padding-right: 185px;
-    gap: 16px 28px;
+  .KF-Bulle {
+    display: none;
   }
-  .KF-Grid > div:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
-  .KF-Grid > div:nth-child(2) { grid-column: 2; grid-row: 1; }
-  .KF-Grid > div:nth-child(3) { grid-column: 2; grid-row: 2; }
-
-  .KF-Copyright { padding-right: 0; }
+  .KF-Grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    padding-right: 160px;
+    gap: 28px 24px;
+  }
+  .KF-ColBio {
+    grid-column: 1 / -1;
+  }
+  .KF-MidCluster {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+  }
+  .KF-VisualSpacer {
+    display: none;
+  }
+  .KF-Copyright {
+    padding-right: 0;
+  }
 }
 
-/* ── ≤ 750px : femme encore réduite ─────────────────────── */
 @media (max-width: 750px) {
   .KF-FemmeImg {
-    top: -40px;
-    height: 250px;
-    right: 2%;
+    top: -36px;
+    height: 240px;
+    right: 1%;
   }
-  .KF-Grid { padding-right: 160px; }
+  .KF-Grid {
+    padding-right: 130px;
+  }
 }
 
-/* ── ≤ 640px : femme cachée ─────────────────────────────── */
 @media (max-width: 640px) {
   .KF-FemmeImg {
     display: block;
     top: auto;
     bottom: 0;
-    right: -2px;
-    height: 190px;
-    opacity: 0.5;
+    right: -4px;
+    height: 180px;
+    opacity: 0.42;
     z-index: 6;
     filter: none;
   }
-  .KF-LogoBadge  {
-    display: inline-flex;
-    position: static;
-    margin: 0 0 16px;
-    padding: 8px 14px;
-    border-radius: 10px;
-    z-index: 12;
+  .KF-Body {
+    padding-top: 32px;
   }
-  .KF-LogoBadge img { height: 26px; }
-  .KF-Body       { padding-top: 28px; }
-  .KF-Inner      { padding: 20px 5% 0; }
-
+  .KF-Inner {
+    padding: 12px 5% 0;
+  }
+  .KF-BioLogo img {
+    height: 32px;
+  }
   .KF-Grid {
+    grid-template-columns: 1fr;
+    padding-right: 100px;
+    gap: 24px;
+  }
+  .KF-MidCluster {
     grid-template-columns: 1fr 1fr;
-    padding-right: 110px;
-    gap: 20px 32px;
+    gap: 20px 24px;
   }
-  /* Reset des placements explicites */
-  .KF-Grid > div:nth-child(1),
-  .KF-Grid > div:nth-child(2),
-  .KF-Grid > div:nth-child(3) {
-    grid-column: unset;
-    grid-row: unset;
+  .KF-Copyright {
+    padding-right: 90px;
   }
-
-  .KF-Copyright { padding-right: 110px; }
 }
 
-/* ── ≤ 480px : 1 colonne ─────────────────────────────────── */
 @media (max-width: 480px) {
+  .KF-Body {
+    border-radius: 0;
+  }
   .KF-FemmeImg {
-    right: -10px;
-    height: 150px;
-    opacity: 0.45;
+    right: -8px;
+    height: 140px;
+    opacity: 0.38;
   }
-  .KF-LogoBadge {
-    margin-bottom: 14px;
-    padding: 7px 12px;
+  .KF-Inner {
+    padding: 12px 20px 0;
   }
-  .KF-Inner { padding: 20px 20px 0; }
-  .KF-Grid  {
+  .KF-Grid {
     grid-template-columns: 1fr;
-    gap: 20px;
     padding-right: 0;
+    gap: 22px;
   }
-  .KF-Bio { max-width: 100%; }
+  .KF-MidCluster {
+    grid-template-columns: 1fr;
+  }
+  .KF-Bio {
+    max-width: 100%;
+  }
   .KF-Copyright {
     flex-direction: column;
-    gap: 10px;
     text-align: center;
     padding-right: 0;
+    padding-bottom: 28px;
   }
   .KF-Legal {
-    gap: 10px;
-    flex-wrap: wrap;
     justify-content: center;
   }
 }

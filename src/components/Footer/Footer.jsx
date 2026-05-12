@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronRight } from 'lucide-react';
 import './Footer.css';
 
 import logo     from '../../assets/logo.png';
@@ -10,7 +11,6 @@ export default function Footer() {
     <footer className="KF-Root">
       <div className="KF-Body">
 
-        {/* ── Femme — dépasse vers le haut (PNG transparent) ── */}
         <img
           src={femmeImg}
           alt="Conseillère KapAvenir"
@@ -18,28 +18,19 @@ export default function Footer() {
           draggable="false"
         />
 
-        {/* ── Bulle "sérénité" coin bas-droite ── */}
         <div className="KF-Bulle">
           <div className="KF-BulleLogo">
             <img src={logo} alt="" />
           </div>
-          <p className="KF-BulleText">
-            La retraite<br />
-            <span className="KF-BulleGreen">en toute sérénité !</span>
-          </p>
+          <p className="KF-BulleText">La retraite en toute sérénité !</p>
         </div>
 
-        {/* ── Contenu principal ── */}
         <div className="KF-Inner">
-
-          {/* ── Logo badge — positionné dans Inner pour s'aligner avec le contenu ── */}
-          <div className="KF-LogoBadge">
-            <img src={logo} alt="KapAvenir" />
-          </div>
           <div className="KF-Grid">
-
-            {/* Col 1 — Bio */}
             <div className="KF-ColBio">
+              <div className="KF-BioLogo">
+                <img src={logo} alt="KapAvenir" />
+              </div>
               <p className="KF-Bio">
                 Préparer son départ à la retraite est loin d'être une simple
                 formalité, c'est se préparer à vivre un nouveau chapitre de sa vie.
@@ -63,48 +54,55 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Col 2 — Liens rapides */}
-            <div className="KF-Col">
-              <h4>Liens rapides</h4>
-              <ul>
-                <li><Link to="/services">Nos services</Link></li>
-                <li><Link to="/pour-qui">Pour qui ?</Link></li>
-                <li><Link to="/etapes">Comment ça marche ?</Link></li>
-                <li><Link to="/kafe-retraite">Kafé retraite</Link></li>
-                <li><Link to="/ressources">Ressources</Link></li>
-                <li><Link to="/a-propos">À propos</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-              </ul>
-            </div>
+            <div className="KF-MidCluster">
+              <div className="KF-Col">
+                <h4>Liens rapides</h4>
+                <ul>
+                  <li><Link to="/services">Nos services</Link></li>
+                  <li><Link to="/pour-qui">Pour qui ?</Link></li>
+                  <li><Link to="/etapes">Comment ça marche ?</Link></li>
+                  <li><Link to="/kafe-retraite">Kafé retraite</Link></li>
+                  <li><Link to="/ressources">Ressources</Link></li>
+                  <li><Link to="/a-propos">À propos</Link></li>
+                  <li><Link to="/contact">Contact</Link></li>
+                </ul>
+              </div>
 
-            {/* Col 3 — Contact */}
-            <div className="KF-Col">
-              <h4>Contact</h4>
-              <div className="KF-ContactList">
-                <div className="KF-ContactItem">
-                  <span>contact@kapavenir.fr</span>
-                </div>
-                <div className="KF-ContactItem">
-                  <span>01 39 30 00 00</span>
-                </div>
-                <div className="KF-ContactItem">
-                  <span>12 Av. des Prés, 78180<br />Montigny-le-Bretonneux</span>
+              <div className="KF-Col">
+                <h4>Contact</h4>
+                <div className="KF-ContactList">
+                  <div className="KF-ContactItem">
+                    <span>contact@kapavenir.fr</span>
+                  </div>
+                  <div className="KF-ContactItem">
+                    <span>01 39 30 00 00</span>
+                  </div>
+                  <div className="KF-ContactItem">
+                    <span>12 Av. des Prés, 78180<br />Montigny-le-Bretonneux</span>
+                  </div>
                 </div>
               </div>
             </div>
 
+            <div className="KF-VisualSpacer" aria-hidden="true" />
           </div>
 
-          {/* ── Barre de copyright ── */}
           <div className="KF-Copyright">
             <p>KapAvenir © 2026. Tous droits réservés.</p>
-            <div className="KF-Legal">
-              <Link to="/mentions">Mentions légales</Link>
-              <span className="KF-Sep">•</span>
-              <Link to="/rgpd">RGPD</Link>
-              <span className="KF-Sep">•</span>
-              <Link to="/cgv">CGV/CGU</Link>
-            </div>
+            <nav className="KF-Legal" aria-label="Liens légaux">
+              <Link to="/mentions" className="KF-LegalLink">
+                <span className="KF-LegalIcon" aria-hidden><ChevronRight size={12} strokeWidth={2.5} /></span>
+                Mentions légales
+              </Link>
+              <Link to="/rgpd" className="KF-LegalLink">
+                <span className="KF-LegalIcon" aria-hidden><ChevronRight size={12} strokeWidth={2.5} /></span>
+                RGPD
+              </Link>
+              <Link to="/cgv" className="KF-LegalLink">
+                <span className="KF-LegalIcon" aria-hidden><ChevronRight size={12} strokeWidth={2.5} /></span>
+                CGV/CGU
+              </Link>
+            </nav>
           </div>
         </div>
 
