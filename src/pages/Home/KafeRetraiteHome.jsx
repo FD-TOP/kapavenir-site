@@ -1,24 +1,29 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, BookOpen, MessageCircle, UserCheck, Rocket } from 'lucide-react';
+import { ArrowRight, BookOpen, MessageCircle, UserCheck, Laptop, Rocket } from 'lucide-react';
 import LogoSticker from '../../components/Common/LogoSticker';
 import './KafeRetraiteHome.css';
 
 const highlights = [
   {
     icon: <BookOpen size={28} />,
-    title: 'Comprendre leur situation retraite',
+    title: 'Comprendre sa situation retraite',
     desc: 'Obtenez une vision claire et complète de vos droits acquis et de votre future pension.',
   },
   {
     icon: <MessageCircle size={28} />,
-    title: 'Poser leurs questions librement',
+    title: 'Poser librement ses questions',
     desc: 'Un cadre bienveillant pour échanger sans tabou sur tous les aspects de votre retraite.',
   },
   {
     icon: <UserCheck size={28} />,
-    title: 'Être accompagnés de manière personnalisée',
+    title: 'Bénéficier d\'un accompagnement personnalisé',
     desc: 'Un suivi adapté à votre profil, votre carrière et vos objectifs de vie.',
+  },
+  {
+    icon: <Laptop size={28} />,
+    title: 'Bénéficier d\'une aide digitale',
+    desc: 'Un accompagnement simple pour réaliser vos démarches retraite en ligne, même sans maîtrise de l\'informatique.',
   },
   {
     icon: <Rocket size={28} />,
@@ -42,7 +47,9 @@ export default function KafeRetraiteHome() {
           <h2 className="KH-title">
             Le Kafé Retraite est un format d'accompagnement{' '}
             <span className="KH-gradient">humain et accessible</span>{' '}
-            qui permet de mieux comprendre la retraite dans un cadre convivial.
+            qui permet de{' '}
+            <span className="KH-gradient">mieux comprendre</span>{' '}
+            la retraite dans un cadre convivial.
           </h2>
           <p className="KH-subtitle">
             KapAvenir propose des rencontres (physiques ou digitales) où les participants peuvent :
