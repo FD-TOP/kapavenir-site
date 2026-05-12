@@ -10,21 +10,6 @@ export default function Footer() {
   return (
     <footer className="KF-Root">
       <div className="KF-Body">
-
-        <img
-          src={femmeImg}
-          alt="Conseillère KapAvenir"
-          className="KF-FemmeImg"
-          draggable="false"
-        />
-
-        <div className="KF-Bulle">
-          <div className="KF-BulleLogo">
-            <img src={logo} alt="" />
-          </div>
-          <p className="KF-BulleText">La retraite en toute sérénité !</p>
-        </div>
-
         <div className="KF-Inner">
           <div className="KF-Grid">
             <div className="KF-ColBio">
@@ -84,11 +69,36 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="KF-VisualSpacer" aria-hidden="true" />
+            <div className="KF-VisualCol">
+              <img
+                src={femmeImg}
+                alt="Conseillère KapAvenir"
+                className="KF-FemmeImg"
+                draggable="false"
+              />
+              <div className="KF-Bulle">
+                <div className="KF-BulleLogo">
+                  <img src={logo} alt="" />
+                </div>
+                <p className="KF-BulleText">La retraite en toute sérénité !</p>
+              </div>
+            </div>
           </div>
 
           <div className="KF-Copyright">
-            <p>KapAvenir © 2026. Tous droits réservés.</p>
+            <p className="KF-CopyrightText">
+              KapAvenir © 2026. Tous droits réservés.{' '}
+              <span className="KF-Conception">
+                Conception :{' '}
+                <a
+                  href="https://www.anglophile.fr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.anglophile.fr
+                </a>
+              </span>
+            </p>
             <nav className="KF-Legal" aria-label="Liens légaux">
               <Link to="/mentions" className="KF-LegalLink">
                 <span className="KF-LegalIcon" aria-hidden><ChevronRight size={12} strokeWidth={2.5} /></span>
