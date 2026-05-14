@@ -656,7 +656,7 @@ export default function PourQui() {
         {/* 8 — CTA */}
         <div className={"PQ-CTA-Section " + (ctVis ? "is-vis" : "")} ref={ctRef}>
           <div className="PQ-CTA-Inner">
-            <p className="PQ-CTA-Eye PQ-Grad">Passez à l’action</p>
+            <p className="PQ-CTA-Pill">Passez à l’action</p>
             <h2 className="PQ-CTA-Title">Prenez quelques minutes aujourd’hui pour sécuriser des années de retraite</h2>
             <button className="PQ-Btn PQ-Btn--solid" onClick={() => navigate('/services/bilan')}>Faire mon bilan retraite
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

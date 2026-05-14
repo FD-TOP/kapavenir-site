@@ -721,28 +721,53 @@
 
 /* 8 — CTA Particuliers */
 .PQ-CTA-Section {
-  padding: clamp(3rem, 8vw, 5rem) var(--sec);
-  background: rgba(255,255,255,.82);
+  padding: clamp(3.25rem, 9vw, 5.5rem) var(--sec);
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 0%, rgba(0, 182, 222, 0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 80% 100%, rgba(0, 191, 99, 0.07) 0%, transparent 50%),
+    rgba(248, 251, 255, 0.95);
   backdrop-filter: blur(18px);
-  border-top: 1px solid rgba(255,255,255,.85);
-  border-bottom: 1px solid rgba(255,255,255,.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 113, 188, 0.08);
   text-align: center; overflow: hidden; position: relative;
   opacity: 0; transform: translateY(20px); transition: opacity .7s, transform .7s;
 }
 .PQ-CTA-Section::before {
   content:'';position:absolute;inset:0;pointer-events:none;
-  background-image: radial-gradient(circle,rgba(67,129,193,.06) 1px,transparent 1px);
-  background-size: 36px 36px;
+  background-image: radial-gradient(circle,rgba(67,129,193,.07) 1px,transparent 1px);
+  background-size: 32px 32px;
 }
 .PQ-CTA-Section.is-vis { opacity: 1; transform: none; }
-.PQ-CTA-Inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
-.PQ-CTA-Eye {
-  font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
-  margin: 0 0 16px; display: block;
+.PQ-CTA-Inner {
+  max-width: 720px; margin: 0 auto; position: relative; z-index: 1;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.25rem, 3.5vw, 2.5rem);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(0, 113, 188, 0.14);
+  box-shadow:
+    0 4px 28px rgba(0, 113, 188, 0.1),
+    0 24px 56px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.98);
+}
+.PQ-CTA-Pill {
+  display: inline-block;
+  font-size: .68rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  margin: 0 0 18px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  color: #059669;
+  background: linear-gradient(165deg, rgba(236, 253, 245, 0.98) 0%, rgba(240, 251, 255, 0.98) 100%);
+  border: 1px solid rgba(0, 191, 99, 0.38);
+  box-shadow: 0 2px 14px rgba(0, 191, 99, 0.12);
 }
 .PQ-CTA-Title {
-  font-size: clamp(1.65rem,3vw,2.25rem); font-weight: 900; color: var(--k-dark);
-  line-height: 1.22; margin: 0 0 36px;
+  font-size: clamp(1.85rem, 3.6vw, 2.55rem); font-weight: 900; color: var(--k-dark);
+  line-height: 1.18; margin: 0 0 32px;
+  letter-spacing: -0.02em;
+}
+.PQ-CTA-Inner .PQ-Btn--solid {
+  padding: 15px 36px;
+  font-size: 0.95rem;
 }
 
 /* ═══ ORGANISMES — HERO DARK ═══════════════════════════════════ */
