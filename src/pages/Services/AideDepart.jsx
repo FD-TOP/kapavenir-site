@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AideDepart.css';
-import manImg from '../../assets/man.png';
+import servicePhoto from '../../assets/photoservices2.jpg';
 import LogoSticker from '../../components/Common/LogoSticker';
 
 /* ── Chips hero ───────────────────────────────────────────── */
@@ -227,7 +227,7 @@ export default function AideDepart() {
 
           <h2 className="AD-Title">
             Ne passez pas à côté des{' '}
-            <span className="AD-Accent">aides et opportunités</span>{' '}
+            <span className="AD-TitleGradient">aides et opportunités</span>{' '}
             au moment de votre départ
           </h2>
 
@@ -235,7 +235,9 @@ export default function AideDepart() {
             Au moment de partir à la retraite, plusieurs dispositifs peuvent
             s'appliquer à votre situation. Pourtant, ils sont souvent méconnus
             ou mal exploités.{' '}
-            <strong>KapAvenir vous aide à identifier et activer tous les leviers disponibles.</strong>
+            <strong>
+              KapAvenir vous aide à identifier et activer tous les leviers disponibles pour optimiser votre départ.
+            </strong>
           </p>
 
           <div className="AD-Chips">
@@ -263,7 +265,7 @@ export default function AideDepart() {
         {/* Colonne image */}
         <div className="AD-Visual">
           <div className="AD-Frame" aria-hidden="true" />
-          <img src={manImg} alt="Conseiller KapAvenir" className="AD-ManImg" draggable="false" />
+          <img src={servicePhoto} alt="Accompagnement retraite KapAvenir" className="AD-ManImg" draggable="false" />
           <div className="AD-FloatBadge AD-FloatBadge--tl">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00bf63" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2L4 6v6c0 5.2 3.6 9.1 8 10 4.4-.9 8-4.8 8-10V6L12 2z"/>

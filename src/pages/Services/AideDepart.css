@@ -77,6 +77,15 @@
   color: #4381C1;
 }
 
+/* Titre : « aides et opportunités » en dégradé marque */
+.AD-TitleGradient {
+  background: var(--kap-premium-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Texte */
 .AD-Text {
   font-size: 0.93rem;
@@ -199,13 +208,16 @@
   z-index: 0;
 }
 
-/* Image */
+/* Photo service (visuel hero) */
 .AD-ManImg {
   position: relative;
   z-index: 1;
+  width: 92%;
+  max-width: 440px;
   max-height: 420px;
-  width: auto;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 22px;
   filter: drop-shadow(0 16px 32px rgba(15, 30, 56, 0.2));
 }
 
