@@ -614,7 +614,7 @@
 .PQ-Bn-Grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; max-width: 900px; margin: 0 auto; }
 .PQ-Bn-Card {
   background: #fff; border: 1.5px solid var(--card-bd); border-radius: var(--card-r);
-  padding: 28px 20px 18px; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 22px 18px 14px; display: flex; flex-direction: column; align-items: center; gap: 5px;
   position: relative; overflow: hidden; cursor: default; box-shadow: 0 6px 24px rgba(0,0,0,.18);
   opacity: 0; transform: scale(.96);
   transition: opacity .5s, transform .5s, border-color .4s, box-shadow .4s;
@@ -628,7 +628,7 @@
 .PQ-Bn-Grid:has(.is-active) .PQ-Bn-Card:not(.is-active) { opacity: .55; transform: scale(.97); }
 .PQ-Bn-Bar {
   position: absolute; bottom: 0; left: 0; height: 4px; border-radius: 0 0 20px 20px;
-  background: linear-gradient(90deg, var(--bc), rgba(0,191,99,.6));
+  background: var(--kap-premium-gradient);
   animation: bn-fill 2s linear forwards;
 }
 @keyframes bn-fill { from{width:0%}to{width:100%} }
@@ -640,8 +640,8 @@
 }
 .PQ-Bn-Card.is-active .PQ-Bn-IcoWrap { box-shadow: 0 0 18px rgba(0,182,222,.3); }
 .PQ-Bn-IcoWrap svg { width: 22px; height: 22px; }
-.PQ-Bn-Title { font-size: .85rem; font-weight: 800; color: var(--k-dark); text-align: center; line-height: 1.15; }
-.PQ-Bn-Sub   { font-size: .72rem; color: var(--k-muted); text-align: center; line-height: 1.2; margin-top: 2px; }
+.PQ-Bn-Title { font-size: .85rem; font-weight: 800; color: var(--k-dark); text-align: center; line-height: 1.06; }
+.PQ-Bn-Sub   { font-size: .72rem; color: var(--k-muted); text-align: center; line-height: 1.05; margin-top: 0; }
 .PQ-Bn-Card.is-active .PQ-Bn-Title,
 .PQ-Bn-Card.is-active .PQ-Bn-Sub { color: #ffffff; }
 .PQ-Bn-Card.is-active .PQ-Grad {
