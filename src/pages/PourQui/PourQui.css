@@ -987,17 +987,25 @@
 
 /* OR Services — bulles type pastille (sans numéros ni flèches) */
 .OR-Sv-Layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+.OR-Sv-Layout > .OR-Sv-Bubbles {
+  min-width: 0;
+}
 .OR-Sv-Left   { position: sticky; top: 100px; }
 .OR-Sv-Bubbles {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
   gap: 12px;
-  max-width: 100%;
+  width: 100%;
+  min-width: 0;
 }
 .OR-Sv-Bubble {
   position: relative;
-  padding: 18px 28px 20px;
-  border-radius: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px 24px 20px;
+  border-radius: 22px;
   background: linear-gradient(
     165deg,
     rgba(255, 255, 255, 0.98) 0%,
