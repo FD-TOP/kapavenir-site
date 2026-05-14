@@ -1,107 +1,112 @@
-/* ============================================================
-   FOOTER — grille 3 zones : intro | liens+contact | photo+bulle
-   (photo et bulle ancrées dans la colonne droite, pas au viewport)
-   ============================================================ */
+/* =============================================================================
+   Footer KapAvenir — grille 3 colonnes + bandeau légal
+   Portrait : ancré en bas à droite, léger débord vers la section au-dessus
+   ============================================================================= */
 
 .KF-Root {
+  --kf-bg: #4a76b8;
+  --kf-pad-x: clamp(20px, 5vw, 56px);
+  --kf-overlap: 0px;
+  --kf-portrait-h: clamp(380px, 36vh, 520px);
+  --kf-portrait-max-w: 320px;
+  --kf-visual-min-h: 300px;
+
   position: relative;
   z-index: 30;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Chevauche la section précédente : le portrait dépasse nettement vers le haut */
-@media (min-width: 721px) {
+@media (min-width: 769px) {
   .KF-Root {
-    margin-top: -128px;
+    --kf-overlap: 72px;
+    margin-top: calc(-1 * var(--kf-overlap));
   }
 }
 
 .KF-Body {
-  background: #4a76b8;
+  position: relative;
   width: 100%;
   margin: 0 auto;
-  position: relative;
-  /* Permet au portrait de dépasser vers la section au-dessus */
   overflow: visible;
-  padding-top: 40px;
-  padding-bottom: 0;
-  border-radius: 28px 28px 0 0;
-  box-shadow: 0 -6px 32px rgba(0, 0, 0, 0.07);
+  padding: 40px 0 0;
+  background: var(--kf-bg);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.06);
 }
 
 .KF-Inner {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 5% 0;
+  padding: 0 var(--kf-pad-x);
   position: relative;
-  z-index: 10;
-  overflow: visible;
+  z-index: 2;
 }
 
-/* ── Grille : bio | (liens + contact) | visuel ───────────── */
+/* --- Grille principale ---------------------------------------------------- */
+
 .KF-Grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 1.05fr) minmax(220px, 300px);
-  gap: 36px 40px;
-  margin-bottom: 44px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.95fr) minmax(180px, 280px);
+  gap: 32px 36px;
   align-items: start;
-  overflow: visible;
+  margin-bottom: 40px;
 }
 
 .KF-MidCluster {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px 32px;
+  gap: 24px 28px;
   align-content: start;
 }
 
+/* Colonne visuelle : réserve l’espace en bas ; le portrait sort par le haut */
 .KF-VisualCol {
   position: relative;
   align-self: stretch;
-  min-height: 500px;
+  min-height: var(--kf-visual-min-h);
   overflow: visible;
 }
 
 .KF-FemmeImg {
   position: absolute;
-  bottom: 0;
   right: 0;
-  height: min(82vh, 820px);
+  bottom: 0;
   width: auto;
-  max-width: min(100%, 440px);
+  height: var(--kf-portrait-h);
+  max-width: min(100%, var(--kf-portrait-max-w));
   object-fit: contain;
   object-position: bottom right;
-  z-index: 15;
   pointer-events: none;
-  filter: drop-shadow(-4px 0 18px rgba(0, 0, 0, 0.12));
+  z-index: 5;
+  filter: drop-shadow(-2px 4px 14px rgba(0, 0, 0, 0.14));
 }
 
 .KF-Bulle {
   position: absolute;
-  bottom: 56px;
   right: 0;
-  left: auto;
-  background: #ffffff;
-  border-radius: 28px 36px 22px 32px;
-  padding: 16px 20px 18px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+  bottom: 48px;
   z-index: 4;
-  min-width: 188px;
-  max-width: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  min-width: 176px;
+  max-width: 210px;
+  padding: 14px 18px 16px;
+  background: #fff;
+  border-radius: 24px 32px 20px 28px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
 .KF-BulleLogo img {
-  height: 26px;
+  height: 24px;
+  display: block;
 }
 
 .KF-BulleText {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 800;
   font-style: italic;
   color: #66bb6a;
@@ -109,27 +114,29 @@
   line-height: 1.35;
 }
 
+/* --- Bio & réseaux -------------------------------------------------------- */
+
 .KF-BioLogo {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .KF-BioLogo img {
-  height: 38px;
+  height: 36px;
   display: block;
 }
 
 .KF-Bio {
-  color: #ffffff;
-  font-size: 0.9rem;
-  line-height: 1.75;
   margin: 0 0 12px;
-  max-width: 34em;
+  max-width: 36em;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
 .KF-Bio--small {
+  margin-bottom: 16px;
   font-size: 0.84rem;
   opacity: 0.94;
-  margin-bottom: 18px;
 }
 
 .KF-Socials {
@@ -138,50 +145,52 @@
 }
 
 .KF-Socials a {
-  color: rgba(255, 255, 255, 0.92);
-  background: rgba(255, 255, 255, 0.18);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s, transform 0.25s;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.16);
+  transition: background 0.25s, transform 0.2s;
 }
 
 .KF-Socials a:hover {
-  background: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
 }
 
+/* --- Liens & contact ------------------------------------------------------ */
+
 .KF-Col h4 {
-  color: #ffffff;
-  font-size: 0.95rem;
+  margin: 0 0 14px;
+  color: #fff;
+  font-size: 0.94rem;
   font-weight: 700;
-  margin: 0 0 16px;
 }
 
 .KF-Col ul {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .KF-Col li {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
 
 .KF-Col a {
+  display: inline-block;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   text-decoration: none;
   transition: color 0.2s, padding-left 0.2s;
-  display: inline-block;
 }
 
 .KF-Col a:hover {
-  color: #fff;
   padding-left: 3px;
+  color: #fff;
 }
 
 .KF-ContactList {
@@ -192,26 +201,27 @@
 
 .KF-ContactItem span {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   line-height: 1.55;
 }
 
-/* ── Copyright ───────────────────────────────────────────── */
+/* --- Bandeau copyright ---------------------------------------------------- */
+
 .KF-Copyright {
-  border-top: 1px solid rgba(255, 255, 255, 0.42);
-  padding: 22px 0 max(28px, env(safe-area-inset-bottom));
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 18px 24px;
-  font-size: 0.78rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px 24px;
+  padding: 20px 0 max(24px, env(safe-area-inset-bottom));
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 0.76rem;
   color: rgba(255, 255, 255, 0.92);
 }
 
 .KF-CopyrightText {
+  flex: 1 1 260px;
   margin: 0;
-  flex: 1 1 280px;
   line-height: 1.55;
 }
 
@@ -233,136 +243,162 @@
 .KF-Legal {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
   align-items: center;
   justify-content: flex-end;
+  gap: 16px;
   flex: 0 1 auto;
 }
 
 .KF-LegalLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: rgba(255, 255, 255, 0.96);
-  text-decoration: none;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
+  text-decoration: none;
   transition: opacity 0.2s;
 }
 
 .KF-LegalLink:hover {
-  opacity: 0.88;
+  opacity: 0.85;
 }
 
 .KF-LegalIcon {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.5);
   color: #fff;
-  flex-shrink: 0;
 }
 
-/* ── Responsive ─────────────────────────────────────────── */
+/* =============================================================================
+   Responsive
+   ============================================================================= */
 
-@media (max-width: 1180px) {
+@media (max-width: 1100px) {
+  .KF-Root {
+    --kf-portrait-h: clamp(340px, 34vh, 480px);
+    --kf-portrait-max-w: 280px;
+    --kf-visual-min-h: 280px;
+  }
+
   .KF-Grid {
-    grid-template-columns: minmax(0, 1.2fr) minmax(240px, 1fr) minmax(200px, 260px);
-    gap: 28px 28px;
-  }
-  .KF-FemmeImg {
-    height: min(78vh, 700px);
-    max-width: min(100%, 360px);
+    grid-template-columns: minmax(0, 1.1fr) minmax(220px, 1fr) minmax(160px, 240px);
+    gap: 28px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 960px) {
   .KF-Grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
   }
+
   .KF-ColBio {
     grid-column: 1 / -1;
     max-width: 640px;
   }
-  .KF-MidCluster {
-    grid-column: 1 / -1;
-    max-width: 560px;
-  }
-  .KF-VisualCol {
-    grid-column: 1 / -1;
-    min-height: 420px;
-    margin-top: 8px;
-  }
-  .KF-FemmeImg {
-    height: min(72vh, 580px);
-    max-width: 340px;
-    right: 6%;
-    transform: none;
-  }
-  .KF-Bulle {
-    right: 6%;
-    bottom: 44px;
-    transform: none;
-  }
-}
 
-@media (max-width: 720px) {
   .KF-MidCluster {
-    grid-template-columns: 1fr;
-    gap: 22px;
+    grid-column: 1 / -1;
+    max-width: 520px;
   }
-  .KF-Body {
-    border-radius: 20px 20px 0 0;
-    padding-top: 40px;
-  }
+
   .KF-VisualCol {
-    min-height: 340px;
+    grid-column: 1 / -1;
+    justify-self: end;
+    width: min(100%, 420px);
+    min-height: 260px;
+    margin-top: 4px;
   }
+
   .KF-FemmeImg {
-    height: 360px;
-    opacity: 0.95;
-    right: 50%;
-    transform: translateX(50%);
+    right: max(0px, env(safe-area-inset-right, 0px));
   }
+
   .KF-Bulle {
-    right: 50%;
-    transform: translateX(50%);
+    right: max(0px, env(safe-area-inset-right, 0px));
     bottom: 40px;
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 768px) {
+  .KF-Root {
+    margin-top: 0;
+    --kf-overlap: 0px;
+  }
+
+  .KF-Body {
+    border-radius: 20px 20px 0 0;
+    padding-top: 32px;
+  }
+
+  .KF-MidCluster {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .KF-VisualCol {
+    justify-self: center;
+    width: 100%;
+    max-width: 400px;
+    min-height: 300px;
+  }
+
+  .KF-FemmeImg {
+    right: 50%;
+    transform: translateX(50%);
+    --kf-portrait-h: clamp(300px, 52vw, 400px);
+    --kf-portrait-max-w: 260px;
+  }
+
+  .KF-Bulle {
+    right: 50%;
+    bottom: 36px;
+    transform: translateX(50%);
+  }
+}
+
+@media (max-width: 480px) {
   .KF-Body {
     border-radius: 0;
   }
-  .KF-Inner {
-    padding: 0 20px 0;
+
+  .KF-Root {
+    --kf-portrait-h: clamp(260px, 58vw, 340px);
+    --kf-visual-min-h: 260px;
   }
-  .KF-FemmeImg {
-    height: 280px;
-    opacity: 0.85;
+
+  .KF-VisualCol {
+    min-height: 260px;
   }
+
   .KF-Bulle {
-    min-width: 168px;
-    padding: 12px 16px 14px;
+    min-width: 160px;
+    padding: 12px 14px 14px;
   }
+
   .KF-BulleText {
-    font-size: 0.84rem;
+    font-size: 0.82rem;
   }
+
   .KF-Conception {
-    white-space: normal;
     display: inline;
+    white-space: normal;
   }
+
   .KF-Copyright {
     flex-direction: column;
     align-items: stretch;
     text-align: center;
-    padding-bottom: max(88px, calc(28px + env(safe-area-inset-bottom)));
+    padding-bottom: max(72px, calc(20px + env(safe-area-inset-bottom)));
   }
+
   .KF-Legal {
     justify-content: center;
   }
