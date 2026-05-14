@@ -527,7 +527,10 @@ export default function PourQui() {
           <div className="PQ-Block-Inner">
             <div className="PQ-Head">
               <span className="PQ-Label PQ-Label--blue">Notre promesse</span>
-              <h2 className="PQ-Block-Title">Une approche <span className="PQ-Grad">simple, claire et actionnable</span></h2>
+              <h2 className="PQ-Block-Title">
+                Une approche <span className="PQ-Grad">simple</span>, <span className="PQ-Grad">claire</span> et{' '}
+                <span className="PQ-Grad">actionnable</span>
+              </h2>
             </div>
             <div className="PQ-Promise-Grid">
               {PROMISES.map((p, i) => (

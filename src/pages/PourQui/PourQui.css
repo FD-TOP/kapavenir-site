@@ -260,6 +260,8 @@
   -webkit-text-fill-color: transparent;
   color: transparent;
   display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 @supports not (-webkit-background-clip: text) {
   .PQ-Grad {

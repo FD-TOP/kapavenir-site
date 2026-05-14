@@ -162,7 +162,10 @@ export default function Particuliers() {
         <div className="PT-Sec-Inner">
           <div className="PT-Center">
             <span className="PT-Label PT-Label--blue">Notre promesse</span>
-            <h2 className="PT-Sec-Title">Une approche simple,<br />claire et actionnable</h2>
+            <h2 className="PT-Sec-Title">
+              Une approche <span className="PT-Grad">simple</span>, <span className="PT-Grad">claire</span> et{' '}
+              <span className="PT-Grad">actionnable</span>
+            </h2>
           </div>
           <div className="PT-Promise-Grid">
             {PROMISES.map((p, i) => (
