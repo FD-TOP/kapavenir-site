@@ -264,8 +264,13 @@ export default function AideDepart() {
 
         {/* Colonne image */}
         <div className="AD-Visual">
-          <div className="AD-Frame" aria-hidden="true" />
-          <img src={servicePhoto} alt="Accompagnement retraite KapAvenir" className="AD-ManImg" draggable="false" />
+          <div className="AD-PhotoStack">
+            <div className="AD-PhotoPlate" aria-hidden="true" />
+            <div className="AD-PhotoAccent" aria-hidden="true" />
+            <figure className="AD-PhotoFigure">
+              <img src={servicePhoto} alt="Accompagnement retraite KapAvenir" className="AD-ManImg" draggable="false" />
+            </figure>
+          </div>
           <div className="AD-FloatBadge AD-FloatBadge--tl">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00bf63" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2L4 6v6c0 5.2 3.6 9.1 8 10 4.4-.9 8-4.8 8-10V6L12 2z"/>
