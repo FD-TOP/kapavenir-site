@@ -1,5 +1,6 @@
 import React from 'react';
 import ServiceHero from './ServiceHero';
+import ServicesWhy from './ServicesWhy';
 import BilanRetraite from './BilanRetraite';
 import AideDepart from './AideDepart';
 import AnimatedBG from '../../components/Common/AnimatedBG';
@@ -15,6 +16,7 @@ const Services = () => {
         <LogoSticker size={68} top="52%" left="1.5%" rotation={-18} opacity={0.1} animation="float" hideMobile />
         <LogoSticker size={86} bottom="8%" right="3%" rotation={-10} opacity={0.12} animation="spin" hideMobile />
         <ServiceHero />
+        <ServicesWhy />
         <BilanRetraite />
         <AideDepart />
       </div>
