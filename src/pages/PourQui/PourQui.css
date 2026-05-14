@@ -271,6 +271,7 @@
   }
 }
 .OR-Green {
+  display: inline;
   background: linear-gradient(90deg, #00bf63, #00b6de);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
@@ -977,29 +978,92 @@
   .ER-Enj-Dot.is-active {
     animation: none !important;
   }
+  .OR-Sv-Bubble,
+  .OR-Sv-Bubble:hover {
+    transform: none !important;
+    transition: opacity 0.35s ease;
+  }
 }
 
-/* OR Services */
+/* OR Services — grille de bulles (sans numéros ni flèches) */
 .OR-Sv-Layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
 .OR-Sv-Left   { position: sticky; top: 100px; }
-.OR-Sv-List   { display: flex; flex-direction: column; }
-.OR-Sv-Item {
-  display: grid; grid-template-columns: 40px 1fr 26px; align-items: center; gap: 16px;
-  padding: 20px 0; border-bottom: 1px solid var(--card-bd);
-  opacity: 0; transform: translateX(16px); transition: opacity .5s, transform .5s;
+.OR-Sv-Bubbles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+  gap: 16px;
+  align-items: stretch;
 }
-.OR-Block.is-vis .OR-Sv-Item { opacity: 1; transform: none; }
-.OR-Block.is-vis .OR-Sv-Item:nth-child(1) { transition-delay: .1s; }
-.OR-Block.is-vis .OR-Sv-Item:nth-child(2) { transition-delay: .2s; }
-.OR-Block.is-vis .OR-Sv-Item:nth-child(3) { transition-delay: .3s; }
-.OR-Block.is-vis .OR-Sv-Item:nth-child(4) { transition-delay: .4s; }
-.OR-Block.is-vis .OR-Sv-Item:nth-child(5) { transition-delay: .5s; }
-.OR-Sv-Item:hover { padding-left: 8px; padding-right: 8px; background: var(--bg2); border-radius: 10px; }
-.OR-Sv-Item:hover .OR-Sv-Arrow { color: var(--k-green); transform: translateX(4px); }
-.OR-Sv-Num   { font-size: .7rem; font-weight: 900; color: var(--k-green); }
-.OR-Sv-Title { display: block; font-size: .9rem; font-weight: 800; color: var(--k-dark); margin-bottom: 3px; }
-.OR-Sv-Desc  { font-size: .8rem; color: var(--k-muted); line-height: 1.5; margin: 0; }
-.OR-Sv-Arrow { color: var(--k-subtle); transition: all .25s; }
+.OR-Sv-Bubble {
+  position: relative;
+  padding: 22px 26px 24px;
+  border-radius: 22px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.99) 0%, rgba(247, 252, 255, 0.96) 100%);
+  border: 1px solid rgba(0, 113, 188, 0.11);
+  box-shadow:
+    0 10px 32px rgba(0, 113, 188, 0.08),
+    0 2px 8px rgba(15, 23, 42, 0.04);
+  opacity: 0;
+  transform: translateY(14px) scale(0.985);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  isolation: isolate;
+  overflow: hidden;
+}
+.OR-Sv-Bubble::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  border-radius: 22px 22px 0 0;
+  opacity: 0.92;
+  z-index: 1;
+  pointer-events: none;
+}
+.OR-Sv-Bubble:nth-child(3n + 1)::before {
+  background: linear-gradient(90deg, #00bf63, #00d67a);
+}
+.OR-Sv-Bubble:nth-child(3n + 2)::before {
+  background: linear-gradient(90deg, #00b6de, #4381c1);
+}
+.OR-Sv-Bubble:nth-child(3n)::before {
+  background: linear-gradient(90deg, #4381c1, #00b6de);
+}
+.OR-Block.is-vis .OR-Sv-Bubble {
+  opacity: 1;
+  transform: none;
+}
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(1) { transition-delay: 0.08s; }
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(2) { transition-delay: 0.16s; }
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(3) { transition-delay: 0.24s; }
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(4) { transition-delay: 0.32s; }
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(5) { transition-delay: 0.4s; }
+.OR-Sv-Bubble:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow:
+    0 16px 44px rgba(0, 113, 188, 0.12),
+    0 8px 20px rgba(15, 23, 42, 0.06);
+  border-color: rgba(0, 182, 222, 0.28);
+}
+.OR-Sv-Bubble .OR-Sv-Title {
+  display: block;
+  position: relative;
+  z-index: 2;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--k-dark);
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+.OR-Sv-Bubble .OR-Sv-Desc {
+  position: relative;
+  z-index: 2;
+  font-size: 0.8rem;
+  color: var(--k-muted);
+  line-height: 1.45;
+  margin: 0;
+}
 
 /* OR Vertical Timeline */
 .OR-VTimeline {

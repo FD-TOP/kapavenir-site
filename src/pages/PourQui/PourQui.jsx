@@ -197,11 +197,11 @@ const OR_PILLARS = [
   { key: 'C', color: '#4381C1', title: 'Agir',       desc: "Transformer l'information en décisions utiles." },
 ];
 const OR_SERVICES = [
-  { n: '01', title: 'Diagnostic retraite',       desc: 'Vision claire, projections personnalisées, restitution simple.' },
-  { n: '02', title: 'Parcours client intégré',   desc: "Expérience fluide du diagnostic à l'action, en marque blanche." },
-  { n: '03', title: 'Aide à la décision',        desc: 'Outils et supports pour accompagner vos conseillers au quotidien.' },
-  { n: '04', title: 'Accompagnement expert',     desc: 'Entretiens personnalisés pour les situations complexes.' },
-  { n: '05', title: 'Programme pédagogique',     desc: 'Contenus, ateliers et formation de vos équipes en interne.' },
+  { title: 'Diagnostic retraite',       desc: 'Vision claire, projections personnalisées, restitution simple.' },
+  { title: 'Parcours client intégré',   desc: "Expérience fluide du diagnostic à l'action, en marque blanche." },
+  { title: 'Aide à la décision',        desc: 'Outils et supports pour accompagner vos conseillers au quotidien.' },
+  { title: 'Accompagnement expert',     desc: 'Entretiens personnalisés pour les situations complexes.' },
+  { title: 'Programme pédagogique',     desc: 'Contenus, ateliers et formation de vos équipes en interne.' },
 ];
 const OR_STEPS = [
   { n: '01', title: 'Diagnostic rapide',        desc: 'Analyse de la situation retraite du client en quelques minutes.' },
@@ -747,20 +747,19 @@ export default function PourQui() {
           <div className="OR-Inner OR-Sv-Layout">
             <div className="OR-Sv-Left">
               <span className="OR-Label">Nos solutions</span>
-              <h2 className="OR-Title">Des services <span className="OR-Green">modulables</span><br />selon vos besoins</h2>
+              <h2 className="OR-Title">
+                Des <span className="OR-Grad">services</span>{' '}
+                <span className="OR-Green">modulables</span>
+                <br />
+                selon vos <span className="OR-Grad">besoins</span>
+              </h2>
               <p className="OR-Sub">Chaque organisme est unique. Nous adaptons notre accompagnement à votre structure, votre volume et vos objectifs.</p>
             </div>
-            <div className="OR-Sv-List">
+            <div className="OR-Sv-Bubbles">
               {OR_SERVICES.map((s, i) => (
-                <div key={i} className="OR-Sv-Item" style={{ "--i": i }}>
-                  <span className="OR-Sv-Num">{s.n}</span>
-                  <div className="OR-Sv-Body">
-                    <strong className="OR-Sv-Title">{s.title}</strong>
-                    <p className="OR-Sv-Desc">{s.desc}</p>
-                  </div>
-                  <div className="OR-Sv-Arrow">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </div>
+                <div key={s.title} className="OR-Sv-Bubble" style={{ "--i": i }}>
+                  <strong className="OR-Sv-Title">{s.title}</strong>
+                  <p className="OR-Sv-Desc">{s.desc}</p>
                 </div>
               ))}
             </div>
