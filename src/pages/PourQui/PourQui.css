@@ -987,6 +987,7 @@
   .OR-VStep--stack:hover .OR-VStep-Card {
     transform: none !important;
     transition: opacity 0.35s ease;
+    filter: none !important;
   }
 }
 
@@ -1089,27 +1090,32 @@
 .OR-Block.is-vis .OR-VStep.OR-VStep--stack:nth-child(3) { transition-delay: 0.22s; }
 .OR-Block.is-vis .OR-VStep.OR-VStep--stack:nth-child(4) { transition-delay: 0.3s; }
 .OR-VStep--stack .OR-VStep-Card {
-  background: linear-gradient(165deg, #0f172a 0%, #1e293b 55%, #0f172a 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(125deg, rgba(0, 113, 188, 0.38) 0%, transparent 45%),
+    linear-gradient(305deg, rgba(0, 191, 99, 0.28) 0%, transparent 48%),
+    linear-gradient(165deg, #0a1526 0%, #132238 42%, #0f1c30 78%, #0b1422 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
   padding: 22px 26px;
   box-shadow:
     0 8px 28px rgba(0, 0, 0, 0.35),
     0 2px 8px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition:
     transform 0.38s cubic-bezier(0.2, 0.85, 0.25, 1),
     box-shadow 0.38s ease,
-    border-color 0.35s ease;
+    border-color 0.35s ease,
+    filter 0.35s ease;
   will-change: transform;
 }
 .OR-VStep--stack:hover .OR-VStep-Card {
   transform: translateY(-5px) scale(1.015);
-  border-color: rgba(0, 182, 222, 0.45);
+  border-color: rgba(0, 182, 222, 0.5);
+  filter: saturate(1.08) brightness(1.04);
   box-shadow:
     0 16px 48px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(0, 182, 222, 0.2),
-    0 12px 36px rgba(0, 182, 222, 0.12);
+    0 0 0 1px rgba(0, 182, 222, 0.25),
+    0 12px 40px rgba(0, 113, 188, 0.2);
 }
 .OR-VStep--stack .OR-VStep-Title {
   font-size: 0.95rem;
