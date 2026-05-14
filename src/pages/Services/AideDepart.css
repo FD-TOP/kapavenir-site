@@ -388,10 +388,6 @@
    PACKS — même concept Bilan retraite (classes BR-* + BilanRetraite.css)
 ══════════════════════════════════════════ */
 
-.AD-Section .BR-Overlay {
-  z-index: 10050;
-}
-
 .AD-PacksWrap {
   margin-top: 48px;
   padding: 56px 0 72px;

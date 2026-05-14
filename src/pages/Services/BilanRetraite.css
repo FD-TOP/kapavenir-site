@@ -342,14 +342,16 @@
 .BR-Overlay {
   position: fixed;
   inset: 0;
-  background: rgba(8, 18, 42, 0.58);
-  backdrop-filter: blur(14px) saturate(1.15);
-  -webkit-backdrop-filter: blur(14px) saturate(1.15);
-  z-index: 1000;
+  background: rgba(8, 18, 42, 0.62);
+  backdrop-filter: blur(16px) saturate(1.12);
+  -webkit-backdrop-filter: blur(16px) saturate(1.12);
+  /* Au-dessus de la navbar (z-index ~10 000) — modale rendue via portail sur body */
+  z-index: 100001;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: max(20px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px))
+    max(20px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
   animation: overlayIn 0.2s ease;
 }
 
@@ -363,15 +365,16 @@
   border-radius: 26px;
   width: 100%;
   max-width: 760px;
-  max-height: 88vh;
+  max-height: min(88vh, 100dvh - 2.5rem);
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
+  z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.65);
   box-shadow:
-    0 0 0 1px rgba(0, 182, 222, 0.12),
-    0 32px 80px rgba(15, 23, 42, 0.28),
-    0 12px 32px rgba(0, 113, 188, 0.12);
+    0 0 0 1px rgba(0, 182, 222, 0.14),
+    0 36px 90px rgba(15, 23, 42, 0.32),
+    0 14px 40px rgba(0, 113, 188, 0.14);
   animation: modalIn 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 182, 222, 0.35) transparent;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useId } from 'react';
+import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import './BilanRetraite.css';
 import LogoSticker from '../../components/Common/LogoSticker';
@@ -298,7 +299,7 @@ export default function BilanRetraite() {
         </div>
       </div>
 
-      {activeModal && activePack && (
+      {activeModal && activePack && createPortal(
         <div className="BR-Overlay" onClick={() => setActiveModal(null)} role="dialog" aria-modal="true">
           <div className="BR-Modal" onClick={(e) => e.stopPropagation()}>
             <div className="BR-Modal-Head BR-Modal-Head--brand">
@@ -415,7 +416,8 @@ export default function BilanRetraite() {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

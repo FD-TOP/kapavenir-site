@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useId } from 'react';
+import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import './BilanRetraite.css';
 import './AideDepart.css';
@@ -375,7 +376,7 @@ export default function AideDepart() {
         </div>
       </div>
 
-      {activeModal && activePack && (
+      {activeModal && activePack && createPortal(
         <div className="BR-Overlay" onClick={() => setActiveModal(null)} role="dialog" aria-modal="true">
           <div className="BR-Modal" onClick={(e) => e.stopPropagation()}>
             <div className="BR-Modal-Head BR-Modal-Head--brand">
@@ -485,7 +486,8 @@ export default function AideDepart() {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
