@@ -30,7 +30,6 @@ const packs = [
     pricePill: 'XXX € TTC',
     intro:
       'Identifiez rapidement les aides et dispositifs auxquels vous avez droit pour ne rien manquer au moment du départ.',
-    ideal: "Ceux qui veulent savoir s'ils passent à côté d'opportunités",
     features: [
       'Analyse de votre situation actuelle',
       'Identification des aides potentielles',
@@ -70,7 +69,6 @@ const packs = [
     pricePill: 'XXX € TTC',
     intro:
       'Un diagnostic poussé et des scénarios pour maximiser les avantages financiers et fiscaux liés à votre départ.',
-    ideal: 'Ceux qui veulent optimiser leur situation financière au moment du départ',
     features: [
       'Diagnostic complet des aides',
       'Analyse des indemnités de départ',
@@ -119,7 +117,6 @@ const packs = [
     pricePill: 'XXX € TTC',
     intro:
       'De l’analyse à la concrétisation : nous sécurisons chaque étape jusqu’à votre départ effectif, avec un suivi humain.',
-    ideal: 'Ceux qui veulent être accompagnés sans stress et sans erreur',
     features: [
       'Tout le pack optimisation',
       'Mise en place des actions recommandées',
@@ -359,11 +356,6 @@ export default function AideDepart() {
                     </li>
                   ))}
                 </ul>
-
-                <div className="BR-Card-Ideal">
-                  <span className="BR-Card-Ideal-Label">Idéal pour :</span>
-                  <span className="BR-Card-Ideal-Text">{pack.ideal}</span>
-                </div>
 
                 <button type="button" className="BR-Btn" onClick={() => setActiveModal(pack.id)}>
                   Plus d&apos;informations
