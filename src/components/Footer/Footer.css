@@ -1,242 +1,273 @@
 /* =============================================================================
-   Footer KapAvenir — grille 3 colonnes + bandeau légal
-   Portrait : ancré en bas à droite, léger débord vers la section au-dessus
+   Footer KapAvenir — aligné sur le modèle HTML de référence (flex + photo)
    ============================================================================= */
 
-.KF-Root {
-  --kf-bg: #4a76b8;
-  --kf-pad-x: clamp(20px, 5vw, 56px);
-  --kf-overlap: 0px;
-  --kf-portrait-h: clamp(380px, 36vh, 520px);
-  --kf-portrait-max-w: 320px;
-  --kf-visual-min-h: 300px;
+.KF-Wrapper {
+  --kf-blue: #3a7bbf;
+  --kf-blue-dark: #2e69a8;
+  --kf-green: #7dd4a8;
+  --kf-pad-x: clamp(20px, 5vw, 60px);
+  --kf-bubble-w: 180px;
+  --kf-photo-shift: 190px;
 
   position: relative;
   z-index: 30;
   width: 100%;
   box-sizing: border-box;
+  /* Espace pour que le portrait déborde vers le haut (comme .footer-wrapper) */
+  padding-top: 80px;
 }
 
-@media (min-width: 769px) {
-  .KF-Root {
-    --kf-overlap: 72px;
-    margin-top: calc(-1 * var(--kf-overlap));
-  }
-}
-
-.KF-Body {
+.KF-Foot {
+  font-family: 'Nunito', 'Inter', system-ui, sans-serif;
   position: relative;
-  width: 100%;
-  margin: 0 auto;
   overflow: visible;
-  padding: 40px 0 0;
-  background: var(--kf-bg);
-  border-radius: 24px 24px 0 0;
-  box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.06);
+  background: var(--kf-blue);
+  color: #fff;
 }
 
-.KF-Inner {
-  max-width: 1200px;
+.KF-TopWrap {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 var(--kf-pad-x);
-  position: relative;
-  z-index: 2;
+  padding: 50px var(--kf-pad-x) 0;
 }
 
-/* --- Grille principale ---------------------------------------------------- */
-
-.KF-Grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.95fr) minmax(180px, 280px);
-  gap: 32px 36px;
-  align-items: start;
-  margin-bottom: 40px;
-}
-
-.KF-MidCluster {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px 28px;
-  align-content: start;
-}
-
-/* Colonne visuelle : réserve l’espace en bas ; le portrait sort par le haut */
-.KF-VisualCol {
-  position: relative;
-  align-self: stretch;
-  min-height: var(--kf-visual-min-h);
-  overflow: visible;
-}
-
-.KF-FemmeImg {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: auto;
-  height: var(--kf-portrait-h);
-  max-width: min(100%, var(--kf-portrait-max-w));
-  object-fit: contain;
-  object-position: bottom right;
-  pointer-events: none;
-  z-index: 5;
-  filter: drop-shadow(-2px 4px 14px rgba(0, 0, 0, 0.14));
-}
-
-.KF-Bulle {
-  position: absolute;
-  right: 0;
-  bottom: 48px;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  min-width: 176px;
-  max-width: 210px;
-  padding: 14px 18px 16px;
-  background: #fff;
-  border-radius: 24px 32px 20px 28px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
-}
-
-.KF-BulleLogo img {
-  height: 24px;
-  display: block;
-}
-
-.KF-BulleText {
-  margin: 0;
-  font-size: 0.88rem;
-  font-weight: 800;
-  font-style: italic;
-  color: #66bb6a;
-  text-align: center;
-  line-height: 1.35;
-}
-
-/* --- Bio & réseaux -------------------------------------------------------- */
-
-.KF-BioLogo {
-  margin-bottom: 16px;
-}
-
-.KF-BioLogo img {
-  height: 36px;
-  display: block;
-}
-
-.KF-Bio {
-  margin: 0 0 12px;
-  max-width: 36em;
-  color: #fff;
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-
-.KF-Bio--small {
-  margin-bottom: 16px;
-  font-size: 0.84rem;
-  opacity: 0.94;
-}
-
-.KF-Socials {
-  display: flex;
-  gap: 10px;
-}
-
-.KF-Socials a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  color: rgba(255, 255, 255, 0.92);
-  background: rgba(255, 255, 255, 0.16);
-  transition: background 0.25s, transform 0.2s;
-}
-
-.KF-Socials a:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-/* --- Liens & contact ------------------------------------------------------ */
-
-.KF-Col h4 {
-  margin: 0 0 14px;
-  color: #fff;
-  font-size: 0.94rem;
-  font-weight: 700;
-}
-
-.KF-Col ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.KF-Col li {
-  margin-bottom: 8px;
-}
-
-.KF-Col a {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.85rem;
-  text-decoration: none;
-  transition: color 0.2s, padding-left 0.2s;
-}
-
-.KF-Col a:hover {
-  padding-left: 3px;
-  color: #fff;
-}
-
-.KF-ContactList {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.KF-ContactItem span {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.85rem;
-  line-height: 1.55;
-}
-
-/* --- Bandeau copyright ---------------------------------------------------- */
-
-.KF-Copyright {
+.KF-Top {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  gap: clamp(28px, 4vw, 60px);
+  position: relative;
+}
+
+/* --- Marque + texte ------------------------------------------------------- */
+
+.KF-Brand {
+  flex: 1 1 260px;
+  max-width: 420px;
+  min-width: 0;
+}
+
+.KF-LogoRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.KF-LogoIcon {
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.KF-LogoIcon--brand {
+  width: 36px;
+  height: 36px;
+  background: #fff;
+}
+
+.KF-LogoIcon--brand svg {
+  width: 22px;
+  height: 22px;
+}
+
+.KF-LogoIcon--bubble {
+  width: 28px;
+  height: 28px;
+  background: var(--kf-blue);
+}
+
+.KF-LogoIcon--bubble svg {
+  width: 18px;
+  height: 18px;
+}
+
+.KF-LogoText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.KF-LogoText span,
+.KF-BubbleLogoText span {
+  color: var(--kf-green);
+}
+
+.KF-Desc {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.KF-Desc strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* --- Liens rapides ---------------------------------------------------------- */
+
+.KF-Links {
+  flex: 0 0 160px;
+  min-width: 140px;
+}
+
+.KF-ColTitle {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+
+.KF-Links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.KF-Links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.KF-Links a:hover {
+  color: #fff;
+}
+
+/* --- Contact --------------------------------------------------------------- */
+
+.KF-Contact {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.KF-Contact p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+.KF-Contact a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.KF-Contact a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* --- Carte photo + bulle (référence) --------------------------------------- */
+
+.KF-PhotoCard {
+  flex: 0 0 220px;
+  position: relative;
+  align-self: flex-end;
+  width: 220px;
+  max-width: 100%;
+  min-height: 120px;
+  margin-bottom: -1px;
+}
+
+.KF-Bubble {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  width: var(--kf-bubble-w);
+  padding: 16px 20px 20px;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+}
+
+.KF-BubbleLogoRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.KF-BubbleLogoText {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--kf-blue);
+  line-height: 1;
+}
+
+.KF-BubbleTagline {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--kf-blue);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.KF-Photo {
+  position: absolute;
+  bottom: 0;
+  right: var(--kf-photo-shift);
+  height: 260px;
+  width: auto;
+  max-width: min(280px, 55vw);
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(-4px 0 12px rgba(0, 0, 0, 0.18));
+}
+
+/* --- Bandeau bas ----------------------------------------------------------- */
+
+.KF-Bottom {
+  margin-top: 40px;
+  background: var(--kf-blue-dark);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.KF-BottomInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px var(--kf-pad-x);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: 16px 24px;
-  padding: 20px 0 max(24px, env(safe-area-inset-bottom));
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  font-size: 0.76rem;
-  color: rgba(255, 255, 255, 0.92);
 }
 
-.KF-CopyrightText {
+.KF-Copyright {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.78rem;
+  line-height: 1.5;
   flex: 1 1 260px;
-  margin: 0;
-  line-height: 1.55;
 }
 
-.KF-Conception {
-  opacity: 0.92;
-  white-space: nowrap;
-}
-
-.KF-Conception a {
+.KF-ConceptionLink {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.KF-Conception a:hover {
+.KF-ConceptionLink:hover {
   color: #fff;
 }
 
@@ -244,35 +275,27 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
-  gap: 16px;
-  flex: 0 1 auto;
+  gap: 20px;
 }
 
 .KF-LegalLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(255, 255, 255, 0.96);
-  font-size: 0.76rem;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  transition: opacity 0.2s;
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+}
+
+.KF-LegalLink::before {
+  content: '›';
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .KF-LegalLink:hover {
-  opacity: 0.85;
-}
-
-.KF-LegalIcon {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 50%;
   color: #fff;
 }
 
@@ -280,123 +303,64 @@
    Responsive
    ============================================================================= */
 
-@media (max-width: 1100px) {
-  .KF-Root {
-    --kf-portrait-h: clamp(340px, 34vh, 480px);
-    --kf-portrait-max-w: 280px;
-    --kf-visual-min-h: 280px;
+@media (max-width: 1024px) {
+  .KF-Top {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .KF-Grid {
-    grid-template-columns: minmax(0, 1.1fr) minmax(220px, 1fr) minmax(160px, 240px);
-    gap: 28px;
-  }
-}
-
-@media (max-width: 960px) {
-  .KF-Grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+  .KF-Brand {
+    max-width: none;
   }
 
-  .KF-ColBio {
-    grid-column: 1 / -1;
-    max-width: 640px;
+  .KF-Links {
+    flex: 0 0 auto;
   }
 
-  .KF-MidCluster {
-    grid-column: 1 / -1;
-    max-width: 520px;
-  }
-
-  .KF-VisualCol {
-    grid-column: 1 / -1;
-    justify-self: end;
-    width: min(100%, 420px);
+  .KF-PhotoCard {
+    align-self: center;
+    width: min(100%, 320px);
+    flex-basis: auto;
     min-height: 260px;
-    margin-top: 4px;
+    margin-top: 8px;
   }
 
-  .KF-FemmeImg {
-    right: max(0px, env(safe-area-inset-right, 0px));
+  .KF-Photo {
+    right: auto;
+    left: 50%;
+    transform: translateX(calc(-50% - 55px));
+    height: clamp(220px, 36vh, 280px);
   }
 
-  .KF-Bulle {
-    right: max(0px, env(safe-area-inset-right, 0px));
-    bottom: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .KF-Root {
-    margin-top: 0;
-    --kf-overlap: 0px;
-  }
-
-  .KF-Body {
-    border-radius: 20px 20px 0 0;
-    padding-top: 32px;
-  }
-
-  .KF-MidCluster {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .KF-VisualCol {
-    justify-self: center;
-    width: 100%;
-    max-width: 400px;
-    min-height: 300px;
-  }
-
-  .KF-FemmeImg {
-    right: 50%;
-    transform: translateX(50%);
-    --kf-portrait-h: clamp(300px, 52vw, 400px);
-    --kf-portrait-max-w: 260px;
-  }
-
-  .KF-Bulle {
-    right: 50%;
-    bottom: 36px;
-    transform: translateX(50%);
+  .KF-Bubble {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
-@media (max-width: 480px) {
-  .KF-Body {
-    border-radius: 0;
+@media (max-width: 560px) {
+  .KF-Wrapper {
+    padding-top: 48px;
   }
 
-  .KF-Root {
-    --kf-portrait-h: clamp(260px, 58vw, 340px);
-    --kf-visual-min-h: 260px;
+  .KF-TopWrap {
+    padding-top: 36px;
   }
 
-  .KF-VisualCol {
-    min-height: 260px;
+  .KF-Photo {
+    transform: translateX(-50%);
+    max-width: 70vw;
   }
 
-  .KF-Bulle {
-    min-width: 160px;
-    padding: 12px 14px 14px;
+  .KF-Bubble {
+    width: min(var(--kf-bubble-w), calc(100vw - 2 * var(--kf-pad-x)));
   }
 
-  .KF-BulleText {
-    font-size: 0.82rem;
-  }
-
-  .KF-Conception {
-    display: inline;
-    white-space: normal;
-  }
-
-  .KF-Copyright {
+  .KF-BottomInner {
     flex-direction: column;
     align-items: stretch;
     text-align: center;
-    padding-bottom: max(72px, calc(20px + env(safe-area-inset-bottom)));
   }
 
   .KF-Legal {
