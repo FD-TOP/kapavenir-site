@@ -439,7 +439,7 @@ export default function PourQui() {
           <div className="PQ-Block-Inner PQ-Split">
             <div className="PQ-Intro-Left">
               <span className="PQ-Label PQ-Label--blue">Particuliers</span>
-              <h2 className="PQ-Block-Title">Prenez le contrôle de<br /><span className="PQ-Grad">votre retraite</span></h2>
+              <h2 className="PQ-Block-Title">Prenez le <span className="PQ-Grad">contrôle</span> de<br />votre retraite</h2>
               <p className="PQ-Block-Sub">Comprenez vos droits, optimisez vos choix et partez au meilleur moment.</p>
               <div className="PQ-BtnRow">
                 <button className="PQ-Btn PQ-Btn--solid" onClick={() => navigate('/services/bilan')}>Faire mon bilan retraite</button>

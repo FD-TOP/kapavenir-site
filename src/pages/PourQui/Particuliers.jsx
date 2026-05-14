@@ -105,8 +105,8 @@ export default function Particuliers() {
           <div className="PT-Hero-Left">
             <span className="PT-Tag">Particuliers</span>
             <h1 className="PT-Hero-Title">
-              Prenez le contrôle de<br />
-              <span className="PT-Grad">votre retraite</span>
+              Prenez le <span className="PT-Grad">contrôle</span> de<br />
+              votre retraite
             </h1>
             <p className="PT-Hero-Sub">
               Comprenez vos droits, optimisez vos choix et partez au meilleur moment.
