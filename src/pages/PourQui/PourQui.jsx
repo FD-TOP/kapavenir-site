@@ -204,10 +204,10 @@ const OR_SERVICES = [
   { title: 'Programme pédagogique',     desc: 'Contenus, ateliers et formation de vos équipes en interne.' },
 ];
 const OR_STEPS = [
-  { n: '01', title: 'Diagnostic rapide',        desc: 'Analyse de la situation retraite du client en quelques minutes.' },
-  { n: '02', title: 'Analyse personnalisée',    desc: 'Projections adaptées à chaque profil et chaque objectif.' },
-  { n: '03', title: 'Recommandations claires',  desc: 'Un rapport simple, lisible, actionnable par le conseiller.' },
-  { n: '04', title: "Passage à l'action",      desc: "Accompagnement jusqu'aux démarches et décisions finales." },
+  { title: 'Diagnostic rapide',        desc: 'Analyse de la situation retraite du client en quelques minutes.' },
+  { title: 'Analyse personnalisée',    desc: 'Projections adaptées à chaque profil et chaque objectif.' },
+  { title: 'Recommandations claires',  desc: 'Un rapport simple, lisible, actionnable par le conseiller.' },
+  { title: "Passage à l'action",      desc: "Accompagnement jusqu'aux démarches et décisions finales." },
 ];
 const OR_DIFFS = [
   'Approche pédagogique avant tout',
@@ -771,13 +771,13 @@ export default function PourQui() {
           <LogoSticker size={72} top="6%" right="3%" rotation={-16} opacity={0.2} animation="float" hideMobile />
           <div className="OR-Inner">
             <div className="OR-Head OR-Head--light">
-              <h2 className="OR-Title OR-Title--white" style={{ marginTop: 0 }}>Une expérience <span className="OR-Cyan">simple et engageante</span></h2>
+              <h2 className="OR-Title OR-Title--white" style={{ marginTop: 0 }}>
+                Une expérience <span className="OR-Grad">simple</span> et <span className="OR-Grad">engageante</span>
+              </h2>
             </div>
-            <div className="OR-VTimeline">
-              <div className="OR-VLine" />
+            <div className="OR-VTimeline OR-VTimeline--stack">
               {OR_STEPS.map((s, i) => (
-                <div key={i} className={"OR-VStep " + (i % 2 === 0 ? "OR-VStep--left" : "OR-VStep--right")} style={{ "--i": i }}>
-                  <div className="OR-VStep-Badge">{s.n}</div>
+                <div key={s.title} className="OR-VStep OR-VStep--stack" style={{ "--i": i }}>
                   <div className="OR-VStep-Card">
                     <h3 className="OR-VStep-Title">{s.title}</h3>
                     <p className="OR-VStep-Desc">{s.desc}</p>
