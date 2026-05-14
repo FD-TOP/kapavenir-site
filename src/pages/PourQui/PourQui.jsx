@@ -35,6 +35,15 @@ function useReveal(threshold = 0.1) {
   return [ref, vis];
 }
 
+function renderBnParts(parts) {
+  return parts.map((ln, j) => (
+    <React.Fragment key={j}>
+      {ln.t}
+      {ln.g ? <span className="PQ-Grad">{ln.g}</span> : null}
+    </React.Fragment>
+  ));
+}
+
 function useCounter(target, duration, started) {
   const [val, setVal] = useState(0);
   useEffect(() => {
@@ -132,15 +141,15 @@ const PROBLEMS = [
   { icon: Icon.refresh, text: 'Règles qui évoluent constamment' },
 ];
 const PROMISES = [
-  { icon: Icon.search, num: '01', label: 'Comprendre votre situation', desc: 'Un diagnostic complet de votre carrière et de vos droits acquis.' },
-  { icon: Icon.chart,  num: '02', label: 'Visualiser vos options',     desc: 'Des scénarios chiffrés pour choisir le moment idéal de départ.' },
-  { icon: Icon.shield, num: '03', label: 'Décider en toute confiance', desc: 'Un accompagnement humain jusqu’à votre premier versement.' },
+  { icon: Icon.search, label: 'Comprendre votre situation', desc: 'Un diagnostic complet de votre carrière et de vos droits acquis.' },
+  { icon: Icon.chart,  label: 'Visualiser vos options',     desc: 'Des scénarios chiffrés pour choisir le moment idéal de départ.' },
+  { icon: Icon.shield, label: 'Décider en toute confiance', desc: 'Un accompagnement humain jusqu’à votre premier versement.' },
 ];
 const SERVICES = [
   { icon: Icon.chart,  title: 'Bilan retraite',        desc: 'Analyse complète, vérification de carrière et projections personnalisées.', color: '#4381C1' },
   { icon: Icon.target, title: 'Optimisation retraite', desc: 'Scénarios pour partir plus tôt ou maximiser votre pension.',                 color: '#00bf63' },
   { icon: Icon.arrow,  title: 'Aide au départ',        desc: 'Accompagnement dans vos démarches jusqu’au premier paiement.',          color: '#00b6de' },
-  { icon: Icon.user,   title: 'Conseil personnalisé',  desc: 'Échange direct avec un expert dédié à vos questions.',                       color: '#4381C1' },
+  { icon: Icon.user,   title: 'Conseil personnalisé et accompagnement digital', desc: 'Échange avec un expert dédié et parcours d’accompagnement digital adapté.', color: '#4381C1' },
 ];
 const STEPS = [
   { title: 'Vous partagez',  desc: 'Votre situation, vos objectifs et vos questions.' },
@@ -149,10 +158,30 @@ const STEPS = [
   { title: 'Vous agissez',   desc: 'En toute confiance, au moment optimal.' },
 ];
 const BENEFITS = [
-  { icon: Icon.eye,    label: 'Une vision claire',   sub: 'de votre retraite',   color: '#4381C1' },
-  { icon: Icon.clock,  label: 'Le bon moment',        sub: 'pour partir',          color: '#00bf63' },
-  { icon: Icon.wallet, label: 'Une pension',          sub: 'optimisée',             color: '#00b6de' },
-  { icon: Icon.heart,  label: 'Plus de sérénité',    sub: 'et moins de stress',   color: '#4381C1' },
+  {
+    icon: Icon.eye,
+    color: '#4381C1',
+    titleParts: [{ t: 'Une vision ', g: 'claire' }],
+    subParts: [{ t: 'de votre ', g: 'retraite' }],
+  },
+  {
+    icon: Icon.clock,
+    color: '#00bf63',
+    titleParts: [{ t: '', g: 'Un départ au bon moment' }],
+    subParts: [],
+  },
+  {
+    icon: Icon.wallet,
+    color: '#00b6de',
+    titleParts: [{ t: 'Une pension ', g: 'optimisée' }],
+    subParts: [],
+  },
+  {
+    icon: Icon.heart,
+    color: '#4381C1',
+    titleParts: [{ t: 'Plus de sérénité', g: null }],
+    subParts: [{ t: '', g: 'et moins de stress' }],
+  },
 ];
 const DIFFS = [
   'Une pédagogie simple et accessible',
@@ -349,11 +378,6 @@ export default function PourQui() {
     return () => clearTimeout(t);
   }, [dfVis, revealedDiffs]);
 
-  /* ── Compteurs panel droite ── */
-  const stat98 = useCounter(98,   1400, dfVis);
-  const stat12 = useCounter(12,   1100, dfVis);
-  const stat3k = useCounter(3,    1800, dfVis);
-
   return (
     <div className="PQ-Root">
 
@@ -470,7 +494,7 @@ export default function PourQui() {
           <div className="PQ-Block-Inner PQ-Split PQ-Split--photo-right">
             <div className="PQ-Pb-Content">
               <span className="PQ-Label PQ-Label--slate">Le problème</span>
-              <h2 className="PQ-Block-Title">La retraite est complexe…<br /><em>mais ça ne devrait pas l’être</em></h2>
+              <h2 className="PQ-Block-Title">La retraite est complexe…<br /><span className="PQ-Grad">mais ça ne devrait pas l’être</span></h2>
               <div className="PQ-Pb-List">
                 {PROBLEMS.map((p, i) => (
                   <div key={i} className="PQ-Pb-Row" style={{ transitionDelay: (i * 100) + "ms" }}>
@@ -503,13 +527,12 @@ export default function PourQui() {
           <div className="PQ-Block-Inner">
             <div className="PQ-Head">
               <span className="PQ-Label PQ-Label--blue">Notre promesse</span>
-              <h2 className="PQ-Block-Title">Une approche <span className="PQ-Grad">simple, claire</span> et actionnable</h2>
+              <h2 className="PQ-Block-Title">Une approche <span className="PQ-Grad">simple, claire et actionnable</span></h2>
             </div>
             <div className="PQ-Promise-Grid">
               {PROMISES.map((p, i) => (
                 <div key={i} className="PQ-Promise-Card" style={{ transitionDelay: (i * 150) + "ms" }}>
                   <div className="PQ-Promise-Top">
-                    <span className="PQ-Promise-Num">{p.num}</span>
                     <div className="PQ-Promise-IcoBox">{p.icon}</div>
                   </div>
                   <h3 className="PQ-Promise-Title">{p.label}</h3>
@@ -568,7 +591,6 @@ export default function PourQui() {
                     <div className="PQ-TStep-Ring" />
                   </div>
                   <div className="PQ-TStep-Card">
-                    <span className="PQ-TStep-BgNum">{String(i + 1).padStart(2, '0')}</span>
                     <h3 className="PQ-TStep-Title">{s.title}</h3>
                     <p className="PQ-TStep-Desc">{s.desc}</p>
                   </div>
@@ -593,8 +615,10 @@ export default function PourQui() {
                   style={{ "--bc": b.color, transitionDelay: bnVis ? (i * 110) + "ms" : "0ms" }}>
                   {activeBn === i && <div className="PQ-Bn-Bar" key={`bnbar-${i}-${activeBn}`} />}
                   <div className="PQ-Bn-IcoWrap">{b.icon}</div>
-                  <strong className="PQ-Bn-Title">{b.label}</strong>
-                  <span className="PQ-Bn-Sub">{b.sub}</span>
+                  <strong className="PQ-Bn-Title">{renderBnParts(b.titleParts)}</strong>
+                  {b.subParts.length > 0 ? (
+                    <span className="PQ-Bn-Sub">{renderBnParts(b.subParts)}</span>
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -612,13 +636,9 @@ export default function PourQui() {
               <h2 className="PQ-Block-Title" style={{ marginTop: "14px" }}>
                 Pourquoi <span className="PQ-Grad">KapAvenir ?</span>
               </h2>
-              <p className="PQ-Block-Sub" style={{ marginTop: "10px", marginBottom: "0" }}>
-                Une méthode pensée pour vous, pas pour les administrations.
-              </p>
               <div className="PQ-Diff-List">
                 {DIFFS.map((d, i) => (
                   <div key={i} className={"PQ-Diff-Row" + (i < revealedDiffs ? " is-revealed" : "")}>
-                    <div className="PQ-Diff-Num">{String(i + 1).padStart(2, '0')}</div>
                     <div className={"PQ-Diff-Chk" + (i < revealedDiffs ? " is-drawn" : "")}>
                       {Icon.check}
                     </div>
@@ -628,58 +648,15 @@ export default function PourQui() {
               </div>
             </div>
 
-            {/* RIGHT — panel stats premium */}
-            <div className="PQ-Why-Panel">
-              <div className="PQ-Why-Orb PQ-Why-Orb--1" />
-              <div className="PQ-Why-Orb PQ-Why-Orb--2" />
-              <div className="PQ-Why-Orb PQ-Why-Orb--3" />
-              <p className="PQ-Why-Tag">Nos résultats</p>
-              <div className="PQ-Why-Stats">
-                <div className="PQ-Why-Stat">
-                  <div className="PQ-Why-IcoBox">{Icon.heart}</div>
-                  <div className="PQ-Why-Val">
-                    <strong className="PQ-Why-Big">{stat98}<span className="PQ-Why-Sup">%</span></strong>
-                    <span className="PQ-Why-Lbl">clients satisfaits</span>
-                  </div>
-                </div>
-                <div className="PQ-Why-Rule" />
-                <div className="PQ-Why-Stat">
-                  <div className="PQ-Why-IcoBox">{Icon.clock}</div>
-                  <div className="PQ-Why-Val">
-                    <strong className="PQ-Why-Big">+{stat12}<span className="PQ-Why-Sup"> ans</span></strong>
-                    <span className="PQ-Why-Lbl">d'expertise retraite</span>
-                  </div>
-                </div>
-                <div className="PQ-Why-Rule" />
-                <div className="PQ-Why-Stat">
-                  <div className="PQ-Why-IcoBox">{Icon.user}</div>
-                  <div className="PQ-Why-Val">
-                    <strong className="PQ-Why-Big">{stat3k}k<span className="PQ-Why-Sup">+</span></strong>
-                    <span className="PQ-Why-Lbl">accompagnements réalisés</span>
-                  </div>
-                </div>
-              </div>
-              <div className="PQ-Why-Foot">
-                <div className="PQ-Why-Stars">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="none" aria-hidden="true">
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                    </svg>
-                  ))}
-                </div>
-                <span className="PQ-Why-Rating">Note moyenne 4.9 / 5</span>
-              </div>
-            </div>
-
           </div>
         </div>
 
         {/* 8 — CTA */}
         <div className={"PQ-CTA-Section " + (ctVis ? "is-vis" : "")} ref={ctRef}>
           <div className="PQ-CTA-Inner">
-            <p className="PQ-CTA-Eye">Passez à l’action</p>
+            <p className="PQ-CTA-Eye PQ-Grad">Passez à l’action</p>
             <h2 className="PQ-CTA-Title">Prenez quelques minutes aujourd’hui pour sécuriser des années de retraite</h2>
-            <button className="PQ-Btn PQ-Btn--white" onClick={() => navigate('/services/bilan')}>Faire mon bilan retraite
+            <button className="PQ-Btn PQ-Btn--solid" onClick={() => navigate('/services/bilan')}>Faire mon bilan retraite
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </div>

@@ -204,13 +204,19 @@
 
 /* ─── Labels ─────────────────────────────────────────────────── */
 .PQ-Label, .PQ-Label--blue {
-  display: inline-block; border-radius: 50px; padding: 5px 16px;
+  display: inline-block; border-radius: 50px; padding: 6px 18px;
   font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-  background: rgba(67,129,193,.1); border: 1px solid rgba(67,129,193,.3);
-  color: var(--k-blue); margin-bottom: 14px;
+  background: linear-gradient(165deg, rgba(255,255,255,.95) 0%, rgba(248, 252, 255, .9) 100%);
+  border: 1px solid rgba(0, 182, 222, 0.32);
+  color: #0071bc;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 12px rgba(0, 113, 188, 0.08);
 }
 .PQ-Label--green {
-  background: rgba(0,191,99,.1); border-color: rgba(0,191,99,.3); color: var(--k-green);
+  background: linear-gradient(165deg, rgba(255,255,255,.96) 0%, rgba(248, 255, 252, .92) 100%);
+  border-color: rgba(0, 191, 99, 0.35);
+  color: #059669;
+  box-shadow: 0 2px 12px rgba(0, 191, 99, 0.07);
 }
 .PQ-Label--slate {
   background: var(--bg3); border-color: var(--card-bd); color: var(--k-muted);
@@ -246,10 +252,21 @@
 }
 .ER-Title--white { color: var(--k-dark); }
 
-/* Gradient spans matching the site */
+/* Gradient spans — charte premium (bleu → cyan → vert) */
 .PQ-Grad {
-  background: linear-gradient(90deg, #00b6de, #00bf63);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  background: var(--kap-premium-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline;
+}
+@supports not (-webkit-background-clip: text) {
+  .PQ-Grad {
+    background: none;
+    color: #0071bc;
+    -webkit-text-fill-color: unset;
+  }
 }
 .OR-Green {
   background: linear-gradient(90deg, #00bf63, #00b6de);
@@ -267,8 +284,6 @@
   background: linear-gradient(90deg, #00b6de, #00bf63);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-em { color: var(--k-cyan); font-style: normal; }
-
 /* Subtitles */
 .PQ-Block-Sub, .OR-Sub, .ER-Sub, .OR-Hero-Sub, .ER-Hero-Sub {
   font-size: .97rem; color: var(--k-muted); line-height: 1.75; max-width: 520px; margin: 0 0 32px;
@@ -418,12 +433,11 @@ em { color: var(--k-cyan); font-style: normal; }
 }
 .PQ-Promise-Card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, #00b6de, #00bf63); border-radius: 2px 2px 0 0;
+  background: var(--kap-premium-gradient); border-radius: 2px 2px 0 0;
   opacity: 0; transition: opacity .3s;
 }
 .PQ-Promise-Card:hover::before { opacity: 1; }
-.PQ-Promise-Top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; }
-.PQ-Promise-Num { font-size: .65rem; font-weight: 900; color: var(--k-subtle); letter-spacing: .1em; }
+.PQ-Promise-Top { display: flex; justify-content: flex-end; align-items: flex-start; margin-bottom: 18px; }
 .PQ-Promise-IcoBox {
   width: 44px; height: 44px; border-radius: 12px;
   background: linear-gradient(135deg, rgba(67,129,193,.12), rgba(0,182,222,.12));
@@ -591,13 +605,6 @@ em { color: var(--k-cyan); font-style: normal; }
   box-shadow: 0 12px 36px rgba(67,129,193,.22);
   transform: translateY(-6px);
 }
-.PQ-TStep-BgNum {
-  position: absolute; bottom: -10px; right: 6px;
-  font-size: 4rem; font-weight: 900;
-  background: linear-gradient(135deg, var(--k-blue), var(--k-cyan));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  opacity: .08; pointer-events: none; line-height: 1;
-}
 .PQ-TStep-Title { font-size: .88rem; font-weight: 800; color: var(--k-dark); margin: 0 0 6px; line-height: 1.3; }
 .PQ-TStep-Desc  { font-size: .74rem; color: var(--k-muted); line-height: 1.55; margin: 0; }
 
@@ -605,7 +612,7 @@ em { color: var(--k-cyan); font-style: normal; }
 .PQ-Bn-Grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; max-width: 900px; margin: 0 auto; }
 .PQ-Bn-Card {
   background: #fff; border: 1.5px solid var(--card-bd); border-radius: var(--card-r);
-  padding: 32px 20px 20px; display: flex; flex-direction: column; align-items: center; gap: 14px;
+  padding: 28px 20px 18px; display: flex; flex-direction: column; align-items: center; gap: 8px;
   position: relative; overflow: hidden; cursor: default; box-shadow: 0 6px 24px rgba(0,0,0,.18);
   opacity: 0; transform: scale(.96);
   transition: opacity .5s, transform .5s, border-color .4s, box-shadow .4s;
@@ -631,14 +638,24 @@ em { color: var(--k-cyan); font-style: normal; }
 }
 .PQ-Bn-Card.is-active .PQ-Bn-IcoWrap { box-shadow: 0 0 18px rgba(0,182,222,.3); }
 .PQ-Bn-IcoWrap svg { width: 22px; height: 22px; }
-.PQ-Bn-Title { font-size: .85rem; font-weight: 800; color: var(--k-dark); text-align: center; line-height: 1.3; }
-.PQ-Bn-Sub   { font-size: .72rem; color: var(--k-muted); text-align: center; }
+.PQ-Bn-Title { font-size: .85rem; font-weight: 800; color: var(--k-dark); text-align: center; line-height: 1.15; }
+.PQ-Bn-Sub   { font-size: .72rem; color: var(--k-muted); text-align: center; line-height: 1.2; margin-top: 2px; }
 .PQ-Bn-Card.is-active .PQ-Bn-Title,
 .PQ-Bn-Card.is-active .PQ-Bn-Sub { color: #ffffff; }
+.PQ-Bn-Card.is-active .PQ-Grad {
+  background: linear-gradient(90deg, #ffffff 0%, rgba(224, 249, 255, 0.95) 50%, rgba(220, 252, 231, 0.98) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+@supports not (-webkit-background-clip: text) {
+  .PQ-Bn-Card.is-active .PQ-Grad { background: none; color: #fff; -webkit-text-fill-color: unset; }
+}
 
 /* 7 — Différenciation */
 .PQ-Block--why { background: transparent !important; }
-.PQ-Why-Grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.PQ-Why-Grid { display: grid; grid-template-columns: 1fr; gap: 0; align-items: start; max-width: 720px; margin: 0 auto; }
 .PQ-Why-Left { display: flex; flex-direction: column; }
 .PQ-Diff-List { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
 .PQ-Diff-Row {
@@ -650,7 +667,6 @@ em { color: var(--k-cyan); font-style: normal; }
 }
 .PQ-Diff-Row.is-revealed { opacity: 1; transform: none; }
 .PQ-Diff-Row:hover { border-color: rgba(67,129,193,.25); box-shadow: 0 4px 16px rgba(67,129,193,.1); }
-.PQ-Diff-Num { font-size: .62rem; font-weight: 900; color: var(--k-subtle); width: 24px; flex-shrink: 0; }
 .PQ-Diff-Chk {
   width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
   background: rgba(67,129,193,.1); border: 2px solid rgba(67,129,193,.25);
@@ -703,8 +719,8 @@ em { color: var(--k-cyan); font-style: normal; }
 
 /* 8 — CTA Particuliers */
 .PQ-CTA-Section {
-  padding: var(--sec);
-  background: rgba(255,255,255,.72);
+  padding: clamp(3rem, 8vw, 5rem) var(--sec);
+  background: rgba(255,255,255,.82);
   backdrop-filter: blur(18px);
   border-top: 1px solid rgba(255,255,255,.85);
   border-bottom: 1px solid rgba(255,255,255,.85);
@@ -717,16 +733,14 @@ em { color: var(--k-cyan); font-style: normal; }
   background-size: 36px 36px;
 }
 .PQ-CTA-Section.is-vis { opacity: 1; transform: none; }
-.PQ-CTA-Inner { max-width: 560px; margin: 0 auto; position: relative; z-index: 1; }
+.PQ-CTA-Inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
 .PQ-CTA-Eye {
-  font-size: .62rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
-  background: linear-gradient(90deg,#00b6de,#00bf63);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  margin: 0 0 14px; display: block;
+  font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+  margin: 0 0 16px; display: block;
 }
 .PQ-CTA-Title {
-  font-size: clamp(1.55rem,2.8vw,2.1rem); font-weight: 900; color: var(--k-dark);
-  line-height: 1.25; margin: 0 0 32px;
+  font-size: clamp(1.65rem,3vw,2.25rem); font-weight: 900; color: var(--k-dark);
+  line-height: 1.22; margin: 0 0 36px;
 }
 
 /* ═══ ORGANISMES — HERO DARK ═══════════════════════════════════ */
