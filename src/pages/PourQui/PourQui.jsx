@@ -635,8 +635,7 @@ export default function PourQui() {
 
             {/* LEFT — checklist */}
             <div className="PQ-Why-Left">
-              <span className="PQ-Label PQ-Label--blue">Pourquoi nous</span>
-              <h2 className="PQ-Block-Title" style={{ marginTop: "14px" }}>
+              <h2 className="PQ-Block-Title" style={{ marginTop: 0 }}>
                 Pourquoi <span className="PQ-Grad">KapAvenir ?</span>
               </h2>
               <div className="PQ-Diff-List">

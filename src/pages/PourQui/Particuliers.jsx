@@ -244,7 +244,6 @@ export default function Particuliers() {
       <div className={"PT-Sec " + (dfVis ? "is-vis" : "")} ref={dfRef}>
         <div className="PT-Sec-Inner PT-Df-Grid">
           <div>
-            <span className="PT-Label PT-Label--blue">Pourquoi nous ?</span>
             <h2 className="PT-Sec-Title">Pourquoi KapAvenir ?</h2>
             <p className="PT-Sec-Sub">Une méthode pensée pour vous, pas pour les administrations.</p>
           </div>
