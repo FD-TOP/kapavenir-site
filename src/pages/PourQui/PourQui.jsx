@@ -578,7 +578,7 @@ export default function PourQui() {
           <div className="PQ-Block-Inner">
             <div className="PQ-Head">
               <span className="PQ-Label PQ-Label--blue">Le processus</span>
-              <h2 className="PQ-Block-Title">Un parcours simple <span className="PQ-Grad">en 4 étapes</span></h2>
+              <h2 className="PQ-Block-Title"><span className="PQ-Grad">Un parcours simple</span> en 4 étapes</h2>
               <p className="PQ-Head-Sub">De la première prise de contact à votre pension : un chemin clair et accompagné.</p>
             </div>
             <div className="PQ-Timeline">
