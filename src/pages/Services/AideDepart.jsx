@@ -30,7 +30,9 @@ const packs = [
     tagline: 'Identifiez rapidement ce à quoi vous avez droit',
     pricePill: 'XXX € TTC',
     intro:
-      'Identifiez rapidement les aides et dispositifs auxquels vous avez droit pour ne rien manquer au moment du départ.',
+      'Identifier rapidement les aides auxquelles vous avez droit pour ne laisser aucune opportunité de côté.',
+    modalIdeal:
+      "Les personnes qui veulent savoir si elles passent à côté d'opportunités",
     features: [
       'Analyse de votre situation actuelle',
       'Identification des aides potentielles',
@@ -69,7 +71,9 @@ const packs = [
     tagline: 'Maximisez les avantages financiers liés à votre départ',
     pricePill: 'XXX € TTC',
     intro:
-      'Un diagnostic poussé et des scénarios pour maximiser les avantages financiers et fiscaux liés à votre départ.',
+      'Maximiser les avantages financiers et optimiser chaque levier disponible au moment du départ à la retraite.',
+    modalIdeal:
+      'Les personnes qui veulent optimiser leur situation financière au moment du départ',
     features: [
       'Diagnostic complet des aides',
       'Analyse des indemnités de départ',
@@ -80,7 +84,7 @@ const packs = [
     modalDetail: {
       comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Diagnostic complet des aides et dispositifs applicables',
+        'Tout le diagnostic découverte',
         'Analyse détaillée de votre situation de fin de carrière',
         {
           text: 'Étude complète des indemnités de départ :',
@@ -117,7 +121,9 @@ const packs = [
     tagline: 'Sécurisez chaque étape et maximisez vos droits',
     pricePill: 'XXX € TTC',
     intro:
-      'De l’analyse à la concrétisation : nous sécurisons chaque étape jusqu’à votre départ effectif, avec un suivi humain.',
+      'Sécuriser chaque étape du départ en retraite avec un accompagnement complet, de l’analyse à la concrétisation.',
+    modalIdeal:
+      'Les personnes qui veulent être accompagnées sans stress et sans erreur',
     features: [
       'Tout le pack optimisation',
       'Mise en place des actions recommandées',
@@ -128,7 +134,7 @@ const packs = [
     modalDetail: {
       comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Tout le contenu du pack Optimisation départ',
+        'Tout le pack Optimisation départ',
         'Entretien personnalisé pour valider votre stratégie',
         "Définition d'un plan d'action clair et priorisé",
         'Mise en place des actions et optimisations recommandées',
@@ -461,6 +467,13 @@ export default function AideDepart() {
                 </div>
               </div>
             </div>
+
+            {activePack.modalIdeal && (
+              <div className="BR-Modal-Ideal">
+                <span className="BR-Modal-Ideal-Label">Idéal pour :</span>
+                <span className="BR-Modal-Ideal-Text">{activePack.modalIdeal}</span>
+              </div>
+            )}
 
             <div className="BR-Modal-Footer">
               <button type="button" className="BR-Modal-Cta BR-Modal-Cta--gradient" onClick={() => navigate('/contact')}>

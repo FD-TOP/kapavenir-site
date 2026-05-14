@@ -649,6 +649,46 @@
   flex-shrink: 0;
 }
 
+/* Bloc « Idéal pour » (modales — charte neutre + accent marque) */
+.BR-Modal-Ideal {
+  margin: 0 26px 20px;
+  padding: 14px 18px 14px 20px;
+  background: rgba(248, 250, 252, 0.98);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
+  position: relative;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset;
+}
+
+.BR-Modal-Ideal::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--kap-premium-gradient);
+}
+
+.BR-Modal-Ideal-Label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.BR-Modal-Ideal-Text {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.55;
+}
+
 /* ── Pied du modal ───────────────────────────────────────── */
 .BR-Modal-Footer {
   padding: 20px 26px 24px;
@@ -799,6 +839,10 @@
   }
   .BR-Modal-Col {
     padding: 18px 18px 20px;
+  }
+  .BR-Modal-Ideal {
+    margin: 0 18px 16px;
+    padding: 12px 14px 12px 16px;
   }
   .BR-Modal-Footer {
     gap: 8px;

@@ -8,7 +8,7 @@ import LogoSticker from '../../components/Common/LogoSticker';
 const packs = [
   {
     id: 'clarte',
-    title: 'Kap clarté',
+    title: 'Kap Clarté',
     tagline: 'Comprendre aujourd’hui pour mieux préparer demain',
     pricePill: '300 € TTC',
     intro:
@@ -48,7 +48,7 @@ const packs = [
   },
   {
     id: 'maitrise',
-    title: 'KAP MAITRISE',
+    title: 'Kap Maîtrise',
     tagline: 'Construisez une retraite sûre, pas à pas, en toute confiance.',
     pricePill: '1500 € TTC',
     intro:
@@ -89,7 +89,7 @@ const packs = [
   },
   {
     id: 'prestige',
-    title: 'KAP PRESTIGE',
+    title: 'Kap Prestige',
     tagline: 'La sérénité d’une retraite sur-mesure, sans compromis',
     pricePill: '3500 € TTC',
     intro:
