@@ -385,6 +385,56 @@
   padding: 26px 28px 22px;
 }
 
+/* Offres avec détail modal (Clarté, Maîtrise, Prestige) : intro + 2 colonnes */
+.BR-Modal-Body--detail {
+  display: block;
+  padding: 0 0 8px;
+}
+
+.BR-Modal-Body--detail .BR-Modal-Lead {
+  padding: 22px 28px 18px;
+  margin: 0;
+}
+
+.BR-Modal-Split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid #e8f2fb;
+}
+
+.BR-Modal-Col {
+  padding: 22px 24px 26px;
+}
+
+.BR-Modal-Col--left {
+  border-right: 1px solid #e8f2fb;
+}
+
+.BR-Modal-ColHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid currentColor;
+  line-height: 1.35;
+}
+
+.BR-Modal-ColHead--green {
+  color: #00bf63;
+  border-color: #00bf63;
+}
+
+.BR-Modal-ColHead--blue {
+  color: #4381c1;
+  border-color: #4381c1;
+}
+
 .BR-Modal-Lead {
   margin: 0 0 18px;
   font-size: 0.95rem;
@@ -552,6 +602,15 @@
   .BR-Modal {
     max-width: 520px;
   }
+
+  .BR-Modal-Split {
+    grid-template-columns: 1fr;
+  }
+
+  .BR-Modal-Col--left {
+    border-right: none;
+    border-bottom: 1px solid #e8f2fb;
+  }
 }
 
 /* ── 580px ───────────────────────────────────────────────── */
@@ -570,6 +629,12 @@
   }
   .BR-Modal-Body--stacked {
     padding: 20px 18px 18px;
+  }
+  .BR-Modal-Body--detail .BR-Modal-Lead {
+    padding: 20px 18px 16px;
+  }
+  .BR-Modal-Col {
+    padding: 18px 18px 20px;
   }
   .BR-Modal-Footer {
     gap: 8px;

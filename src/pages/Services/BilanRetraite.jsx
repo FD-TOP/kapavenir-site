@@ -12,6 +12,32 @@ const packs = [
     pricePill: '300 € TTC',
     intro:
       'Un diagnostic clair et fiable de vos droits à la retraite, pour prendre les bonnes décisions dès aujourd’hui',
+    modalDetail: {
+      comprendTitle: 'Ce que comprend le pack :',
+      comprend: [
+        'Entretien personnalisé (1h) en présentiel ou à distance',
+        'Analyse complète du relevé de carrière',
+        'Estimation des droits à la retraite (âge, montant, trimestres)',
+        'Détection des anomalies et incohérences',
+        'Recommandations concrètes pour correction en autonomie',
+        'Conseils stratégiques de premier niveau',
+      ],
+      recoitTitle: 'Ce que vous recevez',
+      recoit: [
+        {
+          text: 'Rapport de diagnostic retraite personnalisé (PDF) incluant :',
+          sub: [
+            'Synthèse de la carrière',
+            'Estimation des droits',
+            'Liste des anomalies détectées',
+            'Recommandations actionnables',
+          ],
+        },
+        { text: 'Compte rendu de l’entretien' },
+        { text: 'Checklist des démarches à effectuer' },
+        { text: 'Support email (limité) pour questions post-diagnostic' },
+      ],
+    },
     features: [
       'Entretien personnalisé (1h) : sur place ou à distance.',
       'Analyse de votre relevé de carrière et estimation de vos droits.',
@@ -26,6 +52,31 @@ const packs = [
     pricePill: '1500 € TTC',
     intro:
       'Une gestion complète, pensée pour sécuriser chaque étape de votre retraite et garantir un départ maîtrisé.',
+    modalDetail: {
+      comprendTitle: 'Ce que comprend le pack :',
+      comprend: [
+        'Entretien personnalisé (1h) en présentiel ou à distance',
+        'Diagnostic retraite approfondi',
+        'Reconstitution complète de carrière (tous statuts confondus)',
+        'Identification et traitement des anomalies',
+        'Prise en charge des démarches auprès des caisses',
+        'Optimisation de la stratégie de départ (âge, trimestres, rachats)',
+        'Constitution complète du dossier de retraite',
+        'Suivi administratif (échanges, relances, courriers)',
+      ],
+      recoitTitle: 'Ce que vous recevez',
+      recoit: [
+        { text: 'Dossier retraite complet et structuré' },
+        {
+          text: 'Rapport d’optimisation personnalisé :',
+          sub: ['Scénario recommandé', 'Gains estimés'],
+        },
+        { text: 'Dossier administratif prêt à déposer' },
+        { text: 'Copies de tous les échanges et démarches effectuées' },
+        { text: 'Tableau de suivi des actions et avancement' },
+        { text: 'Support dédié pendant toute la durée du dossier' },
+      ],
+    },
     features: [
       'Diagnostic retraite détaillé.',
       'Reconstitution de carrière (salarié, indépendant, chômage, maladie, etc.).',
@@ -42,6 +93,33 @@ const packs = [
     pricePill: '3500 € TTC',
     intro:
       'Un service personnalisé clé en main, pour ceux qui veulent une retraite préparée, optimisée et sans effort.',
+    modalDetail: {
+      comprendTitle: 'Ce que comprend le pack :',
+      comprend: [
+        'Tout le contenu du forfait Maîtrise',
+        'Simulations avancées (multi-scénarios de départ)',
+        'Optimisation fine (cumul emploi-retraite, retraite progressive)',
+        'Accompagnement au rachat de trimestres (analyse + gestion complète)',
+        'Support illimité (questions, courriers, décisions)',
+        'Accompagnement physique (selon zone définie)',
+        'Gestion intégrale jusqu’à la liquidation des droits',
+        'Assistance après départ à la retraite',
+      ],
+      recoitTitle: 'Ce que vous recevez',
+      recoit: [
+        { text: 'Étude stratégique complète avec scénarios comparatifs' },
+        { text: 'Plan retraite sur-mesure (document premium)' },
+        { text: 'Simulations financières détaillées' },
+        { text: 'Dossier clé en main entièrement géré' },
+        { text: 'Historique complet des démarches et décisions' },
+        { text: 'Accès prioritaire au support (illimité)' },
+        {
+          text: 'Guide post-retraite personnalisé :',
+          sub: ['Compréhension des pensions', 'Ajustements possibles'],
+        },
+        { text: 'Accompagnement humain dédié (interlocuteur unique)' },
+      ],
+    },
     features: [
       'Tout ce qui est inclus dans le forfait Maîtrise.',
       'Simulation détaillée des différentes options de départ.',
@@ -113,6 +191,24 @@ function ListCheck() {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  );
+}
+
+function SmallGreenCheck() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 2 }} aria-hidden>
+      <circle cx="10" cy="10" r="10" fill="#00bf63" fillOpacity="0.13" />
+      <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#00bf63" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function BlueCheck() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 2 }} aria-hidden>
+      <circle cx="10" cy="10" r="10" fill="#4381C1" fillOpacity="0.13" />
+      <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#4381C1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -222,17 +318,78 @@ export default function BilanRetraite() {
               <p className="BR-Modal-Tagline">{activePack.tagline}</p>
             </div>
 
-            <div className="BR-Modal-Body BR-Modal-Body--stacked">
+            <div
+              className={
+                activePack.modalDetail
+                  ? 'BR-Modal-Body BR-Modal-Body--detail'
+                  : 'BR-Modal-Body BR-Modal-Body--stacked'
+              }
+            >
               <p className="BR-Modal-Lead">{activePack.intro}</p>
-              <p className="BR-Modal-ListTitle">Inclus dans cette formule</p>
-              <ul className="BR-Modal-List BR-Modal-List--single">
-                {activePack.features.map((item, i) => (
-                  <li key={i}>
-                    <ListCheck />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+
+              {activePack.modalDetail ? (
+                <div className="BR-Modal-Split">
+                  <div className="BR-Modal-Col BR-Modal-Col--left">
+                    <div className="BR-Modal-ColHead BR-Modal-ColHead--green">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00bf63" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                        <path d="M12 2L4 6v6c0 5.2 3.6 9.1 8 10 4.4-.9 8-4.8 8-10V6L12 2z" />
+                        <path d="M8.5 12l2.5 2.5 4.5-5" />
+                      </svg>
+                      {activePack.modalDetail.comprendTitle}
+                    </div>
+                    <ul className="BR-Modal-List">
+                      {activePack.modalDetail.comprend.map((item, i) => (
+                        <li key={i}>
+                          <SmallGreenCheck />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="BR-Modal-Col BR-Modal-Col--right">
+                    <div className="BR-Modal-ColHead BR-Modal-ColHead--blue">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4381C1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8L14 2z" />
+                        <path d="M14 2v6h6" />
+                        <path d="M12 13l1.5 2.5L16 14l-1.5 2.5L16 19l-2.5-1L12 20l-1.5-2L8 19l1.5-2.5L8 14l2.5 1.5L12 13z" />
+                      </svg>
+                      {activePack.modalDetail.recoitTitle}
+                    </div>
+                    <ul className="BR-Modal-List">
+                      {activePack.modalDetail.recoit.map((item, i) => (
+                        <li key={i}>
+                          <BlueCheck />
+                          <span>
+                            {item.text}
+                            {item.sub && (
+                              <ul className="BR-Modal-SubList">
+                                {item.sub.map((s, j) => (
+                                  <li key={j}>
+                                    <span className="BR-SubDot">›</span>
+                                    {s}
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <p className="BR-Modal-ListTitle">Inclus dans cette formule</p>
+                  <ul className="BR-Modal-List BR-Modal-List--single">
+                    {activePack.features.map((item, i) => (
+                      <li key={i}>
+                        <ListCheck />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
 
             <div className="BR-Modal-Footer">
