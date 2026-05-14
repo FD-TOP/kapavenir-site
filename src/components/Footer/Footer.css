@@ -10,10 +10,10 @@
   box-sizing: border-box;
 }
 
-/* Chevauche la section précédente pour que le portrait remonte visuellement */
+/* Chevauche la section précédente : le portrait dépasse nettement vers le haut */
 @media (min-width: 721px) {
   .KF-Root {
-    margin-top: -72px;
+    margin-top: -128px;
   }
 }
 
@@ -36,6 +36,7 @@
   padding: 0 5% 0;
   position: relative;
   z-index: 10;
+  overflow: visible;
 }
 
 /* ── Grille : bio | (liens + contact) | visuel ───────────── */
@@ -45,6 +46,7 @@
   gap: 36px 40px;
   margin-bottom: 44px;
   align-items: start;
+  overflow: visible;
 }
 
 .KF-MidCluster {
@@ -57,16 +59,17 @@
 .KF-VisualCol {
   position: relative;
   align-self: stretch;
-  min-height: 460px;
+  min-height: 500px;
+  overflow: visible;
 }
 
 .KF-FemmeImg {
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 640px;
+  height: min(82vh, 820px);
   width: auto;
-  max-width: min(100%, 360px);
+  max-width: min(100%, 440px);
   object-fit: contain;
   object-position: bottom right;
   z-index: 15;
@@ -271,8 +274,8 @@
     gap: 28px 28px;
   }
   .KF-FemmeImg {
-    height: 540px;
-    max-width: min(100%, 300px);
+    height: min(78vh, 700px);
+    max-width: min(100%, 360px);
   }
 }
 
@@ -291,12 +294,12 @@
   }
   .KF-VisualCol {
     grid-column: 1 / -1;
-    min-height: 400px;
+    min-height: 420px;
     margin-top: 8px;
   }
   .KF-FemmeImg {
-    height: 460px;
-    max-width: 300px;
+    height: min(72vh, 580px);
+    max-width: 340px;
     right: 6%;
     transform: none;
   }
