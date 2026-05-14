@@ -274,6 +274,23 @@
   background: linear-gradient(90deg, #00bf63, #00b6de);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
+.OR-Grad {
+  background: var(--kap-premium-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+@supports not (-webkit-background-clip: text) {
+  .OR-Grad {
+    background: none;
+    color: #0071bc;
+    -webkit-text-fill-color: unset;
+  }
+}
 .OR-Cyan {
   background: linear-gradient(90deg, #00b6de, #00bf63);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
@@ -908,13 +925,6 @@
 .OR-Pillar.is-active .OR-Pillar-Face::before {
   opacity: 1;
   animation: or-pillar-shine 2.6s ease-out;
-}
-.OR-Pillar-Letter {
-  position: absolute; bottom: -12px; right: 14px;
-  font-size: 4.4rem; font-weight: 900; font-style: italic;
-  color: var(--pc,#00bf63); opacity: .12; pointer-events: none; line-height: 1;
-  z-index: 0;
-  filter: blur(.2px);
 }
 .OR-Pillar-Top {
   display: flex;

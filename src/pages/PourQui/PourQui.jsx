@@ -194,7 +194,7 @@ const DIFFS = [
 const OR_PILLARS = [
   { key: 'A', color: '#00bf63', title: 'Comprendre', desc: 'Rendre la retraite lisible et accessible à tous vos clients.' },
   { key: 'B', color: '#00b6de', title: 'Projeter',   desc: 'Donner de la visibilité et des scénarios concrets à chaque assuré.' },
-  { key: 'C', color: '#4381C1', title: 'Agir',       desc: "Transformer l'information en décisions concrètes et mesurables." },
+  { key: 'C', color: '#4381C1', title: 'Agir',       desc: "Transformer l'information en décisions utiles." },
 ];
 const OR_SERVICES = [
   { n: '01', title: 'Diagnostic retraite',       desc: 'Vision claire, projections personnalisées, restitution simple.' },
@@ -680,7 +680,7 @@ export default function PourQui() {
             <div className="OR-Hero-Content">
               <span className="OR-Badge">Organismes & Assurances</span>
               <h2 className="OR-Hero-Title">
-                Accompagnez vos assurés dans<br />
+                Accompagnez vos assurés dans{' '}
                 <span className="OR-Hero-Accent">leurs décisions retraite</span>
               </h2>
               <p className="OR-Hero-Sub">
@@ -707,7 +707,7 @@ export default function PourQui() {
           <div className="OR-Inner">
             <div className="OR-Head">
               <span className="OR-Label">Notre approche</span>
-              <h2 className="OR-Title">Une offre retraite pensée <span className="OR-Green">pour vos enjeux</span></h2>
+              <h2 className="OR-Title">Une <span className="OR-Grad">offre retraite</span> pensée <span className="OR-Green">pour vos enjeux</span></h2>
             </div>
             <div className="OR-Pillars">
               {OR_PILLARS.map((p, i) => (
@@ -718,7 +718,6 @@ export default function PourQui() {
                   onClick={() => setActiveOrPil(i)}
                 >
                   <div className="OR-Pillar-Face">
-                    <span className="OR-Pillar-Letter">{p.key}</span>
                     <div className="OR-Pillar-Top">
                       <div className="OR-Pillar-Dot" />
                       <h3 className="OR-Pillar-Title">{p.title}</h3>
@@ -773,8 +772,7 @@ export default function PourQui() {
           <LogoSticker size={72} top="6%" right="3%" rotation={-16} opacity={0.2} animation="float" hideMobile />
           <div className="OR-Inner">
             <div className="OR-Head OR-Head--light">
-              <span className="OR-Label OR-Label--light">Parcours utilisateur</span>
-              <h2 className="OR-Title OR-Title--white">Une expérience <span className="OR-Cyan">simple et engageante</span></h2>
+              <h2 className="OR-Title OR-Title--white" style={{ marginTop: 0 }}>Une expérience <span className="OR-Cyan">simple et engageante</span></h2>
             </div>
             <div className="OR-VTimeline">
               <div className="OR-VLine" />
