@@ -301,13 +301,12 @@ export default function BilanRetraite() {
       {activeModal && activePack && (
         <div className="BR-Overlay" onClick={() => setActiveModal(null)} role="dialog" aria-modal="true">
           <div className="BR-Modal" onClick={(e) => e.stopPropagation()}>
-            <button type="button" className="BR-Modal-Close" onClick={() => setActiveModal(null)} aria-label="Fermer">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </button>
-
             <div className="BR-Modal-Head BR-Modal-Head--brand">
+              <button type="button" className="BR-Modal-Close" onClick={() => setActiveModal(null)} aria-label="Fermer">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </button>
               <div className="BR-Modal-HeadTop">
                 <span className="BR-Modal-Icon">
                   <PackIcon id={activePack.id} color="#ffffff" size={26} />
