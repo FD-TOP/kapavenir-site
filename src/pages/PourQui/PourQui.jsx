@@ -771,7 +771,7 @@ export default function PourQui() {
           <LogoSticker size={72} top="6%" right="3%" rotation={-16} opacity={0.2} animation="float" hideMobile />
           <div className="OR-Inner">
             <div className="OR-Head OR-Head--light">
-              <h2 className="OR-Title OR-Title--white" style={{ marginTop: 0 }}>
+              <h2 className="OR-Title OR-VExp-Title" style={{ marginTop: 0 }}>
                 Une expérience <span className="OR-Grad">simple</span> et <span className="OR-Grad">engageante</span>
               </h2>
             </div>
