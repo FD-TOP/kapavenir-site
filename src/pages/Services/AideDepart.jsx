@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useId } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './BilanRetraite.css';
 import './AideDepart.css';
 import servicePhoto from '../../assets/photoservices2.jpg';
 import LogoSticker from '../../components/Common/LogoSticker';
@@ -20,25 +21,24 @@ const chips = [
   },
 ];
 
-/* ── Packs ────────────────────────────────────────────────── */
+/* ── Packs aide au départ (contenu maquette, structure type Bilan retraite) ─ */
 const packs = [
   {
     id: 'decouverte',
-    num: '01',
-    title: 'Pack Découverte',
+    title: 'PACK DÉCOUVERTE',
     tagline: 'Identifiez rapidement ce à quoi vous avez droit',
-    price: 'Sur devis',
-    accentFrom: '#5aa8e0',
-    accentTo: '#4381C1',
+    pricePill: 'XXX € TTC',
+    intro:
+      'Identifiez rapidement les aides et dispositifs auxquels vous avez droit pour ne rien manquer au moment du départ.',
+    ideal: "Ceux qui veulent savoir s'ils passent à côté d'opportunités",
     features: [
       'Analyse de votre situation actuelle',
       'Identification des aides potentielles',
       'Vérification de votre éligibilité',
       'Liste claire des dispositifs accessibles',
     ],
-    ideal: "Ceux qui veulent savoir s'ils passent à côté d'opportunités",
-    modal: {
-      objective: 'Identifier rapidement les aides auxquelles vous avez droit pour ne laisser aucune opportunité de côté.',
+    modalDetail: {
+      comprendTitle: 'Ce que comprend le pack :',
       comprend: [
         'Analyse de votre situation personnelle et professionnelle',
         'Étude de votre date de départ envisagée',
@@ -54,6 +54,7 @@ const packs = [
         'Première analyse des opportunités financières liées à votre départ',
         'Signalement des points de vigilance à anticiper',
       ],
+      recoitTitle: 'Ce que vous recevez',
       recoit: [
         { text: 'Une synthèse claire et structurée' },
         { text: 'Une liste des aides et dispositifs accessibles' },
@@ -64,24 +65,23 @@ const packs = [
   },
   {
     id: 'optimisation',
-    num: '02',
-    title: 'Pack Optimisation Départ',
+    title: 'PACK OPTIMISATION DÉPART',
     tagline: 'Maximisez les avantages financiers liés à votre départ',
-    price: 'Sur devis',
-    accentFrom: '#4381C1',
-    accentTo: '#2558a0',
-    featured: true,
-    features: [
-      'Tout le diagnostic +',
-      'Analyse des indemnités de départ',
-      'Simulation de scénarios de départ',
-      'Optimisation fiscale liée au départ',
-    ],
+    pricePill: 'XXX € TTC',
+    intro:
+      'Un diagnostic poussé et des scénarios pour maximiser les avantages financiers et fiscaux liés à votre départ.',
     ideal: 'Ceux qui veulent optimiser leur situation financière au moment du départ',
-    modal: {
-      objective: 'Maximiser les avantages financiers et optimiser chaque levier disponible au moment du départ à la retraite.',
+    features: [
+      'Diagnostic complet des aides',
+      'Analyse des indemnités de départ',
+      'Étude des options de départ anticipé',
+      'Optimisation fiscale liée au départ',
+      'Recommandations personnalisées',
+    ],
+    modalDetail: {
+      comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Tout le diagnostic +',
+        'Diagnostic complet des aides et dispositifs applicables',
         'Analyse détaillée de votre situation de fin de carrière',
         {
           text: 'Étude complète des indemnités de départ :',
@@ -92,7 +92,7 @@ const packs = [
           ],
         },
         {
-          text: 'Analyse des dispositifs de départ anticipé :',
+          text: 'Analyse des options de départ anticipé :',
           sub: [
             'carrières longues',
             'situations spécifiques',
@@ -101,8 +101,9 @@ const packs = [
         'Simulation de plusieurs scénarios de départ (dates / impacts financiers)',
         'Étude des optimisations fiscales liées au départ',
         "Identification des leviers d'amélioration",
-        'Évaluation des gains potentiels selon chaque option',
+        'Recommandations personnalisées et priorisées',
       ],
+      recoitTitle: 'Ce que vous recevez',
       recoit: [
         { text: 'Un rapport détaillé et pédagogique' },
         { text: 'Des scénarios comparatifs clairs' },
@@ -113,41 +114,42 @@ const packs = [
   },
   {
     id: 'complet',
-    num: '03',
-    title: 'Pack Accompagnement Complet',
-    tagline: 'Sécurisez chaque étape et maximisez vos droits sans stress',
-    price: 'Sur devis',
-    accentFrom: '#1d5499',
-    accentTo: '#0d3570',
-    features: [
-      'Tout le Pack Optimisation inclus',
-      'Définition d\'un plan d\'action priorisé',
-      'Aide aux démarches administratives',
-      'Suivi jusqu\'au départ effectif',
-    ],
+    title: 'PACK ACCOMPAGNEMENT COMPLET',
+    tagline: 'Sécurisez chaque étape et maximisez vos droits',
+    pricePill: 'XXX € TTC',
+    intro:
+      'De l’analyse à la concrétisation : nous sécurisons chaque étape jusqu’à votre départ effectif, avec un suivi humain.',
     ideal: 'Ceux qui veulent être accompagnés sans stress et sans erreur',
-    modal: {
-      objective: 'Sécuriser chaque étape du départ en retraite avec un accompagnement complet, de l\'analyse à la concrétisation.',
+    features: [
+      'Tout le pack optimisation',
+      'Mise en place des actions recommandées',
+      'Aide aux démarches administratives',
+      'Coordination avec les organismes',
+      'Suivi jusqu’au départ effectif',
+    ],
+    modalDetail: {
+      comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Tout le pack optimisation +',
+        'Tout le contenu du pack Optimisation départ',
         'Entretien personnalisé pour valider votre stratégie',
         "Définition d'un plan d'action clair et priorisé",
-        'Aide à la mise en place des optimisations recommandées',
+        'Mise en place des actions et optimisations recommandées',
         {
           text: 'Assistance dans les démarches administratives :',
           sub: [
             'constitution des dossiers',
-            'suivi avec les organismes',
+            'coordination et suivi avec les organismes',
           ],
         },
         'Vérification des montants et droits avant validation',
         "Suivi jusqu'au départ effectif",
         'Assistance en cas de blocage ou de question',
       ],
+      recoitTitle: 'Ce que vous recevez',
       recoit: [
         { text: "Un rapport complet + plan d'action" },
         { text: 'Un accompagnement humain dédié' },
-        { text: 'Un suivi personnalisé' },
+        { text: 'Un suivi personnalisé jusqu’au départ' },
         { text: 'Une sécurisation complète de votre départ' },
       ],
     },
@@ -155,7 +157,7 @@ const packs = [
 ];
 
 /* ── Icônes ───────────────────────────────────────────────── */
-function PackIcon({ id, color = '#4381C1', size = 22 }) {
+function PackIcon({ id, color = '#0071bc', size = 22 }) {
   const p = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: color, strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round' };
   if (id === 'decouverte') return (
     <svg {...p}><circle cx="11" cy="11" r="8"/><path d="M21 21l-3.5-3.5"/><path d="M8.5 11l2 2 3-3.2"/></svg>
@@ -169,20 +171,44 @@ function PackIcon({ id, color = '#4381C1', size = 22 }) {
   return null;
 }
 
-function GreenCheck() {
+function ListCheck() {
+  const uid = useId().replace(/:/g, '');
+  const gradId = `ad-check-grad-${uid}`;
   return (
-    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 1 }}>
-      <circle cx="10" cy="10" r="10" fill="#00bf63" fillOpacity="0.13"/>
-      <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#00bf63" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 2 }} aria-hidden>
+      <defs>
+        <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0071bc" />
+          <stop offset="55%" stopColor="#00b6de" />
+          <stop offset="100%" stopColor="#00bf63" />
+        </linearGradient>
+      </defs>
+      <circle cx="10" cy="10" r="10" fill={`url(#${gradId})`} fillOpacity="0.18" />
+      <path
+        d="M6.5 10.5l2.5 2.5 4.5-5"
+        stroke={`url(#${gradId})`}
+        strokeWidth="1.85"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function SmallGreenCheck() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 2 }} aria-hidden>
+      <circle cx="10" cy="10" r="10" fill="#00bf63" fillOpacity="0.13" />
+      <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#00bf63" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
 function BlueCheck() {
   return (
-    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 1 }}>
-      <circle cx="10" cy="10" r="10" fill="#4381C1" fillOpacity="0.13"/>
-      <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#4381C1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: 2 }} aria-hidden>
+      <circle cx="10" cy="10" r="10" fill="#4381C1" fillOpacity="0.13" />
+      <path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#4381C1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -293,170 +319,178 @@ export default function AideDepart() {
         </div>
       </div>
 
-      {/* ══ PARTIE PACKS ════════════════════════════════════ */}
-      <div className="AD-Packs-Section">
-        <div className="AD-Packs-Header">
-          <span className="AD-Packs-Tag">✦ Nos formules</span>
-          <h3 className="AD-Packs-Title">
-            Choisissez votre <span className="AD-Accent">niveau d'accompagnement</span>
-          </h3>
-        </div>
+      <div className="AD-PacksWrap">
+        <div className="BR-Container">
+          <div className="BR-Header">
+            <span className="BR-Tag">Nos formules</span>
+            <h3 className="BR-Title">
+              Choisissez votre{' '}
+              <span className="BR-Accent">niveau d&apos;accompagnement</span>
+            </h3>
+            <p className="BR-Intro">
+              Trois packs pour identifier les aides au départ, optimiser votre situation ou être accompagné jusqu’au
+              départ effectif.
+            </p>
+          </div>
 
-        <div className="AD-Packs-Grid">
-          {packs.map((pack) => (
-            <div
-              key={pack.id}
-              className={`AD-Pack-Card${pack.featured ? ' AD-Pack-Card--featured' : ''}`}
-              style={{ '--af': pack.accentFrom, '--at': pack.accentTo }}
-            >
-              <div className="AD-Pack-Accent" />
-              {pack.featured && <div className="AD-Pack-Popular">⭐ Le plus choisi</div>}
+          <div className="BR-Grid">
+            {packs.map((pack) => (
+              <div key={pack.id} className="BR-Card">
+                <div className="BR-Card-Accent" aria-hidden />
 
-              <div className="AD-Pack-Meta">
-                <span className="AD-Pack-Num">{pack.num}</span>
-                <span className="AD-Pack-Icon">
-                  <PackIcon id={pack.id} color={pack.featured ? '#fff' : '#4381C1'} size={20} />
-                </span>
+                <div className="BR-Card-Meta">
+                  <span className="BR-Card-Icon">
+                    <PackIcon id={pack.id} color="#0071bc" size={22} />
+                  </span>
+                </div>
+
+                <h4 className="BR-Card-Title">{pack.title}</h4>
+                <p className="BR-Card-Tagline">{pack.tagline}</p>
+
+                <div className="BR-Price-Pill">{pack.pricePill}</div>
+
+                <p className="BR-Card-Lead">{pack.intro}</p>
+
+                <ul className="BR-Features">
+                  {pack.features.map((f, i) => (
+                    <li key={i}>
+                      <ListCheck />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="BR-Card-Ideal">
+                  <span className="BR-Card-Ideal-Label">Idéal pour :</span>
+                  <span className="BR-Card-Ideal-Text">{pack.ideal}</span>
+                </div>
+
+                <button type="button" className="BR-Btn" onClick={() => setActiveModal(pack.id)}>
+                  Plus d&apos;informations
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden>
+                    <path
+                      d="M4 10h12M10 4l6 6-6 6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
               </div>
-
-              <h4 className="AD-Pack-Title">{pack.title}</h4>
-              <p className="AD-Pack-Tagline">{pack.tagline}</p>
-
-              <div className="AD-Pack-Price">
-                <span className="AD-Pack-Price-Text">{pack.price}</span>
-              </div>
-
-              <div className="AD-Pack-Divider" />
-
-              <ul className="AD-Pack-Features">
-                {pack.features.map((f, i) => (
-                  <li key={i}>
-                    <GreenCheck />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="AD-Pack-Ideal">
-                <span className="AD-Pack-Ideal-Label">Idéal pour :</span>
-                <span className="AD-Pack-Ideal-Text">{pack.ideal}</span>
-              </div>
-
-              <button
-                className="AD-Pack-Btn"
-                onClick={() => setActiveModal(pack.id)}
-              >
-                Plus d'informations
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* ══ MODAL ══════════════════════════════════════════ */}
       {activeModal && activePack && (
-        <div className="AD-Overlay" onClick={() => setActiveModal(null)} role="dialog" aria-modal="true">
-          <div className="AD-Modal" onClick={e => e.stopPropagation()}>
-
-            <button className="AD-Modal-Close" onClick={() => setActiveModal(null)} aria-label="Fermer">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </button>
-
-            {/* En-tête */}
-            <div className="AD-Modal-Head" style={{ '--mf': activePack.accentFrom, '--mt': activePack.accentTo }}>
-              <div className="AD-Modal-HeadTop">
-                <span className="AD-Modal-Icon">
-                  <PackIcon id={activePack.id} color="#fff" size={24} />
+        <div className="BR-Overlay" onClick={() => setActiveModal(null)} role="dialog" aria-modal="true">
+          <div className="BR-Modal" onClick={(e) => e.stopPropagation()}>
+            <div className="BR-Modal-Head BR-Modal-Head--brand">
+              <button type="button" className="BR-Modal-Close" onClick={() => setActiveModal(null)} aria-label="Fermer">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </button>
+              <div className="BR-Modal-HeadTop">
+                <span className="BR-Modal-Icon">
+                  <PackIcon id={activePack.id} color="#ffffff" size={26} />
                 </span>
-                <span className="AD-Modal-PricePill">{activePack.price}</span>
+                <span className="BR-Modal-PricePill">{activePack.pricePill}</span>
               </div>
-              <h3 className="AD-Modal-Title">{activePack.title}</h3>
-              <p className="AD-Modal-Tagline">{activePack.tagline}</p>
-              <div className="AD-Modal-Obj">
-                <span>🎯</span>
-                <span>{activePack.modal.objective}</span>
-              </div>
+              <h3 className="BR-Modal-Title">{activePack.title}</h3>
+              <p className="BR-Modal-Tagline">{activePack.tagline}</p>
             </div>
 
-            {/* Corps 2 colonnes */}
-            <div className="AD-Modal-Body">
-              <div className="AD-Modal-Col AD-Modal-Col--left">
-                <div className="AD-Modal-ColHead AD-Modal-ColHead--green">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00bf63" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2L4 6v6c0 5.2 3.6 9.1 8 10 4.4-.9 8-4.8 8-10V6L12 2z"/>
-                    <path d="M8.5 12l2.5 2.5 4.5-5"/>
-                  </svg>
-                  Prestations incluses
+            <div className="BR-Modal-Body BR-Modal-Body--detail">
+              <p className="BR-Modal-Lead">{activePack.intro}</p>
+
+              <div className="BR-Modal-Split">
+                <div className="BR-Modal-Col BR-Modal-Col--left">
+                  <div className="BR-Modal-ColHead BR-Modal-ColHead--green">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00bf63" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <path d="M12 2L4 6v6c0 5.2 3.6 9.1 8 10 4.4-.9 8-4.8 8-10V6L12 2z" />
+                      <path d="M8.5 12l2.5 2.5 4.5-5" />
+                    </svg>
+                    {activePack.modalDetail.comprendTitle}
+                  </div>
+                  <ul className="BR-Modal-List">
+                    {activePack.modalDetail.comprend.map((item, i) => (
+                      <li key={i}>
+                        <SmallGreenCheck />
+                        <span>
+                          {typeof item === 'string' ? item : item.text}
+                          {typeof item === 'object' && item.sub && (
+                            <ul className="BR-Modal-SubList">
+                              {item.sub.map((s, j) => (
+                                <li key={j}>
+                                  <span className="BR-SubDot">›</span>
+                                  {s}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="AD-Modal-List">
-                  {activePack.modal.comprend.map((item, i) => (
-                    <li key={i}>
-                      <GreenCheck />
-                      <span>
-                        {typeof item === 'string' ? item : item.text}
-                        {typeof item === 'object' && item.sub && (
-                          <ul className="AD-Modal-SubList">
-                            {item.sub.map((s, j) => (
-                              <li key={j}><span className="AD-SubDot">›</span>{s}</li>
-                            ))}
-                          </ul>
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
-              <div className="AD-Modal-Col AD-Modal-Col--right">
-                <div className="AD-Modal-ColHead AD-Modal-ColHead--blue">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4381C1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8L14 2z"/>
-                    <path d="M14 2v6h6"/>
-                    <path d="M9 13h6M9 17h4"/>
-                  </svg>
-                  Ce que vous recevez
+                <div className="BR-Modal-Col BR-Modal-Col--right">
+                  <div className="BR-Modal-ColHead BR-Modal-ColHead--blue">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4381C1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8L14 2z" />
+                      <path d="M14 2v6h6" />
+                      <path d="M12 13l1.5 2.5L16 14l-1.5 2.5L16 19l-2.5-1L12 20l-1.5-2L8 19l1.5-2.5L8 14l2.5 1.5L12 13z" />
+                    </svg>
+                    {activePack.modalDetail.recoitTitle}
+                  </div>
+                  <ul className="BR-Modal-List">
+                    {activePack.modalDetail.recoit.map((item, i) => (
+                      <li key={i}>
+                        <BlueCheck />
+                        <span>
+                          {item.text}
+                          {item.sub && (
+                            <ul className="BR-Modal-SubList">
+                              {item.sub.map((s, j) => (
+                                <li key={j}>
+                                  <span className="BR-SubDot">›</span>
+                                  {s}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="AD-Modal-List">
-                  {activePack.modal.recoit.map((item, i) => (
-                    <li key={i}>
-                      <BlueCheck />
-                      <span>
-                        {item.text}
-                        {item.sub && (
-                          <ul className="AD-Modal-SubList">
-                            {item.sub.map((s, j) => (
-                              <li key={j}><span className="AD-SubDot">›</span>{s}</li>
-                            ))}
-                          </ul>
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
 
-            {/* Idéal pour */}
-            <div className="AD-Modal-Ideal">
-              <span className="AD-Modal-Ideal-Label">Idéal pour :</span>
-              <span>{activePack.ideal}</span>
-            </div>
-
-            {/* Pied */}
-            <div className="AD-Modal-Footer">
-              <button className="AD-Modal-Cta AD-Modal-Cta--green" onClick={() => navigate('/contact')}>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81a19.79 19.79 0 01-3.07-8.66A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            <div className="BR-Modal-Footer">
+              <button type="button" className="BR-Modal-Cta BR-Modal-Cta--gradient" onClick={() => navigate('/contact')}>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden>
+                  <path
+                    d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 4v4l3 2"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                </svg>
                 Prendre rendez-vous
               </button>
-              <button className="AD-Modal-Cta AD-Modal-Cta--outline" onClick={() => navigate('/contact')}>
+              <button type="button" className="BR-Modal-Cta BR-Modal-Cta--outline" onClick={() => navigate('/contact')}>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden>
+                  <path d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" stroke="currentColor" strokeWidth="1.5" />
+                  <path d="M3 9h14" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
                 Contacter un conseiller
               </button>
-              <button className="AD-Modal-Dismiss" onClick={() => setActiveModal(null)}>Fermer</button>
+              <button type="button" className="BR-Modal-Dismiss" onClick={() => setActiveModal(null)}>
+                Fermer
+              </button>
             </div>
           </div>
         </div>
