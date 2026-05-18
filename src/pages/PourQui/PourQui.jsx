@@ -845,7 +845,7 @@ export default function PourQui() {
           <div className="ER-Hero-Bg" />
           <div className="ER-Hero-Inner">
             <div className="ER-Hero-ImgWrap">
-              <img src={meeting1} alt="Entreprises & RH" className="ER-Hero-Img" />
+              <img src={meeting4} alt="Entreprises & RH" className="ER-Hero-Img" />
               <div className="ER-Hero-FloatA">
                 <span className="ER-Stat-Val">{erAge}<small>ans</small></span>
                 <span className="ER-Stat-Lbl">âge moyen de départ</span>
