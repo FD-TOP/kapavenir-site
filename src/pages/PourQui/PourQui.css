@@ -1090,11 +1090,8 @@
 .OR-Block.is-vis .OR-VStep.OR-VStep--stack:nth-child(3) { transition-delay: 0.22s; }
 .OR-Block.is-vis .OR-VStep.OR-VStep--stack:nth-child(4) { transition-delay: 0.3s; }
 .OR-VStep--stack .OR-VStep-Card {
-  background:
-    linear-gradient(125deg, rgba(0, 113, 188, 0.38) 0%, transparent 45%),
-    linear-gradient(305deg, rgba(0, 191, 99, 0.28) 0%, transparent 48%),
-    linear-gradient(165deg, #0a1526 0%, #132238 42%, #0f1c30 78%, #0b1422 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(100deg, rgba(0, 113, 188, 0.92) 0%, rgba(0, 182, 222, 0.92) 55%, rgba(0, 191, 99, 0.92) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 24px;
   padding: 22px 26px;
   box-shadow:
@@ -1110,12 +1107,12 @@
 }
 .OR-VStep--stack:hover .OR-VStep-Card {
   transform: translateY(-5px) scale(1.015);
-  border-color: rgba(0, 182, 222, 0.5);
-  filter: saturate(1.08) brightness(1.04);
+  border-color: rgba(255, 255, 255, 0.4);
+  filter: brightness(1.08);
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(0, 182, 222, 0.25),
-    0 12px 40px rgba(0, 113, 188, 0.2);
+    0 16px 48px rgba(0, 113, 188, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 12px 40px rgba(0, 191, 99, 0.2);
 }
 .OR-VStep--stack .OR-VStep-Title {
   font-size: 0.95rem;
