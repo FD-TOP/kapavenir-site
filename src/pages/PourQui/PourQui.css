@@ -1241,10 +1241,15 @@
   font-weight: 900;
   line-height: 1.2;
   margin: 0 0 12px;
+  color: var(--k-dark);
+}
+.OR-CTA-Title--grad {
   background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: cardShimmer 5s ease infinite;
 }
 .OR-CTA-Sub   { font-size:.9rem;color:var(--k-muted);margin:0 0 32px;line-height:1.65; }
 .OR-CTA-Btns  { display:flex;justify-content:center;gap:14px;flex-wrap:wrap; }

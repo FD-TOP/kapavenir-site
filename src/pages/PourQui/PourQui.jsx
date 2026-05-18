@@ -814,7 +814,9 @@ export default function PourQui() {
           <div className="OR-Orb OR-Orb--2" />
           <div className="OR-CTA-Inner">
             <span className="OR-CTA-Eye">Passez à l'étape suivante</span>
-            <h2 className="OR-CTA-Title">Construisons votre offre retraite</h2>
+            <h2 className="OR-CTA-Title">
+              <span className="OR-CTA-Title--grad">Construisons</span> votre offre retraite
+            </h2>
             <p className="OR-CTA-Sub">Mutuelles, assureurs, caisses complémentaires — parlons de vos besoins.</p>
             <div className="OR-CTA-Btns">
               <button className="OR-Btn OR-Btn--white" onClick={() => navigate('/contact')}>
