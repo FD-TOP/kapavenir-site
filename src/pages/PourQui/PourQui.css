@@ -334,10 +334,25 @@
 .OR-Btn--solid:hover { filter: brightness(1.06); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,113,188,.35), 0 4px 14px rgba(0,191,99,.22); }
 .OR-Btn--ghost   { background: transparent; border: 1.5px solid rgba(0,191,99,.5); color: var(--k-green); }
 .OR-Btn--ghost:hover { background: rgba(255,255,255,.1); }
-.OR-Btn--white   { background: #fff; color: var(--k-green); box-shadow: 0 4px 18px rgba(0,0,0,.15); }
-.OR-Btn--white:hover { transform: translateY(-2px); }
-.OR-Btn--outline { background: transparent; color: var(--k-green); border-color: rgba(0,191,99,.4); }
-.OR-Btn--outline:hover { background: rgba(255,255,255,.1); }
+.OR-Btn--white {
+  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+  background-size: 200% 200%;
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 22px rgba(0, 113, 188, 0.35), 0 2px 8px rgba(0, 191, 99, 0.18);
+  animation: cardShimmer 5s ease infinite;
+}
+.OR-Btn--white:hover { transform: translateY(-3px); filter: brightness(1.08); box-shadow: 0 12px 32px rgba(0,113,188,.4), 0 4px 14px rgba(0,191,99,.25); }
+.OR-Btn--outline {
+  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+  background-size: 200% 200%;
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 22px rgba(0, 113, 188, 0.28);
+  animation: cardShimmer 5s ease infinite;
+  animation-delay: 0.4s;
+}
+.OR-Btn--outline:hover { transform: translateY(-3px); filter: brightness(1.08); }
 
 .ER-Btn--solid   { background: var(--kap-premium-gradient); color: #fff; box-shadow: var(--kap-btn-glow); }
 .ER-Btn--solid:hover { filter: brightness(1.06); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,113,188,.35), 0 4px 14px rgba(0,191,99,.22); }
@@ -1221,7 +1236,16 @@
 .OR-CTA-Orb2 { position:absolute;width:220px;height:220px;bottom:-60px;right:-40px;border-radius:50%;background:radial-gradient(circle,rgba(0,182,222,.1),transparent 70%); }
 .OR-CTA-Inner { max-width: 560px; margin: 0 auto; position: relative; z-index: 1; }
 .OR-CTA-Eye   { font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;background:linear-gradient(90deg,#00bf63,#00b6de);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:14px; }
-.OR-CTA-Title { font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:900;color:var(--k-dark);line-height:1.2;margin:0 0 12px; }
+.OR-CTA-Title {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .OR-CTA-Sub   { font-size:.9rem;color:var(--k-muted);margin:0 0 32px;line-height:1.65; }
 .OR-CTA-Btns  { display:flex;justify-content:center;gap:14px;flex-wrap:wrap; }
 
