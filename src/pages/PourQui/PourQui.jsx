@@ -13,7 +13,7 @@ import women3   from '../../assets/women3.jpeg';
 const SLIDES = [
   { id: 'particuliers', sectionId: 'particuliers',   image: couple1,  label: 'Particuliers',            sub: 'Retraite individuelle',        color: '#4381C1' },
   { id: 'organismes',   sectionId: 'organismes',      image: meeting4, label: 'Organismes & Assurances',  sub: 'Partenariats institutionnels', color: '#00bf63' },
-  { id: 'entreprises',  sectionId: 'entreprises-rh',  image: meeting1, label: 'Entreprises & RH',         sub: 'Solutions collectives',        color: '#00b6de' },
+  { id: 'entreprises',  sectionId: 'entreprises-rh',  image: meeting3, label: 'Entreprises & RH',         sub: 'Solutions collectives',        color: '#00b6de' },
 ];
 const DELAY = 4500;
 
