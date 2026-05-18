@@ -138,11 +138,46 @@ section {
 .stagger-4 { transition-delay: 0.4s; }
 .stagger-5 { transition-delay: 0.5s; }
 
-/* ─── ANIMATION : SHIMMER GRADIENT TEXT ─────────────────── */
+/* ─── ANIMATION : SHIMMER GRADIENT (boutons + textes) ────── */
 @keyframes gradientShift {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+@keyframes cardShimmer {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* ─── BOUTONS GLOBAUX — dégradé animé charte ─────────────── */
+.btn-bilan,
+.btn-depart,
+.btn-primary-cta,
+.F-btn-primary,
+.sol-cta-premium,
+.P-cta-button,
+.mobile-final-cta,
+.SH-Btn-Gradient,
+.AD-Btn--primary,
+.BR-Btn,
+.BR-Modal-Cta--gradient,
+.ct-phone-btn,
+.ct-option-btn,
+.etp-cta-btn.primary,
+.KH-btn,
+.PQ-CTA,
+.PQ-Btn--solid,
+.OR-Btn--solid,
+.ER-Btn--solid,
+.OR-Btn--white,
+.OR-Btn--outline,
+.PT-Btn--blue {
+  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%) !important;
+  background-size: 200% 200% !important;
+  animation: cardShimmer 5s ease infinite !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
 }
 
 /* ─── ANIMATION : FLOATING ───────────────────────────────── */
