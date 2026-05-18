@@ -220,7 +220,7 @@ const OR_DIFFS = [
 
 const ER_ENJEUX = [
   { key:'A', color:'#00b6de', title:'Anticiper les départs et la transmission des compétences',    stat: null },
-  { key:'B', color:'#4381C1', title:'Répondre aux attentes des collaborateurs',                    stat: '86% attendent un accompagnement' },
+  { key:'B', color:'#4381C1', title:'Répondre aux attentes des collaborateurs',                    stat: null },
   { key:'C', color:'#00bf63', title:'Structurer votre politique senior',                           stat: null },
   { key:'D', color:'#4381C1', title:'Valoriser votre marque employeur',                           stat: null },
 ];
@@ -891,9 +891,7 @@ export default function PourQui() {
                   style={{ "--ec": e.color, "--i": i }}
                   onClick={() => setActiveEnj(i)}>
                   {activeEnj === i && <div className="ER-Enj-Bar" key={"enj-"+i+"-"+activeEnj} />}
-                  <div className="ER-Enj-Letter">{e.key}</div>
                   <p className="ER-Enj-Title">{e.title}</p>
-                  {e.stat && <span className="ER-Enj-Stat">{e.stat}</span>}
                 </div>
               ))}
             </div>

@@ -199,7 +199,7 @@
 }
 
 .PQ-Block-Inner, .OR-Inner, .ER-Inner { max-width: 1160px; margin: 0 auto; position: relative; }
-.PQ-Head, .OR-Head, .ER-Head { text-align: center; margin-bottom: 52px; }
+.PQ-Head, .OR-Head, .ER-Head { text-align: center; margin-bottom: 36px; }
 .PQ-Head-Sub { font-size: .9rem; color: var(--k-muted); max-width: 500px; margin: 0 auto; line-height: 1.75; }
 
 /* ─── Labels ─────────────────────────────────────────────────── */
@@ -1306,25 +1306,25 @@
   grid-template-areas:
     "a b"
     "c d";
-  gap: 18px;
-  max-width: 760px;
-  margin: 0 auto 28px;
+  gap: 12px;
+  max-width: 580px;
+  margin: 0 auto 20px;
   perspective: 1300px;
 }
 .ER-Enj-Card {
   position: relative;
-  border-radius: 20px;
-  padding: 28px 24px 24px;
+  border-radius: 16px;
+  padding: 18px 18px 16px;
   cursor: pointer;
   background: linear-gradient(160deg, #ffffff 0%, #f4f9ff 100%);
   border: 1px solid #dbe7f5;
   border-top: 3px solid var(--ec, #00b6de);
   overflow: hidden;
-  min-height: 200px;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 6px;
   backdrop-filter: blur(6px);
   box-shadow:
     0 12px 28px rgba(15, 23, 42, .12),
@@ -1393,8 +1393,8 @@
 }
 .ER-Enj-Card.is-active .ER-Enj-Letter { color: #ffffff; opacity:.22; }
 .ER-Enj-Title {
-  font-size: clamp(1.05rem, 1.2vw, 1.18rem);
-  font-weight: 900;
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  font-weight: 800;
   color: #0f172a;
   line-height: 1.4;
   position: relative;
