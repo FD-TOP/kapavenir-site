@@ -793,9 +793,7 @@ export default function PourQui() {
           <LogoSticker size={90} bottom="10%" left="3%" rotation={18} opacity={0.14} animation="wobble" hideMobile />
           <div className="OR-Inner OR-Diff-Layout">
             <div className="OR-Diff-Left">
-              <span className="OR-Label">Pourquoi nous</span>
               <h2 className="OR-Title">Pourquoi <span className="OR-Green">KapAvenir ?</span></h2>
-              <p className="OR-Sub">Ce qui nous distingue : une méthode pensée pour l'humain, portée par la technologie.</p>
             </div>
             <div className="OR-Diff-List">
               {OR_DIFFS.map((d, i) => (
