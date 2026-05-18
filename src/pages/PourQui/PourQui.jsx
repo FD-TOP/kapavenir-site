@@ -5,6 +5,7 @@ import LogoSticker from '../../components/Common/LogoSticker';
 
 import couple1  from '../../assets/couple1.jpeg';
 import couple4  from '../../assets/couple4.jpeg';
+import meeting3 from '../../assets/meeting3.png';
 import meeting4 from '../../assets/meeting4.jpg';
 import meeting1 from '../../assets/meeting1.jpg';
 import women3   from '../../assets/women3.jpeg';
@@ -508,7 +509,7 @@ export default function PourQui() {
               </div>
             </div>
             <div className="PQ-Photo-Wrap">
-              <img src={women3} alt="Complexité retraite" className="PQ-Photo" />
+              <img src={meeting3} alt="Complexité retraite" className="PQ-Photo" />
               <div className="PQ-Photo-Float PQ-Photo-Float--tr">
                 <div className="PQ-Float-Icon">{Icon.doc}</div>
                 <span>+4 régimes différents</span>
@@ -845,7 +846,7 @@ export default function PourQui() {
           <div className="ER-Hero-Bg" />
           <div className="ER-Hero-Inner">
             <div className="ER-Hero-ImgWrap">
-              <img src={meeting4} alt="Entreprises & RH" className="ER-Hero-Img" />
+              <img src={meeting3} alt="Entreprises & RH" className="ER-Hero-Img" />
               <div className="ER-Hero-FloatA">
                 <span className="ER-Stat-Val">{erAge}<small>ans</small></span>
                 <span className="ER-Stat-Lbl">âge moyen de départ</span>
