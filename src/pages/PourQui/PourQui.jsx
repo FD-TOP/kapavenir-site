@@ -881,7 +881,7 @@ export default function PourQui() {
           <div className="ER-Inner">
             <div className="ER-Head">
               <span className="ER-Label">Enjeux RH</span>
-              <h2 className="ER-Title">Un sujet clé <span className="ER-Cyan">pour vos équipes</span></h2>
+              <h2 className="ER-Title"><span className="OR-Grad">Un sujet clé</span> pour vos équipes</h2>
               <p className="ER-Sub">La retraite impacte votre organisation à chaque étape. Voici pourquoi agir maintenant.</p>
             </div>
             <div className="ER-Enjeux-Grid">
