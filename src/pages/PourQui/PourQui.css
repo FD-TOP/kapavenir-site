@@ -1041,11 +1041,18 @@
   opacity: 1;
   transform: none;
 }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(1) { transition-delay: 0.08s; }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(2) { transition-delay: 0.16s; }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(3) { transition-delay: 0.24s; }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(4) { transition-delay: 0.32s; }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(5) { transition-delay: 0.4s; }
+.OR-Block.is-vis .OR-Sv-Bubble,
+.ER-Block.is-vis .OR-Sv-Bubble { opacity: 1; transform: none; }
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(1),
+.ER-Block.is-vis .OR-Sv-Bubble:nth-child(1) { transition-delay: 0.08s; }
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(2),
+.ER-Block.is-vis .OR-Sv-Bubble:nth-child(2) { transition-delay: 0.16s; }
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(3),
+.ER-Block.is-vis .OR-Sv-Bubble:nth-child(3) { transition-delay: 0.24s; }
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(4),
+.ER-Block.is-vis .OR-Sv-Bubble:nth-child(4) { transition-delay: 0.32s; }
+.OR-Block.is-vis .OR-Sv-Bubble:nth-child(5),
+.ER-Block.is-vis .OR-Sv-Bubble:nth-child(5) { transition-delay: 0.4s; }
 .OR-Sv-Bubble:hover {
   transform: translateY(-3px) scale(1.005);
   border-color: rgba(0, 191, 99, 0.38);
