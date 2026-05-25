@@ -6,7 +6,10 @@ import Footer       from './components/Footer/Footer';
 import ScrollToTop  from './components/ScrollToTop/ScrollToTop';
 import Home         from './pages/Home/Home';
 import Services     from './pages/Services/Services';
-import PourQui      from './pages/PourQui/PourQui';
+import PourQui           from './pages/PourQui/PourQui';
+import ParticuliersPage  from './pages/PourQui/ParticuliersPage';
+import OrganismesPage    from './pages/PourQui/OrganismesPage';
+import EntreprisesRhPage from './pages/PourQui/EntreprisesRhPage';
 import Etapes       from './pages/Etapes/Etapes';
 import KafeRetraitePage from './pages/KafeRetraite/KafeRetraitePage';
 import Ressources   from './pages/Ressources/Ressources';
@@ -23,10 +26,10 @@ function App() {
         <Route path="/services"                element={<Services />} />
         <Route path="/services/bilan"          element={<Services />} />
         <Route path="/services/aide-depart"    element={<Services />} />
-        <Route path="/pour-qui"                element={<PourQui />} />
-        <Route path="/pour-qui/particuliers"   element={<PourQui />} />
-        <Route path="/pour-qui/organismes"     element={<PourQui />} />
-        <Route path="/pour-qui/entreprises-rh" element={<PourQui />} />
+        <Route path="/pour-qui"                 element={<PourQui />} />
+        <Route path="/pour-qui/particuliers"    element={<ParticuliersPage />} />
+        <Route path="/pour-qui/organismes"      element={<OrganismesPage />} />
+        <Route path="/pour-qui/entreprises-rh"  element={<EntreprisesRhPage />} />
         <Route path="/etapes"                  element={<Etapes />} />
         <Route path="/kafe-retraite"           element={<KafeRetraitePage />} />
         <Route path="/ressources"              element={<Ressources />} />

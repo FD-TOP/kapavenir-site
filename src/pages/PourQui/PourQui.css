@@ -63,6 +63,332 @@
   background-attachment: fixed;
 }
 
+.PQ-Root--subpage {
+  animation: pqPageEnter 0.75s cubic-bezier(0.2, 0.85, 0.25, 1) both;
+}
+
+@keyframes pqPageEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ═══ HUB — cartes de choix ═══════════════════════════════════ */
+.PQ-Hub-Picker {
+  padding: clamp(3.5rem, 8vw, 5.5rem) 5vw 6rem;
+  position: relative;
+}
+.PQ-Hub-Picker-Inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  text-align: center;
+}
+.PQ-Hub-Picker-Eye {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #059669;
+  margin: 0 0 12px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 191, 99, 0.3);
+}
+.PQ-Hub-Picker-Title {
+  font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0 0 40px;
+  color: var(--k-dark);
+}
+.PQ-Hub-Cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  text-align: left;
+}
+.PQ-Hub-Card {
+  position: relative;
+  border: none;
+  padding: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
+  transition: transform 0.4s cubic-bezier(0.2, 0.85, 0.25, 1), box-shadow 0.4s ease;
+  opacity: 0;
+  animation: hubCardIn 0.65s cubic-bezier(0.2, 0.85, 0.25, 1) forwards;
+  animation-delay: calc(0.12s + var(--i, 0) * 0.1s);
+}
+@keyframes hubCardIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+.PQ-Hub-Card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 22px 56px rgba(0, 113, 188, 0.18), 0 0 0 1px color-mix(in srgb, var(--hc) 35%, transparent);
+}
+.PQ-Hub-Card-Img {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+.PQ-Hub-Card:hover .PQ-Hub-Card-Img { transform: scale(1.06); }
+.PQ-Hub-Card-Body {
+  padding: 22px 22px 24px;
+  position: relative;
+  z-index: 1;
+}
+.PQ-Hub-Card-Tag {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hc);
+  margin-bottom: 8px;
+}
+.PQ-Hub-Card-Title {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--k-dark);
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+.PQ-Hub-Card-Link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--hc);
+  transition: gap 0.25s;
+}
+.PQ-Hub-Card:hover .PQ-Hub-Card-Link { gap: 12px; }
+.PQ-Hub-Card-Shine {
+  position: absolute;
+  inset: -40% -20% auto;
+  height: 60%;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
+  transform: translateX(-120%);
+  pointer-events: none;
+  z-index: 2;
+}
+.PQ-Hub-Card:hover .PQ-Hub-Card-Shine {
+  animation: hubShine 1.1s ease-out;
+}
+@keyframes hubShine {
+  to { transform: translateX(130%); }
+}
+
+/* ═══ SOUS-PAGES — hero dédié ═════════════════════════════════ */
+.PQ-PageHero {
+  position: relative;
+  min-height: clamp(420px, 58vh, 520px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.85, 0.25, 1);
+}
+.PQ-PageHero.is-entered {
+  opacity: 1;
+  transform: none;
+}
+.PQ-PageHero-Bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+  transition: transform 8s ease;
+}
+.PQ-PageHero.is-entered .PQ-PageHero-Bg { transform: scale(1); }
+.PQ-PageHero-Overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 22, 40, 0.35) 0%, rgba(10, 22, 40, 0.55) 50%, rgba(10, 22, 40, 0.88) 100%),
+    linear-gradient(100deg, color-mix(in srgb, var(--ph-ac) 25%, transparent) 0%, transparent 55%);
+}
+.PQ-PageHero-Mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.PQ-PageHero-Orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: pageOrbFloat 7s ease-in-out infinite;
+}
+.PQ-PageHero-Orb--1 {
+  width: 280px;
+  height: 280px;
+  top: -80px;
+  right: 10%;
+  background: color-mix(in srgb, var(--ph-ac) 35%, transparent);
+}
+.PQ-PageHero-Orb--2 {
+  width: 200px;
+  height: 200px;
+  bottom: 20%;
+  left: -40px;
+  background: rgba(0, 191, 99, 0.2);
+  animation-delay: -2s;
+}
+.PQ-PageHero-Orb--3 {
+  width: 140px;
+  height: 140px;
+  top: 30%;
+  right: 35%;
+  background: rgba(67, 129, 193, 0.18);
+  animation-delay: -4s;
+}
+@keyframes pageOrbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(12px, -16px) scale(1.08); }
+}
+.PQ-PageHero-Inner {
+  position: relative;
+  z-index: 3;
+  max-width: 760px;
+  padding: 0 5vw 88px;
+}
+.PQ-PageHero-Crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  margin-bottom: 20px;
+  padding: 6px 14px 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  transition: background 0.25s, color 0.25s, transform 0.25s;
+  opacity: 0;
+  animation: heroItemIn 0.55s ease 0.15s forwards;
+}
+.PQ-PageHero-Crumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  transform: translateX(-3px);
+}
+.PQ-PageHero-Badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: heroItemIn 0.55s ease 0.25s forwards;
+}
+.PQ-PageHero-Title {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  margin: 0 0 16px;
+  letter-spacing: -0.025em;
+  opacity: 0;
+  animation: heroItemIn 0.65s cubic-bezier(0.2, 0.85, 0.25, 1) 0.32s forwards;
+}
+.PQ-PageHero-Desc {
+  font-size: clamp(0.92rem, 1.4vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+  max-width: 560px;
+  margin: 0 0 28px;
+  opacity: 0;
+  animation: heroItemIn 0.65s ease 0.42s forwards;
+}
+.PQ-PageHero-Actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  opacity: 0;
+  animation: heroItemIn 0.65s ease 0.52s forwards;
+}
+@keyframes heroItemIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.PQ-Btn--hero-ghost {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.45) !important;
+  color: #fff !important;
+  backdrop-filter: blur(8px);
+}
+.PQ-Btn--hero-ghost:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+.PQ-PageHero-Wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  line-height: 0;
+}
+.PQ-PageHero-Wave svg {
+  width: 100%;
+  height: 56px;
+  display: block;
+}
+
+/* Stats strip — entreprises */
+.ER-Stats-Strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.ER-Stat-Panel {
+  background: #fff;
+  border: 1px solid var(--card-bd);
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-top: 3px solid var(--k-cyan);
+}
+.ER-Stat-Panel--b { border-top-color: var(--k-blue); }
+.ER-Stat-Panel .ER-Stat-Bar {
+  margin-top: 12px;
+  height: 5px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--k-cyan), var(--k-blue));
+}
+.ER-Stat-Panel--b .ER-Stat-Bar--b {
+  background: linear-gradient(90deg, var(--k-blue), var(--k-cyan));
+}
+
+/* Hub : uniquement le hero plein écran */
+.PQ-Root--hub {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.PQ-Root--hub .PQ-Hero {
+  flex: 1;
+  min-height: 100vh;
+  height: 100vh;
+}
+
 /* ═══ HERO DIAPORAMA ═══════════════════════════════════════════ */
 .PQ-Hero {
   position: relative; height: 92vh; min-height: 580px;
@@ -976,6 +1302,20 @@
 .OR-Pillars-Dot.is-active { background:var(--pc); transform:scale(1.4); animation:pulseDot 1.5s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
+  .PQ-Root--subpage,
+  .PQ-PageHero,
+  .PQ-Hub-Card,
+  .PQ-PageHero-Orb {
+    animation: none !important;
+    transition: none !important;
+  }
+  .PQ-PageHero { opacity: 1; transform: none; }
+  .PQ-PageHero-Bg { transform: scale(1); }
+  .PQ-PageHero-Crumb,
+  .PQ-PageHero-Badge,
+  .PQ-PageHero-Title,
+  .PQ-PageHero-Desc,
+  .PQ-PageHero-Actions { opacity: 1; animation: none; }
   .OR-Block.is-vis .OR-Pillar-Face,
   .OR-Pillar-Face::before,
   .ER-Enj-Card::before,
@@ -1444,6 +1784,10 @@
 @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
 @keyframes scaleIn { from{opacity:0;transform:scale(.9)} to{opacity:1;transform:scale(1)} }
 @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+@keyframes cardShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
 .ER-Enjeux-Dots { display:flex;justify-content:center;gap:8px;margin-top:4px; }
 .ER-Enj-Dot {
   width: 8px;
@@ -1676,7 +2020,9 @@
 
 /* ═══ RESPONSIVE ═══════════════════════════════════════════════ */
 @media (max-width: 1100px) {
+  .PQ-Hub-Cards { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
   .PQ-Split, .PQ-Why-Grid, .ER-Hero-Inner, .OR-Hero-Inner { grid-template-columns: 1fr; gap: 48px; }
+  .ER-Stats-Strip { grid-template-columns: 1fr; }
   .PQ-Guide-Layout { grid-template-columns: 1fr; gap: 34px; }
   .PQ-Guide-Img { height: 360px; }
   .PQ-Guide-Card { position: static; max-width: none; margin-top: 14px; }

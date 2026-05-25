@@ -53,9 +53,9 @@ const Navbar = () => {
       title: "Pour qui ?",
       titlePath: "/pour-qui",
       links: [
-        { label: "Particuliers",             path: "/pour-qui#particuliers"   },
-        { label: "Organismes et assurances", path: "/pour-qui#organismes"     },
-        { label: "Entreprises & RH",         path: "/pour-qui#entreprises-rh" }
+        { label: "Particuliers",             path: "/pour-qui/particuliers"   },
+        { label: "Organismes et assurances", path: "/pour-qui/organismes"     },
+        { label: "Entreprises & RH",         path: "/pour-qui/entreprises-rh" }
       ]
     },
     {
