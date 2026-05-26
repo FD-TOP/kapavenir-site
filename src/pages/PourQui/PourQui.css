@@ -1150,8 +1150,8 @@
 .PQ-Block.is-vis .PQ-Bn-Card { opacity: 1; transform: scale(1); }
 .PQ-Bn-Card.is-active {
   border-color: var(--bc); transform: translateY(-7px) scale(1.04);
-  box-shadow: 0 16px 44px rgba(0,0,0,.13), 0 0 0 3px rgba(0,182,222,.1);
-  background: var(--kap-premium-gradient);
+  box-shadow: 0 16px 44px rgba(0, 113, 188, 0.14), 0 0 0 3px rgba(0, 182, 222, 0.12);
+  background: #ffffff;
 }
 .PQ-Bn-Grid:has(.is-active) .PQ-Bn-Card:not(.is-active) { opacity: .55; transform: scale(.97); }
 .PQ-Bn-Bar {
@@ -1167,12 +1167,8 @@
   transition: box-shadow .4s;
 }
 .PQ-Bn-Card.is-active .PQ-Bn-IcoWrap {
-  background: rgba(255, 255, 255, 0.22) !important;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
-}
-.PQ-Bn-Card.is-active .PQ-Bn-IcoWrap :is(svg, svg *) {
-  stroke: #ffffff !important;
-  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(67, 129, 193, 0.14), rgba(0, 182, 222, 0.14));
+  box-shadow: 0 4px 14px rgba(0, 113, 188, 0.12);
 }
 .PQ-Bn-IcoWrap svg { width: 22px; height: 22px; }
 .PQ-Bn-Title { font-size: .85rem; font-weight: 800; color: var(--k-dark); text-align: center; line-height: 1.35; }
@@ -2175,7 +2171,12 @@
   transition:opacity .5s,transform .5s,border-color .4s,box-shadow .4s;
 }
 .ER-Block.is-vis .ER-Bn-Card { opacity:1;transform:scale(1); }
-.ER-Bn-Card.is-active { border-color:var(--bc);transform:translateY(-7px) scale(1.04);box-shadow:var(--card-sh-hover);background:var(--kap-premium-gradient); }
+.ER-Bn-Card.is-active {
+  border-color: var(--bc);
+  transform: translateY(-7px) scale(1.04);
+  box-shadow: 0 16px 44px rgba(0, 113, 188, 0.14), 0 0 0 3px rgba(0, 182, 222, 0.12);
+  background: #ffffff;
+}
 .ER-Bn-Grid:has(.is-active) .ER-Bn-Card:not(.is-active) { opacity:.55;transform:scale(.97); }
 .ER-Bn-Bar { position:absolute;bottom:0;left:0;height:4px;border-radius:0 0 20px 20px;background:linear-gradient(90deg,var(--bc),rgba(0,191,99,.6));animation:erbn-fill 2s linear forwards; }
 @keyframes erbn-fill { from{width:0%}to{width:100%} }
@@ -2186,19 +2187,11 @@
   transition:box-shadow .4s;
 }
 .ER-Bn-Card.is-active .ER-Bn-IcoWrap {
-  background: rgba(255, 255, 255, 0.22) !important;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
-}
-.ER-Bn-Card.is-active .ER-Bn-IcoWrap :is(svg, svg *) {
-  stroke: #ffffff !important;
-  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(0, 182, 222, 0.14), rgba(67, 129, 193, 0.14));
+  box-shadow: 0 4px 14px rgba(0, 113, 188, 0.12);
 }
 .ER-Bn-IcoWrap svg { width:22px;height:22px; }
 .ER-Bn-Title { font-size:.85rem;font-weight:800;color:var(--k-dark);text-align:center;line-height:1.35; }
-.ER-Bn-Card.is-active .ER-Bn-Title {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
 
 /* ER Différenciation (light block + dark panel) */
 .ER-Df-Layout { display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:center; }

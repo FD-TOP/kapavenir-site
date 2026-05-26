@@ -136,10 +136,3 @@
   -webkit-text-fill-color: inherit !important;
   stroke: currentColor;
 }
-
-/* Cartes bénéfices actives — icônes blanches (prime sur kap-accent-text.css) */
-.PQ-Bn-Card.is-active .PQ-Bn-IcoWrap :is(svg, svg *),
-.ER-Bn-Card.is-active .ER-Bn-IcoWrap :is(svg, svg *) {
-  stroke: #ffffff !important;
-  color: #ffffff !important;
-}

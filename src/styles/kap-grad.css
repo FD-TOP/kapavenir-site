@@ -120,14 +120,15 @@
   filter: none !important;
 }
 
-/* Cartes bénéfices actives : texte blanc lisible (pas de dégradé texte sur fond dégradé) */
-.PQ-Bn-Card.is-active :is(.PQ-Bn-Title, .PQ-Bn-Sub, .PQ-Grad, .kap-grad) {
+/* Cartes bénéfices actives : texte noir uni (pas de dégradé texte) */
+.PQ-Bn-Card.is-active :is(.PQ-Bn-Title, .PQ-Bn-Sub, .PQ-Grad, .kap-grad),
+.ER-Bn-Card.is-active :is(.ER-Bn-Title, .PQ-Grad, .kap-grad) {
   background: none !important;
   background-image: none !important;
   -webkit-background-clip: border-box !important;
   background-clip: border-box !important;
-  -webkit-text-fill-color: #ffffff !important;
-  color: #ffffff !important;
+  -webkit-text-fill-color: #0f172a !important;
+  color: #0f172a !important;
 }
 
 /* Témoignages : texte blanc au survol */
