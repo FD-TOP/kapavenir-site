@@ -300,7 +300,7 @@
   z-index: 1;
   left: 50%;
   bottom: 0;
-  transform: translateX(-50%) scale(2);
+  transform: translateX(-50%) scale(1.65);
   transform-origin: bottom center;
   width: auto;
   height: 108%;
