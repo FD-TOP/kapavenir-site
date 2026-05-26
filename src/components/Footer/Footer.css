@@ -3,32 +3,36 @@
    ============================================================================= */
 
 .FT {
-  --ft-text: #1a1a1b;
-  --ft-muted: #64748b;
-  --ft-accent: #00b6de;
-  --ft-green: #00bf63;
-  --ft-blue: #4381c1;
+  /* Même dégradé que la navbar (.nav-pill) */
+  --ft-nav-bg: linear-gradient(
+    100deg,
+    rgba(0, 113, 188, 0.92) 0%,
+    rgba(0, 182, 222, 0.92) 55%,
+    rgba(0, 191, 99, 0.92) 100%
+  );
+  --ft-nav-bg-dark: linear-gradient(
+    100deg,
+    rgba(0, 70, 130, 0.97) 0%,
+    rgba(0, 162, 200, 0.97) 55%,
+    rgba(0, 171, 88, 0.97) 100%
+  );
+  --ft-text: rgba(255, 255, 255, 0.95);
+  --ft-muted: rgba(255, 255, 255, 0.78);
+  --ft-accent: #e8fffa;
+  --ft-green: #b8f5d4;
   --ft-pad: clamp(20px, 4vw, 56px);
-  --ft-max: 1280px;
+  --ft-max: 1320px;
 
   position: relative;
   z-index: 30;
   margin-top: auto;
   color: var(--ft-text);
   font-family: 'Inter', system-ui, sans-serif;
-  overflow: visible;
-  padding-top: clamp(40px, 8vw, 80px);
-  background:
-    linear-gradient(
-      155deg,
-      #ffffff 0%,
-      #f0f9ff 14%,
-      #e8fdf2 38%,
-      #eef6ff 62%,
-      #f8fafc 85%,
-      #ffffff 100%
-    );
-  background-attachment: scroll;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding-top: clamp(100px, 18vw, 200px);
+  background: var(--ft-nav-bg);
+  box-shadow: 0 -8px 32px rgba(0, 113, 188, 0.15);
 }
 
 /* ─── Vague de transition ───────────────────────────────────── */
@@ -67,7 +71,7 @@
   height: 480px;
   top: -100px;
   left: -100px;
-  background: rgba(0, 182, 222, 0.18);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .FT-Orb--2 {
@@ -75,7 +79,7 @@
   height: 400px;
   bottom: -60px;
   left: 30%;
-  background: rgba(0, 191, 99, 0.14);
+  background: rgba(255, 255, 255, 0.08);
   animation-delay: -4s;
 }
 
@@ -84,7 +88,7 @@
   height: 340px;
   top: 10%;
   right: 0;
-  background: rgba(67, 129, 193, 0.12);
+  background: rgba(255, 255, 255, 0.1);
   animation-delay: -7s;
 }
 
@@ -96,10 +100,10 @@
 .FT-GridLines {
   position: absolute;
   inset: 0;
-  opacity: 0.35;
+  opacity: 0.2;
   background-image:
-    linear-gradient(rgba(0, 113, 188, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 113, 188, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
 }
@@ -115,8 +119,8 @@
 /* ─── Grille — colonne photo plus large ─────────────────────── */
 .FT-Grid {
   display: grid;
-  grid-template-columns: minmax(240px, 0.95fr) minmax(180px, 0.85fr) minmax(300px, 1.25fr);
-  gap: clamp(24px, 3.5vw, 44px);
+  grid-template-columns: minmax(200px, 0.7fr) minmax(150px, 0.55fr) minmax(320px, 2.2fr);
+  gap: clamp(20px, 3vw, 40px);
   align-items: end;
 }
 
@@ -124,13 +128,11 @@
 .FT-BrandPanel {
   padding: clamp(22px, 3vw, 30px);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(0, 182, 222, 0.15);
-  backdrop-filter: blur(12px);
-  box-shadow:
-    0 16px 48px rgba(0, 113, 188, 0.08),
-    0 4px 16px rgba(0, 191, 99, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   align-self: start;
 }
 
@@ -148,6 +150,7 @@
   height: clamp(48px, 6vw, 60px);
   width: auto;
   object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .FT-Tagline {
@@ -160,11 +163,9 @@
 }
 
 .FT-Grad {
-  background: linear-gradient(100deg, #0071bc 0%, #00b6de 50%, #00bf63 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--ft-green);
+  -webkit-text-fill-color: unset;
+  background: none;
 }
 
 .FT-Pitch {
@@ -192,7 +193,7 @@
 }
 
 .FT-TrustItem svg {
-  color: var(--ft-green);
+  color: #fff;
   flex-shrink: 0;
 }
 
@@ -205,18 +206,18 @@
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--ft-text);
   text-decoration: none;
-  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
-  background-size: 200% 200%;
-  box-shadow: 0 10px 28px rgba(0, 113, 188, 0.22), 0 4px 12px rgba(0, 191, 99, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .FT-CTA:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 36px rgba(0, 113, 188, 0.28), 0 6px 16px rgba(0, 191, 99, 0.2);
-  background-position: 100% 50%;
+  background: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
 
 /* ─── Navigation ────────────────────────────────────────────── */
@@ -233,7 +234,7 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #0071bc;
+  color: var(--ft-green);
   margin: 0 0 12px;
 }
 
@@ -262,17 +263,16 @@
 }
 
 .FT-NavLink:hover {
-  background: rgba(255, 255, 255, 0.75);
-  color: var(--ft-text);
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
   transform: translateX(4px);
-  box-shadow: 0 4px 14px rgba(0, 113, 188, 0.06);
 }
 
 .FT-NavLinkArrow {
   opacity: 0;
   transform: translateX(-6px);
   transition: opacity 0.25s, transform 0.25s;
-  color: var(--ft-green);
+  color: #fff;
   flex-shrink: 0;
 }
 
@@ -281,50 +281,45 @@
   transform: translateX(0);
 }
 
-/* ─── Visuel conseillère — grande taille ─────────────────────── */
+/* ─── Visuel conseillère — très grande (≈ ×3) ───────────────── */
 .FT-Visual {
   position: relative;
-  min-height: clamp(380px, 42vw, 520px);
+  min-height: min(1100px, 88vh);
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  margin-top: clamp(-60px, -8vw, -100px);
+  margin-top: clamp(-140px, -16vw, -220px);
+  overflow: visible;
 }
 
 .FT-VisualFrame {
   position: absolute;
-  inset: 8% 0 0 5%;
-  border-radius: 220px 220px 28px 28px;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(224, 249, 255, 0.65) 40%,
-    rgba(232, 253, 245, 0.5) 100%
-  );
-  border: 1px solid rgba(0, 182, 222, 0.2);
-  box-shadow:
-    0 20px 50px rgba(0, 113, 188, 0.1),
-    inset 0 0 80px rgba(0, 182, 222, 0.06);
+  inset: 4% -8% 0 0;
+  border-radius: 280px 280px 32px 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.06);
   animation: ftFramePulse 6s ease-in-out infinite;
 }
 
 @keyframes ftFramePulse {
-  0%, 100% { opacity: 0.95; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.008); }
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.01); }
 }
 
 .FT-Advisor {
   position: relative;
   z-index: 2;
   width: auto;
-  height: clamp(420px, 52vw, 580px);
+  height: min(1260px, 92vh);
   max-width: none;
-  min-width: min(100%, 320px);
+  min-width: 280px;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 24px 48px rgba(0, 113, 188, 0.15));
+  filter: drop-shadow(0 28px 56px rgba(0, 0, 0, 0.28));
   animation: ftAdvisorFloat 5.5s ease-in-out infinite;
   pointer-events: none;
+  transform-origin: bottom center;
 }
 
 @keyframes ftAdvisorFloat {
@@ -389,9 +384,9 @@
   margin-top: clamp(24px, 4vw, 40px);
   padding: 18px 22px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(0, 182, 222, 0.12);
-  box-shadow: 0 8px 28px rgba(0, 113, 188, 0.06);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
 }
 
 .FT-ContactItem {
@@ -406,11 +401,11 @@
 }
 
 a.FT-ContactItem:hover {
-  color: var(--ft-blue);
+  color: #fff;
 }
 
 .FT-ContactItem svg {
-  color: var(--ft-accent);
+  color: #fff;
   flex-shrink: 0;
 }
 
@@ -423,8 +418,8 @@ a.FT-ContactItem:hover {
   position: relative;
   z-index: 1;
   margin-top: clamp(24px, 3vw, 36px);
-  border-top: 1px solid rgba(0, 113, 188, 0.1);
-  background: linear-gradient(90deg, rgba(240, 249, 255, 0.95), rgba(232, 253, 245, 0.95));
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--ft-nav-bg-dark);
 }
 
 .FT-BarInner {
@@ -446,14 +441,14 @@ a.FT-ContactItem:hover {
 }
 
 .FT-Copy a {
-  color: var(--ft-blue);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.2s;
 }
 
 .FT-Copy a:hover {
-  color: var(--ft-accent);
+  color: #fff;
 }
 
 .FT-CopySep {
@@ -470,7 +465,7 @@ a.FT-ContactItem:hover {
 }
 
 .FT-Legal a:hover {
-  color: var(--ft-green);
+  color: #fff;
 }
 
 .FT-Legal {
@@ -482,7 +477,7 @@ a.FT-ContactItem:hover {
 /* ─── Responsive ────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .FT {
-    padding-top: 56px;
+    padding-top: clamp(80px, 14vw, 120px);
   }
 
   .FT-Grid {
@@ -492,13 +487,13 @@ a.FT-ContactItem:hover {
 
   .FT-Visual {
     grid-column: 1 / -1;
-    min-height: clamp(360px, 55vw, 480px);
-    max-width: 520px;
-    margin: -40px auto 0;
+    min-height: min(900px, 75vh);
+    max-width: 100%;
+    margin: -80px auto 0;
   }
 
   .FT-Advisor {
-    height: clamp(380px, 58vw, 520px);
+    height: min(900px, 72vh);
   }
 
   .FT-Nav {
@@ -517,14 +512,14 @@ a.FT-ContactItem:hover {
   }
 
   .FT-Visual {
-    min-height: 340px;
-    margin-top: 0;
+    min-height: min(720px, 70vh);
+    margin-top: -40px;
   }
 
   .FT-Advisor {
-    height: clamp(340px, 75vw, 440px);
-    width: 100%;
-    max-width: 100%;
+    height: min(720px, 68vh);
+    width: auto;
+    max-width: 110%;
   }
 
   .FT-AdvisorCard {
