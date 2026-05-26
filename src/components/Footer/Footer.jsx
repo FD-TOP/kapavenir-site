@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Mail, MapPin, Phone, Shield } from 'lucide-react';
 import './Footer.css';
+import '../Navbar/Navbar.css';
 
 import logoImg from '../../assets/logo.png';
 import logoTag from '../../assets/logo-tag.png';
@@ -66,8 +67,8 @@ export default function Footer() {
       <div className="FT-Inner">
         <div className="FT-Grid">
           <div className="FT-BrandPanel">
-            <Link to="/" className="FT-LogoLink" aria-label="KapAvenir — Accueil">
-              <img src={logoImg} alt="KapAvenir" className="FT-Logo" draggable={false} />
+            <Link to="/" className="nav-logo FT-BrandLogo" aria-label="KapAvenir — Accueil">
+              <img src={logoImg} alt="KapAvenir" className="nav-logo-img" draggable={false} />
             </Link>
 
             <p className="FT-Tagline">
