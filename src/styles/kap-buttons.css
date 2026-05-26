@@ -1,0 +1,119 @@
+/* =============================================================================
+   BOUTONS CTA — dégradé charte unifié (fond animé + texte blanc)
+   Chargé en dernier (main.jsx) pour primer sur les feuilles de page.
+   ============================================================================= */
+
+@keyframes kapBtnShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Tous les boutons / liens d’action — hors contrôles UI (tabs, carousel, menu…) */
+:is(
+  button[class*='Btn'],
+  button[class*='btn-'],
+  button[class*='CTA'],
+  button[class*='cta-btn'],
+  button[class*='cta'],
+  button.prob-btn-main,
+  button.K-btn-premium,
+  .ap-cta-row > button,
+  a.nav-cta-btn,
+  a.mobile-final-cta,
+  a.ct-phone-btn
+):not(
+  .T-dot-btn,
+  .PQ-Thumb,
+  .PQ-Dot,
+  .BR-Modal-Close,
+  .BR-Modal-Dismiss,
+  .nav-link-desktop,
+  .nav-dropdown-item,
+  .mobile-sublink,
+  .mobile-accordion-header,
+  .nav-mobile-trigger,
+  .mobile-close,
+  .ct-option-card,
+  .res-tabs button,
+  .res-faq-item
+) {
+  background: var(--kap-premium-gradient) !important;
+  background-size: 200% 200% !important;
+  animation: kapBtnShimmer 5s ease infinite !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border-color: transparent !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  background-image: var(--kap-premium-gradient) !important;
+  filter: none !important;
+}
+
+/* Texte / icônes à l’intérieur des boutons */
+:is(
+  button[class*='Btn'],
+  button[class*='btn-'],
+  button[class*='CTA'],
+  button[class*='cta-btn'],
+  button[class*='cta'],
+  button.prob-btn-main,
+  button.K-btn-premium,
+  .ap-cta-row > button,
+  a.nav-cta-btn,
+  a.mobile-final-cta,
+  a.ct-phone-btn
+):not(
+  .T-dot-btn,
+  .PQ-Thumb,
+  .PQ-Dot,
+  .BR-Modal-Close,
+  .BR-Modal-Dismiss,
+  .nav-link-desktop,
+  .nav-dropdown-item,
+  .mobile-sublink,
+  .mobile-accordion-header,
+  .nav-mobile-trigger,
+  .mobile-close,
+  .ct-option-card,
+  .res-tabs button,
+  .res-faq-item
+) :is(span, p, div, svg) {
+  -webkit-text-fill-color: inherit !important;
+  color: inherit !important;
+  stroke: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+    button[class*='Btn'],
+    button[class*='btn-'],
+    button[class*='CTA'],
+    button[class*='cta-btn'],
+    button[class*='cta'],
+    button.prob-btn-main,
+    button.K-btn-premium,
+    .ap-cta-row > button,
+    a.nav-cta-btn,
+    a.mobile-final-cta,
+    a.ct-phone-btn
+  ):not(
+    .T-dot-btn,
+    .PQ-Thumb,
+    .PQ-Dot,
+    .BR-Modal-Close,
+    .BR-Modal-Dismiss,
+    .nav-link-desktop,
+    .nav-dropdown-item,
+    .mobile-sublink,
+    .mobile-accordion-header,
+    .nav-mobile-trigger,
+    .mobile-close,
+    .ct-option-card,
+    .res-tabs button,
+    .res-faq-item
+  ) {
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+}

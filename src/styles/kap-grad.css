@@ -101,38 +101,7 @@
   text-shadow: none !important;
 }
 
-/* ── Boutons contour (texte dégradé) ───────────────────────────────────────── */
-:is(
-  .PQ-Btn--border,
-  .OR-Btn--ghost,
-  .OR-Btn--outline,
-  .ER-Btn--outline,
-  .PT-Btn--outline,
-  .AD-Btn--outline,
-  .BR-Modal-Cta--outline,
-  .F-btn-secondary
-) {
-  background-image: var(--kap-text-gradient) !important;
-  background-size: 100% 100% !important;
-  background-color: transparent !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-  filter: none !important;
-}
-
-.PQ-Btn--white,
-.ER-Btn--white {
-  background-image: var(--kap-text-gradient), #ffffff !important;
-  background-size: 100% 100%, auto !important;
-  background-origin: border-box !important;
-  -webkit-background-clip: text, padding-box !important;
-  background-clip: text, padding-box !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-  filter: none !important;
-}
+/* Boutons CTA : fond dégradé → kap-buttons.css (texte blanc) */
 
 /* Labels (texte dégradé + fond pill) — PourQui.css garde le padding/border */
 :is(
