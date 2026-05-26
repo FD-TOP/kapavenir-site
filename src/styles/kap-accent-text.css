@@ -77,6 +77,41 @@
 ) {
   -webkit-text-fill-color: #ffffff !important;
   color: #ffffff !important;
+}
+
+/* Texte blanc dans les boutons dégradé (sans toucher au fond du bouton) */
+:is(
+  .btn-bilan,
+  .btn-depart,
+  .btn-primary-cta,
+  .F-btn-primary,
+  .sol-cta-premium,
+  .P-cta-button,
+  .SH-Btn-Gradient,
+  .AD-Btn--primary,
+  .BR-Btn,
+  .BR-Modal-Cta--gradient,
+  .ct-phone-btn,
+  .ct-option-btn,
+  .etp-cta-btn.primary,
+  .KH-btn,
+  .PQ-CTA,
+  .PQ-Btn--solid,
+  .OR-Btn--solid,
+  .ER-Btn--solid,
+  .OR-Btn--white,
+  .PT-Btn--blue,
+  .nav-cta-btn,
+  .mobile-cta,
+  .mobile-final-cta,
+  .FT-CTA
+) :is(span, p, div, svg) {
+  -webkit-text-fill-color: inherit !important;
+  color: inherit !important;
+}
+
+/* Titres hero : blanc pur, pas de fond */
+.hero-title-plain {
+  background: none !important;
   background-image: none !important;
-  background-color: transparent !important;
 }

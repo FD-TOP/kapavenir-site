@@ -67,7 +67,6 @@
   .ER-Sv-Num,
   .ER-Stat-Val small,
   .ER-Ou-BarPct,
-  .h-tag,
   .P-step-card.is-active .P-step-num,
   .P-step-card.is-done:not(.is-active) .P-step-num,
   .PT-Sec-Title em,
@@ -145,7 +144,6 @@
   .PT-Label--blue,
   .PT-Label--green,
   .AD-Tag,
-  .h-tag,
   .T-mini-badge
 ) {
   background-size: 100% 100%, auto !important;

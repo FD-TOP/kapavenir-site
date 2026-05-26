@@ -87,7 +87,7 @@ const Solutions = () => {
                       
                       <div className="sol-highlights">
                         {sol.highlights.map((h, i) => (
-                          <span key={i} className="h-tag"><CheckCircle2 size={12} /> {h}</span>
+                          <span key={i} className="sol-h-tag"><CheckCircle2 size={12} /> {h}</span>
                         ))}
                       </div>
 

@@ -119,6 +119,7 @@
 .sol-card-front,
 .sol-card-back {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
@@ -126,6 +127,12 @@
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  transform-style: preserve-3d;
+}
+
+.sol-card-front {
+  transform: rotateY(0deg) translateZ(2px);
+  z-index: 2;
 }
 
 /* RECTO */
@@ -184,18 +191,29 @@
 /* VERSO */
 .sol-card-back {
   background: #ffffff;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(2px);
   display: flex;
   flex-direction: column;
   border: 1.5px solid rgba(0, 182, 222, 0.15);
+  z-index: 1;
+}
+
+.is-flipped .sol-card-front {
+  z-index: 1;
+}
+
+.is-flipped .sol-card-back {
+  z-index: 2;
 }
 
 .sol-back-grid {
   padding: 36px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   gap: 0;
+  overflow: hidden;
 }
 
 .sol-back-header {
@@ -220,14 +238,23 @@
   margin-bottom: 18px;
 }
 
-.h-tag {
+.sol-h-tag {
   padding: 4px 12px;
   border-radius: 8px;
   font-size: 0.78rem;
   font-weight: 700;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 5px;
+  background: rgba(0, 182, 222, 0.1);
+  border: 1px solid rgba(0, 182, 222, 0.22);
+  color: #0071bc;
+  -webkit-text-fill-color: #0071bc;
+}
+
+.sol-h-tag svg {
+  color: #00b6de;
+  flex-shrink: 0;
 }
 
 .sol-back-text {
@@ -238,14 +265,16 @@
   margin-bottom: 20px;
 }
 
-/* Bouton CTA au verso */
-.sol-cta-premium {
+/* Bouton CTA au verso (fond préservé malgré kap-accent-text.css) */
+.sol-card-back .sol-cta-premium {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background: var(--kap-premium-gradient);
-  color: white;
+  background: var(--kap-premium-gradient) !important;
+  background-size: 200% 200% !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   border: none;
   padding: 8px 8px 8px 20px;
   border-radius: 14px;
@@ -253,6 +282,14 @@
   transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   gap: 12px;
   box-shadow: var(--kap-btn-glow);
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.sol-card-back .sol-cta-premium .btn-content {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
 }
 
 .btn-content {
