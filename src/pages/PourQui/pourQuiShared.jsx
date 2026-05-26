@@ -230,7 +230,7 @@ export const PT_STEPS = [
   { title: 'Vous partagez', desc: 'Votre situation, vos objectifs et vos questions.' },
   { title: 'Nous analysons', desc: 'Vos droits, vos trimestres et vos scénarios.' },
   { title: 'Vous recevez', desc: 'Un rapport clair et des recommandations précises.' },
-  { title: 'Vous agissez', desc: 'En toute confiance, au moment optimal.' },
+  { title: 'Vous agissez', desc: 'Nous vous accompagnons.' },
 ];
 
 export const PT_BENEFITS = [
