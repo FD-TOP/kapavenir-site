@@ -120,10 +120,14 @@
   filter: none !important;
 }
 
-/* Carte bénéfices active : dégradé blanc (PourQui.css) */
-.PQ-Bn-Card.is-active .PQ-Grad {
-  background-image: linear-gradient(90deg, #ffffff 0%, rgba(224, 249, 255, 0.95) 50%, rgba(220, 252, 231, 0.98) 100%) !important;
-  background-size: 100% 100% !important;
+/* Cartes bénéfices actives : texte blanc lisible (pas de dégradé texte sur fond dégradé) */
+.PQ-Bn-Card.is-active :is(.PQ-Bn-Title, .PQ-Bn-Sub, .PQ-Grad, .kap-grad) {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 /* Témoignages : texte blanc au survol */

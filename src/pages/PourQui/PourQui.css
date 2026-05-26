@@ -1166,22 +1166,18 @@
   display: flex; align-items: center; justify-content: center;
   transition: box-shadow .4s;
 }
-.PQ-Bn-Card.is-active .PQ-Bn-IcoWrap { box-shadow: 0 0 18px rgba(0,182,222,.3); }
+.PQ-Bn-Card.is-active .PQ-Bn-IcoWrap {
+  background: rgba(255, 255, 255, 0.22) !important;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+}
+.PQ-Bn-Card.is-active .PQ-Bn-IcoWrap :is(svg, svg *) {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
 .PQ-Bn-IcoWrap svg { width: 22px; height: 22px; }
-.PQ-Bn-Title { font-size: .85rem; font-weight: 800; color: var(--k-dark); text-align: center; line-height: 1.06; }
-.PQ-Bn-Sub   { font-size: .72rem; color: var(--k-muted); text-align: center; line-height: 1.05; margin-top: 0; }
-.PQ-Bn-Card.is-active .PQ-Bn-Title,
-.PQ-Bn-Card.is-active .PQ-Bn-Sub { color: #ffffff; }
-.PQ-Bn-Card.is-active .PQ-Grad {
-  background: linear-gradient(90deg, #ffffff 0%, rgba(224, 249, 255, 0.95) 50%, rgba(220, 252, 231, 0.98) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-@supports not (-webkit-background-clip: text) {
-  .PQ-Bn-Card.is-active .PQ-Grad { background: none; color: #fff; -webkit-text-fill-color: unset; }
-}
+.PQ-Bn-Title { font-size: .85rem; font-weight: 800; color: var(--k-dark); text-align: center; line-height: 1.35; }
+.PQ-Bn-Sub   { font-size: .72rem; color: var(--k-muted); text-align: center; line-height: 1.25; margin-top: 2px; }
+/* Texte actif → kap-grad.css (.PQ-Bn-Card.is-active …) */
 
 /* 7 — Différenciation */
 .PQ-Block--why { background: transparent !important; }
@@ -2189,10 +2185,20 @@
   display:flex;align-items:center;justify-content:center;
   transition:box-shadow .4s;
 }
-.ER-Bn-Card.is-active .ER-Bn-IcoWrap { box-shadow:0 0 18px rgba(0,182,222,.3); }
+.ER-Bn-Card.is-active .ER-Bn-IcoWrap {
+  background: rgba(255, 255, 255, 0.22) !important;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+}
+.ER-Bn-Card.is-active .ER-Bn-IcoWrap :is(svg, svg *) {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
 .ER-Bn-IcoWrap svg { width:22px;height:22px; }
 .ER-Bn-Title { font-size:.85rem;font-weight:800;color:var(--k-dark);text-align:center;line-height:1.35; }
-.ER-Bn-Card.is-active .ER-Bn-Title { color:#ffffff; }
+.ER-Bn-Card.is-active .ER-Bn-Title {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
 
 /* ER Différenciation (light block + dark panel) */
 .ER-Df-Layout { display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:center; }
