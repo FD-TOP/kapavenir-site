@@ -147,7 +147,6 @@
 }
 
 .AD-Btn--primary {
-  background: var(--kap-premium-gradient);
   color: #fff;
   box-shadow: var(--kap-btn-glow);
 }
@@ -158,14 +157,8 @@
   box-shadow: 0 14px 34px rgba(0, 113, 188, 0.35), 0 6px 16px rgba(0, 191, 99, 0.22);
 }
 
-.AD-Btn--outline {
-  background: transparent;
-  border: 2px solid rgba(67,129,193,0.25);
-}
-
 .AD-Btn--outline:hover {
-  border-color: #4381C1;
-  background: rgba(67,129,193,0.06);
+  filter: brightness(1.06);
   transform: translateY(-2px);
 }
 

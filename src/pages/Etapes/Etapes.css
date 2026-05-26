@@ -531,15 +531,13 @@
 }
 
 .etp-cta-btn.primary {
-  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
   color: #ffffff;
   box-shadow: 0 12px 28px rgba(0, 191, 99, .24);
 }
 
 .etp-cta-btn.secondary {
-  background: rgba(255,255,255,.9);
-  color: #0f172a;
-  border-color: #cfe2f7;
+  color: #ffffff;
+  border-color: transparent;
 }
 
 .etp-cta-image {

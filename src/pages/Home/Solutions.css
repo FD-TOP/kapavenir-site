@@ -271,8 +271,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background: var(--kap-premium-gradient) !important;
-  background-size: 200% 200% !important;
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
   border: none;

@@ -281,7 +281,7 @@
 }
 
 .P-cta-button {
-  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+  /* fond dégradé → kap-buttons.css */
   color: white;
   padding: 20px 50px;
   border-radius: 100px;

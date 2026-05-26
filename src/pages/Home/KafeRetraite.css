@@ -100,10 +100,9 @@
 }
 
 .K-btn-premium {
-  border: 1px solid rgba(255,255,255,.28);
+  border: none;
   border-radius: 999px;
   padding: 13px 22px;
-  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
   color: #ffffff;
   font-size: .94rem;
   font-weight: 700;

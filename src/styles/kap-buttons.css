@@ -1,7 +1,11 @@
 /* =============================================================================
-   BOUTONS CTA — dégradé charte unifié (fond animé + texte blanc)
-   Chargé en dernier (main.jsx) pour primer sur les feuilles de page.
+   BOUTONS CTA — dégradé charte bleu → cyan → vert (fond animé, texte blanc)
+   Chargé en dernier (App.jsx) pour primer sur toutes les feuilles de page.
    ============================================================================= */
+
+:root {
+  --kap-btn-fill: linear-gradient(100deg, #0071bc 0%, #00b6de 42%, #00bf63 100%);
+}
 
 @keyframes kapBtnShimmer {
   0%   { background-position: 0% 50%; }
@@ -9,19 +13,45 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Tous les boutons / liens d’action — hors contrôles UI (tabs, carousel, menu…) */
+/* Liste explicite des CTA du site + sélecteurs de secours */
 :is(
+  .btn-bilan,
+  .btn-depart,
+  .btn-primary-cta,
+  .btn-secondary-cta,
+  .F-btn-primary,
+  .F-btn-secondary,
+  .prob-btn-main,
+  .sol-cta-premium,
+  .P-cta-button,
+  .KH-btn,
+  .K-btn-premium,
+  .etp-cta-btn,
+  .ct-phone-btn,
+  .ct-option-btn,
+  .BR-Btn,
+  .BR-Modal-Cta,
+  .AD-Btn,
+  .SH-Btn-Gradient,
+  .PQ-CTA,
+  .PQ-Btn,
+  .OR-Btn,
+  .ER-Btn,
+  .PT-Btn,
+  .STT-Btn,
+  .nav-cta-btn,
+  .mobile-final-cta,
+  .FT-CTA,
+  .ap-cta-row > button,
   button[class*='Btn'],
   button[class*='btn-'],
   button[class*='CTA'],
   button[class*='cta-btn'],
   button[class*='cta'],
-  button.prob-btn-main,
-  button.K-btn-premium,
-  .ap-cta-row > button,
-  a.nav-cta-btn,
-  a.mobile-final-cta,
-  a.ct-phone-btn
+  a[class*='Btn'],
+  a[class*='btn-'],
+  a[class*='CTA'],
+  a[class*='cta']
 ):not(
   .T-dot-btn,
   .PQ-Thumb,
@@ -36,33 +66,61 @@
   .mobile-close,
   .ct-option-card,
   .res-tabs button,
-  .res-faq-item
+  .res-faq-item,
+  .etp-step-chip
 ) {
-  background: var(--kap-premium-gradient) !important;
-  background-size: 200% 200% !important;
+  background-color: transparent !important;
+  background-image: var(--kap-btn-fill) !important;
+  background-size: 300% 100% !important;
+  background-position: 0% 50% !important;
+  background-repeat: no-repeat !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
   animation: kapBtnShimmer 5s ease infinite !important;
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
   border-color: transparent !important;
-  background-clip: border-box !important;
-  -webkit-background-clip: border-box !important;
-  background-image: var(--kap-premium-gradient) !important;
   filter: none !important;
 }
 
-/* Texte / icônes à l’intérieur des boutons */
 :is(
+  .btn-bilan,
+  .btn-depart,
+  .btn-primary-cta,
+  .btn-secondary-cta,
+  .F-btn-primary,
+  .F-btn-secondary,
+  .prob-btn-main,
+  .sol-cta-premium,
+  .P-cta-button,
+  .KH-btn,
+  .K-btn-premium,
+  .etp-cta-btn,
+  .ct-phone-btn,
+  .ct-option-btn,
+  .BR-Btn,
+  .BR-Modal-Cta,
+  .AD-Btn,
+  .SH-Btn-Gradient,
+  .PQ-CTA,
+  .PQ-Btn,
+  .OR-Btn,
+  .ER-Btn,
+  .PT-Btn,
+  .STT-Btn,
+  .nav-cta-btn,
+  .mobile-final-cta,
+  .FT-CTA,
+  .ap-cta-row > button,
   button[class*='Btn'],
   button[class*='btn-'],
   button[class*='CTA'],
   button[class*='cta-btn'],
   button[class*='cta'],
-  button.prob-btn-main,
-  button.K-btn-premium,
-  .ap-cta-row > button,
-  a.nav-cta-btn,
-  a.mobile-final-cta,
-  a.ct-phone-btn
+  a[class*='Btn'],
+  a[class*='btn-'],
+  a[class*='CTA'],
+  a[class*='cta']
 ):not(
   .T-dot-btn,
   .PQ-Thumb,
@@ -77,26 +135,53 @@
   .mobile-close,
   .ct-option-card,
   .res-tabs button,
-  .res-faq-item
-) :is(span, p, div, svg) {
-  -webkit-text-fill-color: inherit !important;
+  .res-faq-item,
+  .etp-step-chip
+) :is(span, p, div, svg, path) {
   color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
   stroke: currentColor;
 }
 
 @media (prefers-reduced-motion: reduce) {
   :is(
+    .btn-bilan,
+    .btn-depart,
+    .btn-primary-cta,
+    .btn-secondary-cta,
+    .F-btn-primary,
+    .F-btn-secondary,
+    .prob-btn-main,
+    .sol-cta-premium,
+    .P-cta-button,
+    .KH-btn,
+    .K-btn-premium,
+    .etp-cta-btn,
+    .ct-phone-btn,
+    .ct-option-btn,
+    .BR-Btn,
+    .BR-Modal-Cta,
+    .AD-Btn,
+    .SH-Btn-Gradient,
+    .PQ-CTA,
+    .PQ-Btn,
+    .OR-Btn,
+    .ER-Btn,
+    .PT-Btn,
+    .STT-Btn,
+    .nav-cta-btn,
+    .mobile-final-cta,
+    .FT-CTA,
+    .ap-cta-row > button,
     button[class*='Btn'],
     button[class*='btn-'],
     button[class*='CTA'],
     button[class*='cta-btn'],
     button[class*='cta'],
-    button.prob-btn-main,
-    button.K-btn-premium,
-    .ap-cta-row > button,
-    a.nav-cta-btn,
-    a.mobile-final-cta,
-    a.ct-phone-btn
+    a[class*='Btn'],
+    a[class*='btn-'],
+    a[class*='CTA'],
+    a[class*='cta']
   ):not(
     .T-dot-btn,
     .PQ-Thumb,
@@ -111,7 +196,8 @@
     .mobile-close,
     .ct-option-card,
     .res-tabs button,
-    .res-faq-item
+    .res-faq-item,
+    .etp-step-chip
   ) {
     animation: none !important;
     background-size: 100% 100% !important;

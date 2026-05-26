@@ -287,15 +287,12 @@
   border-radius: 999px;
   padding: 12px 20px;
   font-weight: 700;
-  background: var(--kap-premium-gradient);
   color: #ffffff;
   cursor: pointer;
 }
 
-.ap-cta-row .is-outline {
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid #d9e7f6;
+.ap-cta-row .is-outline:hover {
+  filter: brightness(1.06);
 }
 
 @keyframes ap-in {

@@ -147,21 +147,21 @@
 .nav-right-group { display: flex; align-items: center; gap: 15px; }
 
 .nav-cta-btn {
-  background: rgba(255, 255, 255, 0.18);
   color: white;
   padding: 12px 28px;
   border-radius: 100px;
   text-decoration: none;
   font-weight: 700;
   font-size: 0.9rem;
-  border: 1.5px solid rgba(255,255,255,0.4);
+  border: none;
   transition: 0.3s;
+  box-shadow: var(--kap-btn-glow);
 }
 
 .nav-cta-btn:hover {
-  background: rgba(255, 255, 255, 0.32);
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.08);
+  box-shadow: 0 12px 28px rgba(0, 113, 188, 0.35);
 }
 
 .nav-mobile-trigger {
@@ -254,7 +254,6 @@
 
 .mobile-final-cta {
   display: block;
-  background: var(--kap-premium-gradient);
   color: white;
   text-align: center;
   padding: 20px;

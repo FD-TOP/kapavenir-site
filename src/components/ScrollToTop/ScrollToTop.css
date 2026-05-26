@@ -15,7 +15,6 @@
   cursor: pointer;
   padding: 0;
 
-  background: #fff;
   box-shadow: 0 4px 20px rgba(67, 129, 193, 0.22), 0 1px 4px rgba(0,0,0,.08);
 
   display: flex;
@@ -43,7 +42,6 @@
 /* hover */
 .STT-Btn:hover {
   color: #fff;
-  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
   box-shadow: 0 10px 36px rgba(67, 129, 193, 0.42);
   transform: translateY(-3px) scale(1.06) !important;
 }

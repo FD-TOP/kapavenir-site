@@ -175,18 +175,17 @@
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--ft-text);
+  color: #ffffff;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: none;
+  box-shadow: var(--kap-btn-glow, 0 8px 24px rgba(0, 0, 0, 0.12));
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .FT-CTA:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.32);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  filter: brightness(1.08);
+  box-shadow: 0 12px 32px rgba(0, 113, 188, 0.35);
 }
 
 /* ─── Navigation (3 colonnes) ───────────────────────────────── */

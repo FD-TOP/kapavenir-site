@@ -289,7 +289,6 @@
   gap: 8px;
   width: 100%;
   margin-top: 20px;
-  background: var(--kap-premium-gradient);
   color: #fff;
   border: none;
   border-radius: 999px;
@@ -694,7 +693,6 @@
 }
 
 .BR-Modal-Cta--gradient {
-  background: var(--kap-premium-gradient);
   color: #fff;
   box-shadow: var(--kap-btn-glow);
 }
@@ -705,14 +703,8 @@
   transform: translateY(-1px);
 }
 
-.BR-Modal-Cta--outline {
-  background: transparent;
-  border: 2px solid rgba(0, 182, 222, 0.65);
-}
-
 .BR-Modal-Cta--outline:hover {
-  background: rgba(0, 182, 222, 0.08);
-  border-color: #00b6de;
+  filter: brightness(1.06);
   transform: translateY(-1px);
   box-shadow: 0 8px 22px rgba(0, 182, 222, 0.2);
 }

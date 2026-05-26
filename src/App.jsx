@@ -15,6 +15,7 @@ import KafeRetraitePage from './pages/KafeRetraite/KafeRetraitePage';
 import Ressources   from './pages/Ressources/Ressources';
 import APropos      from './pages/APropos/APropos';
 import Contact      from './pages/Contact/Contact';
+
 function App() {
   return (
     <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
