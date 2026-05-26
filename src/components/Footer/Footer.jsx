@@ -113,13 +113,15 @@ export default function Footer() {
           </nav>
 
           <div className="FT-Visual">
-            <div className="FT-VisualFrame" aria-hidden="true" />
-            <img
-              src={advisorImg}
-              alt="Votre conseillère KapAvenir"
-              className="FT-Advisor"
-              draggable={false}
-            />
+            <div className="FT-VisualBody">
+              <div className="FT-VisualFrame" aria-hidden="true" />
+              <img
+                src={advisorImg}
+                alt="Votre conseillère KapAvenir"
+                className="FT-Advisor"
+                draggable={false}
+              />
+            </div>
             <div className="FT-AdvisorCard">
               <img src={logoTag} alt="" className="FT-AdvisorLogo" aria-hidden />
               <p className="FT-AdvisorQuote">

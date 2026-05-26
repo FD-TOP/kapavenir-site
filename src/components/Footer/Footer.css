@@ -1,9 +1,8 @@
 /* =============================================================================
-   Footer KapAvenir — fond clair, photo conseillère mise en avant
+   Footer KapAvenir — dégradé navbar, layout équilibré
    ============================================================================= */
 
 .FT {
-  /* Même dégradé que la navbar (.nav-pill) */
   --ft-nav-bg: linear-gradient(
     100deg,
     rgba(0, 113, 188, 0.92) 0%,
@@ -21,16 +20,15 @@
   --ft-accent: #e8fffa;
   --ft-green: #b8f5d4;
   --ft-pad: clamp(20px, 4vw, 56px);
-  --ft-max: 1320px;
+  --ft-max: 1280px;
 
   position: relative;
   z-index: 30;
   margin-top: auto;
   color: var(--ft-text);
   font-family: 'Inter', system-ui, sans-serif;
-  overflow-x: hidden;
-  overflow-y: visible;
-  padding-top: clamp(100px, 18vw, 200px);
+  overflow: hidden;
+  padding-top: 0;
   background: var(--ft-nav-bg);
   box-shadow: 0 -8px 32px rgba(0, 113, 188, 0.15);
 }
@@ -50,7 +48,7 @@
   display: block;
 }
 
-/* ─── Fond décoratif (tons clairs) ──────────────────────────── */
+/* ─── Fond décoratif ──────────────────────────────────────────── */
 .FT-Mesh {
   position: absolute;
   inset: 0;
@@ -67,27 +65,27 @@
 }
 
 .FT-Orb--1 {
-  width: 480px;
-  height: 480px;
-  top: -100px;
-  left: -100px;
+  width: 420px;
+  height: 420px;
+  top: -80px;
+  left: -80px;
   background: rgba(255, 255, 255, 0.12);
 }
 
 .FT-Orb--2 {
-  width: 400px;
-  height: 400px;
-  bottom: -60px;
-  left: 30%;
+  width: 360px;
+  height: 360px;
+  bottom: 40px;
+  left: 35%;
   background: rgba(255, 255, 255, 0.08);
   animation-delay: -4s;
 }
 
 .FT-Orb--3 {
-  width: 340px;
-  height: 340px;
-  top: 10%;
-  right: 0;
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  right: -40px;
   background: rgba(255, 255, 255, 0.1);
   animation-delay: -7s;
 }
@@ -100,12 +98,12 @@
 .FT-GridLines {
   position: absolute;
   inset: 0;
-  opacity: 0.2;
+  opacity: 0.18;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
 }
 
 .FT-Inner {
@@ -113,15 +111,15 @@
   z-index: 1;
   max-width: var(--ft-max);
   margin: 0 auto;
-  padding: clamp(32px, 5vw, 48px) var(--ft-pad) 0;
+  padding: clamp(36px, 5vw, 52px) var(--ft-pad) 0;
 }
 
-/* ─── Grille — colonne photo plus large ─────────────────────── */
+/* ─── Grille principale ─────────────────────────────────────── */
 .FT-Grid {
   display: grid;
-  grid-template-columns: minmax(200px, 0.7fr) minmax(150px, 0.55fr) minmax(320px, 2.2fr);
-  gap: clamp(20px, 3vw, 40px);
-  align-items: end;
+  grid-template-columns: minmax(240px, 1.05fr) minmax(260px, 1.15fr) minmax(260px, 0.95fr);
+  gap: clamp(24px, 3.5vw, 44px);
+  align-items: start;
 }
 
 /* ─── Panneau marque ────────────────────────────────────────── */
@@ -133,7 +131,6 @@
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  align-self: start;
 }
 
 .FT-LogoLink {
@@ -147,14 +144,14 @@
 }
 
 .FT-Logo {
-  height: clamp(48px, 6vw, 60px);
+  height: clamp(44px, 5vw, 56px);
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
 
 .FT-Tagline {
-  font-size: clamp(1.3rem, 2.3vw, 1.65rem);
+  font-size: clamp(1.25rem, 2.1vw, 1.55rem);
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -220,13 +217,12 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
 
-/* ─── Navigation ────────────────────────────────────────────── */
+/* ─── Navigation (3 colonnes) ───────────────────────────────── */
 .FT-Nav {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  padding-top: 8px;
-  align-self: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+  padding-top: 4px;
 }
 
 .FT-NavTitle {
@@ -235,7 +231,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ft-green);
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 }
 
 .FT-NavList {
@@ -251,13 +247,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 9px 12px;
-  margin: 0 -12px;
-  border-radius: 12px;
+  gap: 8px;
+  padding: 8px 10px;
+  margin: 0 -10px;
+  border-radius: 10px;
   text-decoration: none;
   color: var(--ft-muted);
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 500;
   transition: background 0.25s, color 0.25s, transform 0.25s;
 }
@@ -265,7 +261,7 @@
 .FT-NavLink:hover {
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 .FT-NavLinkArrow {
@@ -281,99 +277,82 @@
   transform: translateX(0);
 }
 
-/* ─── Visuel conseillère — très grande (≈ ×3) ───────────────── */
+/* ─── Visuel conseillère ────────────────────────────────────── */
 .FT-Visual {
-  position: relative;
-  min-height: min(1100px, 88vh);
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.FT-VisualBody {
+  position: relative;
+  width: 100%;
+  display: flex;
   justify-content: center;
-  margin-top: clamp(-140px, -16vw, -220px);
-  overflow: visible;
+  align-items: flex-end;
 }
 
 .FT-VisualFrame {
   position: absolute;
-  inset: 4% -8% 0 0;
-  border-radius: 280px 280px 32px 32px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 300px);
+  height: 92%;
+  border-radius: 200px 200px 24px 24px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 0 100px rgba(255, 255, 255, 0.06);
-  animation: ftFramePulse 6s ease-in-out infinite;
-}
-
-@keyframes ftFramePulse {
-  0%, 100% { opacity: 0.9; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.01); }
+  box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.06);
+  pointer-events: none;
 }
 
 .FT-Advisor {
   position: relative;
   z-index: 2;
+  display: block;
   width: auto;
-  height: min(1260px, 92vh);
-  max-width: none;
-  min-width: 280px;
+  height: clamp(380px, 38vw, 500px);
+  max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 28px 56px rgba(0, 0, 0, 0.28));
-  animation: ftAdvisorFloat 5.5s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.22));
   pointer-events: none;
-  transform-origin: bottom center;
-}
-
-@keyframes ftAdvisorFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
 }
 
 .FT-AdvisorCard {
-  position: absolute;
-  bottom: 28px;
-  left: 0;
-  z-index: 3;
-  max-width: 210px;
-  padding: 16px 18px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.98);
-  border: 1px solid rgba(0, 182, 222, 0.2);
-  box-shadow: 0 12px 36px rgba(0, 113, 188, 0.12);
-  animation: ftCardIn 0.8s cubic-bezier(0.2, 0.85, 0.25, 1) 0.2s both;
-}
-
-@keyframes ftCardIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  align-self: flex-start;
+  width: 100%;
+  max-width: 220px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(0, 182, 222, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
 
 .FT-AdvisorLogo {
-  height: 38px;
+  height: 34px;
   width: auto;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   object-fit: contain;
 }
 
 .FT-AdvisorQuote {
-  margin: 0 0 8px;
-  font-size: 0.8rem;
+  margin: 0 0 6px;
+  font-size: 0.76rem;
   font-weight: 600;
   font-style: italic;
   line-height: 1.45;
-  color: var(--ft-muted);
+  color: #475569;
 }
 
 .FT-AdvisorRole {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ft-accent);
+  color: #0071bc;
 }
 
 /* ─── Bandeau contact ───────────────────────────────────────── */
@@ -381,7 +360,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px 28px;
-  margin-top: clamp(24px, 4vw, 40px);
+  margin-top: clamp(28px, 4vw, 40px);
   padding: 18px 22px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.12);
@@ -476,29 +455,25 @@ a.FT-ContactItem:hover {
 
 /* ─── Responsive ────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .FT {
-    padding-top: clamp(80px, 14vw, 120px);
-  }
-
   .FT-Grid {
     grid-template-columns: 1fr 1fr;
-    align-items: start;
+    gap: 28px;
   }
 
   .FT-Visual {
     grid-column: 1 / -1;
-    min-height: min(900px, 75vh);
-    max-width: 100%;
-    margin: -80px auto 0;
+    justify-content: center;
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   .FT-Advisor {
-    height: min(900px, 72vh);
+    height: clamp(340px, 50vw, 440px);
   }
 
   .FT-Nav {
+    grid-column: 1 / -1;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
   }
 }
 
@@ -509,35 +484,20 @@ a.FT-ContactItem:hover {
 
   .FT-Nav {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .FT-Visual {
-    min-height: min(720px, 70vh);
-    margin-top: -40px;
+    max-width: 100%;
   }
 
   .FT-Advisor {
-    height: min(720px, 68vh);
-    width: auto;
-    max-width: 110%;
+    height: clamp(300px, 72vw, 400px);
   }
 
   .FT-AdvisorCard {
-    left: 50%;
-    right: auto;
-    max-width: min(280px, calc(100% - 32px));
-    animation-name: ftCardInMobile;
-  }
-
-  @keyframes ftCardInMobile {
-    from {
-      opacity: 0;
-      transform: translateX(-50%) translateY(16px) scale(0.96);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(-50%);
-    }
+    align-self: center;
+    max-width: min(280px, calc(100% - 24px));
   }
 
   .FT-ContactStrip {
@@ -556,10 +516,7 @@ a.FT-ContactItem:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .FT-Orb,
-  .FT-Advisor,
-  .FT-VisualFrame,
-  .FT-AdvisorCard {
+  .FT-Orb {
     animation: none !important;
   }
 
