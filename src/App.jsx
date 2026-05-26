@@ -15,10 +15,20 @@ import KafeRetraitePage from './pages/KafeRetraite/KafeRetraitePage';
 import Ressources   from './pages/Ressources/Ressources';
 import APropos      from './pages/APropos/APropos';
 import Contact      from './pages/Contact/Contact';
-
 function App() {
   return (
     <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      {/* Dégradé partagé : texte + icônes SVG */}
+      <svg className="kap-gradient-sprite" aria-hidden="true" focusable="false" width="0" height="0">
+        <defs>
+          <linearGradient id="kap-brand-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#0071bc" />
+            <stop offset="55%" stopColor="#00b6de" />
+            <stop offset="100%" stopColor="#00bf63" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <Navbar />
 
       <Routes>

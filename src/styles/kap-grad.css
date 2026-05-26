@@ -1,0 +1,166 @@
+/* =============================================================================
+   DÉGRADÉ TEXTE — même dégradé que la navbar
+   Chargé en dernier (main.jsx). Pas de filter / text-shadow sur le texte clipé.
+   ============================================================================= */
+
+:root {
+  --kap-text-gradient: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+}
+
+/* ── Texte accent (titres, spans, KapGrad) ─────────────────────────────────── */
+:is(
+  .kap-grad,
+  .kap-grad-text,
+  .text-blue,
+  .text-green,
+  .hero-grad-word,
+  .PQ-Grad,
+  .PT-Grad,
+  .OR-Grad,
+  .OR-Green,
+  .OR-Cyan,
+  .ER-Cyan,
+  .ER-Hero-Accent,
+  .PQ-Accent,
+  .F-gradient-text,
+  .SH-Accent,
+  .BR-Accent,
+  .AD-Accent,
+  .AD-TitleGradient,
+  .FT-Grad,
+  .FT-NavTitle,
+  .FT-AdvisorRole,
+  .sol-h2-gradient,
+  .pil-gradient,
+  .P-h2-gradient,
+  .T-gradient,
+  .KH-gradient,
+  .OR-CTA-Title--grad,
+  .PQ-Guide-CardTag,
+  .PQ-Why-Tag,
+  .PQ-Why-Sup,
+  .etp-title span,
+  .sol-stat-val,
+  .prob-shiny-text,
+  .prob-quote-highlight,
+  .pil-item--1 .pil-text h3,
+  .pil-item--2 .pil-text h3,
+  .pil-item--3 .pil-text h3,
+  .F-pre-title,
+  .T-brand,
+  .T-mini-badge,
+  .ct-kicker,
+  .ct-mini,
+  .ct-option-step,
+  .ap-kicker,
+  .res-kicker,
+  .KH-kicker,
+  .etp-steps-eyebrow,
+  .etp-step-kicker,
+  .BR-Tag,
+  .BR-Modal-ListTitle,
+  .BR-Modal-ColHead--blue,
+  .BR-Modal-ColHead--green,
+  .AD-Tag,
+  .ER-Ou-GaugeVal,
+  .ER-Ou-GaugePct,
+  .ER-Sv-Num,
+  .ER-Stat-Val small,
+  .ER-Ou-BarPct,
+  .h-tag,
+  .P-step-card.is-active .P-step-num,
+  .P-step-card.is-done:not(.is-active) .P-step-num,
+  .PT-Sec-Title em,
+  .PQ-Sv-Card:hover .PQ-Sv-Chevron,
+  .ER-Sv-Item:hover .ER-Sv-Arrow,
+  .nav-dropdown-item:hover,
+  .mobile-accordion-header.expanded,
+  .mobile-sub-link:hover,
+  .K-meta-tag,
+  .K-serif,
+  .K-pillars-label,
+  .K-info-arrow,
+  .PT-Tag,
+  .ER-Df-Tag,
+  .OR-Diff-Panel-Tag
+) {
+  display: inline-block;
+  max-width: 100%;
+  background-image: var(--kap-text-gradient) !important;
+  background-size: 100% 100% !important;
+  background-position: 0 0 !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+/* ── Boutons contour (texte dégradé) ───────────────────────────────────────── */
+:is(
+  .PQ-Btn--border,
+  .OR-Btn--ghost,
+  .OR-Btn--outline,
+  .ER-Btn--outline,
+  .PT-Btn--outline,
+  .AD-Btn--outline,
+  .BR-Modal-Cta--outline,
+  .F-btn-secondary
+) {
+  background-image: var(--kap-text-gradient) !important;
+  background-size: 100% 100% !important;
+  background-color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  filter: none !important;
+}
+
+.PQ-Btn--white,
+.ER-Btn--white {
+  background-image: var(--kap-text-gradient), #ffffff !important;
+  background-size: 100% 100%, auto !important;
+  background-origin: border-box !important;
+  -webkit-background-clip: text, padding-box !important;
+  background-clip: text, padding-box !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  filter: none !important;
+}
+
+/* Labels (texte dégradé + fond pill) — PourQui.css garde le padding/border */
+:is(
+  .PQ-Label:not(.PQ-Label--slate),
+  .PQ-Label--green,
+  .OR-Label,
+  .OR-Badge,
+  .ER-Label,
+  .etp-label,
+  .PT-Label--blue,
+  .PT-Label--green,
+  .AD-Tag,
+  .h-tag,
+  .T-mini-badge
+) {
+  background-size: 100% 100%, auto !important;
+  filter: none !important;
+}
+
+/* Carte bénéfices active : dégradé blanc (PourQui.css) */
+.PQ-Bn-Card.is-active .PQ-Grad {
+  background-image: linear-gradient(90deg, #ffffff 0%, rgba(224, 249, 255, 0.95) 50%, rgba(220, 252, 231, 0.98) 100%) !important;
+  background-size: 100% 100% !important;
+}
+
+/* Témoignages : texte blanc au survol */
+.T-card:hover :is(.T-brand, .T-review-text, .T-user-name, .T-user-sub) {
+  background-image: none !important;
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+}

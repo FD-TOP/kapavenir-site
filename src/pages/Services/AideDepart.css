@@ -51,7 +51,6 @@
   align-items: center;
   gap: 8px;
   background: rgba(0, 191, 99, 0.1);
-  color: #00a855;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -73,18 +72,7 @@
   letter-spacing: -0.3px;
 }
 
-.AD-Accent {
-  color: #4381C1;
-}
-
-/* Titre : « aides et opportunités » en dégradé marque */
-.AD-TitleGradient {
-  background: var(--kap-premium-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
+/* .AD-Accent, .AD-TitleGradient — dégradé via kap-accent-text.css */
 
 /* Texte */
 .AD-Text {
@@ -125,7 +113,6 @@
 }
 
 .AD-Chip-Icon {
-  color: #4381C1;
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -173,7 +160,6 @@
 
 .AD-Btn--outline {
   background: transparent;
-  color: #4381C1;
   border: 2px solid rgba(67,129,193,0.25);
 }
 

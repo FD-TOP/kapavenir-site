@@ -1,0 +1,82 @@
+/* Icônes SVG + boutons blancs — le dégradé TEXTE est dans kap-grad.css (chargé après) */
+
+.kap-gradient-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Icônes Lucide : trait en dégradé */
+:is(
+  .PQ-Pb-Ico,
+  .PQ-Float-Icon,
+  .PQ-Promise-IcoBox,
+  .PQ-Sv-IcoWrap,
+  .PQ-Bn-IcoWrap,
+  .PQ-Diff-Chk:not(.is-drawn),
+  .ER-Bn-IcoWrap,
+  .PQ-Why-IcoBox,
+  .OR-Diff-Chk,
+  .OR-Hero-FloatBadge,
+  .deco-sparkle-1,
+  .prob-v-icon,
+  .target-icon,
+  .icon-accent,
+  .pil-icon-wrap,
+  .AD-Chip-Icon,
+  .P-icon-main,
+  .P-step-card.is-done .P-icon-main
+) :is(svg, svg *) {
+  stroke: url(#kap-brand-gradient) !important;
+  color: url(#kap-brand-gradient) !important;
+}
+
+.ER-Diff-Chk.is-drawn :is(svg, svg *),
+.PQ-Diff-Chk.is-drawn :is(svg, svg *) {
+  stroke: #fff !important;
+  color: #fff !important;
+}
+
+.STT-Arrow {
+  stroke: url(#kap-brand-gradient) !important;
+  color: url(#kap-brand-gradient) !important;
+}
+
+/* Boutons pleins : texte blanc uniquement */
+:is(
+  .nav-link-desktop,
+  .nav-cta-btn,
+  .FT-CTA,
+  .FT-TrustItem,
+  .mobile-cta,
+  .mobile-final-cta,
+  .btn-bilan,
+  .btn-depart,
+  .btn-primary-cta,
+  .F-btn-primary,
+  .sol-cta-premium,
+  .P-cta-button,
+  .SH-Btn-Gradient,
+  .AD-Btn--primary,
+  .BR-Btn,
+  .BR-Modal-Cta--gradient,
+  .ct-phone-btn,
+  .ct-option-btn,
+  .etp-cta-btn.primary,
+  .KH-btn,
+  .PQ-CTA,
+  .PQ-Btn--solid,
+  .OR-Btn--solid,
+  .ER-Btn--solid,
+  .OR-Btn--white,
+  .PT-Btn--blue,
+  .hero-title-plain,
+  .PQ-Diff-Chk.is-drawn
+) {
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}

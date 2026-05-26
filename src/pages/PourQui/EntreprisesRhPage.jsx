@@ -13,8 +13,10 @@ import {
   ER_BENEFITS,
   ER_DIFFS,
   useReveal,
+  useCounter,
   useAutoCycle,
   useSequentialReveal,
+  Grad,
 } from './pourQuiShared';
 
 const slide = SLIDES[2];
@@ -26,6 +28,7 @@ export default function EntreprisesRhPage() {
   const [svRef, svVis] = useReveal(0.1);
   const [stRef, stVis] = useReveal(0.1);
   const [ouRef, ouVis] = useReveal(0.1);
+  const erPct = useCounter(86, 1200, ouVis);
   const [bnRef, bnVis] = useReveal(0.1);
   const [dfRef, dfVis] = useReveal(0.1);
   const [ctRef, ctVis] = useReveal(0.2);
@@ -51,7 +54,7 @@ export default function EntreprisesRhPage() {
           <div className="ER-Head">
             <span className="ER-Label">Enjeux RH</span>
             <h2 className="ER-Title">
-              <span className="OR-Grad">Un sujet clé</span> pour vos équipes
+              <Grad className="OR-Grad">Un sujet clé</Grad> pour vos équipes
             </h2>
             <p className="ER-Sub">La retraite impacte votre organisation à chaque étape. Voici pourquoi agir maintenant.</p>
           </div>
@@ -89,7 +92,7 @@ export default function EntreprisesRhPage() {
           <div className="ER-Sv-Left">
             <span className="ER-Label">Nos solutions</span>
             <h2 className="ER-Title">
-              Des services <span className="OR-Grad">modulables</span>
+              Des services <Grad className="OR-Grad">modulables</Grad>
               <br />
               selon vos besoins
             </h2>
@@ -111,7 +114,7 @@ export default function EntreprisesRhPage() {
           <div className="ER-Head ER-Head--light">
             <span className="ER-Label ER-Label--light">Expérience collaborateur</span>
             <h2 className="ER-Title ER-Title--white">
-              Un accompagnement <span className="ER-Cyan">simple et engageant</span>
+              Un accompagnement <Grad className="ER-Cyan">simple et engageant</Grad>
             </h2>
           </div>
           <div className="ER-Timeline">
@@ -140,7 +143,7 @@ export default function EntreprisesRhPage() {
           <div className="ER-Ou-Content">
             <span className="ER-Label">Outils & dispositifs</span>
             <h2 className="ER-Title">
-              Des outils concrets <span className="ER-Cyan">pour vos équipes RH</span>
+              Des outils concrets <Grad className="ER-Cyan">pour vos équipes RH</Grad>
             </h2>
             <ul className="ER-Ou-List">
               {ER_OUTILS.map((o, i) => (
@@ -172,7 +175,7 @@ export default function EntreprisesRhPage() {
                   <div key={i} className="ER-Ou-BarRow">
                     <div className="ER-Ou-BarMeta">
                       <span className="ER-Ou-BarLbl">{b.label}</span>
-                      <span className="ER-Ou-BarPct" style={{ color: b.color }}>
+                      <span className="ER-Ou-BarPct">
                         {ouVis ? b.pct : 0}%
                       </span>
                     </div>
@@ -231,7 +234,7 @@ export default function EntreprisesRhPage() {
           <div className="ER-Head">
             <span className="ER-Label">Les bénéfices</span>
             <h2 className="ER-Title">
-              Ce que vous <span className="ER-Cyan">y gagnez</span>
+              Ce que vous <Grad className="ER-Cyan">y gagnez</Grad>
             </h2>
           </div>
           <div className="ER-Bn-Grid">

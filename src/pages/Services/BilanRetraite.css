@@ -42,8 +42,6 @@
 
 .BR-Tag {
   display: inline-block;
-  background: linear-gradient(100deg, rgba(0, 113, 188, 0.12) 0%, rgba(0, 182, 222, 0.14) 50%, rgba(0, 191, 99, 0.1) 100%);
-  color: #005a9c;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 2.5px;
@@ -64,26 +62,8 @@
   letter-spacing: -0.02em;
 }
 
-.BR-Accent {
-  background: var(--kap-premium-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  display: inline;
-}
-
-.BR-Accent::after {
-  display: none;
-}
-
-@supports not (-webkit-background-clip: text) {
-  .BR-Accent {
-    background: none;
-    color: #0071bc;
-    -webkit-text-fill-color: unset;
-  }
-}
+.BR-Accent { display: inline; }
+.BR-Accent::after { display: none; }
 
 .BR-Intro {
   color: #64748b;
@@ -557,13 +537,11 @@
 }
 
 .BR-Modal-ColHead--green {
-  color: #059669;
   background: rgba(0, 191, 99, 0.1);
   border: 1px solid rgba(0, 191, 99, 0.22);
 }
 
 .BR-Modal-ColHead--blue {
-  color: #2563eb;
   background: rgba(67, 129, 193, 0.1);
   border: 1px solid rgba(67, 129, 193, 0.22);
 }
@@ -580,7 +558,6 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #0071bc;
   margin: 4px 0 14px;
   padding-bottom: 8px;
   border-bottom: 2px solid rgba(0, 182, 222, 0.35);
@@ -730,13 +707,11 @@
 
 .BR-Modal-Cta--outline {
   background: transparent;
-  color: #0071bc;
   border: 2px solid rgba(0, 182, 222, 0.65);
 }
 
 .BR-Modal-Cta--outline:hover {
   background: rgba(0, 182, 222, 0.08);
-  color: #005a9c;
   border-color: #00b6de;
   transform: translateY(-1px);
   box-shadow: 0 8px 22px rgba(0, 182, 222, 0.2);

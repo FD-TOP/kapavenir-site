@@ -20,7 +20,6 @@
 
 .ct-kicker {
   margin: 0 0 14px;
-  color: #00bf63;
   text-transform: uppercase;
   letter-spacing: .12em;
   font-size: .72rem;
@@ -99,7 +98,6 @@
 
 .ct-option-step {
   margin: 10px 0 4px !important;
-  color: #00bf63 !important;
   font-size: .72rem;
   letter-spacing: .11em;
   text-transform: uppercase;
@@ -138,7 +136,6 @@
 .ct-mini {
   margin: 0 0 8px;
   font-size: .73rem;
-  color: #00bf63;
   letter-spacing: .09em;
   text-transform: uppercase;
   font-weight: 800;

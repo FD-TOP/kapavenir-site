@@ -30,7 +30,6 @@
 .KH-kicker {
   display: inline-block;
   margin: 0 0 16px;
-  color: #00bf63;
   text-transform: uppercase;
   letter-spacing: .14em;
   font-size: .76rem;
@@ -48,12 +47,7 @@
   font-weight: 800;
 }
 
-.KH-gradient {
-  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.KH-gradient { display: inline; }
 
 .KH-subtitle {
   margin: 0;

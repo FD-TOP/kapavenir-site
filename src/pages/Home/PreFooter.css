@@ -75,7 +75,6 @@
   text-transform: uppercase;
   letter-spacing: 4px;
   font-size: 0.75rem;
-  color: #00b6de;
   margin-bottom: 20px;
 }
 
@@ -160,7 +159,6 @@
 
 .F-btn-secondary:hover {
   background: white;
-  color: #0071bc;
 }
 
 /* --- ACCENT LUMINEUX --- */

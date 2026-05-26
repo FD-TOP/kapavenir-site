@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import KapGrad from '../../components/Common/KapGrad';
 
 import couple1 from '../../assets/couple1.jpeg';
 import couple4 from '../../assets/couple4.jpeg';
@@ -13,7 +14,7 @@ export const SLIDES = [
     label: 'Particuliers',
     sub: 'Retraite individuelle',
     color: '#4381C1',
-    heroTitle: <>Prenez le <span className="PQ-Grad">contrôle</span> de votre retraite</>,
+    heroTitle: <>Prenez le <KapGrad className="PQ-Grad">contrôle</KapGrad> de votre retraite</>,
     heroDesc: 'Comprenez vos droits, optimisez vos choix et partez au meilleur moment.',
   },
   {
@@ -23,7 +24,7 @@ export const SLIDES = [
     label: 'Organismes & Assurances',
     sub: 'Partenariats institutionnels',
     color: '#00bf63',
-    heroTitle: <>Accompagnez vos assurés dans <span className="OR-Grad">leurs décisions retraite</span></>,
+    heroTitle: <>Accompagnez vos assurés dans <KapGrad className="OR-Grad">leurs décisions retraite</KapGrad></>,
     heroDesc: 'Une approche claire, pédagogique et activable pour créer de la valeur à chaque étape du parcours client.',
   },
   {
@@ -33,12 +34,17 @@ export const SLIDES = [
     label: 'Entreprises & RH',
     sub: 'Solutions collectives',
     color: '#00b6de',
-    heroTitle: <>Faites de la retraite un <span className="ER-Cyan">levier RH stratégique</span></>,
+    heroTitle: <>Faites de la retraite un <KapGrad className="ER-Cyan">levier RH stratégique</KapGrad></>,
     heroDesc: 'Anticipez les départs, accompagnez vos collaborateurs et renforcez votre marque employeur.',
   },
 ];
 
 export const HERO_DELAY = 4500;
+
+/** Texte dégradé charte — à utiliser à la place de <span className="…-Grad"> */
+export function Grad({ children, className = 'PQ-Grad' }) {
+  return <KapGrad className={className}>{children}</KapGrad>;
+}
 
 export function useReveal(threshold = 0.08, rootMargin = '0px 0px -6% 0px') {
   const ref = useRef(null);
@@ -81,7 +87,7 @@ export function renderBnParts(parts) {
   return parts.map((ln, j) => (
     <React.Fragment key={j}>
       {ln.t}
-      {ln.g ? <span className="PQ-Grad">{ln.g}</span> : null}
+      {ln.g ? <KapGrad className="PQ-Grad">{ln.g}</KapGrad> : null}
     </React.Fragment>
   ));
 }

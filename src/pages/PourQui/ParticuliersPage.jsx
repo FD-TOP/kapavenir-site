@@ -18,6 +18,7 @@ import {
   useAutoCycle,
   useSequentialReveal,
   renderBnParts,
+  Grad,
 } from './pourQuiShared';
 
 const slide = SLIDES[0];
@@ -57,7 +58,7 @@ export default function ParticuliersPage() {
           <div className="PQ-Intro-Left">
             <span className="PQ-Label PQ-Label--blue">En chiffres</span>
             <h2 className="PQ-Block-Title">
-              Des repères <span className="PQ-Grad">concrets</span> pour décider
+              Des repères <Grad className="PQ-Grad">concrets</Grad> pour décider
             </h2>
             <p className="PQ-Block-Sub">L’âge moyen de départ et le montant de pension vous aident à situer votre situation.</p>
           </div>
@@ -102,7 +103,7 @@ export default function ParticuliersPage() {
           <div className="PQ-Pb-Content">
             <span className="PQ-Label PQ-Label--slate">Le problème</span>
             <h2 className="PQ-Block-Title">
-              La retraite est complexe…<br /><span className="PQ-Grad">mais ça ne devrait pas l’être</span>
+              La retraite est complexe…<br /><Grad className="PQ-Grad">mais ça ne devrait pas l’être</Grad>
             </h2>
             <div className="PQ-Pb-List">
               {PROBLEMS.map((p, i) => (
@@ -139,7 +140,7 @@ export default function ParticuliersPage() {
           <div className="PQ-Head">
             <span className="PQ-Label PQ-Label--blue">Notre promesse</span>
             <h2 className="PQ-Block-Title">
-              Une approche <span className="PQ-Grad">simple</span>, <span className="PQ-Grad">claire</span> et <span className="PQ-Grad">actionnable</span>
+              Une approche <Grad className="PQ-Grad">simple</Grad>, <Grad className="PQ-Grad">claire</Grad> et <Grad className="PQ-Grad">actionnable</Grad>
             </h2>
           </div>
           <div className="PQ-Promise-Grid">
@@ -186,7 +187,7 @@ export default function ParticuliersPage() {
         <div className="PQ-Block-Inner">
           <div className="PQ-Head">
             <span className="PQ-Label PQ-Label--blue">Le processus</span>
-            <h2 className="PQ-Block-Title"><span className="PQ-Grad">Un parcours simple</span> en 4 étapes</h2>
+            <h2 className="PQ-Block-Title"><Grad className="PQ-Grad">Un parcours simple</Grad> en 4 étapes</h2>
             <p className="PQ-Head-Sub">De la première prise de contact à votre pension : un chemin clair et accompagné.</p>
           </div>
           <div className="PQ-Timeline">
@@ -242,7 +243,7 @@ export default function ParticuliersPage() {
         <div className="PQ-Block-Inner PQ-Why-Grid">
           <div className="PQ-Why-Left">
             <h2 className="PQ-Block-Title" style={{ marginTop: 0 }}>
-              Pourquoi <span className="PQ-Grad">KapAvenir ?</span>
+              Pourquoi <Grad className="PQ-Grad">KapAvenir ?</Grad>
             </h2>
             <div className="PQ-Diff-List">
               {PT_DIFFS.map((d, i) => (

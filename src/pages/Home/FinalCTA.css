@@ -60,7 +60,6 @@
 }
 
 .cta-main-title span {
-  color: var(--blue-kap);
   background: linear-gradient(90deg, var(--blue-kap), var(--green-kap));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -116,7 +115,6 @@
 
 .btn-secondary-cta:hover {
   border-color: var(--blue-kap);
-  color: var(--blue-kap);
   transform: translateX(10px);
 }
 

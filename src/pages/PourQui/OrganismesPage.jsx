@@ -13,6 +13,7 @@ import {
   useReveal,
   useAutoCycle,
   useSequentialReveal,
+  Grad,
 } from './pourQuiShared';
 
 const slide = SLIDES[1];
@@ -46,7 +47,7 @@ export default function OrganismesPage() {
           <div className="OR-Head">
             <span className="OR-Label">Notre approche</span>
             <h2 className="OR-Title">
-              Une <span className="OR-Grad">offre retraite</span> pensée <span className="OR-Green">pour vos enjeux</span>
+              Une <Grad className="OR-Grad">offre retraite</Grad> pensée <Grad className="OR-Green">pour vos enjeux</Grad>
             </h2>
           </div>
           <div className="OR-Pillars">
@@ -89,7 +90,7 @@ export default function OrganismesPage() {
           <div className="OR-Sv-Left">
             <span className="OR-Label">Nos solutions</span>
             <h2 className="OR-Title">
-              Des services <span className="OR-Grad">modulables</span>
+              Des services <Grad className="OR-Grad">modulables</Grad>
               <br />
               selon vos besoins
             </h2>
@@ -110,7 +111,7 @@ export default function OrganismesPage() {
         <div className="OR-Inner">
           <div className="OR-Head OR-Head--light">
             <h2 className="OR-Title OR-VExp-Title" style={{ marginTop: 0 }}>
-              Une expérience <span className="OR-Grad">simple</span> et <span className="OR-Grad">engageante</span>
+              Une expérience <Grad className="OR-Grad">simple</Grad> et <Grad className="OR-Grad">engageante</Grad>
             </h2>
           </div>
           <div className="OR-VTimeline OR-VTimeline--stack">
@@ -130,7 +131,7 @@ export default function OrganismesPage() {
         <div className="OR-Inner OR-Diff-Layout">
           <div className="OR-Diff-Left">
             <h2 className="OR-Title">
-              Pourquoi <span className="OR-Green">KapAvenir ?</span>
+              Pourquoi <Grad className="OR-Green">KapAvenir ?</Grad>
             </h2>
           </div>
           <div className="OR-Diff-List">

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PourQui.css';
 import LogoSticker from '../../components/Common/LogoSticker';
-import { SLIDES, HERO_DELAY } from './pourQuiShared';
+import { SLIDES, HERO_DELAY, Grad } from './pourQuiShared';
 
 export default function PourQuiHub() {
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ export default function PourQuiHub() {
 
         <div className="PQ-Stage" key={`stage-${cur}`}>
           <h1 className="PQ-Title PQ-Stage-Item">
-            Un accompagnement <span className="PQ-Accent">adapté</span>
+            Un accompagnement <Grad className="PQ-Accent">adapté</Grad>
             <br />à chaque situation
           </h1>
           <p className="PQ-Desc PQ-Stage-Item PQ-Stage-Item--d2">

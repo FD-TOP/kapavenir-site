@@ -48,16 +48,19 @@
 
 /* --- TITRE --- */
 .hero-title {
-  /* Taille adaptative : min 2rem, max 4rem */
   font-size: clamp(2.2rem, 6vw, 4rem);
-  color: #ffffff;
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 25px;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
-/* .text-blue / .text-green — dégradé charte via index.css */
+.hero-title-plain {
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+/* Dégradé hero → kap-grad.css (.kap-grad / .hero-grad-word) — pas de filter ici */
 
 /* --- DESCRIPTION --- */
 .hero-description {

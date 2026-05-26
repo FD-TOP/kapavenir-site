@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 import LogoSticker from '../../components/Common/LogoSticker';
+import KapGrad from '../../components/Common/KapGrad';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -18,9 +19,13 @@ const Hero = () => {
           
           <div className="hero-content">
             <h1 className="hero-title">
-              Préparez votre retraite <br />
-              <span className="text-blue">sereinement</span>, sans stress <br />
-              ni <span className="text-green">perte d’argent</span>
+              <span className="hero-title-plain">Préparez votre retraite</span>
+              <br />
+              <KapGrad className="hero-grad-word">sereinement</KapGrad>
+              <span className="hero-title-plain">, sans stress</span>
+              <br />
+              <span className="hero-title-plain">ni </span>
+              <KapGrad className="hero-grad-word">perte d’argent</KapGrad>
             </h1>
             
             <p className="hero-description">

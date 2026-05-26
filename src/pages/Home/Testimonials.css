@@ -57,7 +57,6 @@
   align-items: center;
   gap: 8px;
   background: rgba(0, 191, 99, 0.08);
-  color: #00bf63;
   padding: 8px 18px;
   border-radius: 100px;
   font-weight: 800;
@@ -121,7 +120,7 @@
 .T-user-info { display: flex; flex-direction: column; }
 .T-user-name { font-weight: 800; color: #1a1a1b; font-size: 1rem; }
 .T-user-sub { font-size: 0.85rem; color: #64748b; font-weight: 600; }
-.T-brand { color: #00b6de; }
+/* .T-brand — dégradé via kap-accent-text.css */
 
 /* --- PAGINATION --- */
 .T-dots-navigation { display: flex; justify-content: center; gap: 12px; margin-top: 40px; }

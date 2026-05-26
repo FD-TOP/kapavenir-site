@@ -2,6 +2,7 @@ import React from 'react';
 import { Eye, Banknote, HeartHandshake } from 'lucide-react';
 import './Pillars.css';
 import LogoSticker from '../../components/Common/LogoSticker';
+import KapGrad from '../../components/Common/KapGrad';
 
 const Pillars = () => {
   const pillarData = [
@@ -19,7 +20,7 @@ const Pillars = () => {
       <div className="pil-container">
         <header className="pil-header">
           <h2 className="pil-title">
-            Avec KapAvenir, vous reprenez le <span className="pil-gradient">contrôle</span>
+            Avec KapAvenir, vous reprenez le <KapGrad className="pil-gradient">contrôle</KapGrad>
           </h2>
           <p className="pil-subtitle">
             Nous rendons simple et clair un sujet complexe et stressant, 
