@@ -207,7 +207,7 @@
 /* ═══ SOUS-PAGES — hero dédié ═════════════════════════════════ */
 .PQ-PageHero {
   position: relative;
-  min-height: clamp(420px, 58vh, 520px);
+  min-height: clamp(520px, 72vh, 680px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -307,7 +307,7 @@
   position: relative;
   z-index: 3;
   max-width: 760px;
-  padding: 0 5vw 88px;
+  padding: 0 5vw clamp(100px, 12vh, 120px);
 }
 .PQ-PageHero-Crumb {
   display: inline-flex;

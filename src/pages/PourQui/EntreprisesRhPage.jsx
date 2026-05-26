@@ -13,7 +13,6 @@ import {
   ER_BENEFITS,
   ER_DIFFS,
   useReveal,
-  useCounter,
   useAutoCycle,
   useSequentialReveal,
 } from './pourQuiShared';
@@ -22,10 +21,6 @@ const slide = SLIDES[2];
 
 export default function EntreprisesRhPage() {
   const navigate = useNavigate();
-
-  const [statsRef, statsVis] = useReveal(0.15);
-  const erAge = useCounter(62, 1400, statsVis);
-  const erPct = useCounter(86, 1200, statsVis);
 
   const [enjRef, enjVis] = useReveal(0.1);
   const [svRef, svVis] = useReveal(0.1);
@@ -49,21 +44,6 @@ export default function EntreprisesRhPage() {
           Échanger avec un expert
         </button>
       </PourQuiPageHero>
-
-      <div className={`ER-Block ER-Block--white ${statsVis ? 'is-vis' : ''}`} ref={statsRef}>
-        <div className="ER-Inner ER-Stats-Strip">
-          <div className="ER-Stat-Panel">
-            <span className="ER-Stat-Val">{erAge}<small>ans</small></span>
-            <span className="ER-Stat-Lbl">âge moyen de départ</span>
-            <div className="ER-Stat-Bar" style={{ width: statsVis ? '88%' : '0%' }} />
-          </div>
-          <div className="ER-Stat-Panel ER-Stat-Panel--b">
-            <span className="ER-Stat-Val">{erPct}<small>%</small></span>
-            <span className="ER-Stat-Lbl">attendent un accompagnement</span>
-            <div className="ER-Stat-Bar ER-Stat-Bar--b" style={{ width: statsVis ? `${erPct}%` : '0%' }} />
-          </div>
-        </div>
-      </div>
 
       <div className={`ER-Block ER-Block--white ${enjVis ? 'is-vis' : ''}`} ref={enjRef}>
         <LogoSticker size={80} top="5%" left="3%" rotation={-16} opacity={0.13} animation="float" hideMobile />
