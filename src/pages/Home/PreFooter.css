@@ -87,11 +87,7 @@
   margin-bottom: 30px;
 }
 
-.F-gradient-text {
-  background: linear-gradient(90deg, #00b6de, #00bf63);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* .F-gradient-text — dégradé charte via index.css */
 
 .F-separator {
   width: 60px;

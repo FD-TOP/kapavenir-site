@@ -135,11 +135,7 @@
   color: var(--ft-text);
 }
 
-.FT-Grad {
-  color: var(--ft-green);
-  -webkit-text-fill-color: unset;
-  background: none;
-}
+/* .FT-Grad — dégradé charte via index.css */
 
 .FT-Pitch {
   font-size: 0.88rem;
@@ -207,7 +203,6 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ft-green);
   margin: 0 0 10px;
 }
 

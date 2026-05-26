@@ -43,12 +43,17 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #00bf63;
   padding: 8px 14px;
   border-radius: 999px;
   border: 1px solid rgba(0, 191, 99, .24);
-  background: rgba(255, 255, 255, .66);
   backdrop-filter: blur(6px);
+  background:
+    var(--kap-premium-gradient) text,
+    rgba(255, 255, 255, .66) padding-box;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .etp-title {
@@ -58,9 +63,7 @@
   line-height: 1.1;
 }
 
-.etp-title span {
-  color: #00bf63;
-}
+/* .etp-title span — dégradé charte via index.css */
 
 .etp-text {
   margin: 20px 0 0;

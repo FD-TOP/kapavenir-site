@@ -71,7 +71,7 @@ export default function PourQuiHub() {
 
         <div className="PQ-Stage" key={`stage-${cur}`}>
           <h1 className="PQ-Title PQ-Stage-Item">
-            Un accompagnement <span className="PQ-Accent" style={{ '--ac': slide.color }}>adapté</span>
+            Un accompagnement <span className="PQ-Accent">adapté</span>
             <br />à chaque situation
           </h1>
           <p className="PQ-Desc PQ-Stage-Item PQ-Stage-Item--d2">

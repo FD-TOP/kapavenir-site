@@ -28,7 +28,7 @@
 }
 
 .pil-gradient {
-  background: linear-gradient(90deg, #00b6de, #00bf63);
+  background: var(--kap-premium-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

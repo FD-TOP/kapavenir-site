@@ -57,13 +57,7 @@
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Couleurs KapAvenir */
-.text-blue { 
-  color: #00b6de; 
-}
-.text-green { 
-  color: #00bf63; 
-}
+/* .text-blue / .text-green — dégradé charte via index.css */
 
 /* --- DESCRIPTION --- */
 .hero-description {

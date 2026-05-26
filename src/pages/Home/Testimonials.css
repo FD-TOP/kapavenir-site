@@ -67,7 +67,7 @@
 }
 
 .T-title { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 950; color: #1a1a1b; line-height: 1.1; }
-.T-gradient { background: linear-gradient(90deg, #00b6de, #00bf63); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+/* .T-gradient — dégradé charte via index.css */
 
 /* --- SLIDER CORE --- */
 .T-slider-viewport { width: 100%; overflow: hidden; }

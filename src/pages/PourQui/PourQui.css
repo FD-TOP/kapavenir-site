@@ -108,12 +108,17 @@
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #059669;
   margin: 0 0 12px;
   padding: 6px 16px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 191, 99, 0.3);
+  background:
+    var(--kap-premium-gradient) text,
+    rgba(255, 255, 255, 0.85) padding-box;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .PQ-Hub-Picker-Title {
   font-size: clamp(1.6rem, 3.2vw, 2.35rem);
@@ -459,8 +464,12 @@
 
 /* ═══ HERO DIAPORAMA ═══════════════════════════════════════════ */
 .PQ-Hero {
-  position: relative; height: 92vh; min-height: 580px;
-  overflow: hidden; display: flex; align-items: flex-end;
+  position: relative;
+  height: min(96vh, 920px);
+  min-height: 640px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
 }
 .PQ-Bg {
   position: absolute; inset: 0;
@@ -542,7 +551,7 @@
   font-size: clamp(2.2rem,5.5vw,3.8rem); font-weight: 900; line-height: 1.1;
   color: #fff; margin: 0 0 18px; letter-spacing: -.025em;
 }
-.PQ-Accent { color: var(--ac, #00b6de); transition: color .6s; }
+.PQ-Accent { transition: opacity .6s; }
 .PQ-Desc {
   font-size: clamp(.9rem,1.4vw,1.05rem); color: rgba(255,255,255,.78);
   line-height: 1.75; margin: 0 0 32px; max-width: 560px;
@@ -739,17 +748,23 @@
 .PQ-Label, .PQ-Label--blue {
   display: inline-block; border-radius: 50px; padding: 6px 18px;
   font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-  background: linear-gradient(165deg, rgba(255,255,255,.95) 0%, rgba(248, 252, 255, .9) 100%);
   border: 1px solid rgba(0, 182, 222, 0.32);
-  color: #0071bc;
   margin-bottom: 14px;
   box-shadow: 0 2px 12px rgba(0, 113, 188, 0.08);
+  background:
+    var(--kap-premium-gradient) text,
+    linear-gradient(165deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 252, 255, 0.9) 100%) padding-box;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .PQ-Label--green {
-  background: linear-gradient(165deg, rgba(255,255,255,.96) 0%, rgba(248, 255, 252, .92) 100%);
   border-color: rgba(0, 191, 99, 0.35);
-  color: #059669;
   box-shadow: 0 2px 12px rgba(0, 191, 99, 0.07);
+  background:
+    var(--kap-premium-gradient) text,
+    linear-gradient(165deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 255, 252, 0.92) 100%) padding-box;
 }
 .PQ-Label--slate {
   background: var(--bg3); border-color: var(--card-bd); color: var(--k-muted);
@@ -757,15 +772,34 @@
 .OR-Label, .OR-Badge {
   display: inline-block; border-radius: 50px; padding: 5px 16px;
   font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-  background: rgba(0,191,99,.1); border: 1px solid rgba(0,191,99,.3);
-  color: var(--k-green); margin-bottom: 14px;
+  border: 1px solid rgba(0, 191, 99, 0.3);
+  margin-bottom: 14px;
+  background:
+    var(--kap-premium-gradient) text,
+    rgba(0, 191, 99, 0.1) padding-box;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
-.OR-Label--light { background: rgba(0,191,99,.15); border-color: rgba(0,191,99,.5); color: #00bf63; }
+.OR-Label--light {
+  border-color: rgba(0, 191, 99, 0.5);
+  background:
+    var(--kap-premium-gradient) text,
+    rgba(0, 191, 99, 0.15) padding-box;
+}
 .ER-Label {
   display: inline-block; border-radius: 50px; padding: 5px 16px;
   font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-  background: rgba(0,182,222,.1); border: 1px solid rgba(0,182,222,.3);
-  color: var(--k-cyan); margin-bottom: 14px;
+  border: 1px solid rgba(0, 182, 222, 0.3);
+  margin-bottom: 14px;
+  background:
+    var(--kap-premium-gradient) text,
+    rgba(0, 182, 222, 0.1) padding-box;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .ER-Label--light { background: rgba(0,182,222,.15); border-color: rgba(0,182,222,.5); }
 
@@ -785,58 +819,7 @@
 }
 .ER-Title--white { color: var(--k-dark); }
 
-/* Gradient spans — charte premium (bleu → cyan → vert) */
-.PQ-Grad {
-  background: var(--kap-premium-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  display: inline;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-@supports not (-webkit-background-clip: text) {
-  .PQ-Grad {
-    background: none;
-    color: #0071bc;
-    -webkit-text-fill-color: unset;
-  }
-}
-.OR-Green {
-  display: inline;
-  background: linear-gradient(90deg, #00bf63, #00b6de);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.OR-Grad {
-  background: var(--kap-premium-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  display: inline;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-@supports not (-webkit-background-clip: text) {
-  .OR-Grad {
-    background: none;
-    color: #0071bc;
-    -webkit-text-fill-color: unset;
-  }
-}
-.OR-Cyan {
-  background: linear-gradient(90deg, #00b6de, #00bf63);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.ER-Cyan {
-  background: linear-gradient(90deg, #00b6de, #4381C1);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.ER-Hero-Accent {
-  background: linear-gradient(90deg, #00b6de, #00bf63);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
+/* Spans accent — dégradé global : voir index.css (.kap-grad-text, *-Grad, *-Cyan…) */
 /* Subtitles */
 .PQ-Block-Sub, .OR-Sub, .ER-Sub, .OR-Hero-Sub, .ER-Hero-Sub {
   font-size: .97rem; color: var(--k-muted); line-height: 1.75; max-width: 520px; margin: 0 0 32px;
@@ -1319,10 +1302,15 @@
   margin: 0 0 18px;
   padding: 8px 20px;
   border-radius: 999px;
-  color: #059669;
-  background: linear-gradient(165deg, rgba(236, 253, 245, 0.98) 0%, rgba(240, 251, 255, 0.98) 100%);
   border: 1px solid rgba(0, 191, 99, 0.38);
   box-shadow: 0 2px 14px rgba(0, 191, 99, 0.12);
+  background:
+    var(--kap-premium-gradient) text,
+    linear-gradient(165deg, rgba(236, 253, 245, 0.98) 0%, rgba(240, 251, 255, 0.98) 100%) padding-box;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .PQ-CTA-Title {
   font-size: clamp(1.85rem, 3.6vw, 2.55rem);
@@ -1820,10 +1808,15 @@
   margin: 0 0 18px;
   padding: 8px 20px;
   border-radius: 999px;
-  color: #059669;
-  background: linear-gradient(165deg, #ecfdf5 0%, #f0fbff 100%);
   border: 1px solid rgba(0, 191, 99, 0.38);
   box-shadow: 0 2px 14px rgba(0, 191, 99, 0.12);
+  background:
+    var(--kap-premium-gradient) text,
+    #ecfdf5 padding-box;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .OR-CTA-Title {
   font-size: clamp(1.6rem, 2.8vw, 2.2rem);
@@ -1833,11 +1826,6 @@
   color: #0f172a;
 }
 .OR-CTA-Title--grad {
-  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   animation: cardShimmer 5s ease infinite;
 }
 .OR-CTA-Sub   { font-size: 1rem; color: #475569; margin: 0 0 32px; line-height: 1.7; font-weight: 500; }
@@ -2282,10 +2270,15 @@
   margin: 0 0 18px;
   padding: 8px 20px;
   border-radius: 999px;
-  color: #0369a1;
-  background: linear-gradient(165deg, #f0fbff 0%, #ecfdf5 100%);
   border: 1px solid rgba(0, 182, 222, 0.38);
   box-shadow: 0 2px 14px rgba(0, 182, 222, 0.12);
+  background:
+    var(--kap-premium-gradient) text,
+    #f0fbff padding-box;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .ER-CTA-Title { font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 900; color: #0f172a; line-height: 1.2; margin: 0 0 12px; }
 .ER-CTA-Sub   { font-size: 1rem; color: #475569; margin: 0 0 34px; line-height: 1.7; font-weight: 500; }
@@ -2409,7 +2402,8 @@
   :root { --sec: 72px 20px; }
   .PQ-Guide-Img { height: 280px; }
   .PQ-Guide-Text { font-size: .95rem; }
-  .PQ-Hero { height: 80vh; }
+  .PQ-Hero { height: 88vh; min-height: 520px; }
+  .PQ-PageHero { min-height: clamp(460px, 68vh, 580px); }
   .PQ-Stage { padding: 0 20px 130px; }
   .PQ-Thumbs { display: none; } .PQ-Dots { display: flex; }
   .PQ-Promise-Grid { grid-template-columns: 1fr; }
