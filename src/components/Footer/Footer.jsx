@@ -122,13 +122,13 @@ export default function Footer() {
                 className="FT-Advisor"
                 draggable={false}
               />
-            </div>
-            <div className="FT-AdvisorCard">
-              <img src={logoTag} alt="" className="FT-AdvisorLogo" aria-hidden />
-              <p className="FT-AdvisorQuote">
-                « Chaque trimestre compte — nous veillons sur les vôtres. »
-              </p>
-              <span className="FT-AdvisorRole">Équipe KapAvenir</span>
+              <div className="FT-AdvisorCard">
+                <img src={logoTag} alt="" className="FT-AdvisorLogo" aria-hidden />
+                <p className="FT-AdvisorQuote">
+                  « Chaque trimestre compte — nous veillons sur les vôtres. »
+                </p>
+                <span className="FT-AdvisorRole">Équipe KapAvenir</span>
+              </div>
             </div>
           </div>
         </div>
