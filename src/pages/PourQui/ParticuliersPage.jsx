@@ -260,7 +260,10 @@ export default function ParticuliersPage() {
       <div className={`PQ-CTA-Section ${ctVis ? 'is-vis' : ''}`} ref={ctRef}>
         <div className="PQ-CTA-Inner">
           <p className="PQ-CTA-Pill">Passez à l’action</p>
-          <h2 className="PQ-CTA-Title">Prenez quelques minutes aujourd’hui pour sécuriser des années de retraite</h2>
+          <h2 className="PQ-CTA-Title">
+            Prenez quelques minutes aujourd’hui pour <span className="PQ-CTA-Title--grad">sécuriser</span> des{' '}
+            <span className="PQ-CTA-Title--grad">années de retraite</span>
+          </h2>
           <button type="button" className="PQ-Btn PQ-Btn--solid" onClick={() => navigate('/services/bilan')}>
             Faire mon bilan retraite
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

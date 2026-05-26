@@ -1319,6 +1319,21 @@
   margin: 0 0 32px;
   letter-spacing: -0.02em;
 }
+/* Dégradé charte — règle locale (PourQui.css chargé après kap-grad.css) */
+.PQ-CTA-Title :is(.PQ-CTA-Title--grad, .kap-grad, .PQ-Grad) {
+  display: inline;
+  background-image: var(--kap-text-gradient) !important;
+  background-size: 100% 100% !important;
+  background-position: 0 0 !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
 .PQ-CTA-Inner .PQ-Btn--solid {
   padding: 15px 36px;
   font-size: 0.95rem;
