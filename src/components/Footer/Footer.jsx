@@ -45,18 +45,6 @@ export default function Footer() {
 
   return (
     <footer className="FT" aria-label="Pied de page KapAvenir">
-      <div className="FT-Wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 56" preserveAspectRatio="none">
-          <path d="M0,28 C320,56 1120,0 1440,32 L1440,56 L0,56 Z" fill="url(#ftWaveGrad)" />
-          <defs>
-            <linearGradient id="ftWaveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="100%" stopColor="rgba(0, 113, 188, 0.92)" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
       <div className="FT-Mesh" aria-hidden="true">
         <span className="FT-Orb FT-Orb--1" />
         <span className="FT-Orb FT-Orb--2" />
@@ -115,7 +103,6 @@ export default function Footer() {
 
           <div className="FT-Visual">
             <div className="FT-VisualBody">
-              <div className="FT-VisualFrame" aria-hidden="true" />
               <img
                 src={advisorImg}
                 alt="Votre conseillère KapAvenir"
