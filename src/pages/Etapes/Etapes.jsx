@@ -95,11 +95,11 @@ export default function Etapes() {
           <h1 className="etp-title">
             Un accompagnement <span>simple,</span>
             <br />
-            clair et efficace
+            <span>clair et efficace</span>
           </h1>
           <p className="etp-text">
-            Preparer sa retraite peut sembler complexe. Chez KapAvenir, tout est concu pour
-            vous simplifier la vie, avec un accompagnement structure a chaque etape.
+            Préparer sa retraite peut sembler complexe. Chez KapAvenir, tout est conçu pour
+            vous simplifier la vie, avec un accompagnement structuré à chaque étape.
           </p>
         </div>
 

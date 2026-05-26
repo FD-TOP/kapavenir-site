@@ -63,7 +63,10 @@
   line-height: 1.1;
 }
 
-/* .etp-title span — dégradé charte via index.css */
+/* .etp-title span — dégradé charte (kap-grad.css) */
+.etp-title span {
+  display: inline;
+}
 
 .etp-text {
   margin: 20px 0 0;
