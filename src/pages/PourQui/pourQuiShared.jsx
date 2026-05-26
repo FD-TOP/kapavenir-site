@@ -241,10 +241,11 @@ export const PT_BENEFITS = [
 ];
 
 export const PT_DIFFS = [
-  'Une pédagogie simple et accessible',
-  'Des recommandations concrètes',
-  'Un accompagnement humain',
-  'Une approche orientée décision',
+  'Une expertise dédiée à la retraite',
+  'Accompagnement dans la régularisation de votre carrière',
+  'Un accompagnement pour votre demande de retraite',
+  'Des conseils simples et personnalisés',
+  'Un suivi humain et de proximité',
 ];
 
 export const OR_PILLARS = [
