@@ -118,9 +118,9 @@
 /* ─── Grille principale ─────────────────────────────────────── */
 .FT-Grid {
   display: grid;
-  grid-template-columns: minmax(220px, 0.85fr) minmax(200px, 0.75fr) minmax(320px, 1.4fr);
+  grid-template-columns: minmax(220px, 0.9fr) minmax(200px, 0.8fr) minmax(280px, 1fr);
   gap: clamp(24px, 3.5vw, 44px);
-  align-items: end;
+  align-items: start;
 }
 
 /* ─── Panneau marque ────────────────────────────────────────── */
@@ -268,17 +268,15 @@
   transform: translateX(0);
 }
 
-/* ─── Visuel conseillère — cadre ×3, photo remplit le cadre ───── */
+/* ─── Visuel conseillère — photo dans l'arche, pieds en bas ───── */
 .FT-Visual {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  overflow: visible;
-  /* Base ~320×520 → ×3 */
-  --ft-frame-w: min(100%, clamp(300px, 28vw, 960px));
-  --ft-frame-h: clamp(1260px, 88vh, 1560px);
-  margin-top: clamp(-80px, -10vw, -120px);
+  align-self: start;
+  --ft-frame-w: min(100%, clamp(280px, 26vw, 380px));
+  --ft-frame-h: clamp(480px, 46vw, 580px);
 }
 
 .FT-VisualBody {
@@ -286,14 +284,16 @@
   width: var(--ft-frame-w);
   height: var(--ft-frame-h);
   margin: 0 auto;
-  overflow: visible;
+  overflow: hidden;
+  border-radius: 200px 200px 24px 24px;
+  isolation: isolate;
 }
 
 .FT-VisualFrame {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  border-radius: 200px 200px 24px 24px;
+  z-index: 2;
+  border-radius: inherit;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.06);
@@ -302,13 +302,16 @@
 
 .FT-Advisor {
   position: absolute;
-  inset: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
+  z-index: 1;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: auto;
+  height: 118%;
+  max-width: 145%;
+  min-width: 85%;
   object-fit: contain;
-  object-position: center bottom;
-  border-radius: 200px 200px 24px 24px;
+  object-position: bottom center;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.22));
   pointer-events: none;
 }
@@ -456,10 +459,14 @@ a.FT-ContactItem:hover {
   .FT-Visual {
     grid-column: 1 / -1;
     justify-content: center;
-    max-width: 100%;
-    margin: -40px auto 0;
-    --ft-frame-w: min(100%, 720px);
-    --ft-frame-h: clamp(900px, 75vh, 1140px);
+    max-width: 400px;
+    margin: 0 auto;
+    --ft-frame-w: min(100%, 340px);
+    --ft-frame-h: clamp(420px, 55vw, 520px);
+  }
+
+  .FT-Advisor {
+    height: 120%;
   }
 
   .FT-Nav {
@@ -480,9 +487,12 @@ a.FT-ContactItem:hover {
 
   .FT-Visual {
     max-width: 100%;
-    margin-top: 0;
-    --ft-frame-w: min(100%, 100%);
-    --ft-frame-h: clamp(720px, 70vh, 960px);
+    --ft-frame-w: min(100%, 300px);
+    --ft-frame-h: clamp(380px, 72vw, 460px);
+  }
+
+  .FT-Advisor {
+    height: 115%;
   }
 
   .FT-AdvisorCard {
