@@ -40,7 +40,7 @@ export const SLIDES = [
 
 export const HERO_DELAY = 4500;
 
-export function useReveal(threshold = 0.1) {
+export function useReveal(threshold = 0.08, rootMargin = '0px 0px -6% 0px') {
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
   useEffect(() => {
@@ -51,23 +51,25 @@ export function useReveal(threshold = 0.1) {
           obs.disconnect();
         }
       },
-      { threshold }
+      { threshold, rootMargin }
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, [threshold]);
+  }, [threshold, rootMargin]);
   return [ref, vis];
 }
 
+/** Easing counter with ease-out cubic */
 export function useCounter(target, duration, started) {
   const [val, setVal] = useState(0);
   useEffect(() => {
     if (!started) return;
     let start = null;
+    const easeOut = (p) => 1 - (1 - p) ** 3;
     const step = (ts) => {
       if (!start) start = ts;
       const p = Math.min((ts - start) / duration, 1);
-      setVal(Math.round(p * target));
+      setVal(Math.round(easeOut(p) * target));
       if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);

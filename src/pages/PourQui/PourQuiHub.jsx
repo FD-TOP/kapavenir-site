@@ -8,7 +8,13 @@ export default function PourQuiHub() {
   const navigate = useNavigate();
   const [cur, setCur] = useState(0);
   const [prev, setPrev] = useState(null);
+  const [mounted, setMounted] = useState(false);
   const timer = useRef(null);
+
+  useEffect(() => {
+    const t = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(t);
+  }, []);
 
   const startTimer = useCallback(() => {
     clearInterval(timer.current);
@@ -41,7 +47,7 @@ export default function PourQuiHub() {
   const slide = SLIDES[cur];
 
   return (
-    <div className="PQ-Root PQ-Root--hub">
+    <div className={`PQ-Root PQ-Root--hub ${mounted ? 'is-mounted' : ''}`}>
       <section className="PQ-Hero">
         <LogoSticker size={120} top="10%" right="5%" rotation={15} opacity={0.2} animation="wobble" hideMobile />
         <LogoSticker size={75} bottom="15%" left="3%" rotation={-18} opacity={0.15} animation="float" hideMobile />
@@ -55,17 +61,23 @@ export default function PourQuiHub() {
           />
         ))}
 
+        <div className="PQ-Hero-Mesh" aria-hidden="true">
+          <span className="PQ-Hero-Orb PQ-Hero-Orb--1" style={{ '--ho': slide.color }} />
+          <span className="PQ-Hero-Orb PQ-Hero-Orb--2" />
+          <span className="PQ-Hero-Orb PQ-Hero-Orb--3" />
+        </div>
+
         <div className="PQ-Overlay" aria-hidden="true" />
 
-        <div className="PQ-Stage">
-          <h1 className="PQ-Title">
+        <div className="PQ-Stage" key={`stage-${cur}`}>
+          <h1 className="PQ-Title PQ-Stage-Item">
             Un accompagnement <span className="PQ-Accent" style={{ '--ac': slide.color }}>adapté</span>
             <br />à chaque situation
           </h1>
-          <p className="PQ-Desc">
+          <p className="PQ-Desc PQ-Stage-Item PQ-Stage-Item--d2">
             Que vous soyez un particulier, une entreprise ou un organisme, KapAvenir vous aide à sécuriser et optimiser la retraite avec une approche <strong>claire et personnalisée</strong>.
           </p>
-          <div className="PQ-Current" style={{ '--ac': slide.color }}>
+          <div className="PQ-Current PQ-Stage-Item PQ-Stage-Item--d3" style={{ '--ac': slide.color }}>
             <span className="PQ-Current-Dot" />
             <div>
               <div className="PQ-Current-Label">{slide.label}</div>
@@ -73,7 +85,7 @@ export default function PourQuiHub() {
             </div>
             <button
               type="button"
-              className="PQ-CTA"
+              className="PQ-CTA PQ-CTA--pulse"
               style={{ '--ac': slide.color }}
               onClick={() => navigate(slide.path)}
             >
@@ -91,9 +103,10 @@ export default function PourQuiHub() {
               key={s.id}
               type="button"
               className={`PQ-Thumb ${i === cur ? 'is-active' : ''}`}
-              style={{ '--tc': s.color }}
+              style={{ '--tc': s.color, '--ti': i }}
               onClick={() => navigate(s.path)}
               onMouseEnter={() => goTo(i)}
+              onFocus={() => goTo(i)}
               aria-label={`${s.label} — ${s.sub}`}
             >
               <div className="PQ-Thumb-Img" style={{ backgroundImage: `url(${s.image})` }} />
@@ -101,6 +114,11 @@ export default function PourQuiHub() {
                 <span className="PQ-Thumb-Label">{s.label}</span>
                 <span className="PQ-Thumb-Sub">{s.sub}</span>
               </div>
+              <span className="PQ-Thumb-Go" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
               <div className="PQ-Thumb-Bar">{i === cur && <span className="PQ-Thumb-Progress" key={cur} />}</div>
             </button>
           ))}
@@ -119,6 +137,11 @@ export default function PourQuiHub() {
               aria-label={s.label}
             />
           ))}
+        </div>
+
+        <div className="PQ-Hero-Scroll" aria-hidden="true">
+          <span>Choisir un profil</span>
+          <span className="PQ-Hero-Scroll-Chev" />
         </div>
       </section>
     </div>
