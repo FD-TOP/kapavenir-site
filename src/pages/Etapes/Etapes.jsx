@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Etapes.css';
 import couple2 from '../../assets/couple2.jpg';
-import couple6 from '../../assets/couple6.jpg';
+import videoCom from '../../assets/vidéocom.mp4';
 import LogoSticker from '../../components/Common/LogoSticker';
 
 const STEPS = [
@@ -174,10 +174,13 @@ export default function Etapes() {
         </div>
       </section>
 
-      <section className="etp-extra etp-diff">
-        <div className="etp-diff-layout">
-          <div>
-            <h3 className="etp-extra-title">Un accompagnement pensé pour vous simplifier la vie</h3>
+      <div className="etp-bottom">
+        <section className="etp-panel etp-panel--diff" aria-labelledby="etp-diff-title">
+          <div className="etp-panel-head">
+            <p className="etp-panel-eyebrow">Nos atouts</p>
+            <h3 className="etp-panel-title" id="etp-diff-title">
+              Un accompagnement pensé pour vous simplifier la vie
+            </h3>
           </div>
           <div className="etp-diff-cards">
             {DIFF_CARDS.map((item, idx) => (
@@ -186,33 +189,57 @@ export default function Etapes() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="etp-extra etp-time">
-        <div className="etp-time-grid">
-          <h3>Combien de temps ça prend ?</h3>
-          <p>
-            Le processus est simple et rapide.
-            <br />
-            Quelques échanges suffisent pour obtenir une vision claire et fiable de votre retraite.
-          </p>
-        </div>
-      </section>
+        <section className="etp-panel etp-panel--time" aria-labelledby="etp-time-title">
+          <div className="etp-panel-split">
+            <div className="etp-panel-copy">
+              <p className="etp-panel-eyebrow">Délai</p>
+              <h3 className="etp-panel-title" id="etp-time-title">
+                Combien de temps ça prend ?
+              </h3>
+            </div>
+            <p className="etp-panel-text">
+              Le processus est simple et rapide.
+              <br />
+              Quelques échanges suffisent pour obtenir une vision claire et fiable de votre retraite.
+            </p>
+          </div>
+        </section>
 
-      <section className="etp-extra etp-cta-final">
-        <div className="etp-cta-grid">
-          <div>
-            <h3>Pret a faire le point sur votre retraite ?</h3>
-            <p>En quelques etapes, vous pouvez obtenir une vision claire et optimiser votre avenir.</p>
-            <div className="etp-cta-buttons">
-              <button className="etp-cta-btn primary" onClick={() => navigate('/services/bilan')}>Faire mon bilan retraite</button>
-              <button className="etp-cta-btn secondary" onClick={() => navigate('/contact')}>Echanger avec un expert</button>
+        <section className="etp-panel etp-panel--cta" aria-labelledby="etp-cta-title">
+          <div className="etp-cta-layout">
+            <div className="etp-panel-copy">
+              <p className="etp-panel-eyebrow">Passez à l&apos;action</p>
+              <h3 className="etp-panel-title" id="etp-cta-title">
+                Prêt(e) à faire le point sur votre retraite ?
+              </h3>
+              <p className="etp-panel-text">
+                En quelques étapes, vous pouvez obtenir une vision claire et optimiser votre avenir.
+              </p>
+              <div className="etp-cta-buttons">
+                <button type="button" className="etp-cta-btn primary" onClick={() => navigate('/services/bilan')}>
+                  Faire mon bilan retraite
+                </button>
+                <button type="button" className="etp-cta-btn secondary" onClick={() => navigate('/contact')}>
+                  Échanger avec un expert
+                </button>
+              </div>
+            </div>
+            <div className="etp-cta-media">
+              <video
+                className="etp-cta-video"
+                src={videoCom}
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Présentation KapAvenir en vidéo"
+              />
             </div>
           </div>
-          <img src={couple6} alt="Accompagnement retraite" className="etp-cta-image" />
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }
