@@ -108,13 +108,21 @@ export default function Etapes() {
         </div>
       </section>
 
-      <section className="etp-steps">
+      <section className="etp-steps" aria-labelledby="etp-steps-heading">
         <div className="etp-steps-top">
-          <p className="etp-steps-eyebrow">Parcours en 4 etapes</p>
-          <div className="etp-step-switcher">
+          <p className="etp-steps-eyebrow" id="etp-steps-heading">Parcours en 4 étapes</p>
+          <div
+            className="etp-step-switcher"
+            role="tablist"
+            aria-label="Étapes du parcours"
+            style={{ '--etp-active': activeStep, '--etp-total': STEPS.length }}
+          >
             {STEPS.map((step, idx) => (
               <button
                 key={step.id}
+                type="button"
+                role="tab"
+                aria-selected={idx === activeStep}
                 className={`etp-step-chip ${idx === activeStep ? 'is-active' : ''}`}
                 onClick={() => setActiveStep(idx)}
               >
@@ -123,13 +131,21 @@ export default function Etapes() {
               </button>
             ))}
           </div>
+          <div className="etp-progress-rail" aria-hidden="true">
+            <div className="etp-progress-fill" />
+          </div>
         </div>
 
         <div className="etp-stage">
           <div key={current.id} className="etp-step-panel">
             <div className="etp-step-header">
-              <p className="etp-step-kicker">{current.nav}</p>
-              <h3 className="etp-step-title">{current.heading}</h3>
+              <div className="etp-step-header-text">
+                <p className="etp-step-kicker">{current.nav}</p>
+                <h3 className="etp-step-title">{current.heading}</h3>
+              </div>
+              <span className="etp-step-badge">
+                Étape {current.id} / {STEPS.length}
+              </span>
             </div>
 
             <div className="etp-step-grid">
