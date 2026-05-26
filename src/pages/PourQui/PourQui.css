@@ -848,7 +848,6 @@
 .OR-Btn--white:hover { transform: translateY(-3px); filter: brightness(1.08); box-shadow: 0 12px 32px rgba(0,113,188,.4), 0 4px 14px rgba(0,191,99,.25); }
 .OR-Btn--outline {
   box-shadow: 0 6px 22px rgba(0, 113, 188, 0.28);
-  animation-delay: 0.4s !important;
 }
 .OR-Btn--outline:hover { transform: translateY(-3px); filter: brightness(1.08); }
 
