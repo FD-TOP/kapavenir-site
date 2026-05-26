@@ -191,8 +191,12 @@ export default function Etapes() {
 
       <section className="etp-extra etp-time">
         <div className="etp-time-grid">
-          <h3>Combien de temps ca prend ?</h3>
-          <p>Le processus est simple et rapide. Quelques echanges suffisent pour obtenir une vision claire et fiable de votre retraite.</p>
+          <h3>Combien de temps ça prend ?</h3>
+          <p>
+            Le processus est simple et rapide.
+            <br />
+            Quelques échanges suffisent pour obtenir une vision claire et fiable de votre retraite.
+          </p>
         </div>
       </section>
 
