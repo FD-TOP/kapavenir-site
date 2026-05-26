@@ -1,369 +1,558 @@
 /* =============================================================================
-   Footer KapAvenir — aligné sur le modèle HTML de référence (flex + photo)
+   Footer KapAvenir — design premium asymétrique (logo + conseillère)
    ============================================================================= */
 
-.KF-Wrapper {
-  --kf-blue: #3a7bbf;
-  --kf-blue-dark: #2e69a8;
-  --kf-green: #7dd4a8;
-  --kf-pad-x: clamp(20px, 5vw, 60px);
-  --kf-bubble-w: 180px;
-  --kf-photo-shift: 190px;
+.FT {
+  --ft-dark: #0a1628;
+  --ft-mid: #0f2844;
+  --ft-accent: #00b6de;
+  --ft-green: #00bf63;
+  --ft-blue: #4381c1;
+  --ft-pad: clamp(20px, 4vw, 56px);
+  --ft-max: 1240px;
 
   position: relative;
   z-index: 30;
+  margin-top: auto;
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow: hidden;
+  background: linear-gradient(165deg, var(--ft-dark) 0%, #0d2240 45%, #0a1e36 100%);
+}
+
+/* ─── Vague de transition depuis la page ─────────────────────── */
+.FT-Wave {
+  display: block;
+  line-height: 0;
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 2;
+}
+
+.FT-Wave svg {
   width: 100%;
-  box-sizing: border-box;
-  /* Espace pour que le portrait déborde vers le haut (comme .footer-wrapper) */
-  padding-top: 80px;
+  height: clamp(40px, 5vw, 56px);
+  display: block;
 }
 
-.KF-Foot {
-  font-family: 'Nunito', 'Inter', system-ui, sans-serif;
-  position: relative;
-  overflow: visible;
-  background: var(--kf-blue);
-  color: #fff;
+/* ─── Fond décoratif ─────────────────────────────────────────── */
+.FT-Mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.KF-TopWrap {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 50px var(--kf-pad-x) 0;
-}
-
-.KF-Top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: clamp(28px, 4vw, 60px);
-  position: relative;
-}
-
-/* --- Marque + texte ------------------------------------------------------- */
-
-.KF-Brand {
-  flex: 1 1 260px;
-  max-width: 420px;
-  min-width: 0;
-}
-
-.KF-LogoRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.KF-LogoIcon {
-  flex-shrink: 0;
+.FT-Orb {
+  position: absolute;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  filter: blur(70px);
+  opacity: 0.55;
+  animation: ftOrb 12s ease-in-out infinite;
 }
 
-.KF-LogoIcon--brand {
-  width: 36px;
-  height: 36px;
-  background: #fff;
+.FT-Orb--1 {
+  width: 420px;
+  height: 420px;
+  top: -120px;
+  left: -80px;
+  background: rgba(0, 182, 222, 0.22);
 }
 
-.KF-LogoIcon--brand svg {
-  width: 22px;
-  height: 22px;
+.FT-Orb--2 {
+  width: 360px;
+  height: 360px;
+  bottom: -80px;
+  left: 35%;
+  background: rgba(0, 191, 99, 0.16);
+  animation-delay: -4s;
 }
 
-.KF-LogoIcon--bubble {
-  width: 28px;
-  height: 28px;
-  background: var(--kf-blue);
+.FT-Orb--3 {
+  width: 280px;
+  height: 280px;
+  top: 20%;
+  right: 8%;
+  background: rgba(67, 129, 193, 0.2);
+  animation-delay: -7s;
 }
 
-.KF-LogoIcon--bubble svg {
-  width: 18px;
-  height: 18px;
+@keyframes ftOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(16px, -20px) scale(1.06); }
 }
 
-.KF-LogoText {
-  font-size: 1.5rem;
-  font-weight: 800;
+.FT-GridLines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+}
+
+.FT-Inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--ft-max);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 64px) var(--ft-pad) 0;
+}
+
+/* ─── Grille principale ─────────────────────────────────────── */
+.FT-Grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.05fr) minmax(200px, 1fr) minmax(240px, 0.95fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: start;
+}
+
+/* ─── Panneau marque (carte verre) ──────────────────────────── */
+.FT-BrandPanel {
+  padding: clamp(24px, 3vw, 32px);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.FT-LogoLink {
+  display: inline-block;
+  margin-bottom: 20px;
+  transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.25, 1), filter 0.35s;
+}
+
+.FT-LogoLink:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0 8px 24px rgba(0, 182, 222, 0.35));
+}
+
+.FT-Logo {
+  height: clamp(44px, 6vw, 56px);
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.2));
+}
+
+.FT-Tagline {
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin: 0 0 14px;
   color: #fff;
-  letter-spacing: -0.5px;
-  line-height: 1;
 }
 
-.KF-LogoText span,
-.KF-BubbleLogoText span {
-  color: var(--kf-green);
+.FT-Grad {
+  background: linear-gradient(100deg, #00b6de 0%, #00bf63 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
-.KF-Desc {
-  color: rgba(255, 255, 255, 0.88);
+.FT-Pitch {
   font-size: 0.88rem;
-  line-height: 1.65;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 20px;
+  max-width: 38ch;
 }
 
-.KF-Desc strong {
-  color: #fff;
-  font-weight: 700;
-}
-
-/* --- Liens rapides ---------------------------------------------------------- */
-
-.KF-Links {
-  flex: 0 0 160px;
-  min-width: 140px;
-}
-
-.KF-ColTitle {
-  color: #fff;
-  font-weight: 800;
-  font-size: 1rem;
-  margin-bottom: 18px;
-}
-
-.KF-Links ul {
-  list-style: none;
+.FT-Trust {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 0;
-  padding: 0;
+  margin-bottom: 22px;
 }
 
-.KF-Links a {
+.FT-TrustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
+}
+
+.FT-TrustItem svg {
+  color: var(--ft-green);
+  flex-shrink: 0;
+}
+
+.FT-CTA {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
   font-size: 0.9rem;
-  transition: color 0.2s;
-}
-
-.KF-Links a:hover {
+  font-weight: 700;
   color: #fff;
+  text-decoration: none;
+  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+  background-size: 200% 200%;
+  box-shadow: 0 12px 32px rgba(0, 113, 188, 0.35), 0 4px 12px rgba(0, 191, 99, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
+  animation: ftCtaGlow 5s ease-in-out infinite;
 }
 
-/* --- Contact --------------------------------------------------------------- */
+.FT-CTA:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(0, 113, 188, 0.45), 0 6px 18px rgba(0, 191, 99, 0.25);
+  background-position: 100% 50%;
+}
 
-.KF-Contact {
-  flex: 1 1 200px;
+@keyframes ftCtaGlow {
+  0%, 100% { box-shadow: 0 12px 32px rgba(0, 113, 188, 0.35), 0 4px 12px rgba(0, 191, 99, 0.2); }
+  50% { box-shadow: 0 14px 40px rgba(0, 182, 222, 0.4), 0 6px 16px rgba(0, 191, 99, 0.28); }
+}
+
+/* ─── Navigation ────────────────────────────────────────────── */
+.FT-Nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding-top: 8px;
+}
+
+.FT-NavCol {
   min-width: 0;
 }
 
-.KF-Contact p {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin: 0 0 6px;
+.FT-NavTitle {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ft-accent);
+  margin: 0 0 14px;
 }
 
-.KF-Contact a {
-  color: inherit;
+.FT-NavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.FT-NavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  margin: 0 -12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background 0.25s, color 0.25s, transform 0.25s;
+}
+
+.FT-NavLink:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.FT-NavLinkArrow {
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s, transform 0.25s;
+  color: var(--ft-green);
+  flex-shrink: 0;
+}
+
+.FT-NavLink:hover .FT-NavLinkArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ─── Visuel conseillère ─────────────────────────────────────── */
+.FT-Visual {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.FT-VisualFrame {
+  position: absolute;
+  inset: 0 0 0 10%;
+  border-radius: 200px 200px 24px 24px;
+  background: linear-gradient(
+    160deg,
+    rgba(0, 182, 222, 0.25) 0%,
+    rgba(0, 191, 99, 0.12) 50%,
+    transparent 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 60px rgba(0, 182, 222, 0.08);
+  animation: ftFramePulse 6s ease-in-out infinite;
+}
+
+@keyframes ftFramePulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.01); }
+}
+
+.FT-Advisor {
+  position: relative;
+  z-index: 2;
+  width: auto;
+  height: clamp(280px, 38vw, 380px);
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+  animation: ftAdvisorFloat 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ftAdvisorFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.FT-AdvisorCard {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  z-index: 3;
+  max-width: 200px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+  animation: ftCardIn 0.8s cubic-bezier(0.2, 0.85, 0.25, 1) 0.2s both;
+}
+
+@keyframes ftCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.FT-AdvisorLogo {
+  height: 36px;
+  width: auto;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.FT-AdvisorQuote {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--ft-mid);
+}
+
+.FT-AdvisorRole {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ft-accent);
+}
+
+/* ─── Bandeau contact ───────────────────────────────────────── */
+.FT-ContactStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin-top: clamp(32px, 5vw, 48px);
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.FT-ContactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.KF-Contact a:hover {
+a.FT-ContactItem:hover {
   color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
-/* --- Carte photo + bulle (référence) --------------------------------------- */
+.FT-ContactItem svg {
+  color: var(--ft-accent);
+  flex-shrink: 0;
+}
 
-.KF-PhotoCard {
-  flex: 0 0 220px;
+.FT-ContactItem--addr {
+  cursor: default;
+}
+
+/* ─── Barre légale ──────────────────────────────────────────── */
+.FT-Bar {
   position: relative;
-  align-self: flex-end;
-  width: 220px;
-  max-width: 100%;
-  min-height: 120px;
-  margin-bottom: -1px;
-}
-
-.KF-Bubble {
-  position: absolute;
-  bottom: 0;
-  right: 0;
   z-index: 1;
-  width: var(--kf-bubble-w);
-  padding: 16px 20px 20px;
-  background: #fff;
-  border-radius: 24px 24px 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  box-sizing: border-box;
+  margin-top: clamp(28px, 4vw, 40px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.22);
 }
 
-.KF-BubbleLogoRow {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.KF-BubbleLogoText {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--kf-blue);
-  line-height: 1;
-}
-
-.KF-BubbleTagline {
-  margin: 0;
-  font-size: 0.82rem;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--kf-blue);
-  text-align: center;
-  line-height: 1.4;
-}
-
-.KF-Photo {
-  position: absolute;
-  bottom: 0;
-  right: var(--kf-photo-shift);
-  height: 260px;
-  width: auto;
-  max-width: min(280px, 55vw);
-  object-fit: contain;
-  object-position: bottom center;
-  z-index: 3;
-  pointer-events: none;
-  filter: drop-shadow(-4px 0 12px rgba(0, 0, 0, 0.18));
-}
-
-/* --- Bandeau bas ----------------------------------------------------------- */
-
-.KF-Bottom {
-  margin-top: 40px;
-  background: var(--kf-blue-dark);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.KF-BottomInner {
-  max-width: 1280px;
+.FT-BarInner {
+  max-width: var(--ft-max);
   margin: 0 auto;
-  padding: 14px var(--kf-pad-x);
+  padding: 16px var(--ft-pad);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 16px 24px;
+  gap: 12px 24px;
 }
 
-.KF-Copyright {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.78rem;
+.FT-Copy {
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
   line-height: 1.5;
-  flex: 1 1 260px;
 }
 
-.KF-ConceptionLink {
-  color: inherit;
+.FT-Copy a {
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: underline;
   text-underline-offset: 2px;
-}
-
-.KF-ConceptionLink:hover {
-  color: #fff;
-}
-
-.KF-Legal {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 20px;
-}
-
-.KF-LegalLink {
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  font-size: 0.78rem;
-  display: flex;
-  align-items: center;
-  gap: 5px;
   transition: color 0.2s;
 }
 
-.KF-LegalLink::before {
-  content: '›';
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.KF-LegalLink:hover {
+.FT-Copy a:hover {
   color: #fff;
 }
 
-/* =============================================================================
-   Responsive
-   ============================================================================= */
+.FT-CopySep {
+  margin: 0 0.35em;
+  opacity: 0.4;
+}
 
+.FT-Legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.FT-Legal a {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.FT-Legal a:hover {
+  color: var(--ft-green);
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .KF-Top {
-    flex-direction: column;
-    align-items: stretch;
+  .FT-Grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .KF-Brand {
-    max-width: none;
+  .FT-Visual {
+    grid-column: 1 / -1;
+    min-height: 300px;
+    max-width: 420px;
+    margin: 0 auto;
   }
 
-  .KF-Links {
-    flex: 0 0 auto;
-  }
-
-  .KF-PhotoCard {
-    align-self: center;
-    width: min(100%, 320px);
-    flex-basis: auto;
-    min-height: 260px;
-    margin-top: 8px;
-  }
-
-  .KF-Photo {
-    right: auto;
-    left: 50%;
-    transform: translateX(calc(-50% - 55px));
-    height: clamp(220px, 36vh, 280px);
-  }
-
-  .KF-Bubble {
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
+  .FT-Nav {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 }
 
-@media (max-width: 560px) {
-  .KF-Wrapper {
-    padding-top: 48px;
+@media (max-width: 720px) {
+  .FT-Grid {
+    grid-template-columns: 1fr;
   }
 
-  .KF-TopWrap {
-    padding-top: 36px;
+  .FT-Nav {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .KF-Photo {
-    transform: translateX(-50%);
-    max-width: 70vw;
+  .FT-Visual {
+    min-height: 280px;
   }
 
-  .KF-Bubble {
-    width: min(var(--kf-bubble-w), calc(100vw - 2 * var(--kf-pad-x)));
+  .FT-AdvisorCard {
+    left: 50%;
+    right: auto;
+    max-width: min(260px, calc(100% - 32px));
+    animation-name: ftCardInMobile;
   }
 
-  .KF-BottomInner {
+  @keyframes ftCardInMobile {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(16px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%);
+    }
+  }
+
+  .FT-ContactStrip {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+  }
+
+  .FT-BarInner {
+    flex-direction: column;
     text-align: center;
   }
 
-  .KF-Legal {
+  .FT-Legal {
     justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .FT-Orb,
+  .FT-Advisor,
+  .FT-VisualFrame,
+  .FT-CTA,
+  .FT-AdvisorCard {
+    animation: none !important;
+  }
+
+  .FT-NavLink:hover,
+  .FT-CTA:hover {
+    transform: none;
   }
 }
