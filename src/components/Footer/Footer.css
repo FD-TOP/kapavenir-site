@@ -1,26 +1,37 @@
 /* =============================================================================
-   Footer KapAvenir — design premium asymétrique (logo + conseillère)
+   Footer KapAvenir — fond clair, photo conseillère mise en avant
    ============================================================================= */
 
 .FT {
-  --ft-dark: #0a1628;
-  --ft-mid: #0f2844;
+  --ft-text: #1a1a1b;
+  --ft-muted: #64748b;
   --ft-accent: #00b6de;
   --ft-green: #00bf63;
   --ft-blue: #4381c1;
   --ft-pad: clamp(20px, 4vw, 56px);
-  --ft-max: 1240px;
+  --ft-max: 1280px;
 
   position: relative;
   z-index: 30;
   margin-top: auto;
-  color: #fff;
+  color: var(--ft-text);
   font-family: 'Inter', system-ui, sans-serif;
-  overflow: hidden;
-  background: linear-gradient(165deg, var(--ft-dark) 0%, #0d2240 45%, #0a1e36 100%);
+  overflow: visible;
+  padding-top: clamp(40px, 8vw, 80px);
+  background:
+    linear-gradient(
+      155deg,
+      #ffffff 0%,
+      #f0f9ff 14%,
+      #e8fdf2 38%,
+      #eef6ff 62%,
+      #f8fafc 85%,
+      #ffffff 100%
+    );
+  background-attachment: scroll;
 }
 
-/* ─── Vague de transition depuis la page ─────────────────────── */
+/* ─── Vague de transition ───────────────────────────────────── */
 .FT-Wave {
   display: block;
   line-height: 0;
@@ -35,7 +46,7 @@
   display: block;
 }
 
-/* ─── Fond décoratif ─────────────────────────────────────────── */
+/* ─── Fond décoratif (tons clairs) ──────────────────────────── */
 .FT-Mesh {
   position: absolute;
   inset: 0;
@@ -46,51 +57,51 @@
 .FT-Orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.55;
+  filter: blur(80px);
+  opacity: 0.7;
   animation: ftOrb 12s ease-in-out infinite;
 }
 
 .FT-Orb--1 {
-  width: 420px;
-  height: 420px;
-  top: -120px;
-  left: -80px;
-  background: rgba(0, 182, 222, 0.22);
+  width: 480px;
+  height: 480px;
+  top: -100px;
+  left: -100px;
+  background: rgba(0, 182, 222, 0.18);
 }
 
 .FT-Orb--2 {
-  width: 360px;
-  height: 360px;
-  bottom: -80px;
-  left: 35%;
-  background: rgba(0, 191, 99, 0.16);
+  width: 400px;
+  height: 400px;
+  bottom: -60px;
+  left: 30%;
+  background: rgba(0, 191, 99, 0.14);
   animation-delay: -4s;
 }
 
 .FT-Orb--3 {
-  width: 280px;
-  height: 280px;
-  top: 20%;
-  right: 8%;
-  background: rgba(67, 129, 193, 0.2);
+  width: 340px;
+  height: 340px;
+  top: 10%;
+  right: 0;
+  background: rgba(67, 129, 193, 0.12);
   animation-delay: -7s;
 }
 
 @keyframes ftOrb {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(16px, -20px) scale(1.06); }
+  50% { transform: translate(12px, -16px) scale(1.05); }
 }
 
 .FT-GridLines {
   position: absolute;
   inset: 0;
-  opacity: 0.04;
+  opacity: 0.35;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+    linear-gradient(rgba(0, 113, 188, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 113, 188, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
 }
 
 .FT-Inner {
@@ -98,62 +109,58 @@
   z-index: 1;
   max-width: var(--ft-max);
   margin: 0 auto;
-  padding: clamp(40px, 6vw, 64px) var(--ft-pad) 0;
+  padding: clamp(32px, 5vw, 48px) var(--ft-pad) 0;
 }
 
-/* ─── Grille principale ─────────────────────────────────────── */
+/* ─── Grille — colonne photo plus large ─────────────────────── */
 .FT-Grid {
   display: grid;
-  grid-template-columns: minmax(260px, 1.05fr) minmax(200px, 1fr) minmax(240px, 0.95fr);
-  gap: clamp(28px, 4vw, 48px);
-  align-items: start;
+  grid-template-columns: minmax(240px, 0.95fr) minmax(180px, 0.85fr) minmax(300px, 1.25fr);
+  gap: clamp(24px, 3.5vw, 44px);
+  align-items: end;
 }
 
-/* ─── Panneau marque (carte verre) ──────────────────────────── */
+/* ─── Panneau marque ────────────────────────────────────────── */
 .FT-BrandPanel {
-  padding: clamp(24px, 3vw, 32px);
+  padding: clamp(22px, 3vw, 30px);
   border-radius: 24px;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.12) 0%,
-    rgba(255, 255, 255, 0.04) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(0, 182, 222, 0.15);
+  backdrop-filter: blur(12px);
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    0 16px 48px rgba(0, 113, 188, 0.08),
+    0 4px 16px rgba(0, 191, 99, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  align-self: start;
 }
 
 .FT-LogoLink {
   display: inline-block;
-  margin-bottom: 20px;
-  transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.25, 1), filter 0.35s;
+  margin-bottom: 18px;
+  transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.25, 1);
 }
 
 .FT-LogoLink:hover {
-  transform: scale(1.03);
-  filter: drop-shadow(0 8px 24px rgba(0, 182, 222, 0.35));
+  transform: scale(1.04);
 }
 
 .FT-Logo {
-  height: clamp(44px, 6vw, 56px);
+  height: clamp(48px, 6vw, 60px);
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.2));
 }
 
 .FT-Tagline {
-  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-size: clamp(1.3rem, 2.3vw, 1.65rem);
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: -0.03em;
-  margin: 0 0 14px;
-  color: #fff;
+  margin: 0 0 12px;
+  color: var(--ft-text);
 }
 
 .FT-Grad {
-  background: linear-gradient(100deg, #00b6de 0%, #00bf63 100%);
+  background: linear-gradient(100deg, #0071bc 0%, #00b6de 50%, #00bf63 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -163,16 +170,16 @@
 .FT-Pitch {
   font-size: 0.88rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.72);
-  margin: 0 0 20px;
+  color: var(--ft-muted);
+  margin: 0 0 18px;
   max-width: 38ch;
 }
 
 .FT-Trust {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 22px;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .FT-TrustItem {
@@ -181,7 +188,7 @@
   gap: 10px;
   font-size: 0.78rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--ft-text);
 }
 
 .FT-TrustItem svg {
@@ -202,32 +209,23 @@
   text-decoration: none;
   background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
   background-size: 200% 200%;
-  box-shadow: 0 12px 32px rgba(0, 113, 188, 0.35), 0 4px 12px rgba(0, 191, 99, 0.2);
+  box-shadow: 0 10px 28px rgba(0, 113, 188, 0.22), 0 4px 12px rgba(0, 191, 99, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
-  animation: ftCtaGlow 5s ease-in-out infinite;
 }
 
 .FT-CTA:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 44px rgba(0, 113, 188, 0.45), 0 6px 18px rgba(0, 191, 99, 0.25);
+  box-shadow: 0 14px 36px rgba(0, 113, 188, 0.28), 0 6px 16px rgba(0, 191, 99, 0.2);
   background-position: 100% 50%;
-}
-
-@keyframes ftCtaGlow {
-  0%, 100% { box-shadow: 0 12px 32px rgba(0, 113, 188, 0.35), 0 4px 12px rgba(0, 191, 99, 0.2); }
-  50% { box-shadow: 0 14px 40px rgba(0, 182, 222, 0.4), 0 6px 16px rgba(0, 191, 99, 0.28); }
 }
 
 /* ─── Navigation ────────────────────────────────────────────── */
 .FT-Nav {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 24px;
   padding-top: 8px;
-}
-
-.FT-NavCol {
-  min-width: 0;
+  align-self: start;
 }
 
 .FT-NavTitle {
@@ -235,8 +233,8 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ft-accent);
-  margin: 0 0 14px;
+  color: #0071bc;
+  margin: 0 0 12px;
 }
 
 .FT-NavList {
@@ -245,7 +243,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .FT-NavLink {
@@ -253,20 +251,21 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 12px;
+  padding: 9px 12px;
   margin: 0 -12px;
   border-radius: 12px;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--ft-muted);
   font-size: 0.88rem;
   font-weight: 500;
   transition: background 0.25s, color 0.25s, transform 0.25s;
 }
 
 .FT-NavLink:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ft-text);
   transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(0, 113, 188, 0.06);
 }
 
 .FT-NavLinkArrow {
@@ -282,65 +281,68 @@
   transform: translateX(0);
 }
 
-/* ─── Visuel conseillère ─────────────────────────────────────── */
+/* ─── Visuel conseillère — grande taille ─────────────────────── */
 .FT-Visual {
   position: relative;
-  min-height: 320px;
+  min-height: clamp(380px, 42vw, 520px);
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  margin-top: clamp(-60px, -8vw, -100px);
 }
 
 .FT-VisualFrame {
   position: absolute;
-  inset: 0 0 0 10%;
-  border-radius: 200px 200px 24px 24px;
+  inset: 8% 0 0 5%;
+  border-radius: 220px 220px 28px 28px;
   background: linear-gradient(
-    160deg,
-    rgba(0, 182, 222, 0.25) 0%,
-    rgba(0, 191, 99, 0.12) 50%,
-    transparent 100%
+    165deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(224, 249, 255, 0.65) 40%,
+    rgba(232, 253, 245, 0.5) 100%
   );
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 0 60px rgba(0, 182, 222, 0.08);
+  border: 1px solid rgba(0, 182, 222, 0.2);
+  box-shadow:
+    0 20px 50px rgba(0, 113, 188, 0.1),
+    inset 0 0 80px rgba(0, 182, 222, 0.06);
   animation: ftFramePulse 6s ease-in-out infinite;
 }
 
 @keyframes ftFramePulse {
-  0%, 100% { opacity: 0.9; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.01); }
+  0%, 100% { opacity: 0.95; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.008); }
 }
 
 .FT-Advisor {
   position: relative;
   z-index: 2;
   width: auto;
-  height: clamp(280px, 38vw, 380px);
-  max-width: 100%;
+  height: clamp(420px, 52vw, 580px);
+  max-width: none;
+  min-width: min(100%, 320px);
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 24px 48px rgba(0, 113, 188, 0.15));
   animation: ftAdvisorFloat 5.5s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes ftAdvisorFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
 }
 
 .FT-AdvisorCard {
   position: absolute;
-  bottom: 24px;
+  bottom: 28px;
   left: 0;
   z-index: 3;
-  max-width: 200px;
+  max-width: 210px;
   padding: 16px 18px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(0, 182, 222, 0.2);
+  box-shadow: 0 12px 36px rgba(0, 113, 188, 0.12);
   animation: ftCardIn 0.8s cubic-bezier(0.2, 0.85, 0.25, 1) 0.2s both;
 }
 
@@ -356,7 +358,7 @@
 }
 
 .FT-AdvisorLogo {
-  height: 36px;
+  height: 38px;
   width: auto;
   margin-bottom: 10px;
   object-fit: contain;
@@ -368,7 +370,7 @@
   font-weight: 600;
   font-style: italic;
   line-height: 1.45;
-  color: var(--ft-mid);
+  color: var(--ft-muted);
 }
 
 .FT-AdvisorRole {
@@ -384,11 +386,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px 28px;
-  margin-top: clamp(32px, 5vw, 48px);
-  padding: 20px 24px;
+  margin-top: clamp(24px, 4vw, 40px);
+  padding: 18px 22px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 182, 222, 0.12);
+  box-shadow: 0 8px 28px rgba(0, 113, 188, 0.06);
 }
 
 .FT-ContactItem {
@@ -397,13 +400,13 @@
   gap: 10px;
   font-size: 0.82rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--ft-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 a.FT-ContactItem:hover {
-  color: #fff;
+  color: var(--ft-blue);
 }
 
 .FT-ContactItem svg {
@@ -419,15 +422,15 @@ a.FT-ContactItem:hover {
 .FT-Bar {
   position: relative;
   z-index: 1;
-  margin-top: clamp(28px, 4vw, 40px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 0, 0, 0.22);
+  margin-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid rgba(0, 113, 188, 0.1);
+  background: linear-gradient(90deg, rgba(240, 249, 255, 0.95), rgba(232, 253, 245, 0.95));
 }
 
 .FT-BarInner {
   max-width: var(--ft-max);
   margin: 0 auto;
-  padding: 16px var(--ft-pad);
+  padding: 14px var(--ft-pad);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -438,36 +441,30 @@ a.FT-ContactItem:hover {
 .FT-Copy {
   margin: 0;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--ft-muted);
   line-height: 1.5;
 }
 
 .FT-Copy a {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--ft-blue);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.2s;
 }
 
 .FT-Copy a:hover {
-  color: #fff;
+  color: var(--ft-accent);
 }
 
 .FT-CopySep {
   margin: 0 0.35em;
-  opacity: 0.4;
-}
-
-.FT-Legal {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
+  opacity: 0.45;
 }
 
 .FT-Legal a {
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--ft-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -476,22 +473,37 @@ a.FT-ContactItem:hover {
   color: var(--ft-green);
 }
 
+.FT-Legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
 /* ─── Responsive ────────────────────────────────────────────── */
 @media (max-width: 1024px) {
+  .FT {
+    padding-top: 56px;
+  }
+
   .FT-Grid {
     grid-template-columns: 1fr 1fr;
+    align-items: start;
   }
 
   .FT-Visual {
     grid-column: 1 / -1;
-    min-height: 300px;
-    max-width: 420px;
-    margin: 0 auto;
+    min-height: clamp(360px, 55vw, 480px);
+    max-width: 520px;
+    margin: -40px auto 0;
+  }
+
+  .FT-Advisor {
+    height: clamp(380px, 58vw, 520px);
   }
 
   .FT-Nav {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
   }
 }
 
@@ -502,17 +514,23 @@ a.FT-ContactItem:hover {
 
   .FT-Nav {
     grid-template-columns: 1fr;
-    gap: 24px;
   }
 
   .FT-Visual {
-    min-height: 280px;
+    min-height: 340px;
+    margin-top: 0;
+  }
+
+  .FT-Advisor {
+    height: clamp(340px, 75vw, 440px);
+    width: 100%;
+    max-width: 100%;
   }
 
   .FT-AdvisorCard {
     left: 50%;
     right: auto;
-    max-width: min(260px, calc(100% - 32px));
+    max-width: min(280px, calc(100% - 32px));
     animation-name: ftCardInMobile;
   }
 
@@ -546,7 +564,6 @@ a.FT-ContactItem:hover {
   .FT-Orb,
   .FT-Advisor,
   .FT-VisualFrame,
-  .FT-CTA,
   .FT-AdvisorCard {
     animation: none !important;
   }

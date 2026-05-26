@@ -48,10 +48,10 @@ export default function Footer() {
         <svg viewBox="0 0 1440 56" preserveAspectRatio="none">
           <path d="M0,28 C320,56 1120,0 1440,32 L1440,56 L0,56 Z" fill="url(#ftWaveGrad)" />
           <defs>
-            <linearGradient id="ftWaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#0c1f3d" />
-              <stop offset="50%" stopColor="#0a2848" />
-              <stop offset="100%" stopColor="#0c2238" />
+            <linearGradient id="ftWaveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f0f9ff" />
+              <stop offset="45%" stopColor="#e8fdf2" />
+              <stop offset="100%" stopColor="#eef4ff" />
             </linearGradient>
           </defs>
         </svg>
