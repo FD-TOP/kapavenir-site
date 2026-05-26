@@ -66,8 +66,8 @@ const STEPS = [
 const DIFF_CARDS = [
   'Un interlocuteur unique',
   'Des explications simples et accessibles',
-  'Un suivi personnalise',
-  'Une approche orientee resultats',
+  'Un suivi personnalisé',
+  'Une approche orientée résultats',
 ];
 
 export default function Etapes() {
@@ -177,7 +177,7 @@ export default function Etapes() {
       <section className="etp-extra etp-diff">
         <div className="etp-diff-layout">
           <div>
-            <h3 className="etp-extra-title">Un accompagnement pense pour vous simplifier la vie</h3>
+            <h3 className="etp-extra-title">Un accompagnement pensé pour vous simplifier la vie</h3>
           </div>
           <div className="etp-diff-cards">
             {DIFF_CARDS.map((item, idx) => (
