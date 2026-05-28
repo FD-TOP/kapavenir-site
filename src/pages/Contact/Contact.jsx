@@ -62,7 +62,6 @@ export default function Contact() {
                 <Icon size={20} />
               </div>
               <span className="ct-option-number">{option.id === 'rdv' ? '01' : option.id === 'form' ? '02' : '03'}</span>
-              <p className="ct-option-step">Option</p>
               <h2>{option.title}</h2>
               <p>{option.text}</p>
             </button>
