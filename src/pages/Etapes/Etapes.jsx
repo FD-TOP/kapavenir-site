@@ -115,7 +115,6 @@ export default function Etapes() {
             className="etp-step-switcher"
             role="tablist"
             aria-label="Étapes du parcours"
-            style={{ '--etp-active': activeStep, '--etp-total': STEPS.length }}
           >
             {STEPS.map((step, idx) => (
               <button
@@ -132,7 +131,10 @@ export default function Etapes() {
             ))}
           </div>
           <div className="etp-progress-rail" aria-hidden="true">
-            <div className="etp-progress-fill" />
+            <div
+              className="etp-progress-fill"
+              style={{ width: `${((activeStep + 1) / STEPS.length) * 100}%` }}
+            />
           </div>
         </div>
 
