@@ -267,7 +267,7 @@
   position: absolute;
   z-index: 1;
   left: 50%;
-  bottom: 0;
+  bottom: -34px;
   transform: translateX(-50%) scale(1.35);
   transform-origin: bottom center;
   width: auto;
@@ -319,6 +319,8 @@
 
 /* ─── Bandeau contact ───────────────────────────────────────── */
 .FT-ContactStrip {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 16px 28px;
