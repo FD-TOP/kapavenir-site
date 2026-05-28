@@ -73,6 +73,76 @@
   line-height: 1.68;
 }
 
+/* ── SECTION ACCOMPAGNEMENT (avant packs) ───────────────────── */
+.BR-Accompagnement {
+  margin: 0 auto 34px;
+}
+
+.BR-Accompagnement-Title {
+  margin: 0 0 16px;
+  font-size: clamp(1.02rem, 1.6vw, 1.22rem);
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.BR-Accompagnement-Grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.BR-Accompagnement-Card {
+  position: relative;
+  border-radius: 22px;
+  padding: 18px 16px;
+  border: 1px solid rgba(0, 182, 222, 0.28);
+  background: linear-gradient(145deg, rgba(0, 182, 222, 0.94), rgba(0, 182, 222, 0.84));
+  color: #eaf8ff;
+  box-shadow: 0 14px 30px rgba(0, 113, 188, 0.13);
+  min-height: 196px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform .34s cubic-bezier(.22,1,.36,1), box-shadow .34s ease, filter .34s ease;
+  overflow: hidden;
+}
+
+.BR-Accompagnement-Card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.24) 50%, transparent 66%);
+  transform: translateX(-120%);
+  transition: transform .8s cubic-bezier(.22,1,.36,1);
+  pointer-events: none;
+}
+
+.BR-Accompagnement-Card.is-active {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 44px rgba(0, 113, 188, 0.2);
+  filter: saturate(1.1) brightness(1.03);
+}
+
+.BR-Accompagnement-Card.is-active::after {
+  transform: translateX(120%);
+}
+
+.BR-Accompagnement-Card h4 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.BR-Accompagnement-Card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+}
+
 /* ── GRILLE ──────────────────────────────────────────────── */
 .BR-Grid {
   display: grid;
@@ -758,6 +828,9 @@
   .BR-Card-Tagline {
     min-height: unset;
   }
+  .BR-Accompagnement-Grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* ── 768px ───────────────────────────────────────────────── */
@@ -793,6 +866,12 @@
   }
   .BR-Header {
     margin-bottom: 36px;
+  }
+  .BR-Accompagnement-Grid {
+    grid-template-columns: 1fr;
+  }
+  .BR-Accompagnement-Card {
+    min-height: auto;
   }
   .BR-Modal-Head {
     padding: 24px 20px 20px;

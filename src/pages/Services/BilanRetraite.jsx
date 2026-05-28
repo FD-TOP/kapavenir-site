@@ -133,6 +133,25 @@ const packs = [
   },
 ];
 
+const accompagnements = [
+  {
+    title: 'Kap Clarté',
+    text: 'Idéal si vous souhaitez comprendre votre situation retraite et identifier les erreurs éventuelles.',
+  },
+  {
+    title: 'Kap Mesure',
+    text: 'Idéal si vous souhaitez optimiser votre retraite avec un accompagnement approfondi et personnalisé.',
+  },
+  {
+    title: 'Kap Maîtrise',
+    text: 'Idéal si vous voulez être accompagné dans les démarches et sécuriser votre départ.',
+  },
+  {
+    title: 'Kap Prestige',
+    text: 'Idéal si vous souhaitez déléguer intégralement votre retraite avec un accompagnement premium.',
+  },
+];
+
 function PackIcon({ id, color = '#0071bc', size = 24 }) {
   const props = {
     width: size,
@@ -217,6 +236,7 @@ function BlueCheck() {
 export default function BilanRetraite() {
   const navigate = useNavigate();
   const [activeModal, setActiveModal] = useState(null);
+  const [activeAcc, setActiveAcc] = useState(0);
 
   useEffect(() => {
     document.body.style.overflow = activeModal ? 'hidden' : '';
@@ -231,6 +251,13 @@ export default function BilanRetraite() {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveAcc((prev) => (prev + 1) % accompagnements.length);
+    }, 1800);
+    return () => clearInterval(timer);
   }, []);
 
   const activePack = packs.find((p) => p.id === activeModal);
@@ -253,6 +280,21 @@ export default function BilanRetraite() {
             Du diagnostic à la clé en main, choisissez la formule qui correspond à votre besoin et avancez avec
             clarté.
           </p>
+        </div>
+
+        <div className="BR-Accompagnement">
+          <h3 className="BR-Accompagnement-Title">Quel accompagnement est fait pour vous ?</h3>
+          <div className="BR-Accompagnement-Grid">
+            {accompagnements.map((item, index) => (
+              <article
+                key={item.title}
+                className={`BR-Accompagnement-Card ${activeAcc === index ? 'is-active' : ''}`}
+              >
+                <h4>{item.title}</h4>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="BR-Grid">
