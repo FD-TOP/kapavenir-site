@@ -75,14 +75,40 @@
 
 /* ── SECTION ACCOMPAGNEMENT (avant packs) ───────────────────── */
 .BR-Accompagnement {
-  margin: 0 auto 34px;
+  position: relative;
+  margin: 0 auto 36px;
+  border-radius: 26px;
+  padding: 22px 20px 18px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(0, 182, 222, 0.11), transparent 34%),
+    radial-gradient(circle at 92% 100%, rgba(0, 191, 99, 0.12), transparent 36%),
+    linear-gradient(145deg, rgba(255,255,255,.96), rgba(244,251,255,.9));
+  border: 1px solid rgba(148, 185, 218, 0.3);
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.09);
+  overflow: hidden;
+}
+
+.BR-Accompagnement::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--kap-premium-gradient);
 }
 
 .BR-Accompagnement-Title {
   margin: 0 0 16px;
-  font-size: clamp(1.02rem, 1.6vw, 1.22rem);
+  font-size: clamp(1.05rem, 1.65vw, 1.24rem);
   font-weight: 800;
   color: #0f172a;
+  letter-spacing: -.01em;
+}
+
+.BR-Accompagnement-Title span {
+  background: var(--kap-premium-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .BR-Accompagnement-Grid {
@@ -93,17 +119,19 @@
 
 .BR-Accompagnement-Card {
   position: relative;
-  border-radius: 22px;
-  padding: 18px 16px;
-  border: 1px solid rgba(0, 182, 222, 0.28);
-  background: linear-gradient(145deg, rgba(0, 182, 222, 0.94), rgba(0, 182, 222, 0.84));
-  color: #eaf8ff;
-  box-shadow: 0 14px 30px rgba(0, 113, 188, 0.13);
-  min-height: 196px;
+  border-radius: 18px;
+  padding: 16px 14px;
+  border: 1px solid rgba(191, 208, 230, 0.8);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.94), rgba(248,252,255,.9));
+  color: #1f2937;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+  min-height: 208px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  transition: transform .34s cubic-bezier(.22,1,.36,1), box-shadow .34s ease, filter .34s ease;
+  gap: 8px;
+  transition: transform .34s cubic-bezier(.22,1,.36,1), box-shadow .34s ease, border-color .34s ease, background .34s ease;
   overflow: hidden;
 }
 
@@ -111,7 +139,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.24) 50%, transparent 66%);
+  background: linear-gradient(120deg, transparent 34%, rgba(255,255,255,.55) 50%, transparent 66%);
   transform: translateX(-120%);
   transition: transform .8s cubic-bezier(.22,1,.36,1);
   pointer-events: none;
@@ -119,28 +147,74 @@
 
 .BR-Accompagnement-Card.is-active {
   transform: translateY(-5px);
-  box-shadow: 0 24px 44px rgba(0, 113, 188, 0.2);
-  filter: saturate(1.1) brightness(1.03);
+  border-color: rgba(0, 182, 222, 0.46);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(0, 182, 222, 0.2), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,.98), rgba(241,250,246,.95));
+  box-shadow: 0 22px 42px rgba(0, 113, 188, 0.17);
 }
 
 .BR-Accompagnement-Card.is-active::after {
   transform: translateX(120%);
 }
 
+.BR-Accompagnement-Card.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 0 6px 6px 0;
+  background: var(--kap-premium-gradient);
+}
+
+.BR-Accompagnement-Index {
+  align-self: flex-start;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 182, 222, 0.32);
+  background: rgba(0, 182, 222, 0.1);
+  color: #0f4c81;
+  padding: 4px 10px;
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
 .BR-Accompagnement-Card h4 {
-  margin: 0 0 10px;
-  font-size: 1.05rem;
+  margin: 0;
+  font-size: 1.02rem;
   font-weight: 900;
   line-height: 1.2;
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .BR-Accompagnement-Card p {
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.92rem;
+  line-height: 1.48;
+  font-weight: 650;
+  color: #475569;
+}
+
+.BR-Accompagnement-Dots {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+.BR-Accompagnement-Dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.5);
+  transition: width .24s ease, background .24s ease;
+}
+
+.BR-Accompagnement-Dot.is-active {
+  width: 22px;
+  background: var(--kap-premium-gradient);
 }
 
 /* ── GRILLE ──────────────────────────────────────────────── */
@@ -872,6 +946,7 @@
   }
   .BR-Accompagnement-Card {
     min-height: auto;
+    padding: 14px 13px;
   }
   .BR-Modal-Head {
     padding: 24px 20px 20px;

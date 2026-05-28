@@ -283,16 +283,24 @@ export default function BilanRetraite() {
         </div>
 
         <div className="BR-Accompagnement">
-          <h3 className="BR-Accompagnement-Title">Quel accompagnement est fait pour vous ?</h3>
+          <h3 className="BR-Accompagnement-Title">
+            Quel accompagnement est fait pour <span>vous</span> ?
+          </h3>
           <div className="BR-Accompagnement-Grid">
             {accompagnements.map((item, index) => (
               <article
                 key={item.title}
                 className={`BR-Accompagnement-Card ${activeAcc === index ? 'is-active' : ''}`}
               >
+                <span className="BR-Accompagnement-Index">{`0${index + 1}`}</span>
                 <h4>{item.title}</h4>
                 <p>{item.text}</p>
               </article>
+            ))}
+          </div>
+          <div className="BR-Accompagnement-Dots" aria-hidden="true">
+            {accompagnements.map((item, index) => (
+              <span key={item.title} className={`BR-Accompagnement-Dot ${activeAcc === index ? 'is-active' : ''}`} />
             ))}
           </div>
         </div>
