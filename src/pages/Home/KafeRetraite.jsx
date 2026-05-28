@@ -21,9 +21,9 @@ const flipCards = [
     frontImage: grp3,
     backPoints: [
       'Vous avez entre 45 et 60 ans',
-      'Vous commencez a penser a votre retraite',
+      'Vous commencez à penser à votre retraite',
       'Vous avez des doutes ou des questions',
-      'Vous voulez eviter les erreurs couteuses',
+      'Vous voulez éviter les erreurs coûteuses',
     ],
   },
   {
@@ -31,8 +31,8 @@ const flipCards = [
     frontImage: grp4,
     backPoints: [
       'Vous souhaitez accompagner vos collaborateurs',
-      'Vous cherchez une action concrete en qualite de vie au travail (QVT)',
-      'Vous voulez proposer un service utile et differenciant',
+      'Vous cherchez une action concrète en qualité de vie au travail (QVT)',
+      'Vous voulez proposer un service utile et différenciant',
     ],
   },
 ];
