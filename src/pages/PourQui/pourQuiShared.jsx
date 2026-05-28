@@ -257,9 +257,7 @@ export const OR_PILLARS = [
 export const OR_SERVICES = [
   { title: 'Diagnostic retraite', desc: 'Vision claire, projections personnalisées, restitution simple.' },
   { title: 'Parcours client intégré', desc: "Expérience fluide du diagnostic à l'action, en marque blanche." },
-  { title: 'Aide à la décision', desc: 'Outils et supports pour accompagner vos conseillers au quotidien.' },
   { title: 'Accompagnement expert', desc: 'Entretiens personnalisés pour les situations complexes.' },
-  { title: 'Programme pédagogique', desc: 'Contenus, ateliers et formation de vos équipes en interne.' },
 ];
 
 export const OR_STEPS = [
