@@ -438,14 +438,14 @@
 .K-final-cta {
   position: relative;
   margin-top: 26px;
-  border-radius: 26px;
+  border-radius: 30px;
   overflow: hidden;
-  border: 1px solid rgba(148, 185, 218, 0.32);
-  min-height: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  min-height: 430px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 24px 54px rgba(15, 23, 42, 0.14);
+  box-shadow: 0 30px 64px rgba(15, 23, 42, 0.2);
 }
 
 .K-final-cta-bg {
@@ -454,64 +454,99 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(3px) saturate(1.08);
-  transform: scale(1.06);
+  filter: blur(2px) saturate(1.05);
+  transform: scale(1.08);
 }
 
 .K-final-cta-overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(0, 113, 188, 0.56) 0%, rgba(0, 182, 222, 0.42) 45%, rgba(0, 191, 99, 0.5) 100%),
-    linear-gradient(180deg, rgba(15, 23, 42, 0.36), rgba(15, 23, 42, 0.56));
+    radial-gradient(circle at 15% 12%, rgba(255,255,255,.1), transparent 38%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.54), rgba(15, 23, 42, 0.66));
 }
 
 .K-final-cta-content {
   position: relative;
   z-index: 1;
-  width: min(860px, 92%);
+  width: min(820px, 92%);
   text-align: center;
-  border-radius: 22px;
+  border-radius: 26px;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(8px);
-  padding: 28px 22px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 38px 28px;
 }
 
 .K-final-cta-tag {
   margin: 0 0 10px;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 182, 222, 0.95);
 }
 
 .K-final-cta-content h3 {
-  margin: 0 0 10px;
+  margin: 0;
   color: #ffffff;
-  font-size: clamp(1.36rem, 2.2vw, 1.9rem);
-  line-height: 1.28;
+  font-size: clamp(2.2rem, 4.3vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.K-final-cta-content h3 span {
+  background: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .K-final-cta-content p {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 640px;
   color: rgba(255, 255, 255, 0.95);
-  font-size: 1.02rem;
-  line-height: 1.64;
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+.K-final-cta-divider {
+  width: 56px;
+  height: 4px;
+  border-radius: 999px;
+  margin: 12px auto 18px;
+  background: linear-gradient(90deg, #0071bc, #00bf63);
+}
+
+.K-final-cta-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .K-final-cta-btn {
-  margin-top: 18px;
   border: none;
   border-radius: 999px;
-  padding: 14px 28px;
-  min-width: min(100%, 460px);
+  padding: 14px 22px;
+  min-width: 260px;
   color: #ffffff;
-  font-size: clamp(1rem, 1.7vw, 1.18rem);
+  font-size: 1rem;
   font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
   box-shadow: 0 14px 30px rgba(0, 113, 188, 0.28);
   transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.K-final-cta-btn.is-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.2);
 }
 
 .K-final-cta-btn:hover {
@@ -552,9 +587,11 @@
   .K-info-content { padding: 16px; }
   .K-info-columns { grid-template-columns: 1fr; gap: 6px; }
   .K-info-arrow { justify-self: start; font-size: 1.6rem; }
-  .K-final-cta { min-height: 270px; border-radius: 20px; }
-  .K-final-cta-content { width: 94%; padding: 22px 16px; }
+  .K-final-cta { min-height: 340px; border-radius: 20px; }
+  .K-final-cta-content { width: 94%; padding: 24px 16px; }
+  .K-final-cta-content h3 { font-size: clamp(1.9rem, 9vw, 2.6rem); }
   .K-final-cta-content p { font-size: .96rem; }
+  .K-final-cta-actions { flex-direction: column; }
   .K-final-cta-btn { width: 100%; min-width: 0; }
 }
 

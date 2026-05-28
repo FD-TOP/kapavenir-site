@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Coffee, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Coffee, ArrowRight, CheckCircle2, MessageSquare, FileText } from 'lucide-react';
 import './KafeRetraite.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 import grp1 from '../../assets/grp1.png';
@@ -208,12 +208,26 @@ export default function KafeRetraite() {
             <img src={couple9} alt="" className="K-final-cta-bg" loading="eager" decoding="async" />
             <div className="K-final-cta-overlay" aria-hidden="true" />
             <div className="K-final-cta-content">
-              <p className="K-final-cta-tag">CTA final</p>
-              <h3>Ne laissez pas le hasard décider de votre retraite.</h3>
-              <p>Prenez les bonnes décisions, au bon moment.</p>
-              <button className="K-final-cta-btn" onClick={() => navigate('/contact')}>
-                Participer au prochain Kafé Retraite
-              </button>
+              <p className="K-final-cta-tag">Sécurisez votre avenir</p>
+              <h3>
+                Ne laissez pas votre retraite <span>au hasard</span>
+              </h3>
+              <div className="K-final-cta-divider" aria-hidden="true" />
+              <p>
+                Un simple échange peut faire toute la différence sur vos revenus futurs.
+                Nos experts sont là pour transformer vos questions en certitudes.
+              </p>
+              <div className="K-final-cta-actions">
+                <button className="K-final-cta-btn" onClick={() => navigate('/services/bilan')}>
+                  <FileText size={18} />
+                  Faire mon bilan retraite
+                  <ArrowRight size={18} />
+                </button>
+                <button className="K-final-cta-btn is-secondary" onClick={() => navigate('/contact')}>
+                  <MessageSquare size={18} />
+                  Contactez-nous
+                </button>
+              </div>
             </div>
           </section>
         </div>
