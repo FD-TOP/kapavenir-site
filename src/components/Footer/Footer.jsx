@@ -4,6 +4,7 @@ import { ArrowRight, Mail, MapPin, Phone, Shield } from 'lucide-react';
 import './Footer.css';
 import '../Navbar/Navbar.css';
 
+import logoImg from '../../assets/logo.png';
 import logoTag from '../../assets/logo-tag.png';
 import advisorImg from '../../assets/8450589.png';
 
@@ -38,7 +39,7 @@ export default function Footer() {
         <div className="FT-Grid">
           <div className="FT-BrandPanel">
             <Link to="/" className="nav-logo FT-BrandLogo" aria-label="KapAvenir — Accueil">
-              <img src={logoTag} alt="KapAvenir" className="FT-BrandLogoImg" draggable={false} />
+              <img src={logoImg} alt="KapAvenir" className="nav-logo-img" draggable={false} />
             </Link>
 
             <p className="FT-Tagline">
