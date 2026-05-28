@@ -150,7 +150,10 @@ export default function EntreprisesRhPage() {
                 onMouseEnter={() => setActiveErBn(i)}
               >
                 {activeErBn === i && <div className="ER-Bn-Bar" key={`erbn-${i}`} />}
-                <div className="ER-Bn-IcoWrap">{b.icon}</div>
+                <span className="ER-Bn-Index">{`0${i + 1}`.slice(-2)}</span>
+                <div className="ER-Bn-IcoWrap">
+                  <span className="ER-Bn-Ico">{b.icon}</span>
+                </div>
                 <strong className="ER-Bn-Title">{b.title}</strong>
               </div>
             ))}
