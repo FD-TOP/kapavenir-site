@@ -209,17 +209,13 @@ export default function EntreprisesRhPage() {
         <div className="ER-Orb ER-Orb--2" />
         <div className="ER-CTA-Inner">
           <span className="ER-CTA-Eye">Passez à l&apos;action</span>
-          <h2 className="ER-CTA-Title">Vous êtes intéressé(e)s par nos prestations ?</h2>
+          <h2 className="ER-CTA-Title">
+            Vous êtes intéressé(e)s par nos <Grad className="ER-Cyan">prestations</Grad> ?
+          </h2>
           <p className="ER-CTA-Sub">Un devis personnalisé en 48h — sans engagement.</p>
           <div className="ER-CTA-Btns">
             <button type="button" className="ER-Btn ER-Btn--white" onClick={() => navigate('/contact')}>
-              Demander une démo gratuite
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-            <button type="button" className="ER-Btn ER-Btn--outline" onClick={() => navigate('/contact')}>
-              Contacter un conseiller
+              Échanger avec un expert
             </button>
           </div>
         </div>
