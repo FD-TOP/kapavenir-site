@@ -43,7 +43,7 @@ export default function Footer() {
             </Link>
 
             <p className="FT-Tagline">
-              La retraite, <span className="FT-Grad">enfin lisible</span> et sereine.
+              La retraite, enfin lisible et sereine.
             </p>
 
             <p className="FT-Pitch">
