@@ -90,75 +90,59 @@ export default function KafeRetraite() {
       <LogoSticker size={68} bottom="38%" right="2%" rotation={-14} opacity={0.1} animation="wobble" hideMobile />
 
       <div className="K-container">
-        <div className="K-hero-stage">
-          <div className="K-editorial-grid">
-          
-          {/* COLONNE GAUCHE : LE MANIFESTE (FIXE) */}
-            <div className="K-manifesto K-animate">
-            <div className="K-meta-tag">
-              <Coffee size={14} strokeWidth={3} />
-              <span>Concept Exclusif</span>
-            </div>
-            <h2 className="K-editorial-title">
-              Le Kafé Retraite : <br />
-              L'accompagnement <span className="K-serif">humain</span>.
-            </h2>
-            <p className="K-editorial-lead">
-              Le Kafé Retraite est un moment d’échange, en petit comité, dans un cadre convivial
-              (physique ou en ligne). Pendant cette session, vous bénéficiez :
-            </p>
-            <div className="K-action-footer">
-              <button className="K-btn-premium" onClick={() => navigate('/contact')}>
-                En savoir plus <ArrowRight size={18} />
-              </button>
-            </div>
+        <header className="K-headline K-animate">
+          <div className="K-meta-tag">
+            <Coffee size={14} strokeWidth={3} />
+            <span>Concept Exclusif</span>
           </div>
+          <h2 className="K-editorial-title">
+            Le Kafé Retraite : L&apos;accompagnement <span className="K-serif">humain</span>.
+          </h2>
+          <p className="K-editorial-lead">
+            Le Kafé Retraite est un moment d’échange, en petit comité, dans un cadre convivial
+            (physique ou en ligne). Pendant cette session, vous bénéficiez :
+          </p>
+        </header>
 
-          {/* COLONNE DROITE : LES PILIERS D'EXPERTISE */}
-            <div className="K-pillars K-animate">
-            <div className="K-pillars-label">Notre promesse lors des rencontres :</div>
-            
-            <div className="K-list-stack">
-              {pillarData.map((item, idx) => (
-                <div key={idx} className="K-pillar-item" style={{ '--k-delay': `${idx * 0.2}s` }}>
-                  <div className="K-pillar-body">
-                    <p className="K-pillar-desc">{item.text}</p>
-                  </div>
-                  <div className="K-pillar-icon">
-                    <CheckCircle2 size={24} className="K-check" />
-                  </div>
+        <section className="K-promises K-animate">
+          <div className="K-promises-top">
+            <h3 className="K-promises-title">Notre promesse lors des rencontres :</h3>
+            <button className="K-btn-premium" onClick={() => navigate('/contact')}>
+              En savoir plus <ArrowRight size={18} />
+            </button>
+          </div>
+          <div className="K-promises-grid">
+            {pillarData.map((item, idx) => (
+              <article key={idx} className="K-promise-card" style={{ '--k-delay': `${idx * 0.12}s` }}>
+                <div className="K-promise-badge">{`0${idx + 1}`}</div>
+                <p className="K-promise-text">{item.text}</p>
+                <div className="K-pillar-icon">
+                  <CheckCircle2 size={22} className="K-check" />
                 </div>
-              ))}
-            </div>
+              </article>
+            ))}
           </div>
-
-          </div>
-        </div>
+        </section>
 
         <div className="K-post-hero">
-          <div className="K-flip-section">
+          <section className="K-audience K-animate">
             <h3 className="K-flip-title">A qui s’adresse le Kafe Retraite ?</h3>
-            <div className="K-flip-grid">
+            <div className="K-audience-grid">
               {flipCards.map((card) => (
-                <article key={card.frontTitle} className="K-flip-card K-animate">
-                  <div className="K-flip-inner">
-                    <div className="K-flip-face K-flip-front">
-                      <img src={card.frontImage} alt={card.frontTitle} className="K-flip-image" />
-                      <div className="K-flip-overlay" />
-                      <p className="K-flip-front-title">{card.frontTitle}</p>
-                    </div>
-                    <div className="K-flip-face K-flip-back">
-                      <ul>
-                        {card.backPoints.map((point) => (
-                          <li key={point}>{point}</li>
-                        ))}
-                      </ul>
-                    </div>
+                <article key={card.frontTitle} className="K-audience-card">
+                  <img src={card.frontImage} alt={card.frontTitle} className="K-audience-image" />
+                  <div className="K-audience-content">
+                    <h4>{card.frontTitle}</h4>
+                    <ul>
+                      {card.backPoints.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
                   </div>
                 </article>
               ))}
             </div>
-          </div>
+          </section>
 
           <div className="K-info-section">
             <article className="K-info-card K-animate">
