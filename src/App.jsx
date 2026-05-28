@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import Navbar       from './components/Navbar/Navbar';
 import Footer       from './components/Footer/Footer';
@@ -15,8 +15,65 @@ import KafeRetraitePage from './pages/KafeRetraite/KafeRetraitePage';
 import Ressources   from './pages/Ressources/Ressources';
 import APropos      from './pages/APropos/APropos';
 import Contact      from './pages/Contact/Contact';
+import couple1 from './assets/couple1.jpeg';
+import couple2 from './assets/couple2.jpg';
+import couple3 from './assets/couple3.jpg';
+import couple4 from './assets/couple4.jpeg';
+import couple5 from './assets/couple5.jpg';
+import couple7 from './assets/couple7.jpg';
+import meeting3 from './assets/meeting3.png';
+import meeting4 from './assets/meeting4.jpg';
+import women from './assets/women.png';
+import salut from './assets/salut.jpg';
+import grp1 from './assets/grp1.png';
+import grp2 from './assets/grp2.png';
+import grp3 from './assets/grp3.png';
+import grp4 from './assets/grp4.png';
+
+const IMAGE_PRELOADS = {
+  '/': [women, couple7, couple3],
+  '/pour-qui': [couple1, meeting4, meeting3],
+  '/pour-qui/particuliers': [couple1, meeting3],
+  '/pour-qui/organismes': [meeting4, couple4],
+  '/pour-qui/entreprises-rh': [meeting3, couple4],
+  '/a-propos': [salut, couple5],
+  '/histoire': [salut, couple5],
+  '/mission': [salut, couple5],
+  '/engagements': [salut, couple5],
+  '/expertise': [salut, couple5],
+  '/etapes': [couple2],
+  '/kafe-retraite': [grp1, grp2, grp3, grp4, couple7],
+};
+
+const GLOBAL_PRELOADS = [couple1, meeting3, meeting4];
 
 function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const critical = [
+      ...(IMAGE_PRELOADS[pathname] || []),
+      ...GLOBAL_PRELOADS,
+    ].filter(Boolean);
+
+    const unique = [...new Set(critical)];
+    unique.forEach((src, index) => {
+      const img = new Image();
+      img.decoding = 'async';
+      img.loading = 'eager';
+      img.src = src;
+
+      if (index === 0) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+        setTimeout(() => link.remove(), 7000);
+      }
+    });
+  }, [pathname]);
+
   return (
     <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Dégradé partagé : texte + icônes SVG */}
