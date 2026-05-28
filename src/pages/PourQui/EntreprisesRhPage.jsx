@@ -40,9 +40,6 @@ export default function EntreprisesRhPage() {
   return (
     <div className="PQ-Root PQ-Root--subpage PQ-Root--ent">
       <PourQuiPageHero slide={slide}>
-        <button type="button" className="ER-Btn ER-Btn--solid" onClick={() => navigate('/contact')}>
-          Demander une démo gratuite
-        </button>
         <button type="button" className="ER-Btn ER-Btn--ghost PQ-Btn--hero-ghost" onClick={() => navigate('/contact')}>
           Échanger avec un expert
         </button>
