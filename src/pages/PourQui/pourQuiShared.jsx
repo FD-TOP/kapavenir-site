@@ -268,10 +268,10 @@ export const OR_STEPS = [
 ];
 
 export const OR_DIFFS = [
-  'Approche pédagogique avant tout',
-  'Expérience pensée pour le client final',
-  'Équilibre digital et humain',
-  'Vision orientée résultats',
+  'Une approche pédagogique avant tout',
+  'Une expérience pensée pour le client final',
+  "Un équilibre entre le digital et l'humain",
+  'Une vision orientée résultats',
 ];
 
 export const ER_ENJEUX = [

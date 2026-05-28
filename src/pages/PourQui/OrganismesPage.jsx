@@ -131,7 +131,7 @@ export default function OrganismesPage() {
         <div className="OR-Inner OR-Diff-Layout">
           <div className="OR-Diff-Left">
             <h2 className="OR-Title">
-              Pourquoi <Grad className="OR-Green">KapAvenir ?</Grad>
+              <Grad className="OR-Green">KapAvenir</Grad>
             </h2>
           </div>
           <div className="OR-Diff-List">
