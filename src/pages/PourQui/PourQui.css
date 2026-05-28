@@ -2279,6 +2279,11 @@
   align-items: center;
   justify-content: center;
 }
+.ER-Bn-Icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
 .ER-Bn-Icon svg,
 .ER-Bn-Icon svg * {
   stroke: currentColor !important;
