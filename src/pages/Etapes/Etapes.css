@@ -517,8 +517,6 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  perspective: 1200px;
-  transform-style: preserve-3d;
 }
 
 .etp-diff-card {
@@ -537,14 +535,17 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  transform: translateZ(0) rotateX(0deg) rotateY(0deg);
-  transform-style: preserve-3d;
-  will-change: transform, box-shadow, border-color;
+  opacity: .72;
+  transform: translateY(8px);
+  filter: saturate(.85);
+  will-change: transform, box-shadow, border-color, background-position;
   transition:
-    transform 0.34s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.34s ease,
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s ease,
     border-color 0.3s ease,
-    background 0.3s ease;
+    background 0.45s ease,
+    opacity 0.35s ease,
+    filter 0.35s ease;
 }
 
 .etp-diff-card::after {
@@ -555,66 +556,76 @@
   top: 0;
   height: 3px;
   background: var(--kap-premium-gradient);
-  opacity: 0;
-  transition: opacity 0.28s ease;
+  opacity: .25;
+  transform: scaleX(.15);
+  transform-origin: left center;
+  transition: transform 0.45s ease, opacity 0.3s ease;
 }
 
 .etp-diff-card::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: -120%;
+  left: -25%;
+  width: 65%;
+  height: 320%;
   pointer-events: none;
-  background: radial-gradient(
-    140px 80px at 20% 15%,
-    rgba(255, 255, 255, 0.42),
-    rgba(255, 255, 255, 0) 70%
+  background: linear-gradient(
+    115deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.26) 45%,
+    rgba(255,255,255,0) 100%
   );
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transform: translateX(-180%) rotate(18deg);
+  opacity: .5;
+  transition: transform 0.9s cubic-bezier(.2,.8,.2,1), opacity .45s ease;
 }
 
 .etp-diff-card:hover {
-  transform: translateY(-6px) rotateX(6deg) rotateY(-6deg) scale(1.015);
+  transform: translateY(-4px);
   border-color: rgba(0, 182, 222, 0.32);
-  box-shadow: 0 18px 34px rgba(0, 113, 188, 0.18);
+  box-shadow: 0 14px 30px rgba(0, 113, 188, 0.14);
+  opacity: 1;
+  filter: saturate(1);
 }
 
 .etp-diff-card:hover::before {
-  opacity: 1;
+  transform: translateX(240%) rotate(18deg);
+  opacity: .85;
 }
 
 .etp-diff-card.is-active {
-  background: #ffffff;
+  background: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(246, 251, 255, 1) 100%);
   color: #0f172a;
-  border-color: rgba(0, 113, 188, 0.22);
-  transform: translateY(-8px) translateZ(24px) rotateX(4deg) scale(1.03);
+  border-color: rgba(0, 182, 222, 0.36);
+  transform: translateY(-7px) scale(1.02);
   box-shadow:
-    0 18px 36px rgba(0, 113, 188, 0.18),
-    0 0 0 1px rgba(0, 182, 222, 0.16);
-  animation: etpDiffPulse3d 2.4s ease-in-out infinite;
+    0 18px 34px rgba(0, 113, 188, 0.16),
+    0 0 0 2px rgba(0, 182, 222, 0.16);
+  opacity: 1;
+  filter: saturate(1.06);
+  animation: etpDiffBreath 1.9s ease-in-out infinite;
 }
 
 .etp-diff-card.is-active::after {
   opacity: 1;
+  transform: scaleX(1);
 }
 
 .etp-diff-card.is-active::before {
-  opacity: 1;
+  transform: translateX(240%) rotate(18deg);
+  opacity: .9;
+  animation: etpDiffShine 2.2s ease-in-out infinite;
 }
 
-@keyframes etpDiffPulse3d {
-  0%, 100% {
-    transform: translateY(-8px) translateZ(24px) rotateX(4deg) scale(1.03);
-    box-shadow:
-      0 18px 36px rgba(0, 113, 188, 0.18),
-      0 0 0 1px rgba(0, 182, 222, 0.16);
-  }
-  50% {
-    transform: translateY(-10px) translateZ(30px) rotateX(5deg) scale(1.035);
-    box-shadow:
-      0 22px 42px rgba(0, 113, 188, 0.22),
-      0 0 0 2px rgba(0, 182, 222, 0.22);
-  }
+@keyframes etpDiffBreath {
+  0%, 100% { transform: translateY(-7px) scale(1.02); }
+  50% { transform: translateY(-10px) scale(1.03); }
+}
+
+@keyframes etpDiffShine {
+  0% { transform: translateX(-180%) rotate(18deg); }
+  45%, 100% { transform: translateX(240%) rotate(18deg); }
 }
 
 .etp-cta-layout {
