@@ -312,7 +312,7 @@ export const ER_BENEFITS = [
 export const ER_DIFFS = [
   'Une approche centrée RH (pas uniquement technique)',
   'Une vraie expérience collaborateur',
-  'Un équilibre digital & humain',
+  "Un équilibre entre le digital et l'humain",
   "Une logique d'impact (engagement, fidélisation)",
 ];
 
