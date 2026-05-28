@@ -129,7 +129,6 @@ export default function EntreprisesRhPage() {
                   <div className="ER-TStep-Ring" />
                 </div>
                 <div className="ER-TStep-Card">
-                  <span className="ER-TStep-BgNum">{s.n}</span>
                   <h3 className="ER-TStep-Title">{s.title}</h3>
                   <p className="ER-TStep-Desc">{s.desc}</p>
                 </div>

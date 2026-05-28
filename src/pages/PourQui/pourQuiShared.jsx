@@ -291,10 +291,9 @@ export const ER_SERVICES = [
 ];
 
 export const ER_STEPS = [
-  { n: '01', title: 'Sensibilisation', desc: 'Webinaires et contenus pédagogiques pour vos collaborateurs.' },
-  { n: '02', title: 'Diagnostic personnalisé', desc: 'Analyse individuelle des droits et projections retraite.' },
-  { n: '03', title: 'Recommandations concrètes', desc: "Un plan d'action clair, adapté à chaque profil." },
-  { n: '04', title: "Passage à l'action", desc: "Accompagnement jusqu'aux démarches et décisions finales." },
+  { n: '01', title: 'Diagnostic personnalisé', desc: 'Analyse individuelle des droits et projections retraite.' },
+  { n: '02', title: 'Recommandations concrètes', desc: "Un plan d'action clair, adapté à chaque profil." },
+  { n: '03', title: "Passage à l'action", desc: "Accompagnement jusqu'aux démarches et décisions finales." },
 ];
 
 export const ER_OUTILS = [
