@@ -38,22 +38,22 @@ const flipCards = [
 ];
 
 const whyParticipate = [
-  'Des trimestres sont oublies',
+  'Des trimestres sont oubliés',
   'Des optimisations ne sont pas faites',
-  'Des decisions importantes sont prises trop tard',
+  'Des décisions importantes sont prises trop tard',
 ];
 
 const resultPoints = [
-  'Une retraite moins elevee',
-  'Un depart retarde',
-  'Des opportunites perdues',
+  'Une retraite moins élevée',
+  'Un départ retardé',
+  'Des opportunités perdues',
 ];
 
 const outcomes = [
-  'Une meilleure comprehension de votre situation',
-  'Une premiere vision de votre age de depart reel',
-  'Des pistes d optimisation concretes',
-  'Une capacite a prendre des decisions eclairees',
+  'Une meilleure compréhension de votre situation',
+  'Une première vision de votre âge de départ réel',
+  'Des pistes d’optimisation concrètes',
+  'Une capacité à prendre des décisions éclairées',
 ];
 
 export default function KafeRetraite() {
@@ -170,6 +170,7 @@ export default function KafeRetraite() {
             <article className="K-info-card K-animate">
               <div className="K-info-content">
                 <h3>Pourquoi participer ?</h3>
+                <p className="K-info-intro">Parce que dans la majorité des cas :</p>
                 <div className="K-info-columns">
                   <ul>
                     {whyParticipate.map((item) => (
@@ -191,6 +192,7 @@ export default function KafeRetraite() {
             <article className="K-info-card K-animate">
               <div className="K-info-content">
                 <h3>Ce que vous allez obtenir a l issue du Kafe Retraite :</h3>
+                <p className="K-info-intro">Résultats :</p>
                 <ul className="K-outcome-list">
                   {outcomes.map((item) => (
                     <li key={item}>{item}</li>
