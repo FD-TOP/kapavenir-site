@@ -131,6 +131,12 @@
 /* Logo : classes navbar (.nav-logo / .nav-logo-img) — voir Footer.jsx */
 .FT-BrandPanel .nav-logo {
   margin-bottom: 18px;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
 }
 
 .FT-Tagline {
