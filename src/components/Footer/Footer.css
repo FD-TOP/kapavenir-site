@@ -267,7 +267,7 @@
   position: absolute;
   z-index: 1;
   left: 50%;
-  bottom: -34px;
+  bottom: -35px;
   transform: translateX(-50%) scale(1.35);
   transform-origin: bottom center;
   width: auto;
