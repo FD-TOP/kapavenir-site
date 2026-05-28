@@ -2262,6 +2262,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: #0f4c81;
 }
 .ER-Bn-Card.is-active .ER-Bn-IcoWrap {
   background: linear-gradient(135deg, color-mix(in srgb, var(--bc) 35%, #ffffff), color-mix(in srgb, var(--bc) 12%, #ffffff));
@@ -2275,6 +2276,13 @@
   stroke: currentColor;
   stroke-width: 2.35;
   opacity: 1;
+}
+.ER-Bn-IcoWrap svg * {
+  stroke: currentColor !important;
+  stroke-width: 2.35 !important;
+}
+.ER-Bn-Card.is-active .ER-Bn-Ico {
+  color: #0a6aa5;
 }
 .ER-Bn-Title { font-size:.85rem;font-weight:800;color:var(--k-dark);text-align:center;line-height:1.35; }
 
