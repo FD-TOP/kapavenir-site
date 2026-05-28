@@ -27,6 +27,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
 }
 
 /* Vite reset */
@@ -46,6 +47,10 @@ body {
   --kap-premium-gradient: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
   /* Ombre type CTA plein dégradé (réutilisable sur les boutons charte) */
   --kap-btn-glow: 0 12px 28px rgba(0, 113, 188, 0.28), 0 4px 12px rgba(0, 191, 99, 0.15);
+  --kap-surface-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+  --kap-surface-shadow-hover: 0 24px 48px rgba(15, 23, 42, 0.13);
+  --kap-ring: 0 0 0 4px rgba(0, 182, 222, 0.16);
+  --kap-ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
   --white:      #ffffff;
   --gray-light: #f8fafc;
   --gray-text:  #64748b;
@@ -64,6 +69,24 @@ a {
 button {
   font-family: inherit;
   cursor: pointer;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  transition:
+    transform 0.26s var(--kap-ease-premium),
+    box-shadow 0.26s var(--kap-ease-premium),
+    border-color 0.22s ease,
+    color 0.22s ease,
+    background-color 0.22s ease;
+}
+
+:where(button, a, input, select, textarea):focus-visible {
+  outline: none;
+  box-shadow: var(--kap-ring);
 }
 
 img {
@@ -168,4 +191,95 @@ section {
 .card-lift:hover {
   transform: translateY(-8px);
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+}
+
+/* ─── Passe premium globale (cartes majeures du site) ───────── */
+:is(
+  .ct-option-card,
+  .ct-panel,
+  .ap-story,
+  .ap-mission,
+  .ap-expertise,
+  .ap-cta,
+  .ap-story-card,
+  .ap-exp-card,
+  .PQ-Sv-Card,
+  .ER-Sv-Item,
+  .OR-Sv-Card,
+  .PT-Sec-Card,
+  .K-info-card,
+  .K-manifesto,
+  .K-pillars,
+  .etp-diff-card,
+  .res-faq-item,
+  .res-guide-card
+) {
+  box-shadow: var(--kap-surface-shadow);
+  transition:
+    transform 0.34s var(--kap-ease-premium),
+    box-shadow 0.34s var(--kap-ease-premium),
+    border-color 0.24s ease,
+    background-color 0.24s ease;
+}
+
+:is(
+  .ct-option-card,
+  .ap-story-card,
+  .ap-exp-card,
+  .PQ-Sv-Card,
+  .ER-Sv-Item,
+  .OR-Sv-Card,
+  .PT-Sec-Card,
+  .K-info-card,
+  .etp-diff-card,
+  .res-faq-item,
+  .res-guide-card
+):hover {
+  transform: translateY(-5px);
+  box-shadow: var(--kap-surface-shadow-hover);
+}
+
+/* Entrées plus fluides des blocs de contenu */
+:is(main section, .ct-panel, .ap-section, .PQ-PageHero, .K-section, .etp-section) {
+  animation: kapSectionIn 0.55s var(--kap-ease-premium) both;
+}
+
+@keyframes kapSectionIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+    main section,
+    .ct-panel,
+    .ap-section,
+    .PQ-PageHero,
+    .K-section,
+    .etp-section
+  ) {
+    animation: none !important;
+  }
+
+  :is(
+    .ct-option-card,
+    .ap-story-card,
+    .ap-exp-card,
+    .PQ-Sv-Card,
+    .ER-Sv-Item,
+    .OR-Sv-Card,
+    .PT-Sec-Card,
+    .K-info-card,
+    .etp-diff-card,
+    .res-faq-item,
+    .res-guide-card
+  ):hover {
+    transform: none !important;
+  }
 }

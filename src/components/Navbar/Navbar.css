@@ -26,6 +26,7 @@
 
 /* --- LA PILULE (PILL) --- */
 .nav-pill {
+  position: relative;
   width: 95%;
   max-width: 1300px;
   background: var(--nav-bg);
@@ -39,6 +40,21 @@
   border: 1px solid var(--nav-border);
   box-shadow: 0 8px 32px rgba(0, 113, 188, 0.22), 0 2px 8px rgba(0,191,99,0.08);
   transition: var(--transition);
+  overflow: hidden;
+}
+
+.nav-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 34%, rgba(255,255,255,0.18) 48%, transparent 62%);
+  transform: translateX(-120%);
+  transition: transform 0.8s var(--kap-ease-premium);
+  pointer-events: none;
+}
+
+.nav-pill:hover::after {
+  transform: translateX(120%);
 }
 
 .is-scrolled .nav-pill {
@@ -89,6 +105,7 @@
 .nav-link-desktop:hover, .nav-link-desktop.active {
   background: rgba(255, 255, 255, 0.15);
   color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .nav-link-desktop svg { transition: 0.3s; }
@@ -132,12 +149,13 @@
   cursor: pointer;
   width: 100%;
   text-align: left;
-  transition: 0.2s;
+  transition: 0.24s ease;
 }
 
 .nav-dropdown-item:hover {
-  background: #f4faff;
+  background: linear-gradient(90deg, #f3f9ff, #f3fff8);
   padding-left: 22px;
+  color: #0f4c81;
 }
 
 .item-arrow { opacity: 0; transform: translateX(-10px); transition: 0.3s; }

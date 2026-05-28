@@ -119,6 +119,12 @@
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   align-self: start;
+  transition: transform 0.3s var(--kap-ease-premium), box-shadow 0.3s var(--kap-ease-premium);
+}
+
+.FT-BrandPanel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
 }
 
 /* Logo : classes navbar (.nav-logo / .nav-logo-img) — voir Footer.jsx */
@@ -340,11 +346,12 @@
   font-weight: 500;
   color: var(--ft-muted);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 a.FT-ContactItem:hover {
   color: #fff;
+  transform: translateY(-1px);
 }
 
 .FT-ContactItem svg {
@@ -363,6 +370,7 @@ a.FT-ContactItem:hover {
   margin-top: clamp(24px, 3vw, 36px);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   background: var(--ft-nav-bg-dark);
+  backdrop-filter: blur(8px);
 }
 
 .FT-BarInner {
