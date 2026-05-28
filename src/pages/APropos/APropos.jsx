@@ -43,8 +43,10 @@ export default function APropos() {
 
       <section className="ap-hero">
         <div className="ap-hero-text">
-          <span className="ap-kicker">À propos</span>
-          <h1>Une expertise au service de votre sérénité</h1>
+          <h1>
+            Une <span className="ap-hero-grad">expertise</span> au service de votre{' '}
+            <span className="ap-hero-grad">sérénité</span>
+          </h1>
           <p>
             KapAvenir est né d’une conviction simple : chacun mérite de comprendre et d’optimiser sa
             retraite, sans complexité ni stress.
