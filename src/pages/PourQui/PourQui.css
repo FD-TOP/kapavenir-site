@@ -2208,34 +2208,52 @@
 .ER-Ou-GaugeSub { display:block;font-size:.65rem;font-weight:600;color:var(--k-muted);margin-top:2px; }
 
 /* ER Bénéfices */
-.ER-Bn-Grid { display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:900px;margin:0 auto; }
+.ER-Bn-Grid { display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto; }
 .ER-Bn-Card {
   border-radius:var(--card-r);padding:32px 20px 20px;
-  background:#fff;border:1.5px solid var(--card-bd);
+  background:linear-gradient(180deg, rgba(255,255,255,.98) 0%, #ffffff 100%);border:1.5px solid var(--card-bd);
   display:flex;flex-direction:column;align-items:center;gap:14px;
   position:relative;overflow:hidden;cursor:default;box-shadow: 0 6px 24px rgba(0,0,0,.18);
   opacity:0;transform:scale(.96);
-  transition:opacity .5s,transform .5s,border-color .4s,box-shadow .4s;
+  transition:opacity .5s,transform .5s,border-color .4s,box-shadow .4s,background .45s;
+}
+.ER-Bn-Card::before {
+  content: "";
+  position: absolute;
+  inset: -25% -10% auto -10%;
+  height: 75%;
+  background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--bc) 38%, transparent) 0%, transparent 68%);
+  opacity: .12;
+  pointer-events: none;
+  transition: opacity .45s ease, transform .45s ease;
+  transform: translateY(-8px);
 }
 .ER-Block.is-vis .ER-Bn-Card { opacity:1;transform:scale(1); }
 .ER-Bn-Card.is-active {
-  border-color: var(--bc);
+  border-color: color-mix(in srgb, var(--bc) 68%, #ffffff);
   transform: translateY(-7px) scale(1.04);
-  box-shadow: 0 16px 44px rgba(0, 113, 188, 0.14), 0 0 0 3px rgba(0, 182, 222, 0.12);
-  background: #ffffff;
+  box-shadow: 0 18px 46px color-mix(in srgb, var(--bc) 32%, transparent), 0 0 0 3px color-mix(in srgb, var(--bc) 22%, transparent);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--bc) 18%, #ffffff) 0%, #ffffff 62%);
+}
+.ER-Bn-Card.is-active::before {
+  opacity: .32;
+  transform: translateY(0);
 }
 .ER-Bn-Grid:has(.is-active) .ER-Bn-Card:not(.is-active) { opacity:.55;transform:scale(.97); }
-.ER-Bn-Bar { position:absolute;bottom:0;left:0;height:4px;border-radius:0 0 20px 20px;background:linear-gradient(90deg,var(--bc),rgba(0,191,99,.6));animation:erbn-fill 2s linear forwards; }
+.ER-Bn-Bar { position:absolute;bottom:0;left:0;height:4px;border-radius:0 0 20px 20px;background:linear-gradient(90deg,var(--bc),color-mix(in srgb, var(--bc) 45%, #ffffff));animation:erbn-fill 1.5s ease-out forwards; }
 @keyframes erbn-fill { from{width:0%}to{width:100%} }
 .ER-Bn-IcoWrap {
   width:50px;height:50px;border-radius:14px;
-  background:linear-gradient(135deg,rgba(0,182,222,.12),rgba(67,129,193,.12));
+  background:linear-gradient(135deg,color-mix(in srgb, var(--bc) 18%, #ffffff),rgba(255,255,255,.92));
   display:flex;align-items:center;justify-content:center;
-  transition:box-shadow .4s;
+  color: color-mix(in srgb, var(--bc) 72%, #1f2937);
+  transition:box-shadow .4s, transform .35s ease, color .35s ease;
 }
 .ER-Bn-Card.is-active .ER-Bn-IcoWrap {
-  background: linear-gradient(135deg, rgba(0, 182, 222, 0.14), rgba(67, 129, 193, 0.14));
-  box-shadow: 0 4px 14px rgba(0, 113, 188, 0.12);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--bc) 35%, #ffffff), color-mix(in srgb, var(--bc) 12%, #ffffff));
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--bc) 28%, transparent);
+  transform: translateY(-1px);
+  color: color-mix(in srgb, var(--bc) 88%, #0f172a);
 }
 .ER-Bn-IcoWrap svg { width:22px;height:22px; }
 .ER-Bn-Title { font-size:.85rem;font-weight:800;color:var(--k-dark);text-align:center;line-height:1.35; }
