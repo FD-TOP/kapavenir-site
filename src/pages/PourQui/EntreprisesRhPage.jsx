@@ -113,7 +113,6 @@ export default function EntreprisesRhPage() {
       <div className={`ER-Block ER-Block--dark ${stVis ? 'is-vis' : ''}`} ref={stRef}>
         <div className="ER-Inner">
           <div className="ER-Head ER-Head--light">
-            <span className="ER-Label ER-Label--light">Expérience collaborateur</span>
             <h2 className="ER-Title ER-Title--white">
               Un accompagnement <Grad className="ER-Cyan">simple et engageant</Grad>
             </h2>
