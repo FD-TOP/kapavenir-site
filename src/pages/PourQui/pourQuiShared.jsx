@@ -288,7 +288,6 @@ export const ER_SERVICES = [
   { title: 'Diagnostic retraite collaborateurs', desc: 'Vision claire + projections personnalisées pour chaque salarié.' },
   { title: 'Parcours salarié', desc: 'Accompagnement progressif tout au long de la carrière.' },
   { title: 'Accompagnement fin de carrière', desc: 'Aide à la transition : temps partiel, retraite progressive, départ.' },
-  { title: 'Formation & support RH', desc: 'Montée en compétence de vos équipes RH sur les enjeux retraite.' },
 ];
 
 export const ER_STEPS = [
