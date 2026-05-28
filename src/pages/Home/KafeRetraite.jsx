@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Coffee, ArrowRight, CheckCircle2 } from 'lucide-react';
 import './KafeRetraite.css';
 import LogoSticker from '../../components/Common/LogoSticker';
-import meeting1 from '../../assets/meeting1.jpg';
-import meeting4 from '../../assets/meeting4.jpg';
+import grp1 from '../../assets/grp1.png';
+import grp2 from '../../assets/grp2.png';
 import grp3 from '../../assets/grp3.png';
 import grp4 from '../../assets/grp4.png';
 
@@ -179,7 +179,7 @@ export default function KafeRetraite() {
                 </div>
                 <p className="K-info-note">Le Kafe Retraite vous permet d anticiper et d eviter cela.</p>
               </div>
-            <img src={meeting1} alt="Session Kafe Retraite" className="K-info-image" />
+            <img src={grp1} alt="Session Kafe Retraite" className="K-info-image" />
             </article>
 
             <article className="K-info-card K-animate">
@@ -191,7 +191,7 @@ export default function KafeRetraite() {
                   ))}
                 </ul>
               </div>
-            <img src={meeting4} alt="Resultats Kafe Retraite" className="K-info-image" />
+            <img src={grp2} alt="Resultats Kafe Retraite" className="K-info-image" />
             </article>
           </div>
         </div>
