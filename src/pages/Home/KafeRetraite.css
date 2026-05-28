@@ -322,25 +322,30 @@
   margin-top: 28px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
+  gap: 22px;
 }
 
 .K-info-card {
   display: grid;
   grid-template-columns: 1.25fr .75fr;
-  gap: 14px;
-  border-radius: 20px;
-  border: 1px solid #d8e8fa;
-  background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(242,250,246,.88));
-  box-shadow: 0 16px 36px rgba(15,23,42,.09);
+  gap: 18px;
+  border-radius: 24px;
+  border: 1px solid rgba(148, 185, 218, 0.34);
+  background: linear-gradient(140deg, rgba(255,255,255,.98) 0%, rgba(240,248,255,.92) 100%);
+  box-shadow:
+    0 18px 42px rgba(15,23,42,.11),
+    0 2px 8px rgba(15,23,42,.05);
   overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
   position: relative;
 }
 
 .K-info-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 44px rgba(15,23,42,.12);
+  transform: translateY(-5px);
+  border-color: rgba(0, 182, 222, 0.4);
+  box-shadow:
+    0 24px 50px rgba(0, 113, 188, 0.14),
+    0 6px 14px rgba(15,23,42,.08);
 }
 
 .K-info-card::before {
@@ -349,21 +354,25 @@
   left: 0;
   right: 0;
   top: 0;
-  height: 3px;
+  height: 4px;
   border-radius: 0 0 8px 8px;
-  background: linear-gradient(90deg, rgba(0,113,188,.8), rgba(0,191,99,.8));
-  opacity: .75;
+  background: linear-gradient(90deg, rgba(0,113,188,.9), rgba(0,191,99,.92));
+  opacity: .9;
 }
 
 .K-info-content {
-  padding: 22px 24px;
+  padding: 26px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .K-info-content h3 {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   color: #0f172a;
-  font-size: clamp(1.1rem, 1.65vw, 1.34rem);
+  font-size: clamp(1.15rem, 1.72vw, 1.42rem);
   line-height: 1.32;
+  letter-spacing: -0.01em;
 }
 
 .K-info-columns {
@@ -382,9 +391,9 @@
 
 .K-info-columns li,
 .K-outcome-list li {
-  margin-bottom: 8px;
-  line-height: 1.38;
-  font-size: .95rem;
+  margin-bottom: 10px;
+  line-height: 1.42;
+  font-size: .96rem;
 }
 
 .K-result-list li::marker,
@@ -401,21 +410,22 @@
 }
 
 .K-info-note {
-  margin: 12px 0 0;
+  margin: 16px 0 0;
   color: #0f172a;
   font-size: .96rem;
   font-weight: 700;
-  background: rgba(255,255,255,.58);
-  border: 1px solid rgba(0,182,222,.15);
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(0,182,222,.24);
   border-radius: 10px;
-  padding: 10px 12px;
+  padding: 11px 13px;
 }
 
 .K-info-image {
   width: 100%;
   height: 100%;
-  min-height: 220px;
+  min-height: 240px;
   object-fit: cover;
+  border-left: 1px solid rgba(148, 185, 218, 0.24);
 }
 
 @keyframes k-arrow-glide {
