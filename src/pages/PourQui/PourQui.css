@@ -2068,30 +2068,52 @@
 .ER-Sv-Arrow { color:var(--k-subtle);transition:all .25s; }
 
 /* ER Timeline (on dark bg) */
-.ER-Timeline { position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:flex-start;padding:32px 0 32px; }
-.ER-TL-Rail { position:absolute;top:26px;left:6%;right:6%;height:3px;background:rgba(0,182,222,.18);border-radius:4px;overflow:hidden; }
+.ER-Timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: flex-start;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 0 20px;
+}
+.ER-TL-Rail { position:absolute;top:28px;left:8%;right:8%;height:3px;background:rgba(0,182,222,.18);border-radius:4px;overflow:hidden; }
 .ER-TL-Track { height:100%;border-radius:4px;background:linear-gradient(90deg,var(--k-cyan),var(--k-blue));box-shadow:0 0 12px rgba(0,182,222,.5);transition:width 2.2s cubic-bezier(.4,0,.2,1) .3s; }
-.ER-TStep { display:flex;flex-direction:column;align-items:center;gap:18px;position:relative;z-index:1; }
+.ER-TStep { display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;z-index:1; }
 .ER-TStep--up { flex-direction:column; }  /* keep all badges at top for clean horizontal rail */
 .ER-TStep-Badge {
-  width:52px;height:52px;border-radius:50%;
+  width:56px;height:56px;border-radius:50%;
   background:linear-gradient(135deg,var(--k-cyan),var(--k-blue));
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 22px rgba(0,182,222,.45);position:relative;flex-shrink:0;
+  box-shadow:0 8px 24px rgba(0,182,222,.35);position:relative;flex-shrink:0;
+  border: 2px solid rgba(255,255,255,.8);
 }
 .ER-TStep-Badge span { font-size:.72rem;font-weight:900;color:#fff; }
 .ER-TStep-Ring { position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(0,182,222,.35);animation:er-ring 2.4s ease-in-out infinite; }
 @keyframes er-ring { 0%,100%{transform:scale(1);opacity:.45} 50%{transform:scale(1.2);opacity:0} }
 .ER-TStep-Card {
-  background:#fff;
-  border:1.5px solid var(--card-bd);
-  border-radius:16px;padding:20px 16px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, #ffffff 100%);
+  border:1px solid rgba(67,129,193,.16);
+  border-radius:18px;
+  padding:22px 18px 16px;
   text-align:center;width:100%;
+  min-height: 126px;
   position:relative;overflow:hidden;
-  box-shadow:0 6px 24px rgba(0,0,0,.1);
+  box-shadow:0 10px 28px rgba(67,129,193,.12), 0 2px 6px rgba(0,0,0,.05);
   transition:transform .3s,box-shadow .3s;
 }
-.ER-TStep-Card:hover { transform:translateY(-4px);box-shadow:0 12px 32px rgba(67,129,193,.2); }
+.ER-TStep-Card::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 3px;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(90deg, rgba(0,182,222,.75), rgba(67,129,193,.75));
+}
+.ER-TStep-Card:hover { transform:translateY(-4px);box-shadow:0 16px 34px rgba(67,129,193,.2); }
 .ER-TStep-BgNum { position:absolute;bottom:-8px;right:4px;font-size:3.5rem;font-weight:900;color:rgba(67,129,193,.06);pointer-events:none; }
 .ER-TStep-Title { font-size:.88rem;font-weight:800;color:var(--k-dark);margin:0 0 6px;line-height:1.3; }
 .ER-TStep-Desc  { font-size:.74rem;color:var(--k-muted);line-height:1.55;margin:0; }
