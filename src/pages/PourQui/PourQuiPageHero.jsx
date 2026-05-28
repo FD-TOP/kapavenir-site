@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LogoSticker from '../../components/Common/LogoSticker';
-import KapGrad from '../../components/Common/KapGrad';
 
 export default function PourQuiPageHero({ slide, children }) {
   const [entered, setEntered] = useState(false);
@@ -36,11 +35,6 @@ export default function PourQuiPageHero({ slide, children }) {
           </svg>
           Pour qui ?
         </Link>
-
-        <span className="PQ-PageHero-Badge" style={{ borderColor: `${slide.color}55` }}>
-          <span className="PQ-PageHero-Badge-Pulse" style={{ background: slide.color }} />
-          <KapGrad as="span">{slide.label}</KapGrad>
-        </span>
 
         <h1 className="PQ-PageHero-Title">{slide.heroTitle}</h1>
         <p className="PQ-PageHero-Desc">{slide.heroDesc}</p>
