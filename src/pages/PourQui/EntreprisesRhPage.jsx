@@ -53,7 +53,11 @@ export default function EntreprisesRhPage() {
             <h2 className="ER-Title">
               <Grad className="OR-Grad">Un sujet clé</Grad> pour vos équipes
             </h2>
-            <p className="ER-Sub">La retraite impacte votre organisation à chaque étape. Voici pourquoi agir maintenant.</p>
+            <p className="ER-Sub">
+              La retraite impacte votre organisation à chaque étape.
+              <br />
+              Voici pourquoi agir maintenant.
+            </p>
           </div>
           <div className="ER-Enjeux-Grid">
             {ER_ENJEUX_ORDERED.map((e, i) => (
