@@ -9,30 +9,13 @@ import logoTag from '../../assets/logo-tag.png';
 import advisorImg from '../../assets/8450589.png';
 
 const NAV = [
-  {
-    title: 'Nos services',
-    links: [
-      { label: 'Bilan retraite', to: '/services/bilan' },
-      { label: 'Aide au départ', to: '/services/aide-depart' },
-      { label: 'Toutes nos solutions', to: '/services' },
-    ],
-  },
-  {
-    title: 'Pour qui ?',
-    links: [
-      { label: 'Particuliers', to: '/pour-qui/particuliers' },
-      { label: 'Organismes & assurances', to: '/pour-qui/organismes' },
-      { label: 'Entreprises & RH', to: '/pour-qui/entreprises-rh' },
-    ],
-  },
-  {
-    title: 'KapAvenir',
-    links: [
-      { label: 'Comment ça marche', to: '/etapes' },
-      { label: 'Kafé retraite', to: '/kafe-retraite' },
-      { label: 'Contact', to: '/contact' },
-    ],
-  },
+  { label: 'Accueil', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Pour qui', to: '/pour-qui' },
+  { label: 'Comment ça marche', to: '/etapes' },
+  { label: 'Kafé retraite', to: '/kafe-retraite' },
+  { label: 'À propos', to: '/a-propos' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 const TRUST = [
@@ -83,22 +66,18 @@ export default function Footer() {
             </Link>
           </div>
 
-          <nav className="FT-Nav" aria-label="Navigation du pied de page">
-            {NAV.map((col) => (
-              <div key={col.title} className="FT-NavCol">
-                <h3 className="FT-NavTitle">{col.title}</h3>
-                <ul className="FT-NavList">
-                  {col.links.map((link) => (
-                    <li key={link.to}>
-                      <Link to={link.to} className="FT-NavLink">
-                        <span className="FT-NavLinkText">{link.label}</span>
-                        <ArrowRight size={14} className="FT-NavLinkArrow" aria-hidden />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <nav className="FT-Nav" aria-label="Navigation principale du pied de page">
+            <h3 className="FT-NavTitle">Pages principales</h3>
+            <ul className="FT-NavList FT-NavList--main">
+              {NAV.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="FT-NavLink">
+                    <span className="FT-NavLinkText">{link.label}</span>
+                    <ArrowRight size={14} className="FT-NavLinkArrow" aria-hidden />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
 
           <div className="FT-Visual">
