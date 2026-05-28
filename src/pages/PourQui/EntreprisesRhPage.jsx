@@ -9,11 +9,9 @@ import {
   ER_ENJEUX_ORDERED,
   ER_SERVICES,
   ER_STEPS,
-  ER_OUTILS,
   ER_BENEFITS,
   ER_DIFFS,
   useReveal,
-  useCounter,
   useAutoCycle,
   useSequentialReveal,
   Grad,
@@ -27,8 +25,6 @@ export default function EntreprisesRhPage() {
   const [enjRef, enjVis] = useReveal(0.1);
   const [svRef, svVis] = useReveal(0.1);
   const [stRef, stVis] = useReveal(0.1);
-  const [ouRef, ouVis] = useReveal(0.1);
-  const erPct = useCounter(86, 1200, ouVis);
   const [bnRef, bnVis] = useReveal(0.1);
   const [dfRef, dfVis] = useReveal(0.1);
   const [ctRef, ctVis] = useReveal(0.2);
@@ -133,97 +129,6 @@ export default function EntreprisesRhPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      <div className={`ER-Block ER-Block--white ${ouVis ? 'is-vis' : ''}`} ref={ouRef}>
-        <div className="ER-Inner ER-Ou-Layout">
-          <div className="ER-Ou-Content">
-            <span className="ER-Label">Outils & dispositifs</span>
-            <h2 className="ER-Title">
-              Des outils concrets <Grad className="ER-Cyan">pour vos équipes RH</Grad>
-            </h2>
-            <ul className="ER-Ou-List">
-              {ER_OUTILS.map((o, i) => (
-                <li key={i} className="ER-Ou-Item" style={{ '--i': i }}>
-                  <div className="ER-Ou-Chk">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="12" height="12">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </div>
-                  <span>{o}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="ER-Ou-Visual">
-            <div className="ER-Ou-Card ER-Ou-Card--1">
-              <div className="ER-Ou-CardHead">
-                <div className="ER-Ou-CardDot" />
-                <div className="ER-Ou-CardDot ER-Ou-CardDot--y" />
-                <div className="ER-Ou-CardDot ER-Ou-CardDot--g" />
-                <span className="ER-Ou-CardTitle">Tableau de bord RH</span>
-              </div>
-              <div className="ER-Ou-Bars">
-                {[
-                  { label: 'Projections retraite', pct: 87, color: 'var(--k-cyan)' },
-                  { label: 'Bilans individuels', pct: 64, color: 'var(--k-green)' },
-                  { label: 'Accompagnements', pct: 92, color: 'var(--k-blue)' },
-                ].map((b, i) => (
-                  <div key={i} className="ER-Ou-BarRow">
-                    <div className="ER-Ou-BarMeta">
-                      <span className="ER-Ou-BarLbl">{b.label}</span>
-                      <span className="ER-Ou-BarPct">
-                        {ouVis ? b.pct : 0}%
-                      </span>
-                    </div>
-                    <div className="ER-Ou-BarTrack">
-                      <div
-                        className="ER-Ou-BarFill"
-                        style={{
-                          width: ouVis ? `${b.pct}%` : '0%',
-                          background: b.color,
-                          transitionDelay: `${0.3 + i * 0.18}s`,
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="ER-Ou-Card ER-Ou-Card--2">
-              <div className="ER-Ou-GaugeCont">
-                <svg viewBox="0 0 120 70" className="ER-Ou-GaugeSvg">
-                  <defs>
-                    <linearGradient id="erGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#00b6de" />
-                      <stop offset="100%" stopColor="#4381C1" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M15 62 A 45 45 0 0 1 105 62" stroke="#e8edf5" strokeWidth="8" fill="none" strokeLinecap="round" />
-                  <path
-                    d="M15 62 A 45 45 0 0 1 105 62"
-                    stroke="url(#erGrad2)"
-                    strokeWidth="8"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeDasharray="141"
-                    strokeDashoffset={ouVis ? '32' : '141'}
-                    style={{ transition: 'stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1) .5s' }}
-                  />
-                  <circle cx="60" cy="62" r="4" fill="url(#erGrad2)" opacity={ouVis ? '1' : '0'} style={{ transition: 'opacity .4s 1.8s' }} />
-                </svg>
-                <div className="ER-Ou-GaugeCenter">
-                  <span className="ER-Ou-GaugeVal">
-                    {erPct}
-                    <span className="ER-Ou-GaugePct">%</span>
-                  </span>
-                  <span className="ER-Ou-GaugeSub">satisfaction</span>
-                </div>
-              </div>
-              <div className="ER-Ou-CardTitle ER-Ou-CardTitle--center">Taux d&apos;accompagnement</div>
-            </div>
           </div>
         </div>
       </div>
