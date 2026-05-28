@@ -141,20 +141,25 @@ export default function EntreprisesRhPage() {
               Ce que vous <Grad className="ER-Cyan">y gagnez</Grad>
             </h2>
           </div>
-          <div className="ER-Bn-Grid">
+          <div className="ER-Bn-Deck">
             {ER_BENEFITS.map((b, i) => (
               <div
                 key={i}
-                className={`ER-Bn-Card ${activeErBn === i ? 'is-active' : ''}`}
+                className={`ER-Bn-Item ${activeErBn === i ? 'is-active' : ''}`}
                 style={{ '--bc': b.color, transitionDelay: bnVis ? `${i * 110}ms` : '0ms' }}
                 onMouseEnter={() => setActiveErBn(i)}
+                onClick={() => setActiveErBn(i)}
               >
-                {activeErBn === i && <div className="ER-Bn-Bar" key={`erbn-${i}`} />}
-                <span className="ER-Bn-Index">{`0${i + 1}`.slice(-2)}</span>
-                <div className="ER-Bn-IcoWrap">
-                  <span className="ER-Bn-Ico">{b.icon}</span>
+                <div className="ER-Bn-ItemTop">
+                  <span className="ER-Bn-Num">{`0${i + 1}`.slice(-2)}</span>
+                  <span className="ER-Bn-Pulse" />
                 </div>
-                <strong className="ER-Bn-Title">{b.title}</strong>
+                <div className="ER-Bn-ItemBody">
+                  <div className="ER-Bn-IconWrap">
+                    <span className="ER-Bn-Icon">{b.icon}</span>
+                  </div>
+                  <strong className="ER-Bn-Label">{b.title}</strong>
+                </div>
               </div>
             ))}
           </div>
