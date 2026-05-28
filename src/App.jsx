@@ -29,6 +29,7 @@ import grp1 from './assets/grp1.png';
 import grp2 from './assets/grp2.png';
 import grp3 from './assets/grp3.png';
 import grp4 from './assets/grp4.png';
+import couple9 from './assets/couple9.png';
 
 const IMAGE_PRELOADS = {
   '/': [women, couple7, couple3],
@@ -42,7 +43,7 @@ const IMAGE_PRELOADS = {
   '/engagements': [salut, couple5],
   '/expertise': [salut, couple5],
   '/etapes': [couple2],
-  '/kafe-retraite': [grp1, grp2, grp3, grp4, couple7],
+  '/kafe-retraite': [grp1, grp2, grp3, grp4, couple7, couple9],
 };
 
 const GLOBAL_PRELOADS = [couple1, meeting3, meeting4];

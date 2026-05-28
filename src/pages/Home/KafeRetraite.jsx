@@ -7,6 +7,7 @@ import grp1 from '../../assets/grp1.png';
 import grp2 from '../../assets/grp2.png';
 import grp3 from '../../assets/grp3.png';
 import grp4 from '../../assets/grp4.png';
+import couple9 from '../../assets/couple9.png';
 
 const pillarData = [
   { text: "D’explications claires et pédagogiques" },
@@ -202,6 +203,19 @@ export default function KafeRetraite() {
             <img src={grp2} alt="Resultats Kafe Retraite" className="K-info-image" />
             </article>
           </div>
+
+          <section className="K-final-cta K-animate" aria-label="CTA final Kafe Retraite">
+            <img src={couple9} alt="" className="K-final-cta-bg" loading="eager" decoding="async" />
+            <div className="K-final-cta-overlay" aria-hidden="true" />
+            <div className="K-final-cta-content">
+              <p className="K-final-cta-tag">CTA final</p>
+              <h3>Ne laissez pas le hasard décider de votre retraite.</h3>
+              <p>Prenez les bonnes décisions, au bon moment.</p>
+              <button className="K-final-cta-btn" onClick={() => navigate('/contact')}>
+                Participer au prochain Kafé Retraite
+              </button>
+            </div>
+          </section>
         </div>
       </div>
     </section>
