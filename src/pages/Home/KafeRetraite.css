@@ -184,7 +184,7 @@
   padding-top: 14px;
 }
 
-.K-audience {
+.K-flip-section {
   border-radius: 24px;
   border: 1px solid #d8e8fa;
   background: linear-gradient(148deg, rgba(255,255,255,.96), rgba(241,250,246,.88));
@@ -200,53 +200,122 @@
   letter-spacing: -.01em;
 }
 
-.K-audience-grid {
+.K-flip-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-.K-audience-card {
+.K-flip-card {
+  min-height: 304px;
+  perspective: 1450px;
+  cursor: pointer;
+}
+
+.K-flip-inner {
+  position: relative;
+  min-height: 304px;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .74s cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
+}
+
+.K-flip-card.is-flipped .K-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.K-flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid #d8e8fa;
-  background: #fff;
-  box-shadow: 0 16px 34px rgba(15,23,42,.11);
-  transition: transform .26s ease, box-shadow .26s ease;
+  box-shadow: 0 16px 34px rgba(15,23,42,.16);
 }
 
-.K-audience-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(15,23,42,.16);
+.K-flip-front {
+  background: #0f172a;
 }
 
-.K-audience-image {
+.K-flip-image {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-.K-audience-content {
+.K-flip-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,23,42,.1), rgba(15,23,42,.7));
+}
+
+.K-flip-front-title {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 15px;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  padding: 9px 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(15,23,42,.46);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: .98rem;
+  text-align: center;
+}
+
+.K-flip-back {
+  transform: rotateY(180deg);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255,255,255,.2), transparent 35%),
+    linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
   padding: 16px;
+  display: flex;
+  align-items: center;
 }
 
-.K-audience-content h4 {
-  margin: 0 0 8px;
-  color: #0f172a;
-  font-size: 1.02rem;
-}
-
-.K-audience-content ul {
+.K-flip-back ul {
   margin: 0;
-  padding-left: 18px;
+  width: 100%;
+  list-style: none;
+  padding: 12px 13px;
+  border-radius: 13px;
+  border: 1px solid rgba(255,255,255,.24);
+  background: rgba(255,255,255,.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.22);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.K-audience-content li {
-  margin-bottom: 6px;
-  color: #334155;
-  font-size: .92rem;
-  line-height: 1.35;
+.K-flip-back li {
+  position: relative;
+  padding: 2px 0 2px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.13);
+  color: #ffffff;
+  font-size: .91rem;
+  line-height: 1.34;
+  font-weight: 600;
+}
+
+.K-flip-back li:last-child { border-bottom: none; }
+
+.K-flip-back li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .52em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.9);
 }
 
 .K-info-section {
@@ -368,13 +437,13 @@
 @media (max-width: 1080px) {
   #KafeRetraiteSection.K-corporate { padding: 90px 5% 90px; }
   .K-promises-top { flex-direction: column; align-items: flex-start; }
-  .K-audience-grid { grid-template-columns: 1fr; }
+  .K-flip-grid { grid-template-columns: 1fr; }
   .K-info-card { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
   #KafeRetraiteSection.K-corporate { padding: 84px 5% 70px; }
-  .K-promises, .K-audience { padding: 18px; border-radius: 20px; }
+  .K-promises, .K-flip-section { padding: 18px; border-radius: 20px; }
   .K-editorial-title { font-size: 2.05rem; }
   .K-editorial-lead { font-size: .97rem; }
   .K-btn-premium { width: 100%; justify-content: center; }
@@ -393,8 +462,10 @@
     gap: 8px;
   }
   .K-promise-text { font-size: .92rem; }
-  .K-audience-image { height: 170px; }
-  .K-audience-content li,
+  .K-flip-card,
+  .K-flip-inner { min-height: 236px; }
+  .K-flip-front-title { font-size: .9rem; padding: 8px 12px; }
+  .K-flip-back li,
   .K-info-columns li,
   .K-outcome-list li { font-size: .9rem; }
   .K-info-image { min-height: 180px; }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Coffee, ArrowRight, CheckCircle2 } from 'lucide-react';
 import './KafeRetraite.css';
@@ -59,6 +59,7 @@ const outcomes = [
 export default function KafeRetraite() {
   const navigate = useNavigate();
   const sectionRef = useRef(null);
+  const [flippedCards, setFlippedCards] = useState({});
 
   useEffect(() => {
     const root = sectionRef.current;
@@ -80,6 +81,10 @@ export default function KafeRetraite() {
     items.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
   }, []);
+
+  const toggleFlip = (key) => {
+    setFlippedCards((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
   return (
     <section id="KafeRetraiteSection" className="K-corporate" ref={sectionRef}>
@@ -125,19 +130,36 @@ export default function KafeRetraite() {
         </section>
 
         <div className="K-post-hero">
-          <section className="K-audience K-animate">
+          <section className="K-flip-section K-animate">
             <h3 className="K-flip-title">A qui s’adresse le Kafe Retraite ?</h3>
-            <div className="K-audience-grid">
+            <div className="K-flip-grid">
               {flipCards.map((card) => (
-                <article key={card.frontTitle} className="K-audience-card">
-                  <img src={card.frontImage} alt={card.frontTitle} className="K-audience-image" />
-                  <div className="K-audience-content">
-                    <h4>{card.frontTitle}</h4>
-                    <ul>
-                      {card.backPoints.map((point) => (
-                        <li key={point}>{point}</li>
-                      ))}
-                    </ul>
+                <article
+                  key={card.frontTitle}
+                  className={`K-flip-card ${flippedCards[card.frontTitle] ? 'is-flipped' : ''}`}
+                  onClick={() => toggleFlip(card.frontTitle)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      toggleFlip(card.frontTitle);
+                    }
+                  }}
+                >
+                  <div className="K-flip-inner">
+                    <div className="K-flip-face K-flip-front">
+                      <img src={card.frontImage} alt={card.frontTitle} className="K-flip-image" />
+                      <div className="K-flip-overlay" />
+                      <p className="K-flip-front-title">{card.frontTitle}</p>
+                    </div>
+                    <div className="K-flip-face K-flip-back">
+                      <ul>
+                        {card.backPoints.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </article>
               ))}
