@@ -5,6 +5,8 @@ import './KafeRetraite.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 import meeting1 from '../../assets/meeting1.jpg';
 import meeting4 from '../../assets/meeting4.jpg';
+import grp3 from '../../assets/grp3.png';
+import grp4 from '../../assets/grp4.png';
 
 const pillarData = [
   { text: "D’explications claires et pédagogiques" },
@@ -16,7 +18,7 @@ const pillarData = [
 const flipCards = [
   {
     frontTitle: 'Pour les particuliers',
-    frontImage: meeting1,
+    frontImage: grp3,
     backPoints: [
       'Vous avez entre 45 et 60 ans',
       'Vous commencez a penser a votre retraite',
@@ -26,7 +28,7 @@ const flipCards = [
   },
   {
     frontTitle: 'Pour les entreprises',
-    frontImage: meeting4,
+    frontImage: grp4,
     backPoints: [
       'Vous souhaitez accompagner vos collaborateurs',
       'Vous cherchez une action concrete en qualite de vie au travail (QVT)',
