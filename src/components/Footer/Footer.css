@@ -21,7 +21,7 @@
   --ft-green: #b8f5d4;
   --ft-pad: clamp(20px, 4vw, 56px);
   --ft-max: 1280px;
-  --ft-advisor-w: clamp(230px, 20vw, 290px);
+  --ft-advisor-w: clamp(250px, 22vw, 330px);
 
   position: relative;
   z-index: 30;
@@ -270,7 +270,7 @@
 .FT-VisualBody {
   position: relative;
   width: 100%;
-  height: clamp(330px, 33vw, 420px);
+  height: clamp(360px, 35vw, 460px);
   overflow: visible;
 }
 
@@ -278,11 +278,11 @@
   position: absolute;
   z-index: 1;
   left: 50%;
-  bottom: -18px;
-  transform: translateX(-50%) scale(1.08);
+  bottom: -35px;
+  transform: translateX(-50%) scale(1.22);
   transform-origin: bottom center;
   width: auto;
-  height: 104%;
+  height: 114%;
   max-width: none;
   object-fit: contain;
   object-position: bottom center;
@@ -439,17 +439,18 @@ a.FT-ContactItem:hover {
 
   .FT-Visual {
     grid-column: 1 / -1;
-    width: min(100%, 280px);
+    width: min(100%, 300px);
     margin: 0 auto;
   }
 
   .FT-VisualBody {
-    height: clamp(320px, 54vw, 380px);
+    height: clamp(350px, 58vw, 430px);
   }
 
   .FT-Advisor {
-    height: 102%;
-    transform: translateX(-50%) scale(1.04);
+    bottom: -34px;
+    height: 112%;
+    transform: translateX(-50%) scale(1.16);
   }
 
   .FT-Nav {
@@ -471,12 +472,18 @@ a.FT-ContactItem:hover {
   }
 
   .FT-Visual {
-    width: min(100%, 250px);
+    width: min(100%, 280px);
     margin: 0 auto;
   }
 
   .FT-VisualBody {
-    height: clamp(280px, 70vw, 340px);
+    height: clamp(320px, 78vw, 390px);
+  }
+
+  .FT-Advisor {
+    bottom: -34px;
+    height: 112%;
+    transform: translateX(-50%) scale(1.14);
   }
 
   .FT-AdvisorCard {
