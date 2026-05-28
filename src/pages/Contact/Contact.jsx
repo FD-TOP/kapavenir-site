@@ -33,9 +33,18 @@ export default function Contact() {
       <LogoSticker size={72} bottom="9%" left="2%" rotation={-18} opacity={0.1} animation="float" hideMobile />
 
       <section className="ct-hero">
-        <p className="ct-kicker">Contact KapAvenir</p>
-        <h1>Choisissez votre mode de contact</h1>
-        <p>Retrouvez les 3 possibilites de contact dans un parcours simple, clair et rapide.</p>
+        <div className="ct-hero-card">
+          <p className="ct-kicker">Contact KapAvenir</p>
+          <h1>
+            Choisissez votre <span className="ct-grad">mode de contact</span>
+          </h1>
+          <p>Retrouvez les 3 possibilites de contact dans un parcours simple, clair et rapide.</p>
+          <div className="ct-hero-badges">
+            <span>Reponse rapide</span>
+            <span>Accompagnement humain</span>
+            <span>Parcours simplifie</span>
+          </div>
+        </div>
       </section>
 
       <section className="ct-options">
@@ -52,6 +61,7 @@ export default function Contact() {
               <div className="ct-option-icon">
                 <Icon size={20} />
               </div>
+              <span className="ct-option-number">{option.id === 'rdv' ? '01' : option.id === 'form' ? '02' : '03'}</span>
               <p className="ct-option-step">Option</p>
               <h2>{option.title}</h2>
               <p>{option.text}</p>
@@ -61,6 +71,7 @@ export default function Contact() {
       </section>
 
       <section className="ct-panel">
+        <div className="ct-panel-topline" />
         {activeMode === 'rdv' && (
           <div className="ct-rdv">
             <div className="ct-rdv-left">
