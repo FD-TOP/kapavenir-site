@@ -9,7 +9,7 @@ const contactModes = [
     id: 'rdv',
     icon: CalendarCheck2,
     title: 'Prendre un rendez-vous',
-    text: 'Réservez en ligne votre entretien diagnostic (15 min) via notre agenda Calendly.',
+    text: 'Sélectionnez une date et un créneau pour un entretien diagnostic personnalisé.',
   },
   {
     id: 'form',
