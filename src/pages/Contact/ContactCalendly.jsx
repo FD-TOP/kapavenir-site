@@ -1,46 +1,38 @@
-import { useEffect } from 'react';
+import { InlineWidget } from 'react-calendly';
+import {
+  CALENDLY_EVENT_URL,
+  CALENDLY_PAGE_SETTINGS,
+  CALENDLY_UTM,
+} from '../../config/calendly';
 
-/** URL de la page Calendly (ex. https://calendly.com/kapavenir/entretien-diagnostic) */
-const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL || '';
-
-const CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js';
-
-export default function ContactCalendly() {
-  useEffect(() => {
-    if (!CALENDLY_URL) return undefined;
-
-    const existing = document.querySelector(`script[src="${CALENDLY_SCRIPT}"]`);
-    if (existing) return undefined;
-
-    const script = document.createElement('script');
-    script.src = CALENDLY_SCRIPT;
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      script.remove();
-    };
-  }, []);
-
-  if (!CALENDLY_URL) {
+export default function ContactCalendly({ active = true }) {
+  if (!CALENDLY_EVENT_URL) {
     return (
-      <div className="ct-calendly-placeholder">
-        <p className="ct-calendly-placeholder-title">Agenda en ligne (Calendly)</p>
+      <div className="ct-calendly-missing" role="status">
+        <p className="ct-calendly-missing-title">Choisissez votre créneau</p>
         <p>
-          Réservez votre entretien diagnostic de 15 minutes (appel ou visio) via notre agenda Calendly. Ajoutez
-          l’URL dans le fichier <strong>.env</strong> :
+          La prise de rendez-vous en ligne sera disponible très prochainement. Sélectionnez une date
+          et un créneau pour votre entretien diagnostic personnalisé (15 minutes).
         </p>
-        <code className="ct-calendly-code">VITE_CALENDLY_URL=https://calendly.com/votre-compte/entretien</code>
+        <p className="ct-calendly-missing-hint">
+          En attendant, utilisez le formulaire de contact ou appelez nos conseillers.
+        </p>
       </div>
     );
   }
 
+  if (!active) {
+    return <div className="ct-calendly-embed ct-calendly-embed--idle" aria-hidden />;
+  }
+
   return (
-    <div
-      className="calendly-inline-widget ct-calendly-embed"
-      data-url={CALENDLY_URL}
-      style={{ minWidth: '100%', height: '680px' }}
-      title="Réserver un entretien diagnostic via Calendly"
-    />
+    <div className="ct-calendly-embed">
+      <InlineWidget
+        url={CALENDLY_EVENT_URL}
+        styles={{ height: '680px', minWidth: '100%', width: '100%' }}
+        pageSettings={CALENDLY_PAGE_SETTINGS}
+        utm={CALENDLY_UTM}
+      />
+    </div>
   );
 }

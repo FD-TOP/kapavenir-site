@@ -1,3 +1,16 @@
+# KapAvenir — site vitrine
+
+## Prise de rendez-vous (Calendly)
+
+Sur la page **Contact**, l’option « Prendre un rendez-vous » affiche l’agenda Calendly intégré.
+
+1. Créez un événement Calendly (15 min, entretien diagnostic).
+2. Copiez l’URL de l’événement (ex. `https://calendly.com/kapavenir/entretien-diagnostic`).
+3. En local : copiez `.env.example` vers `.env` et renseignez `VITE_CALENDLY_URL`.
+4. Sur **Vercel** : *Settings → Environment Variables* → `VITE_CALENDLY_URL` → redéployer.
+
+---
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

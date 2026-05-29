@@ -91,7 +91,7 @@ export default function Contact() {
             </div>
             <div className="ct-rdv-calendly">
               <h3 className="ct-calendly-heading">Choisissez votre créneau</h3>
-              <ContactCalendly />
+              <ContactCalendly active={activeMode === 'rdv'} />
             </div>
           </div>
         )}
