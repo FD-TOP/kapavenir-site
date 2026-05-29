@@ -8,6 +8,7 @@ import KafeRetraiteHome from './KafeRetraiteHome';
 import AnimatedBG from "../../components/Common/AnimatedBG";
 import './Home.css';
 import Testimonials from './Testimonials';
+import PreFooter from './PreFooter';
 
 const Home = () => {
   return (
@@ -25,6 +26,8 @@ const Home = () => {
         <Process />
         <Testimonials />
         <KafeRetraiteHome />
+        <PreFooter/>
+        {/* Tu peux ajouter les autres ici */}
       </div>
     </div>
   );

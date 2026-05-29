@@ -15,7 +15,6 @@ import KafeRetraitePage from './pages/KafeRetraite/KafeRetraitePage';
 import Ressources   from './pages/Ressources/Ressources';
 import APropos      from './pages/APropos/APropos';
 import Contact      from './pages/Contact/Contact';
-import PreFooter    from './pages/Home/PreFooter';
 import couple1 from './assets/couple1.jpeg';
 import couple2 from './assets/couple2.jpg';
 import couple3 from './assets/couple3.jpg';
@@ -49,7 +48,7 @@ const IMAGE_PRELOADS = {
   '/kafe-retraite': [grp1, grp2, grp3, grp4, couple7, couple9],
 };
 
-const GLOBAL_PRELOADS = [couple1, meeting3, meeting4, couple3];
+const GLOBAL_PRELOADS = [couple1, meeting3, meeting4];
 
 function App() {
   const { pathname } = useLocation();
@@ -120,7 +119,6 @@ function App() {
         <Route path="/cgv"                     element={<Ressources />} />
       </Routes>
 
-      <PreFooter />
       <Footer />
       <ScrollToTop />
     </div>

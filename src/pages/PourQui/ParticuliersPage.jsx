@@ -35,6 +35,7 @@ export default function ParticuliersPage() {
   const [stRef, stVis] = useReveal();
   const [bnRef, bnVis] = useReveal();
   const [dfRef, dfVis] = useReveal();
+  const [ctRef, ctVis] = useReveal(0.3);
 
   const [activeStep, setActiveStep] = useAutoCycle(stVis, PT_STEPS.length, 2400);
   const [activeBn, setActiveBn] = useAutoCycle(bnVis, PT_BENEFITS.length, 2000);
@@ -256,6 +257,21 @@ export default function ParticuliersPage() {
         </div>
       </div>
 
+      <div className={`PQ-CTA-Section ${ctVis ? 'is-vis' : ''}`} ref={ctRef}>
+        <div className="PQ-CTA-Inner">
+          <p className="PQ-CTA-Pill">Passez à l’action</p>
+          <h2 className="PQ-CTA-Title">
+            Prenez quelques minutes aujourd’hui pour <span className="PQ-CTA-Title--grad">sécuriser</span> des{' '}
+            <span className="PQ-CTA-Title--grad">années de retraite</span>
+          </h2>
+          <button type="button" className="PQ-Btn PQ-Btn--solid" onClick={() => navigate('/services/bilan')}>
+            Faire mon bilan retraite
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
