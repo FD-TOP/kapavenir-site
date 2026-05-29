@@ -217,12 +217,14 @@
   background: var(--kap-premium-gradient);
 }
 
-/* ── GRILLE ──────────────────────────────────────────────── */
+/* ── GRILLE (2×2 comme maquette) ─────────────────────────── */
 .BR-Grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
   align-items: stretch;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 /* ── CARTE — base blanche ────────────────────────────────── */
@@ -241,7 +243,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   text-align: center;
   transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease, border-color 0.3s;
   animation: BR-cardIn 0.55s both;
@@ -262,8 +264,36 @@
   opacity: 1;
 }
 .BR-Card:nth-child(1) { animation-delay: 0.0s; }
-.BR-Card:nth-child(2) { animation-delay: 0.12s; }
-.BR-Card:nth-child(3) { animation-delay: 0.24s; }
+.BR-Card:nth-child(2) { animation-delay: 0.1s; }
+.BR-Card:nth-child(3) { animation-delay: 0.2s; }
+.BR-Card:nth-child(4) { animation-delay: 0.3s; }
+
+/* Ruban badge (maquette) */
+.BR-Card-Badge {
+  position: absolute;
+  top: 18px;
+  right: -34px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 38px;
+  background: linear-gradient(135deg, #00b6de 0%, #00a8d4 100%);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transform: rotate(32deg);
+  box-shadow: 0 4px 14px rgba(0, 182, 222, 0.35);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.BR-Card-Badge-Icon {
+  font-size: 0.7rem;
+  line-height: 1;
+}
 
 .BR-Card:hover {
   transform: translateY(-10px);
@@ -325,6 +355,7 @@
   font-weight: 900;
   color: #0f172a;
   margin-bottom: 8px;
+  margin-top: 4px;
   letter-spacing: 0.02em;
   text-transform: none;
   position: relative;
@@ -891,6 +922,12 @@
   }
   .BR-Card {
     padding: 24px 18px 20px;
+  }
+  .BR-Card-Badge {
+    top: 14px;
+    right: -38px;
+    font-size: 0.58rem;
+    padding: 6px 34px;
   }
 }
 

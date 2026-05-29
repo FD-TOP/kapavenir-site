@@ -45,8 +45,7 @@ const Navbar = () => {
       title: "Nos services",
       titlePath: "/services",
       links: [
-        { label: "Bilan retraite", path: "/services#bilan-retraite" },
-        { label: "Aide au départ en retraite", path: "/services#aide-depart-retraite" }
+        { label: "Bilan retraite", path: "/services#bilan-retraite" }
       ]
     },
     {

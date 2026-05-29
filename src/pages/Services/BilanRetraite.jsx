@@ -8,11 +8,13 @@ import LogoSticker from '../../components/Common/LogoSticker';
 const packs = [
   {
     id: 'clarte',
-    title: 'Kap Clarté',
-    tagline: 'Comprendre aujourd’hui pour mieux préparer demain',
+    title: 'Kap clarté',
+    badge: 'Le bon départ',
+    badgeIcon: 'star',
+    tagline: 'Faites le point sur votre retraite et identifiez les erreurs avant qu’il ne soit trop tard.',
     pricePill: '300 € TTC',
     intro:
-      'Un diagnostic clair et fiable de vos droits à la retraite, pour prendre les bonnes décisions dès aujourd’hui',
+      'Un diagnostic retraite clair et personnalisé pour comprendre vos droits, détecter les anomalies et savoir exactement où vous en êtes.',
     modalDetail: {
       comprendTitle: 'Ce que comprend le pack :',
       comprend: [
@@ -40,30 +42,88 @@ const packs = [
       ],
     },
     features: [
-      'Entretien personnalisé (1h) : sur place ou à distance.',
-      'Analyse de votre relevé de carrière et estimation de vos droits.',
-      'Identification des anomalies et erreurs potentielles.',
-      'Conseils pour corriger les erreurs vous-même.',
+      'Entretien personnalisé (1h) en présentiel ou à distance',
+      'Analyse complète du relevé de carrière',
+      'Estimation des droits à la retraite (âge, montant, trimestres)',
+      'Détection des anomalies et incohérences',
+      'Recommandations concrètes pour correction en autonomie',
+      'Conseils stratégiques de premier niveau',
+    ],
+  },
+  {
+    id: 'mesure',
+    title: 'Kap Mesure',
+    badge: 'Le meilleur équilibre',
+    badgeIcon: 'star',
+    tagline: 'Préparez une retraite optimisée, avec méthode et sérénité.',
+    pricePill: '870 € TTC',
+    intro:
+      'Une solution intermédiaire idéale pour sécuriser et optimiser votre retraite avant les démarches complètes.',
+    modalDetail: {
+      comprendTitle: 'Ce que comprend le pack :',
+      comprend: [
+        'Entretien personnalisé approfondi (1h30) en présentiel ou à distance',
+        'Analyse complète de votre relevé de carrière',
+        'Diagnostic retraite détaillé et personnalisé',
+        'Détection des anomalies et incohérences',
+        'Estimation optimisée des droits retraite (âge, montant, trimestres)',
+        'Simulations selon plusieurs âges de départ',
+        'Recommandations stratégiques personnalisées',
+        'Aide aux démarches prioritaires auprès des caisses',
+        'Plan d’actions retraite clair et structuré',
+        'Conseils d’optimisation de premier niveau',
+      ],
+      recoitTitle: 'Ce que vous recevez',
+      recoit: [
+        {
+          text: 'Rapport retraite personnalisé premium (PDF)',
+          sub: [
+            'Synthèse complète de carrière',
+            'Estimation détaillée des droits',
+            'Analyse des anomalies détectées',
+            'Recommandations d’optimisation',
+            'Plan d’actions priorisé',
+          ],
+        },
+        { text: 'Simulations comparatives de départ' },
+        { text: 'Compte rendu détaillé de l’entretien' },
+        { text: 'Checklist des démarches à effectuer' },
+        { text: 'Tableau de suivi des actions recommandées' },
+        { text: 'Support e-mail dédié pendant l’étude du dossier' },
+      ],
+    },
+    features: [
+      'Entretien personnalisé approfondi (1h30) en présentiel ou à distance',
+      'Analyse complète de votre relevé de carrière',
+      'Diagnostic retraite détaillé et personnalisé',
+      'Détection des anomalies et incohérences',
+      'Estimation optimisée des droits retraite (âge, montant, trimestres)',
+      'Simulations selon plusieurs âges de départ',
+      'Recommandations stratégiques personnalisées',
+      'Aide aux démarches prioritaires auprès des caisses',
+      'Plan d’actions retraite clair et structuré',
+      'Conseils d’optimisation de premier niveau',
     ],
   },
   {
     id: 'maitrise',
     title: 'Kap Maîtrise',
-    tagline: 'Construisez une retraite sûre, pas à pas, en toute confiance.',
+    badge: 'Le plus choisi',
+    badgeIcon: 'star',
+    tagline: 'Sécurisez et optimisez votre départ à la retraite avec un accompagnement complet.',
     pricePill: '1500 € TTC',
     intro:
-      'Une gestion complète, pensée pour sécuriser chaque étape de votre retraite et garantir un départ maîtrisé.',
+      'Nous analysons, corrigeons et préparons votre dossier retraite afin de vous permettre de partir dans les meilleures conditions, sans stress administratif.',
     modalDetail: {
       comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Entretien personnalisé (1h) en présentiel ou à distance',
+        'Entretien personnalisé (1h30) en présentiel ou à distance',
         'Diagnostic retraite approfondi',
-        'Reconstitution complète de carrière (tous statuts confondus)',
-        'Identification et traitement des anomalies',
-        'Prise en charge des démarches auprès des caisses',
-        'Optimisation de la stratégie de départ (âge, trimestres, rachats)',
-        'Constitution complète du dossier de retraite',
-        'Suivi administratif (échanges, relances, courriers)',
+        'Reconstitution complète de carrière',
+        'Régularisation des anomalies auprès des caisses',
+        'Constitution du dossier de demande retraite',
+        'Suivi administratif personnalisé',
+        'Assistance dans les échanges avec les organismes',
       ],
       recoitTitle: 'Ce que vous recevez',
       recoit: [
@@ -79,25 +139,28 @@ const packs = [
       ],
     },
     features: [
-      'Diagnostic retraite détaillé.',
-      'Reconstitution de carrière (salarié, indépendant, chômage, maladie, etc.).',
-      'Identification et régularisation des anomalies auprès des caisses.',
-      'Optimisation de votre départ (date, rachat de trimestres).',
-      'Constitution complète du dossier de demande de retraite.',
-      'Suivi des correspondances et des démarches administratives.',
+      'Entretien personnalisé (1h30) en présentiel ou à distance',
+      'Diagnostic retraite approfondi',
+      'Reconstitution complète de carrière',
+      'Régularisation des anomalies auprès des caisses',
+      'Constitution du dossier de demande retraite',
+      'Suivi administratif personnalisé',
+      'Assistance dans les échanges avec les organismes',
     ],
   },
   {
     id: 'prestige',
     title: 'Kap Prestige',
-    tagline: 'La sérénité d’une retraite sur-mesure, sans compromis',
+    badge: 'Accompagnement premium',
+    badgeIcon: 'crown',
+    tagline: 'Une prise en charge intégrale et haut de gamme pour une retraite sans charge mentale.',
     pricePill: '3500 € TTC',
     intro:
-      'Un service personnalisé clé en main, pour ceux qui veulent une retraite préparée, optimisée et sans effort.',
+      'Une solution premium pour déléguer entièrement la préparation, l’optimisation et la gestion de votre retraite jusqu’à la liquidation de vos droits.',
     modalDetail: {
       comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Tout le contenu du forfait Maîtrise',
+        'Tout le contenu du Kap Maîtrise',
         'Simulations avancées (multi-scénarios de départ)',
         'Optimisation fine (cumul emploi-retraite, retraite progressive)',
         'Accompagnement au rachat de trimestres (analyse + gestion complète)',
@@ -115,40 +178,41 @@ const packs = [
         { text: 'Historique complet des démarches et décisions' },
         { text: 'Accès prioritaire au support (illimité)' },
         {
-          text: 'Guide post-retraite personnalisé :',
+          text: 'Guide post-retraite personnalisé',
           sub: ['Compréhension des pensions', 'Ajustements possibles'],
         },
         { text: 'Accompagnement humain dédié (interlocuteur unique)' },
       ],
     },
     features: [
-      'Tout ce qui est inclus dans le forfait Maîtrise.',
-      'Simulation détaillée des différentes options de départ.',
-      'Conseils sur le cumul emploi-retraite ou retraite progressive.',
-      'Assistance pour rachat de trimestres (analyse, simulation, et dépôt du dossier).',
-      'Support illimité jusqu’à la liquidation des droits (réponse à tous les courriers et questions).',
-      'Accompagnement sur place (déplacement dans la limite d’une zone définie).',
-      'Assistance post-retraite (questions sur les pensions, ajustements nécessaires).',
+      'Tout le contenu du Kap Maîtrise',
+      'Simulations avancées (multi-scénarios de départ)',
+      'Optimisation fine (cumul emploi-retraite, retraite progressive)',
+      'Accompagnement au rachat de trimestres (analyse + gestion complète)',
+      'Support illimité (questions, courriers, décisions)',
+      'Accompagnement physique (selon zone définie)',
+      'Gestion intégrale jusqu’à la liquidation des droits',
+      'Assistance après départ à la retraite',
     ],
   },
 ];
 
 const accompagnements = [
   {
-    title: 'Kap Clarté',
-    text: 'Idéal si vous souhaitez comprendre votre situation retraite et identifier les erreurs éventuelles.',
+    title: 'Kap clarté',
+    text: 'Idéal pour faire le point sur votre retraite et identifier les erreurs avant qu’il ne soit trop tard.',
   },
   {
     title: 'Kap Mesure',
-    text: 'Idéal si vous souhaitez optimiser votre retraite avec un accompagnement approfondi et personnalisé.',
+    text: 'Idéal pour optimiser votre retraite avec méthode et sérénité avant les démarches complètes.',
   },
   {
     title: 'Kap Maîtrise',
-    text: 'Idéal si vous voulez être accompagné dans les démarches et sécuriser votre départ.',
+    text: 'Idéal pour sécuriser votre départ avec un accompagnement complet jusqu’au dépôt du dossier.',
   },
   {
     title: 'Kap Prestige',
-    text: 'Idéal si vous souhaitez déléguer intégralement votre retraite avec un accompagnement premium.',
+    text: 'Idéal pour déléguer intégralement votre retraite avec un accompagnement premium.',
   },
 ];
 
@@ -169,6 +233,14 @@ function PackIcon({ id, color = '#0071bc', size = 24 }) {
         <circle cx="10.5" cy="10.5" r="6.5" />
         <path d="M19 19l-3.5-3.5" />
         <path d="M7.8 10.5l2 2 3-3.2" />
+      </svg>
+    );
+  }
+  if (id === 'mesure') {
+    return (
+      <svg {...props}>
+        <path d="M3 17l5-6 4 3 5-8 4 6" />
+        <path d="M3 20h18" />
       </svg>
     );
   }
@@ -273,12 +345,12 @@ export default function BilanRetraite() {
         <div className="BR-Header">
           <span className="BR-Tag">Bilan retraite</span>
           <h2 className="BR-Title">
-            Trois niveaux d’accompagnement pour votre{' '}
+            Quatre niveaux d’accompagnement pour votre{' '}
             <span className="BR-Accent">bilan retraite</span>
           </h2>
           <p className="BR-Intro">
-            Du diagnostic à la clé en main, choisissez la formule qui correspond à votre besoin et avancez avec
-            clarté.
+            Du diagnostic à l’accompagnement premium, choisissez la formule qui correspond à votre besoin et
+            avancez avec clarté.
           </p>
         </div>
 
@@ -309,6 +381,14 @@ export default function BilanRetraite() {
           {packs.map((pack) => (
             <div key={pack.id} className="BR-Card">
               <div className="BR-Card-Accent" aria-hidden />
+              {pack.badge && (
+                <span className="BR-Card-Badge">
+                  <span className="BR-Card-Badge-Icon" aria-hidden>
+                    {pack.badgeIcon === 'crown' ? '👑' : '⭐'}
+                  </span>
+                  {pack.badge}
+                </span>
+              )}
 
               <div className="BR-Card-Meta">
                 <span className="BR-Card-Icon">
