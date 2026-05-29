@@ -128,26 +128,10 @@
 
 .ap-hero-text {
   position: relative;
-  padding: 36px 34px 32px;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 252, 255, 0.88) 100%);
-  box-shadow:
-    0 24px 56px rgba(15, 23, 42, 0.1),
-    0 1px 0 rgba(255, 255, 255, 0.95) inset;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.ap-hero-text::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 28px;
-  right: 28px;
-  height: 4px;
-  border-radius: 0 0 6px 6px;
-  background: var(--kap-premium-gradient, linear-gradient(90deg, #0071bc, #00b6de, #00bf63));
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .ap-hero h1 {
@@ -197,8 +181,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  padding-top: 4px;
-  border-top: 1px solid rgba(226, 232, 240, 0.95);
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 182, 222, 0.2);
 }
 
 .ap-hero-nav a {
@@ -789,9 +773,6 @@
     border-radius: 20px;
   }
 
-  .ap-hero-text {
-    padding: 20px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
