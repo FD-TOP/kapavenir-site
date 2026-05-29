@@ -9,6 +9,7 @@ import couple5 from '../../assets/couple5.jpg';
 import couple10 from '../../assets/couple10.jpg';
 import couple9 from '../../assets/couple9.png';
 import couple11 from '../../assets/couple11.jpg';
+import '../Home/PreFooter.css';
 import './APropos.css';
 
 const sectionByPath = {
@@ -59,9 +60,7 @@ const expertisePoints = [
 export default function APropos() {
   const { pathname } = useLocation();
   const engRef = useRef(null);
-  const expRef = useRef(null);
   const [engRevealed, setEngRevealed] = useState(false);
-  const [expRevealed, setExpRevealed] = useState(false);
 
   useEffect(() => {
     const node = engRef.current;
@@ -75,24 +74,6 @@ export default function APropos() {
         }
       },
       { threshold: 0.22, rootMargin: '0px 0px -8% 0px' }
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const node = expRef.current;
-    if (!node) return undefined;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setExpRevealed(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.18, rootMargin: '0px 0px -6% 0px' }
     );
 
     observer.observe(node);
@@ -259,45 +240,46 @@ export default function APropos() {
         </section>
       </div>
 
-      <section
-        id="expertise"
-        ref={expRef}
-        className={`ap-exp-section ${expRevealed ? 'is-revealed' : ''}`}
-        aria-labelledby="ap-exp-title"
-      >
-        <div className="ap-exp-bg" aria-hidden>
-          <img src={couple11} alt="" className="ap-exp-bg-img" />
-          <div className="ap-exp-bg-shade" />
+      <section id="expertise" className="ap-exp-cta F-ethereal-layout" aria-labelledby="ap-exp-title">
+        <LogoSticker size={92} top="8%" left="2%" rotation={-14} opacity={0.18} animation="wobble" hideMobile />
+        <LogoSticker size={78} bottom="10%" right="2%" rotation={12} opacity={0.14} animation="float" hideMobile />
+
+        <div className="F-bg-image-container">
+          <img src={couple11} alt="" className="F-bg-parallax" />
+          <div className="F-bg-overlay" />
         </div>
 
-        <LogoSticker size={88} top="12%" right="4%" rotation={12} opacity={0.14} animation="float" hideMobile />
+        <div className="F-container ap-exp-container">
+          <div className="F-glass-card ap-exp-glass-card">
+            <div className="F-card-content">
+              <header className="F-header">
+                <span className="F-pre-title">Notre savoir-faire</span>
+                <h2 id="ap-exp-title" className="F-main-title">
+                  Une expertise <span className="F-gradient-text">solide</span>
+                </h2>
+                <div className="F-separator" />
+              </header>
 
-        <div className="ap-exp-panel">
-          <div className="ap-exp-panel-inner">
-            <span className="ap-exp-kicker">Notre savoir-faire</span>
-            <h2 id="ap-exp-title" className="ap-exp-title">
-              Une expertise <span className="ap-exp-title-grad">solide</span>
-            </h2>
-            <div className="ap-exp-separator" aria-hidden />
+              <p className="F-description ap-exp-description">
+                Une équipe spécialisée pour décrypter votre situation, sécuriser vos droits et optimiser chaque étape de
+                votre parcours retraite.
+              </p>
 
-            <p className="ap-exp-lead">
-              Une équipe spécialisée pour décrypter votre situation, sécuriser vos droits et optimiser chaque étape de
-              votre parcours retraite.
-            </p>
-
-            <ul className="ap-exp-grid">
-              {expertisePoints.map((point, index) => {
-                const Icon = point.icon;
-                return (
-                  <li key={point.text} className="ap-exp-card" style={{ '--i': index }}>
-                    <span className="ap-exp-icon" aria-hidden>
-                      <Icon size={20} strokeWidth={2.2} />
-                    </span>
-                    <span className="ap-exp-card-text">{point.text}</span>
-                  </li>
-                );
-              })}
-            </ul>
+              <ul className="ap-exp-premium-list">
+                {expertisePoints.map((point) => {
+                  const Icon = point.icon;
+                  return (
+                    <li key={point.text} className="ap-exp-premium-item">
+                      <span className="ap-exp-premium-icon" aria-hidden>
+                        <Icon size={18} strokeWidth={2.2} />
+                      </span>
+                      <span>{point.text}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="F-card-border-glow" />
           </div>
         </div>
       </section>

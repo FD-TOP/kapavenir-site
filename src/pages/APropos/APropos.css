@@ -621,196 +621,71 @@
   box-shadow: 0 18px 44px rgba(15, 23, 42, 0.07);
 }
 
-/* ── EXPERTISE (panneau latéral + photo) ─────────────────── */
-.ap-exp-section {
-  position: relative;
-  min-height: min(88vh, 760px);
-  display: flex;
-  align-items: stretch;
-  overflow: hidden;
+/* ── EXPERTISE (même design que CTA finale accueil / PreFooter) ─ */
+.ap-exp-cta.F-ethereal-layout {
   margin: 0;
   z-index: 2;
-  background: #0a1628;
 }
 
-.ap-exp-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+.ap-exp-container {
+  max-width: 1020px;
 }
 
-.ap-exp-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 72% center;
-  transform: scale(1.06);
-  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+.ap-exp-glass-card {
+  padding: 64px 52px 56px;
+  text-align: center;
 }
 
-.ap-exp-section.is-revealed .ap-exp-bg-img {
-  transform: scale(1);
+.ap-exp-glass-card .F-main-title br {
+  display: none;
 }
 
-.ap-exp-bg-shade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    102deg,
-    rgba(7, 18, 36, 0.94) 0%,
-    rgba(7, 18, 36, 0.88) 38%,
-    rgba(7, 18, 36, 0.55) 52%,
-    rgba(7, 18, 36, 0.15) 68%,
-    transparent 82%
-  );
+.ap-exp-description {
+  margin-bottom: 36px !important;
 }
 
-.ap-exp-panel {
-  position: relative;
-  z-index: 2;
-  width: min(62%, 720px);
-  display: flex;
-  align-items: center;
-  padding: 64px 56px 64px clamp(24px, 5vw, 72px);
-  border-radius: 0 48px 48px 0;
-  background: linear-gradient(
-    135deg,
-    rgba(12, 28, 52, 0.72) 0%,
-    rgba(10, 24, 44, 0.58) 100%
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-left: none;
-  box-shadow: 24px 0 80px rgba(0, 0, 0, 0.35);
-  opacity: 0;
-  transform: translateX(-32px);
-  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.ap-exp-section.is-revealed .ap-exp-panel {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.ap-exp-panel::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 4px;
-  background: linear-gradient(180deg, #00b6de, #00bf63);
-  border-radius: 4px 0 0 4px;
-  opacity: 0.85;
-}
-
-.ap-exp-panel-inner {
-  max-width: 580px;
-}
-
-.ap-exp-kicker {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #5dd4f0;
-  margin-bottom: 16px;
-}
-
-.ap-exp-title {
-  margin: 0 0 0;
-  font-size: clamp(2rem, 4.2vw, 3.2rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: #ffffff;
-}
-
-.ap-exp-title-grad {
-  background: linear-gradient(90deg, #4ec8f0 0%, #00bf63 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.ap-exp-separator {
-  width: 56px;
-  height: 4px;
-  margin: 20px 0 22px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #00bf63, #00b6de);
-}
-
-.ap-exp-lead {
-  margin: 0 0 32px;
-  font-size: 1.08rem;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 52ch;
-}
-
-.ap-exp-grid {
+.ap-exp-premium-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px 18px;
+  text-align: left;
 }
 
-.ap-exp-card {
+.ap-exp-premium-item {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding: 18px 18px 18px 16px;
-  border-radius: 18px;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-  transition-delay: calc(0.25s + var(--i) * 0.09s);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
-.ap-exp-section.is-revealed .ap-exp-card {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.ap-exp-card:hover {
+.ap-exp-premium-item:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(0, 191, 99, 0.45);
-  box-shadow: 0 14px 36px rgba(0, 113, 188, 0.2);
-  transform: translateY(-3px);
+  border-color: rgba(0, 191, 99, 0.4);
+  transform: translateY(-2px);
 }
 
-.ap-exp-icon {
+.ap-exp-premium-icon {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  background: linear-gradient(145deg, rgba(0, 182, 222, 0.28), rgba(0, 191, 99, 0.22));
-  border: 1px solid rgba(0, 182, 222, 0.35);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(0, 182, 222, 0.25), rgba(0, 191, 99, 0.2));
+  border: 1px solid rgba(0, 182, 222, 0.3);
   color: #b8f0ff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-}
-
-.ap-exp-card-text {
-  font-size: 0.94rem;
-  font-weight: 600;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.95);
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
@@ -863,36 +738,11 @@
     max-height: 340px;
   }
 
-  .ap-exp-section {
-    min-height: auto;
+  .ap-exp-glass-card {
+    padding: 48px 24px 40px;
   }
 
-  .ap-exp-panel {
-    width: 100%;
-    padding: 48px 28px 52px;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-  }
-
-  .ap-exp-panel::after {
-    display: none;
-  }
-
-  .ap-exp-bg-img {
-    object-position: center 40%;
-  }
-
-  .ap-exp-bg-shade {
-    background: linear-gradient(
-      180deg,
-      rgba(7, 18, 36, 0.92) 0%,
-      rgba(7, 18, 36, 0.85) 55%,
-      rgba(7, 18, 36, 0.5) 100%
-    );
-  }
-
-  .ap-exp-grid {
+  .ap-exp-premium-list {
     grid-template-columns: 1fr;
   }
 }
@@ -925,12 +775,4 @@
     transition: none !important;
   }
 
-  .ap-exp-panel,
-  .ap-exp-card,
-  .ap-exp-bg-img {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
-  }
 }
