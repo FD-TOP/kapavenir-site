@@ -25,8 +25,6 @@ export default function OrganismesPage() {
   const [svRef, svVis] = useReveal(0.1);
   const [stRef, stVis] = useReveal(0.1);
   const [dfRef, dfVis] = useReveal(0.1);
-  const [ctRef, ctVis] = useReveal(0.2);
-
   const [activeOrPil, setActiveOrPil] = useAutoCycle(pilVis, OR_PILLARS.length, 2600);
   const revealedOR = useSequentialReveal(dfVis, OR_DIFFS.length, 450);
 
@@ -148,28 +146,6 @@ export default function OrganismesPage() {
         </div>
       </div>
 
-      <div className={`OR-CTA ${ctVis ? 'is-vis' : ''}`} ref={ctRef}>
-        <div className="OR-Orb OR-Orb--1" />
-        <div className="OR-Orb OR-Orb--2" />
-        <div className="OR-CTA-Inner">
-          <span className="OR-CTA-Eye">Passez à l&apos;étape suivante</span>
-          <h2 className="OR-CTA-Title">
-            <span className="OR-CTA-Title--grad">Construisons</span> votre offre retraite
-          </h2>
-          <p className="OR-CTA-Sub">Mutuelles, assureurs, caisses complémentaires — parlons de vos besoins.</p>
-          <div className="OR-CTA-Btns">
-            <button type="button" className="OR-Btn OR-Btn--white" onClick={() => navigate('/contact')}>
-              Demander une démo gratuite
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-            <button type="button" className="OR-Btn OR-Btn--outline" onClick={() => navigate('/contact')}>
-              Contacter un conseiller
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

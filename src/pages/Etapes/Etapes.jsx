@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Etapes.css';
 import couple2 from '../../assets/couple2.jpg';
-import videoCom from '../../assets/vidéocom.mp4';
 import LogoSticker from '../../components/Common/LogoSticker';
 
 const STEPS = [
@@ -71,7 +69,6 @@ const DIFF_CARDS = [
 ];
 
 export default function Etapes() {
-  const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [activeDiff, setActiveDiff] = useState(0);
   const current = STEPS[activeStep];
@@ -209,38 +206,6 @@ export default function Etapes() {
           </div>
         </section>
 
-        <section className="etp-panel etp-panel--cta" aria-labelledby="etp-cta-title">
-          <div className="etp-cta-layout">
-            <div className="etp-panel-copy">
-              <p className="etp-panel-eyebrow">Passez à l&apos;action</p>
-              <h3 className="etp-panel-title" id="etp-cta-title">
-                Prêt(e) à faire le point sur votre retraite ?
-              </h3>
-              <p className="etp-panel-text">
-                En quelques étapes, vous pouvez obtenir une vision claire et optimiser votre avenir.
-              </p>
-              <div className="etp-cta-buttons">
-                <button type="button" className="etp-cta-btn primary" onClick={() => navigate('/services/bilan')}>
-                  Faire mon bilan retraite
-                </button>
-                <button type="button" className="etp-cta-btn secondary" onClick={() => navigate('/contact')}>
-                  Échanger avec un expert
-                </button>
-              </div>
-            </div>
-            <div className="etp-cta-media">
-              <video
-                className="etp-cta-video"
-                src={videoCom}
-                autoPlay
-                muted
-                loop
-                playsInline
-                aria-label="Présentation KapAvenir en vidéo"
-              />
-            </div>
-          </div>
-        </section>
       </div>
     </div>
   );

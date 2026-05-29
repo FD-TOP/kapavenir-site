@@ -27,8 +27,6 @@ export default function EntreprisesRhPage() {
   const [stRef, stVis] = useReveal(0.1);
   const [bnRef, bnVis] = useReveal(0.1);
   const [dfRef, dfVis] = useReveal(0.1);
-  const [ctRef, ctVis] = useReveal(0.2);
-
   const [activeEnj, setActiveEnj] = useAutoCycle(enjVis, ER_ENJEUX_ORDERED.length, 2600);
   const [activeErBn, setActiveErBn] = useAutoCycle(bnVis, ER_BENEFITS.length, 2000);
   const revealedER = useSequentialReveal(dfVis, ER_DIFFS.length, 460);
@@ -204,22 +202,6 @@ export default function EntreprisesRhPage() {
         </div>
       </div>
 
-      <div className={`ER-CTA ${ctVis ? 'is-vis' : ''}`} ref={ctRef}>
-        <div className="ER-Orb ER-Orb--1" />
-        <div className="ER-Orb ER-Orb--2" />
-        <div className="ER-CTA-Inner">
-          <span className="ER-CTA-Eye">Passez à l&apos;action</span>
-          <h2 className="ER-CTA-Title">
-            Vous êtes intéressé(e)s par nos <Grad className="ER-Cyan">prestations</Grad> ?
-          </h2>
-          <p className="ER-CTA-Sub">Un devis personnalisé en 48h — sans engagement.</p>
-          <div className="ER-CTA-Btns">
-            <button type="button" className="ER-Btn ER-Btn--white" onClick={() => navigate('/contact')}>
-              Échanger avec un expert
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
