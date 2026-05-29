@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, CalendarCheck2, ArrowRight, CheckCircle2 } from 'lucide-react';
 import LogoSticker from '../../components/Common/LogoSticker';
+import ContactCalendly from './ContactCalendly';
 import './Contact.css';
 
 const contactModes = [
@@ -8,19 +9,19 @@ const contactModes = [
     id: 'rdv',
     icon: CalendarCheck2,
     title: 'Prendre un rendez-vous',
-    text: 'Selectionnez une date et un creneau pour un entretien diagnostic personnalise.',
+    text: 'Réservez en ligne votre entretien diagnostic (15 min) via notre agenda Calendly.',
   },
   {
     id: 'form',
     icon: Mail,
-    title: 'Etre rappele',
-    text: 'Completez le formulaire de contact et nous vous rappelons rapidement.',
+    title: 'Formulaire de contact',
+    text: 'Complétez le formulaire de contact et nous vous recontacterons rapidement.',
   },
   {
     id: 'call',
     icon: Phone,
-    title: 'Appeler un conseiller',
-    text: 'Parlez directement a notre equipe pendant les horaires d ouverture.',
+    title: 'Contactez nos conseillers directement',
+    text: 'Échangez directement avec notre équipe pendant les horaires d’ouverture.',
   },
 ];
 
@@ -38,7 +39,7 @@ export default function Contact() {
           <h1>
             Choisissez votre <span className="ct-grad">mode de contact</span>
           </h1>
-          <p>Retrouvez les 3 possibilites de contact dans un parcours simple, clair et rapide.</p>
+          <p>Retrouvez les 3 possibilités de contact dans un parcours simple, clair et rapide.</p>
           <div className="ct-hero-badges">
             <span>Reponse rapide</span>
             <span>Accompagnement humain</span>
@@ -74,40 +75,33 @@ export default function Contact() {
         {activeMode === 'rdv' && (
           <div className="ct-rdv">
             <div className="ct-rdv-left">
-              <p className="ct-mini">RDV Decouverte - Diagnostic</p>
-              <h2>Entretien diagnostic pour devis personnalise</h2>
+              <p className="ct-mini">RDV découverte — diagnostic</p>
+              <h2>Entretien diagnostic pour devis personnalisé</h2>
               <ul>
-                <li><CheckCircle2 size={16} /> Duree : 15 minutes</li>
-                <li><CheckCircle2 size={16} /> Appel telephonique ou visio</li>
-                <li><CheckCircle2 size={16} /> Conseils personnalises</li>
+                <li>
+                  <CheckCircle2 size={16} /> Durée : 15 minutes
+                </li>
+                <li>
+                  <CheckCircle2 size={16} /> Appel téléphonique ou visioconférence
+                </li>
+                <li>
+                  <CheckCircle2 size={16} /> Conseils personnalisés
+                </li>
               </ul>
             </div>
-            <form className="ct-rdv-form">
-              <h3>Selectionnez la date et l heure</h3>
-              <label>
-                Date souhaitee
-                <input type="date" />
-              </label>
-              <label>
-                Creneau
-                <select defaultValue="">
-                  <option value="" disabled>Choisir un creneau</option>
-                  <option>09:00 - 09:30</option>
-                  <option>10:30 - 11:00</option>
-                  <option>14:00 - 14:30</option>
-                  <option>16:30 - 17:00</option>
-                </select>
-              </label>
-              <button type="button" className="ct-option-btn">
-                Confirmer le rendez-vous <ArrowRight size={16} />
-              </button>
-            </form>
+            <div className="ct-rdv-calendly">
+              <h3 className="ct-calendly-heading">Choisissez votre créneau</h3>
+              <ContactCalendly />
+            </div>
           </div>
         )}
 
         {activeMode === 'form' && (
           <form className="ct-contact-form">
-            <h2>Completez ce formulaire de contact pour etre rappele</h2>
+            <h2>Formulaire de contact</h2>
+            <p className="ct-form-lead">
+              Complétez le formulaire de contact et nous vous recontacterons rapidement.
+            </p>
             <div className="ct-form-grid">
               <input type="text" placeholder="Nom*" />
               <input type="text" placeholder="Prenom*" />
@@ -131,8 +125,9 @@ export default function Contact() {
         {activeMode === 'call' && (
           <div className="ct-call-box">
             <div className="ct-call-icon"><Phone size={28} /></div>
-            <h2>Contactez nos conseillers</h2>
-            <p>Horaires : 9h - 17h30</p>
+            <h2>Contactez nos conseillers directement</h2>
+            <p>Échangez directement avec notre équipe pendant les horaires d’ouverture.</p>
+            <p className="ct-call-hours">Horaires : 9h – 17h30</p>
             <a href="tel:+33139300000" className="ct-phone-btn">
               <Phone size={16} />
               01 39 30 00 00

@@ -285,11 +285,67 @@
   font-weight: 700;
 }
 
-.ct-rdv-form {
-  border: 1px solid rgba(217, 231, 246, .9);
+.ct-rdv-calendly {
+  border: 1px solid rgba(217, 231, 246, 0.9);
   border-radius: 16px;
   padding: 18px;
-  background: rgba(255,255,255,.84);
+  background: rgba(255, 255, 255, 0.84);
+  min-width: 0;
+}
+
+.ct-calendly-heading {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.ct-calendly-embed {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ct-calendly-placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 20px;
+  border-radius: 12px;
+  border: 1px dashed rgba(0, 182, 222, 0.45);
+  background: rgba(0, 182, 222, 0.06);
+  color: #334155;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.ct-calendly-placeholder-title {
+  margin: 0;
+  font-weight: 800;
+  color: #0f4c81;
+  font-size: 1rem;
+}
+
+.ct-calendly-code {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.06);
+  font-size: 0.78rem;
+  word-break: break-all;
+}
+
+.ct-form-lead {
+  margin: 0 0 8px;
+  color: #475569;
+  line-height: 1.65;
+  font-size: 0.98rem;
+}
+
+.ct-call-hours {
+  margin: 4px 0 0;
+  font-weight: 700;
+  color: #0071bc;
 }
 
 .ct-rdv-form input,
@@ -409,6 +465,10 @@
 
   .ct-panel {
     padding: 18px;
+  }
+
+  .ct-calendly-embed {
+    height: 560px !important;
   }
 }
 
