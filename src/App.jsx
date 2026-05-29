@@ -41,7 +41,7 @@ const IMAGE_PRELOADS = {
   '/a-propos': [salut, couple5],
   '/histoire': [salut, couple10],
   '/mission': [salut, couple5],
-  '/engagements': [salut, couple5],
+  '/engagements': [salut, couple9],
   '/expertise': [salut, couple5],
   '/etapes': [couple2],
   '/kafe-retraite': [grp1, grp2, grp3, grp4, couple7, couple9],

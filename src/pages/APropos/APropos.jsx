@@ -1,18 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import LogoSticker from '../../components/Common/LogoSticker';
 import Testimonials from '../Home/Testimonials';
 import salut from '../../assets/salut.jpg';
 import couple5 from '../../assets/couple5.jpg';
 import couple10 from '../../assets/couple10.jpg';
+import couple9 from '../../assets/couple9.png';
 import './APropos.css';
 
 const sectionByPath = {
   '/histoire': 'histoire',
   '/mission': 'mission',
   '/expertise': 'expertise',
-  '/engagements': 'credibilite',
+  '/engagements': 'engagements',
 };
+
+const engagements = [
+  {
+    title: 'Pédagogie',
+    text: 'Vous comprenez réellement votre situation, sans jargon ni complexité inutile.',
+  },
+  {
+    title: 'Accompagnement humain',
+    text: 'Un interlocuteur dédié, à votre écoute.',
+  },
+  {
+    title: 'Performance',
+    text: 'Chaque recommandation vise à améliorer concrètement votre retraite.',
+  },
+  {
+    title: 'Transparence',
+    text: 'Des conseils clairs, honnêtes et sans surprise.',
+  },
+];
 
 const expertisePoints = [
   'Connaissance des régimes de retraite (base + complémentaires)',
@@ -24,6 +44,26 @@ const expertisePoints = [
 export default function APropos() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const engRef = useRef(null);
+  const [engRevealed, setEngRevealed] = useState(false);
+
+  useEffect(() => {
+    const node = engRef.current;
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setEngRevealed(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.22, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const id = sectionByPath[pathname];
@@ -97,6 +137,41 @@ export default function APropos() {
             </p>
           </div>
           <img src={couple5} alt="Mission KapAvenir" />
+        </div>
+      </section>
+
+      <section
+        id="engagements"
+        ref={engRef}
+        className={`ap-section ap-engagements ${engRevealed ? 'is-revealed' : ''}`}
+      >
+        <div className="ap-eng-layout">
+          <figure className="ap-eng-media">
+            <img src={couple9} alt="Accompagnement humain KapAvenir" />
+            <span className="ap-eng-media-label">À vos côtés</span>
+          </figure>
+
+          <div className="ap-eng-content">
+            <h2>Nos engagements</h2>
+            <p className="ap-eng-lead">
+              Quatre principes qui guident chaque accompagnement et chaque conseil que nous vous
+              apportons.
+            </p>
+
+            <ul className="ap-eng-list">
+              {engagements.map((item, index) => (
+                <li key={item.title} className="ap-eng-item" style={{ '--i': index }}>
+                  <span className="ap-eng-num" aria-hidden>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div className="ap-eng-item-text">
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
