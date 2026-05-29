@@ -20,6 +20,7 @@ import couple2 from './assets/couple2.jpg';
 import couple3 from './assets/couple3.jpg';
 import couple4 from './assets/couple4.jpeg';
 import couple5 from './assets/couple5.jpg';
+import couple10 from './assets/couple10.jpg';
 import couple7 from './assets/couple7.jpg';
 import meeting3 from './assets/meeting3.png';
 import meeting4 from './assets/meeting4.jpg';
@@ -38,7 +39,7 @@ const IMAGE_PRELOADS = {
   '/pour-qui/organismes': [meeting4, couple4],
   '/pour-qui/entreprises-rh': [meeting3, couple4],
   '/a-propos': [salut, couple5],
-  '/histoire': [salut, couple5],
+  '/histoire': [salut, couple10],
   '/mission': [salut, couple5],
   '/engagements': [salut, couple5],
   '/expertise': [salut, couple5],

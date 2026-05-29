@@ -4,6 +4,7 @@ import LogoSticker from '../../components/Common/LogoSticker';
 import Testimonials from '../Home/Testimonials';
 import salut from '../../assets/salut.jpg';
 import couple5 from '../../assets/couple5.jpg';
+import couple10 from '../../assets/couple10.jpg';
 import './APropos.css';
 
 const sectionByPath = {
@@ -58,30 +59,32 @@ export default function APropos() {
       </section>
 
       <section id="histoire" className="ap-section ap-story">
-        <h2>Notre histoire</h2>
-        <div className="ap-story-grid">
-          <article className="ap-story-card">
-            <p>
-              De nombreuses personnes abordent la retraite avec incertitude, faute d’informations claires et accessibles.
+        <div className="ap-story-layout">
+          <div className="ap-story-content">
+            <h2>Notre histoire</h2>
+            <div className="ap-story-body">
+              <p>
+                De nombreuses personnes abordent la retraite avec incertitude, faute d’informations claires et
+                accessibles.
+              </p>
+              <p>
+                Relevés difficiles à lire, erreurs non détectées, décisions prises sans visibilité… autant de facteurs
+                qui peuvent impacter les revenus futurs.
+              </p>
+              <p>
+                Avec des parcours professionnels de plus en plus variés, incluant carrières mixtes, périodes à
+                l’étranger et statuts multiples, être accompagné devient essentiel pour y voir clair.
+              </p>
+            </div>
+            <p className="ap-story-final">
+              KapAvenir est né de cette réalité pour simplifier la retraite, la rendre compréhensible et aider chacun à
+              faire les bons choix au bon moment.
             </p>
-          </article>
-          <article className="ap-story-card">
-            <p>
-              Relevés difficiles à lire, erreurs non détectées, décisions prises sans visibilité… autant de facteurs qui
-              peuvent impacter les revenus futurs.
-            </p>
-          </article>
-          <article className="ap-story-card">
-            <p>
-              Avec des parcours professionnels de plus en plus variés, incluant carrières mixtes, périodes à l’étranger et
-              statuts multiples, être accompagné devient essentiel pour y voir clair.
-            </p>
-          </article>
+          </div>
+          <figure className="ap-story-media">
+            <img src={couple10} alt="Couple préparant sereinement sa retraite avec KapAvenir" />
+          </figure>
         </div>
-        <p className="ap-story-final">
-          KapAvenir est né de cette réalité pour simplifier la retraite, la rendre compréhensible et aider chacun à
-          faire les bons choix au bon moment.
-        </p>
       </section>
 
       <section id="mission" className="ap-section ap-mission">
