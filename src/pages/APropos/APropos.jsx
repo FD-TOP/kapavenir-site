@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import LogoSticker from '../../components/Common/LogoSticker';
 import AnimatedBG from '../../components/Common/AnimatedBG';
 import Testimonials from '../Home/Testimonials';
-import PreFooter from '../Home/PreFooter';
 import salut from '../../assets/salut.jpg';
 import couple5 from '../../assets/couple5.jpg';
 import couple10 from '../../assets/couple10.jpg';
@@ -83,7 +82,15 @@ export default function APropos() {
   return (
     <main className="ap-page">
       <section className="ap-hero">
-        <LogoSticker size={98} top="18%" right="4%" rotation={14} opacity={0.14} animation="wobble" hideMobile />
+        <div className="ap-hero-bg" aria-hidden>
+          <div className="ap-hero-orb ap-hero-orb--blue" />
+          <div className="ap-hero-orb ap-hero-orb--green" />
+          <div className="ap-hero-grid" />
+        </div>
+
+        <LogoSticker size={98} top="16%" right="5%" rotation={14} opacity={0.14} animation="wobble" hideMobile />
+        <LogoSticker size={64} bottom="14%" left="4%" rotation={-20} opacity={0.1} animation="float" hideMobile />
+
         <div className="ap-hero-inner">
           <div className="ap-hero-text">
             <span className="ap-kicker">À propos de KapAvenir</span>
@@ -91,18 +98,41 @@ export default function APropos() {
               Une <span className="ap-hero-grad">expertise</span> au service de votre{' '}
               <span className="ap-hero-grad">sérénité</span>
             </h1>
-            <p>
+            <p className="ap-hero-lead">
               KapAvenir est né d’une conviction simple : chacun mérite de comprendre et d’optimiser sa retraite, sans
               complexité ni stress.
             </p>
+
+            <ul className="ap-hero-pills" aria-label="Points forts">
+              <li>Accompagnement humain</li>
+              <li>Expertise retraite</li>
+              <li>Conseils clairs</li>
+            </ul>
+
+            <nav className="ap-hero-nav" aria-label="Sections de la page">
+              <a href="#histoire">Notre histoire</a>
+              <a href="#mission">Mission</a>
+              <a href="#engagements">Engagements</a>
+              <a href="#expertise">Expertise</a>
+            </nav>
           </div>
+
           <div className="ap-hero-media">
             <div className="ap-hero-frame">
               <img src={salut} alt="Équipe KapAvenir" />
-              <div className="ap-hero-frame-deco" aria-hidden />
+              <div className="ap-hero-frame-deco ap-hero-frame-deco--cyan" aria-hidden />
+              <div className="ap-hero-frame-deco ap-hero-frame-deco--green" aria-hidden />
+              <span className="ap-hero-float-badge">
+                <strong>KapAvenir</strong>
+                <span>Votre retraite, notre priorité</span>
+              </span>
             </div>
           </div>
         </div>
+
+        <a href="#histoire" className="ap-hero-scroll" aria-label="Découvrir la suite">
+          <span className="ap-hero-scroll-dot" />
+        </a>
       </section>
 
       <div className="content-with-bg ap-content-wrap">
@@ -235,8 +265,6 @@ export default function APropos() {
           </div>
         </div>
       </section>
-
-      <PreFooter />
     </main>
   );
 }
