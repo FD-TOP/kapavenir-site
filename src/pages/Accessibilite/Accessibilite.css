@@ -1,0 +1,77 @@
+.a11y-page {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 120px 5% 100px;
+  color: #1e293b;
+  line-height: 1.7;
+}
+
+.a11y-hero {
+  margin-bottom: 40px;
+}
+
+.a11y-kicker {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0071bc;
+}
+
+.a11y-hero h1 {
+  margin: 0 0 16px;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.a11y-lead {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #334155;
+}
+
+.a11y-block {
+  margin-bottom: 32px;
+}
+
+.a11y-block h2 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f4c81;
+}
+
+.a11y-block p {
+  margin: 0 0 12px;
+}
+
+.a11y-block ul {
+  margin: 0 0 12px;
+  padding-left: 1.25rem;
+}
+
+.a11y-block li {
+  margin-bottom: 8px;
+}
+
+.a11y-block a {
+  color: #0071bc;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.a11y-block a:hover {
+  color: #00b6de;
+}
+
+.a11y-updated {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #64748b;
+}

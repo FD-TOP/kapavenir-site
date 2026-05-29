@@ -126,6 +126,7 @@ export default function Footer() {
             </a>
           </p>
           <nav className="FT-Legal" aria-label="Informations légales">
+            <Link to="/accessibilite">Accessibilité</Link>
             <Link to="/mentions">Mentions légales</Link>
             <Link to="/rgpd">RGPD</Link>
             <Link to="/cgv">CGV / CGU</Link>

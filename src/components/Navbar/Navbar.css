@@ -223,6 +223,11 @@
 
 .nav-mobile-overlay.is-open { transform: translateY(0); }
 
+.nav-mobile-overlay:not(.is-open) {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .mobile-header {
   padding: 25px 30px;
   display: flex;

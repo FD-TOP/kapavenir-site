@@ -167,7 +167,7 @@ export default function Ressources() {
   }, [query]);
 
   return (
-    <main className="res-page">
+    <div className="res-page">
       <LogoSticker size={94} top="124px" right="2%" rotation={12} opacity={0.14} animation="wobble" hideMobile />
       <LogoSticker size={70} bottom="8%" left="2%" rotation={-18} opacity={0.1} animation="float" hideMobile />
 
@@ -176,17 +176,33 @@ export default function Ressources() {
         <p>Retrouvez des réponses claires et des définitions utiles pour mieux comprendre votre retraite.</p>
       </section>
 
-      <section className="res-tabs">
-        <button className={tab === 'faq' ? 'is-active' : ''} onClick={() => setTab('faq')}>
+      <section className="res-tabs" role="tablist" aria-label="FAQ ou glossaire">
+        <button
+          type="button"
+          role="tab"
+          id="res-tab-faq"
+          aria-selected={tab === 'faq'}
+          aria-controls="res-panel-faq"
+          className={tab === 'faq' ? 'is-active' : ''}
+          onClick={() => setTab('faq')}
+        >
           FAQ
         </button>
-        <button className={tab === 'glossaire' ? 'is-active' : ''} onClick={() => setTab('glossaire')}>
+        <button
+          type="button"
+          role="tab"
+          id="res-tab-glossaire"
+          aria-selected={tab === 'glossaire'}
+          aria-controls="res-panel-glossaire"
+          className={tab === 'glossaire' ? 'is-active' : ''}
+          onClick={() => setTab('glossaire')}
+        >
           Glossaire
         </button>
       </section>
 
       {tab === 'faq' ? (
-        <section className="res-faq">
+        <section className="res-faq" id="res-panel-faq" role="tabpanel" aria-labelledby="res-tab-faq">
           {FAQ_SECTIONS.map((group, gi) => (
             <article key={group.title} className="res-faq-group">
               <h2>{group.title}</h2>
@@ -194,14 +210,33 @@ export default function Ressources() {
                 {group.items.map((item, ii) => {
                   const id = `${gi}-${ii}`;
                   const isOpen = openId === id;
+                  const panelId = `res-faq-panel-${id}`;
+                  const headerId = `res-faq-header-${id}`;
                   return (
-                    <button key={item.q} className={`res-faq-item ${isOpen ? 'is-open' : ''}`} onClick={() => setOpenId(isOpen ? '' : id)}>
-                      <div className="res-faq-q">
-                        <span>{item.q}</span>
-                        <ChevronDown size={18} />
+                    <div key={item.q} className={`res-faq-item ${isOpen ? 'is-open' : ''}`}>
+                      <button
+                        type="button"
+                        id={headerId}
+                        className="res-faq-trigger"
+                        aria-expanded={isOpen}
+                        aria-controls={panelId}
+                        onClick={() => setOpenId(isOpen ? '' : id)}
+                      >
+                        <span className="res-faq-q">
+                          <span>{item.q}</span>
+                          <ChevronDown size={18} aria-hidden />
+                        </span>
+                      </button>
+                      <div
+                        id={panelId}
+                        role="region"
+                        aria-labelledby={headerId}
+                        className="res-faq-panel"
+                        hidden={!isOpen}
+                      >
+                        <p className="res-faq-a">{item.a}</p>
                       </div>
-                      {isOpen && <p className="res-faq-a">{item.a}</p>}
-                    </button>
+                    </div>
                   );
                 })}
               </div>
@@ -209,13 +244,23 @@ export default function Ressources() {
           ))}
         </section>
       ) : (
-        <section className="res-glossary">
+        <section
+          className="res-glossary"
+          id="res-panel-glossaire"
+          role="tabpanel"
+          aria-labelledby="res-tab-glossaire"
+        >
           <div className="res-search">
-            <Search size={16} />
+            <label htmlFor="res-glossary-search" className="sr-only">
+              Rechercher un terme dans le glossaire
+            </label>
+            <Search size={16} aria-hidden />
             <input
+              id="res-glossary-search"
+              type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Rechercher un terme (ex: taux plein, trimestre...)"
+              placeholder="Rechercher un terme (ex. : taux plein, trimestre…)"
             />
           </div>
 
@@ -238,6 +283,6 @@ export default function Ressources() {
           )}
         </section>
       )}
-    </main>
+    </div>
   );
 }

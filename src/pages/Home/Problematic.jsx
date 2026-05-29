@@ -29,7 +29,7 @@ const Problematic = () => {
         {/* VISUEL : Image XXL + Déco discrète + Ombre colorée */}
         <div className="prob-visual-side">
           <div className="prob-img-frame">
-            <img src={womanImg} alt="Accompagnement" className="prob-photo-xxl" />
+            <img src={womanImg} alt="Conseillère KapAvenir accompagnant un client sur sa retraite" className="prob-photo-xxl" />
             
             {/* Éléments décoratifs abstraits autour de l'image */}
             <div className="deco-abstract-1"></div>

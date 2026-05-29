@@ -4,6 +4,9 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar       from './components/Navbar/Navbar';
 import Footer       from './components/Footer/Footer';
 import ScrollToTop  from './components/ScrollToTop/ScrollToTop';
+import SkipLink     from './components/SkipLink/SkipLink';
+import DocumentTitle from './components/DocumentTitle/DocumentTitle';
+import Accessibilite from './pages/Accessibilite/Accessibilite';
 import Home         from './pages/Home/Home';
 import Services     from './pages/Services/Services';
 import PourQui           from './pages/PourQui/PourQui';
@@ -90,8 +93,11 @@ function App() {
         </defs>
       </svg>
 
+      <SkipLink />
+      <DocumentTitle />
       <Navbar />
 
+      <main id="main-content" tabIndex={-1} className="app-main">
       <Routes>
         <Route path="/"                        element={<Home />} />
         <Route path="/services"                element={<Services />} />
@@ -109,6 +115,7 @@ function App() {
         <Route path="/blog"                    element={<Ressources />} />
         <Route path="/guides"                  element={<Ressources />} />
         <Route path="/contact"                 element={<Contact />} />
+        <Route path="/accessibilite"           element={<Accessibilite />} />
         <Route path="/a-propos"                element={<APropos />} />
         <Route path="/histoire"                element={<APropos />} />
         <Route path="/mission"                 element={<APropos />} />
@@ -118,6 +125,7 @@ function App() {
         <Route path="/rgpd"                    element={<Ressources />} />
         <Route path="/cgv"                     element={<Ressources />} />
       </Routes>
+      </main>
 
       <Footer />
       <ScrollToTop />

@@ -97,13 +97,24 @@
 }
 
 .res-faq-item {
-  width: 100%;
-  text-align: left;
   border: 1px solid #e4edf8;
   border-radius: 14px;
-  padding: 14px;
   background: #ffffff;
+  overflow: hidden;
+}
+
+.res-faq-trigger {
+  width: 100%;
+  text-align: left;
+  border: none;
+  padding: 14px;
+  background: transparent;
   cursor: pointer;
+  font: inherit;
+}
+
+.res-faq-panel[hidden] {
+  display: none;
 }
 
 .res-faq-q {
@@ -129,7 +140,8 @@
 }
 
 .res-faq-a {
-  margin: 10px 0 0;
+  margin: 0;
+  padding: 0 14px 14px;
   color: #334155;
   line-height: 1.65;
   font-weight: 500;

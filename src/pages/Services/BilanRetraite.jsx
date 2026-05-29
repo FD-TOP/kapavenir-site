@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useId } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import './BilanRetraite.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 
@@ -307,23 +308,11 @@ function BlueCheck() {
 
 export default function BilanRetraite() {
   const navigate = useNavigate();
+  const modalTitleId = useId();
   const [activeModal, setActiveModal] = useState(null);
   const [activeAcc, setActiveAcc] = useState(0);
-
-  useEffect(() => {
-    document.body.style.overflow = activeModal ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [activeModal]);
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === 'Escape') setActiveModal(null);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  const closeModal = () => setActiveModal(null);
+  const modalRef = useFocusTrap(Boolean(activeModal), closeModal);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -430,10 +419,17 @@ export default function BilanRetraite() {
       </div>
 
       {activeModal && activePack && createPortal(
-        <div className="BR-Overlay" onClick={() => setActiveModal(null)} role="dialog" aria-modal="true">
-          <div className="BR-Modal" onClick={(e) => e.stopPropagation()}>
+        <div className="BR-Overlay" onClick={closeModal} role="presentation">
+          <div
+            ref={modalRef}
+            className="BR-Modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={modalTitleId}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="BR-Modal-Head BR-Modal-Head--brand">
-              <button type="button" className="BR-Modal-Close" onClick={() => setActiveModal(null)} aria-label="Fermer">
+              <button type="button" className="BR-Modal-Close" onClick={closeModal} aria-label="Fermer la fenêtre">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
@@ -444,7 +440,9 @@ export default function BilanRetraite() {
                 </span>
                 <span className="BR-Modal-PricePill">{activePack.pricePill}</span>
               </div>
-              <h3 className="BR-Modal-Title">{activePack.title}</h3>
+              <h3 id={modalTitleId} className="BR-Modal-Title">
+                {activePack.title}
+              </h3>
               <p className="BR-Modal-Tagline">{activePack.tagline}</p>
             </div>
 
@@ -541,7 +539,7 @@ export default function BilanRetraite() {
                 </svg>
                 Contacter un conseiller
               </button>
-              <button type="button" className="BR-Modal-Dismiss" onClick={() => setActiveModal(null)}>
+              <button type="button" className="BR-Modal-Dismiss" onClick={closeModal}>
                 Fermer
               </button>
             </div>

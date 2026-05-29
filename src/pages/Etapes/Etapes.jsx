@@ -121,7 +121,10 @@ export default function Etapes() {
                 key={step.id}
                 type="button"
                 role="tab"
+                id={`etp-tab-${step.id}`}
                 aria-selected={idx === activeStep}
+                aria-controls={`etp-panel-${step.id}`}
+                tabIndex={idx === activeStep ? 0 : -1}
                 className={`etp-step-chip ${idx === activeStep ? 'is-active' : ''}`}
                 onClick={() => setActiveStep(idx)}
               >
@@ -138,7 +141,7 @@ export default function Etapes() {
           </div>
         </div>
 
-        <div className="etp-stage">
+        <div className="etp-stage" role="tabpanel" id={`etp-panel-${current.id}`} aria-labelledby={`etp-tab-${current.id}`}>
           <div key={current.id} className="etp-step-panel">
             <div className="etp-step-header">
               <div className="etp-step-header-text">
@@ -236,7 +239,8 @@ export default function Etapes() {
                 muted
                 loop
                 playsInline
-                aria-label="Présentation KapAvenir en vidéo"
+                title="Présentation vidéo KapAvenir"
+                aria-label="Vidéo de présentation KapAvenir (sans son)"
               />
             </div>
           </div>

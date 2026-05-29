@@ -15,7 +15,7 @@ export default function PreFooter() {
       <LogoSticker size={78} bottom="10%" right="2%" rotation={12} opacity={0.14} animation="float" hideMobile />
       {/* L'image est en arrière-plan fixe pour créer de la profondeur */}
       <div className="F-bg-image-container">
-        <img src={coupleImg} alt="Sérénité" className="F-bg-parallax" />
+        <img src={coupleImg} alt="" className="F-bg-parallax" role="presentation" />
         <div className="F-bg-overlay"></div>
       </div>
 

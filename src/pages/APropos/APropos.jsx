@@ -93,7 +93,7 @@ export default function APropos() {
   }, [pathname]);
 
   return (
-    <main className="ap-page">
+    <div className="ap-page">
       <section className="ap-hero">
         <div className="ap-hero-bg" aria-hidden>
           <div className="ap-hero-orb ap-hero-orb--blue" />
@@ -245,7 +245,7 @@ export default function APropos() {
         <LogoSticker size={78} bottom="10%" right="2%" rotation={12} opacity={0.14} animation="float" hideMobile />
 
         <div className="F-bg-image-container">
-          <img src={couple11} alt="" className="F-bg-parallax" />
+          <img src={couple11} alt="" className="F-bg-parallax" role="presentation" />
           <div className="F-bg-overlay" />
         </div>
 
@@ -283,6 +283,6 @@ export default function APropos() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

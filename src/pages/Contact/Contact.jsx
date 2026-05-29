@@ -29,7 +29,7 @@ export default function Contact() {
   const [activeMode, setActiveMode] = useState('rdv');
 
   return (
-    <main className="ct-page">
+    <div className="ct-page">
       <LogoSticker size={92} top="126px" right="2.6%" rotation={12} opacity={0.14} animation="wobble" hideMobile />
       <LogoSticker size={72} bottom="9%" left="2%" rotation={-18} opacity={0.1} animation="float" hideMobile />
 
@@ -48,7 +48,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="ct-options">
+      <section className="ct-options" aria-label="Modes de contact">
         {contactModes.map((option) => {
           const Icon = option.icon;
           const isActive = activeMode === option.id;
@@ -57,6 +57,7 @@ export default function Contact() {
               type="button"
               key={option.title}
               className={`ct-option-card ${isActive ? 'is-active' : ''}`}
+              aria-pressed={isActive}
               onClick={() => setActiveMode(option.id)}
             >
               <div className="ct-option-icon">
@@ -97,24 +98,49 @@ export default function Contact() {
         )}
 
         {activeMode === 'form' && (
-          <form className="ct-contact-form">
-            <h2>Complétez ce formulaire de contact pour être rappelé</h2>
+          <form
+            className="ct-contact-form"
+            noValidate
+            aria-labelledby="ct-form-title"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <h2 id="ct-form-title">Complétez ce formulaire de contact pour être rappelé</h2>
             <div className="ct-form-grid">
-              <input type="text" placeholder="Nom*" />
-              <input type="text" placeholder="Prenom*" />
-              <input type="email" placeholder="E-mail*" />
-              <input type="tel" placeholder="Telephone*" />
+              <div className="ct-field">
+                <label htmlFor="ct-nom">Nom</label>
+                <input id="ct-nom" name="nom" type="text" autoComplete="family-name" required />
+              </div>
+              <div className="ct-field">
+                <label htmlFor="ct-prenom">Prénom</label>
+                <input id="ct-prenom" name="prenom" type="text" autoComplete="given-name" required />
+              </div>
+              <div className="ct-field">
+                <label htmlFor="ct-email">E-mail</label>
+                <input id="ct-email" name="email" type="email" autoComplete="email" required />
+              </div>
+              <div className="ct-field">
+                <label htmlFor="ct-tel">Téléphone</label>
+                <input id="ct-tel" name="telephone" type="tel" autoComplete="tel" required />
+              </div>
             </div>
-            <select defaultValue="">
-              <option value="" disabled>Vous nous avez connu via*</option>
-              <option>Recommandation</option>
-              <option>LinkedIn</option>
-              <option>Recherche Google</option>
-              <option>Autre</option>
-            </select>
-            <textarea rows={5} placeholder="Votre message*" required />
-            <button type="button" className="ct-option-btn">
-              Envoyer ma demande <ArrowRight size={16} />
+            <div className="ct-field">
+              <label htmlFor="ct-source">Vous nous avez connu via</label>
+              <select id="ct-source" name="source" defaultValue="" required>
+                <option value="" disabled>
+                  Choisir une option
+                </option>
+                <option value="recommandation">Recommandation</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="google">Recherche Google</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div className="ct-field">
+              <label htmlFor="ct-message">Votre message</label>
+              <textarea id="ct-message" name="message" rows={5} required />
+            </div>
+            <button type="submit" className="ct-option-btn">
+              Envoyer ma demande <ArrowRight size={16} aria-hidden />
             </button>
           </form>
         )}
@@ -132,6 +158,6 @@ export default function Contact() {
           </div>
         )}
       </section>
-    </main>
+    </div>
   );
 }

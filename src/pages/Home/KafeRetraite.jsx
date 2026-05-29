@@ -101,9 +101,9 @@ export default function KafeRetraite() {
             <Coffee size={14} strokeWidth={3} />
             <span>Concept Exclusif</span>
           </div>
-          <h2 className="K-editorial-title">
+          <h1 className="K-editorial-title">
             Le Kafé Retraite : L&apos;accompagnement <span className="K-serif">humain</span>.
-          </h2>
+          </h1>
           <p className="K-editorial-lead">
             Le Kafé Retraite est un moment d’échange, en petit comité, dans un cadre convivial
             (physique ou en ligne). Pendant cette session, vous bénéficiez :
@@ -141,6 +141,8 @@ export default function KafeRetraite() {
                   onClick={() => toggleFlip(card.frontTitle)}
                   role="button"
                   tabIndex={0}
+                  aria-label={`${card.frontTitle}. Cliquer pour afficher les détails.`}
+                  aria-pressed={Boolean(flippedCards[card.frontTitle])}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
