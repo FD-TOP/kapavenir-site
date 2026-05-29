@@ -21,6 +21,7 @@ import couple3 from './assets/couple3.jpg';
 import couple4 from './assets/couple4.jpeg';
 import couple5 from './assets/couple5.jpg';
 import couple10 from './assets/couple10.jpg';
+import couple11 from './assets/couple11.jpg';
 import couple7 from './assets/couple7.jpg';
 import meeting3 from './assets/meeting3.png';
 import meeting4 from './assets/meeting4.jpg';
@@ -38,11 +39,11 @@ const IMAGE_PRELOADS = {
   '/pour-qui/particuliers': [couple1, meeting3],
   '/pour-qui/organismes': [meeting4, couple4],
   '/pour-qui/entreprises-rh': [meeting3, couple4],
-  '/a-propos': [salut, couple5],
+  '/a-propos': [salut, couple5, couple11],
   '/histoire': [salut, couple10],
   '/mission': [salut, couple5],
   '/engagements': [salut, couple9],
-  '/expertise': [salut, couple5],
+  '/expertise': [salut, couple11],
   '/etapes': [couple2],
   '/kafe-retraite': [grp1, grp2, grp3, grp4, couple7, couple9],
 };

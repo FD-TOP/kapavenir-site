@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import LogoSticker from '../../components/Common/LogoSticker';
+import AnimatedBG from '../../components/Common/AnimatedBG';
 import Testimonials from '../Home/Testimonials';
+import PreFooter from '../Home/PreFooter';
 import salut from '../../assets/salut.jpg';
 import couple5 from '../../assets/couple5.jpg';
 import couple10 from '../../assets/couple10.jpg';
 import couple9 from '../../assets/couple9.png';
+import couple11 from '../../assets/couple11.jpg';
+import '../Home/PreFooter.css';
 import './APropos.css';
 
 const sectionByPath = {
@@ -43,7 +47,6 @@ const expertisePoints = [
 
 export default function APropos() {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
   const engRef = useRef(null);
   const [engRevealed, setEngRevealed] = useState(false);
 
@@ -79,125 +82,161 @@ export default function APropos() {
 
   return (
     <main className="ap-page">
-      <LogoSticker size={98} top="120px" right="2.5%" rotation={14} opacity={0.14} animation="wobble" hideMobile />
-      <LogoSticker size={70} bottom="7%" left="2%" rotation={-18} opacity={0.1} animation="float" hideMobile />
-
       <section className="ap-hero">
-        <div className="ap-hero-text">
-          <h1>
-            Une <span className="ap-hero-grad">expertise</span> au service de votre{' '}
-            <span className="ap-hero-grad">sérénité</span>
-          </h1>
-          <p>
-            KapAvenir est né d’une conviction simple : chacun mérite de comprendre et d’optimiser sa
-            retraite, sans complexité ni stress.
-          </p>
-        </div>
-        <div className="ap-hero-media">
-          <img src={salut} alt="Équipe KapAvenir" />
+        <LogoSticker size={98} top="18%" right="4%" rotation={14} opacity={0.14} animation="wobble" hideMobile />
+        <div className="ap-hero-inner">
+          <div className="ap-hero-text">
+            <span className="ap-kicker">À propos de KapAvenir</span>
+            <h1>
+              Une <span className="ap-hero-grad">expertise</span> au service de votre{' '}
+              <span className="ap-hero-grad">sérénité</span>
+            </h1>
+            <p>
+              KapAvenir est né d’une conviction simple : chacun mérite de comprendre et d’optimiser sa retraite, sans
+              complexité ni stress.
+            </p>
+          </div>
+          <div className="ap-hero-media">
+            <div className="ap-hero-frame">
+              <img src={salut} alt="Équipe KapAvenir" />
+              <div className="ap-hero-frame-deco" aria-hidden />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="histoire" className="ap-section ap-story">
-        <div className="ap-story-layout">
-          <div className="ap-story-content">
-            <h2>Notre histoire</h2>
-            <div className="ap-story-body">
-              <p>
-                De nombreuses personnes abordent la retraite avec incertitude, faute d’informations claires et
-                accessibles.
-              </p>
-              <p>
-                Relevés difficiles à lire, erreurs non détectées, décisions prises sans visibilité… autant de facteurs
-                qui peuvent impacter les revenus futurs.
-              </p>
-              <p>
-                Avec des parcours professionnels de plus en plus variés, incluant carrières mixtes, périodes à
-                l’étranger et statuts multiples, être accompagné devient essentiel pour y voir clair.
+      <div className="content-with-bg ap-content-wrap">
+        <AnimatedBG />
+
+        <section id="histoire" className="ap-panel ap-panel--story">
+          <div className="ap-story-layout">
+            <div className="ap-story-content">
+              <span className="ap-kicker ap-kicker--dark">Notre parcours</span>
+              <h2>Notre histoire</h2>
+              <div className="ap-story-body">
+                <p>
+                  De nombreuses personnes abordent la retraite avec incertitude, faute d’informations claires et
+                  accessibles.
+                </p>
+                <p>
+                  Relevés difficiles à lire, erreurs non détectées, décisions prises sans visibilité… autant de facteurs
+                  qui peuvent impacter les revenus futurs.
+                </p>
+                <p>
+                  Avec des parcours professionnels de plus en plus variés, incluant carrières mixtes, périodes à
+                  l’étranger et statuts multiples, être accompagné devient essentiel pour y voir clair.
+                </p>
+              </div>
+              <p className="ap-story-final">
+                KapAvenir est né de cette réalité pour simplifier la retraite, la rendre compréhensible et aider chacun à
+                faire les bons choix au bon moment.
               </p>
             </div>
-            <p className="ap-story-final">
-              KapAvenir est né de cette réalité pour simplifier la retraite, la rendre compréhensible et aider chacun à
-              faire les bons choix au bon moment.
-            </p>
+            <figure className="ap-story-media">
+              <img src={couple10} alt="Couple préparant sereinement sa retraite avec KapAvenir" />
+            </figure>
           </div>
-          <figure className="ap-story-media">
-            <img src={couple10} alt="Couple préparant sereinement sa retraite avec KapAvenir" />
-          </figure>
-        </div>
-      </section>
+        </section>
 
-      <section id="mission" className="ap-section ap-mission">
-        <div className="ap-mission-grid">
-          <div>
-            <h2>Notre mission</h2>
-            <p>
-              Vous aider à prendre les bonnes décisions au bon moment, en vous donnant une vision claire de votre
-              retraite et en vous accompagnant à chaque étape.
-            </p>
+        <section id="mission" className="ap-panel ap-panel--mission">
+          <div className="ap-mission-grid">
+            <div className="ap-mission-copy">
+              <span className="ap-kicker ap-kicker--dark">Notre raison d’être</span>
+              <h2>Notre mission</h2>
+              <p>
+                Vous aider à prendre les bonnes décisions au bon moment, en vous donnant une vision claire de votre
+                retraite et en vous accompagnant à chaque étape.
+              </p>
+            </div>
+            <div className="ap-mission-media">
+              <div className="ap-hero-frame">
+                <img src={couple5} alt="Mission KapAvenir" />
+                <div className="ap-hero-frame-deco" aria-hidden />
+              </div>
+            </div>
           </div>
-          <img src={couple5} alt="Mission KapAvenir" />
+        </section>
+
+        <section
+          id="engagements"
+          ref={engRef}
+          className={`ap-panel ap-panel--engagements ${engRevealed ? 'is-revealed' : ''}`}
+        >
+          <div className="ap-eng-layout">
+            <figure className="ap-eng-media">
+              <img src={couple9} alt="Accompagnement humain KapAvenir" />
+              <span className="ap-eng-media-label">À vos côtés</span>
+            </figure>
+
+            <div className="ap-eng-content">
+              <span className="ap-kicker ap-kicker--dark">Nos valeurs</span>
+              <h2>Nos engagements</h2>
+              <p className="ap-eng-lead">
+                Quatre principes qui guident chaque accompagnement et chaque conseil que nous vous apportons.
+              </p>
+
+              <ul className="ap-eng-list">
+                {engagements.map((item, index) => (
+                  <li key={item.title} className="ap-eng-item" style={{ '--i': index }}>
+                    <span className="ap-eng-num" aria-hidden>
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <div className="ap-eng-item-text">
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="credibilite" className="ap-panel ap-panel--cred">
+          <Testimonials />
+        </section>
+      </div>
+
+      <section id="expertise" className="ap-expertise-premium F-ethereal-layout">
+        <LogoSticker size={88} top="10%" left="3%" rotation={-12} opacity={0.16} animation="wobble" hideMobile />
+        <LogoSticker size={72} bottom="12%" right="3%" rotation={14} opacity={0.13} animation="float" hideMobile />
+
+        <div className="F-bg-image-container">
+          <img src={couple11} alt="Expertise retraite KapAvenir" className="F-bg-parallax" />
+          <div className="F-bg-overlay" />
         </div>
-      </section>
 
-      <section
-        id="engagements"
-        ref={engRef}
-        className={`ap-section ap-engagements ${engRevealed ? 'is-revealed' : ''}`}
-      >
-        <div className="ap-eng-layout">
-          <figure className="ap-eng-media">
-            <img src={couple9} alt="Accompagnement humain KapAvenir" />
-            <span className="ap-eng-media-label">À vos côtés</span>
-          </figure>
+        <div className="F-container">
+          <div className="F-glass-card ap-exp-glass">
+            <div className="F-card-content">
+              <header className="F-header">
+                <span className="F-pre-title">Notre savoir-faire</span>
+                <h2 className="F-main-title">
+                  Une expertise <span className="F-gradient-text">solide</span>
+                </h2>
+                <div className="F-separator" />
+              </header>
 
-          <div className="ap-eng-content">
-            <h2>Nos engagements</h2>
-            <p className="ap-eng-lead">
-              Quatre principes qui guident chaque accompagnement et chaque conseil que nous vous
-              apportons.
-            </p>
+              <p className="F-description ap-exp-intro">
+                Une équipe spécialisée pour décrypter votre situation, sécuriser vos droits et optimiser chaque étape de
+                votre parcours retraite.
+              </p>
 
-            <ul className="ap-eng-list">
-              {engagements.map((item, index) => (
-                <li key={item.title} className="ap-eng-item" style={{ '--i': index }}>
-                  <span className="ap-eng-num" aria-hidden>
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <div className="ap-eng-item-text">
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+              <ul className="ap-exp-premium-list">
+                {expertisePoints.map((point, index) => (
+                  <li key={point} style={{ '--i': index }}>
+                    <span className="ap-exp-check" aria-hidden />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="F-card-border-glow" />
           </div>
         </div>
       </section>
 
-      <section id="expertise" className="ap-section ap-expertise">
-        <h2>Une expertise solide</h2>
-        <div className="ap-exp-grid">
-          {expertisePoints.map((point, i) => (
-            <article key={point} className="ap-exp-card" style={{ '--d': `${i * 120}ms` }}>
-              {point}
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="credibilite" className="ap-section ap-cred">
-        <Testimonials />
-      </section>
-
-      <section className="ap-section ap-cta">
-        <h2>Et si on faisait le point sur votre retraite ?</h2>
-        <p>Un simple échange peut vous apporter clarté, sérénité et opportunités d’optimisation.</p>
-        <div className="ap-cta-row">
-          <button onClick={() => navigate('/services/bilan')}>Faire mon bilan retraite</button>
-          <button className="is-outline" onClick={() => navigate('/contact')}>Contactez-nous</button>
-        </div>
-      </section>
+      <PreFooter />
     </main>
   );
 }
