@@ -98,10 +98,7 @@ export default function Contact() {
 
         {activeMode === 'form' && (
           <form className="ct-contact-form">
-            <h2>Formulaire de contact</h2>
-            <p className="ct-form-lead">
-              Complétez le formulaire de contact et nous vous recontacterons rapidement.
-            </p>
+            <h2>Complétez ce formulaire de contact pour être rappelé</h2>
             <div className="ct-form-grid">
               <input type="text" placeholder="Nom*" />
               <input type="text" placeholder="Prenom*" />
@@ -115,7 +112,7 @@ export default function Contact() {
               <option>Recherche Google</option>
               <option>Autre</option>
             </select>
-            <textarea rows={5} placeholder="Votre message (facultatif)" />
+            <textarea rows={5} placeholder="Votre message*" required />
             <button type="button" className="ct-option-btn">
               Envoyer ma demande <ArrowRight size={16} />
             </button>
