@@ -2,7 +2,6 @@ import React from 'react';
 import ServiceHero from './ServiceHero';
 import ServicesWhy from './ServicesWhy';
 import BilanRetraite from './BilanRetraite';
-import AideDepart from './AideDepart';
 import AnimatedBG from '../../components/Common/AnimatedBG';
 import LogoSticker from '../../components/Common/LogoSticker';
 import './Services.css';
@@ -18,7 +17,6 @@ const Services = () => {
         <ServiceHero />
         <ServicesWhy />
         <BilanRetraite />
-        <AideDepart />
       </div>
     </div>
   );
