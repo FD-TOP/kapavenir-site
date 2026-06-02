@@ -119,11 +119,6 @@ export default function Footer() {
         <div className="FT-BarInner">
           <p className="FT-Copy">
             © {year} KapAvenir. Tous droits réservés.
-            <span className="FT-CopySep">·</span>
-            Conception{' '}
-            <a href="https://www.anglophile.fr" target="_blank" rel="noopener noreferrer">
-              anglophile.fr
-            </a>
           </p>
           <nav className="FT-Legal" aria-label="Informations légales">
             <Link to="/accessibilite">Accessibilité</Link>
