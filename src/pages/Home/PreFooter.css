@@ -1,7 +1,7 @@
 #FinalCTA.F-ethereal-layout {
   position: relative;
   width: 100%;
-  height: 90vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +61,7 @@
   backdrop-filter: blur(25px); /* Flou intense */
   -webkit-backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 40px;
+  border-radius: calc(var(--radius-lg) + 8px);
   padding: 80px 60px;
   color: white;
   text-align: center;
@@ -129,7 +129,7 @@
 
 .F-btn-primary:hover {
   filter: brightness(1.07);
-  transform: translateY(-5px) scale(1.02);
+  transform: translateY(-3px) scale(1.015);
   box-shadow: 0 20px 44px rgba(0, 113, 188, 0.35), 0 8px 20px rgba(0, 191, 99, 0.22);
 }
 

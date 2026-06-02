@@ -60,6 +60,15 @@ body {
   --kap-surface-shadow-hover: 0 24px 48px rgba(15, 23, 42, 0.13);
   --kap-ring: 0 0 0 4px rgba(0, 182, 222, 0.16);
   --kap-ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-1: 0 8px 20px rgba(15, 23, 42, 0.08);
+  --shadow-2: 0 14px 34px rgba(15, 23, 42, 0.1);
+  --shadow-3: 0 24px 48px rgba(15, 23, 42, 0.14);
+  --section-pad-desktop: 112px;
+  --section-pad-tablet: 80px;
+  --section-pad-mobile: 60px;
   --white:      #ffffff;
   --gray-light: #f8fafc;
   --gray-text:  #475569;
@@ -196,10 +205,12 @@ section {
 .card-lift {
   transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
               box-shadow 0.35s ease;
+  box-shadow: var(--shadow-1);
+  border-radius: var(--radius-md);
 }
 .card-lift:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-3);
 }
 
 /* ─── Passe premium globale (cartes majeures du site) ───────── */

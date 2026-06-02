@@ -16,7 +16,7 @@
     rgba(0, 171, 88, 0.97) 100%
   );
   --ft-text: rgba(255, 255, 255, 0.95);
-  --ft-muted: rgba(255, 255, 255, 0.78);
+  --ft-muted: rgba(255, 255, 255, 0.86);
   --ft-accent: #e8fffa;
   --ft-green: #b8f5d4;
   --ft-pad: clamp(20px, 4vw, 56px);
@@ -45,8 +45,8 @@
 .FT-Orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.7;
+  filter: blur(88px);
+  opacity: 0.5;
   animation: ftOrb 12s ease-in-out infinite;
 }
 
@@ -474,6 +474,14 @@ a.FT-ContactItem:hover {
 }
 
 @media (max-width: 720px) {
+  .FT-Orb--2 {
+    display: none;
+  }
+
+  .FT-GridLines {
+    opacity: 0.1;
+  }
+
   .FT-Grid {
     grid-template-columns: 1fr;
   }
