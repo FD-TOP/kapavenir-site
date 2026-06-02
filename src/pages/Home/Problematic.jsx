@@ -10,7 +10,7 @@ const Problematic = () => {
   const challenges = [
     "Vous ne savez pas à quel âge vous pouvez partir",
     "Vous avez peur de perdre de l’argent",
-    "Votre carrière est complexe (plusieurs statuts, étranger…)",
+    "Votre carrière est complexe (plusieurs statuts, périodes à l’étranger…)",
     "Vous ne comprenez pas vos relevés retraite",
     "Vous repoussez le sujet parce que c’est trop compliqué"
   ];
