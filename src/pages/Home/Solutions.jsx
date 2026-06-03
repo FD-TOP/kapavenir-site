@@ -73,7 +73,6 @@ const Solutions = () => {
                       <div className="sol-front-header">
                         <h3>{sol.title}</h3>
                       </div>
-                      <span className="sol-hint">Détails de la solution <ArrowRight size={16} /></span>
                     </div>
                   </div>
 
