@@ -1,37 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ShieldCheck, Target, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Target } from 'lucide-react';
 import './Solutions.css';
 import imageBilan from '../../assets/couple7.jpg';
-import imageDepart from '../../assets/meeting2.jpg';
 import LogoSticker from '../../components/Common/LogoSticker';
+
+const solutions = [
+  {
+    id: 'card1',
+    title: 'Bilan retraite',
+    image: imageBilan,
+    highlights: ['Calcul précis', 'Analyse de droits', 'Anticipation'],
+    description:
+      'Comprenez clairement vos droits, estimez votre future pension et anticipez vos choix pour préparer votre retraite en toute sérénité.',
+    cta: 'Découvrez nos formules de bilan retraite',
+    path: '/services/bilan',
+  },
+];
 
 const Solutions = () => {
   const navigate = useNavigate();
-  const [flipped, setFlipped] = useState({ card1: false, card2: false });
-
-  const toggleFlip = (cardKey) => {
-    setFlipped(prev => ({ ...prev, [cardKey]: !prev[cardKey] }));
-  };
-
-  const solutions = [
-    {
-      id: "card1",
-      title: "Bilan retraite",
-      image: imageBilan,
-      highlights: ["Calcul précis", "Analyse de droits", "Anticipation"],
-      description: "Comprenez clairement vos droits, estimez votre future pension et anticipez vos choix pour préparer votre retraite en toute sérénité.",
-      cta: "Découvrez nos formules de bilan retraite"
-    },
-    {
-      id: "card2",
-      title: "Aide au départ en retraite",
-      image: imageDepart,
-      highlights: ["Sécurité totale", "Zéro paperasse", "Suivi pas à pas"],
-      description: "Sécurisez votre départ et vos démarches administratives grâce à un accompagnement clair, étape par étape, jusqu’au jour de votre retraite.",
-      cta: "Découvrez nos formules d'aides au départ en retraite"
-    }
-  ];
+  const [flipped, setFlipped] = useState(false);
 
   return (
     <section className="sol-premium-section">
@@ -59,10 +48,10 @@ const Solutions = () => {
         <div className="sol-visual-side">
           <div className="sol-cards-stack">
             {solutions.map((sol) => (
-              <div 
-                key={sol.id} 
-                className={`sol-card-box ${flipped[sol.id] ? 'is-flipped' : ''}`}
-                onClick={() => toggleFlip(sol.id)}
+              <div
+                key={sol.id}
+                className={`sol-card-box ${flipped ? 'is-flipped' : ''}`}
+                onClick={() => setFlipped((prev) => !prev)}
               >
                 <div className="sol-card-inner">
                   
@@ -96,7 +85,7 @@ const Solutions = () => {
                         className="sol-cta-premium"
                         onClick={(e) => {
                           e.stopPropagation();
-                          navigate(sol.id === 'card1' ? '/services/bilan' : '/services/aide-depart');
+                          navigate(sol.path);
                         }}
                       >
                         <span className="btn-content">{sol.cta}</span>
