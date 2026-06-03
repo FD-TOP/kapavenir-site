@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import './Footer.css';
 import '../Navbar/Navbar.css';
 
@@ -47,11 +46,6 @@ export default function Footer() {
               pourquoi nous vous aidons à sécuriser votre dossier retraite pour éviter toute mauvaise
               surprise et garantir les revenus pour lesquels vous avez durement travaillé.
             </p>
-
-            <Link to="/contact" className="FT-CTA">
-              Prendre rendez-vous
-              <ArrowRight size={18} strokeWidth={2.5} aria-hidden />
-            </Link>
           </div>
 
           <nav className="FT-Nav" aria-label="Liens rapides du pied de page">
