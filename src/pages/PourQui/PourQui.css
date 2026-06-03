@@ -542,8 +542,16 @@
   margin-bottom: 22px; backdrop-filter: blur(6px); background: rgba(255,255,255,.08);
 }
 .PQ-Title {
-  font-size: clamp(2.2rem,5.5vw,3.8rem); font-weight: 900; line-height: 1.1;
+  font-size: clamp(2.2rem,5.5vw,3.8rem); font-weight: 900; line-height: 1.12;
   color: #fff; margin: 0 0 18px; letter-spacing: -.025em;
+}
+
+.PQ-Title-Line {
+  display: block;
+}
+
+.PQ-Title-Line:first-child {
+  margin-bottom: 0.06em;
 }
 .PQ-Accent { transition: opacity .6s; }
 .PQ-Desc {
