@@ -332,7 +332,6 @@ export default function BilanRetraite() {
 
       <div className="BR-Container">
         <div className="BR-Header">
-          <span className="BR-Tag">Bilan retraite</span>
           <h2 className="BR-Title">
             Quatre niveaux d’accompagnement pour votre{' '}
             <span className="BR-Accent">bilan retraite</span>
