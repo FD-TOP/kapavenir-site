@@ -7,7 +7,7 @@ const PAGE_TITLES = {
   '/pour-qui/particuliers': 'Particuliers',
   '/pour-qui/organismes': 'Organismes et assurances',
   '/pour-qui/entreprises-rh': 'Entreprises et RH',
-  '/etapes': 'Comment ça marche',
+  '/etapes': 'Comment ça marche ?',
   '/kafe-retraite': 'Kafé retraite',
   '/ressources': 'Ressources',
   '/faq': 'FAQ retraite',

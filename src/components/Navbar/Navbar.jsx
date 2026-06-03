@@ -71,7 +71,7 @@ const Navbar = () => {
       ],
     },
     {
-      title: 'Comment ça marche?',
+      title: 'Comment ça marche ?',
       titlePath: '/etapes',
       links: [{ label: "Les étapes de l'accompagnement", path: '/etapes' }],
     },

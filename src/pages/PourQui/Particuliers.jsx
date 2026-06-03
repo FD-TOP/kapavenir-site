@@ -205,7 +205,7 @@ export default function Particuliers() {
       <div className={"PT-Sec " + (stVis ? "is-vis" : "")} ref={stRef}>
         <div className="PT-Sec-Inner">
           <div className="PT-Center">
-            <span className="PT-Label PT-Label--blue">Comment ça marche</span>
+            <span className="PT-Label PT-Label--blue">Comment ça marche ?</span>
             <h2 className="PT-Sec-Title"><span className="PT-Grad">Un parcours simple</span> en 4 étapes</h2>
           </div>
           <div className="PT-Steps">

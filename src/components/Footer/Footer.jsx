@@ -12,7 +12,7 @@ const NAV = [
   { label: 'Accueil', to: '/' },
   { label: 'Services', to: '/services' },
   { label: 'Pour qui', to: '/pour-qui' },
-  { label: 'Comment ça marche', to: '/etapes' },
+  { label: 'Comment ça marche ?', to: '/etapes' },
   { label: 'Kafé retraite', to: '/kafe-retraite' },
   { label: 'À propos', to: '/a-propos' },
   { label: 'Contact', to: '/contact' },
