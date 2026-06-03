@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import './BilanRetraite.css';
 import LogoSticker from '../../components/Common/LogoSticker';
+import KapGrad from '../../components/Common/KapGrad';
 
 /* ── Offres bilan retraite (contenu maquette) ─────────────── */
 const packs = [
@@ -384,7 +385,9 @@ export default function BilanRetraite() {
                 </span>
               </div>
 
-              <h3 className="BR-Card-Title">{pack.title}</h3>
+              <KapGrad as="h3" className="BR-Card-Title">
+                {pack.title}
+              </KapGrad>
               <p className="BR-Card-Tagline">{pack.tagline}</p>
 
               <div className="BR-Price-Pill">{pack.pricePill}</div>

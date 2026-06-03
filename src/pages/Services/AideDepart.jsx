@@ -5,6 +5,7 @@ import { useFocusTrap } from '../../hooks/useFocusTrap';
 import './BilanRetraite.css';
 import './AideDepart.css';
 import LogoSticker from '../../components/Common/LogoSticker';
+import KapGrad from '../../components/Common/KapGrad';
 
 /* ── Packs aide au départ (contenu maquette, structure type Bilan retraite) ─ */
 const packs = [
@@ -242,7 +243,9 @@ export default function AideDepart() {
                   </span>
                 </div>
 
-                <h4 className="BR-Card-Title">{pack.title}</h4>
+                <KapGrad as="h4" className="BR-Card-Title">
+                  {pack.title}
+                </KapGrad>
                 <p className="BR-Card-Tagline">{pack.tagline}</p>
 
                 <div className="BR-Price-Pill">{pack.pricePill}</div>

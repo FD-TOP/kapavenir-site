@@ -1039,3 +1039,18 @@
     transform: none;
   }
 }
+
+/* Titres packs — dégradé charte (priorité sur styles globaux) */
+:is(h3, h4).BR-Card-Title,
+.BR-Card-Title.kap-grad {
+  display: block;
+  width: 100%;
+  background-image: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
