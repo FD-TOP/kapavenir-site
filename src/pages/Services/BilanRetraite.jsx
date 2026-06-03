@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import './BilanRetraite.css';
 import LogoSticker from '../../components/Common/LogoSticker';
+import KapGrad from '../../components/Common/KapGrad';
 
 /* ── Offres bilan retraite (contenu maquette) ─────────────── */
 const packs = [
@@ -344,7 +345,8 @@ export default function BilanRetraite() {
 
         <div className="BR-Accompagnement">
           <h3 className="BR-Accompagnement-Title">
-            Quel accompagnement est fait pour <span>vous</span> ?
+            Quel <KapGrad className="BR-Accompagnement-Grad">accompagnement</KapGrad> est fait pour{' '}
+            <KapGrad className="BR-Accompagnement-Grad">vous</KapGrad> ?
           </h3>
           <div className="BR-Accompagnement-Grid">
             {accompagnements.map((item, index) => (
@@ -353,7 +355,9 @@ export default function BilanRetraite() {
                 className={`BR-Accompagnement-Card ${activeAcc === index ? 'is-active' : ''}`}
               >
                 <span className="BR-Accompagnement-Index">{`0${index + 1}`}</span>
-                <h4>{item.title}</h4>
+                <h4>
+                  <KapGrad className="BR-Accompagnement-Grad">{item.title}</KapGrad>
+                </h4>
                 <p>{item.text}</p>
               </article>
             ))}

@@ -104,11 +104,16 @@
   letter-spacing: -.01em;
 }
 
-.BR-Accompagnement-Title span {
-  background: var(--kap-premium-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.BR-Accompagnement-Grad {
+  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.BR-Accompagnement-Title .BR-Accompagnement-Grad {
+  transform: translateY(-2px);
+}
+
+.BR-Accompagnement-Card.is-active .BR-Accompagnement-Grad {
+  transform: translateY(-3px);
 }
 
 .BR-Accompagnement-Grid {
@@ -186,7 +191,6 @@
   font-size: 1.02rem;
   font-weight: 900;
   line-height: 1.2;
-  color: #0f172a;
 }
 
 .BR-Accompagnement-Card p {
