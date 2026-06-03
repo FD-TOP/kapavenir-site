@@ -36,6 +36,7 @@ export default function ParticuliersPage() {
   const [ctRef, ctVis] = useReveal(0.3);
 
   const [activeStep, setActiveStep] = useAutoCycle(stVis, PT_STEPS.length, 2400);
+  const [activeSv, setActiveSv] = useAutoCycle(svVis, PT_SERVICES.length, 2600);
   const [activeBn, setActiveBn] = useAutoCycle(bnVis, PT_BENEFITS.length, 2000);
   const revealedDiffs = useSequentialReveal(dfVis, PT_DIFFS.length, 480);
 
@@ -130,7 +131,12 @@ export default function ParticuliersPage() {
           </div>
           <div className="PQ-Sv-Grid">
             {PT_SERVICES.map((s, i) => (
-              <div key={i} className="PQ-Sv-Card" style={{ '--sc': s.color, '--sv-i': i }}>
+              <div
+                key={i}
+                className={`PQ-Sv-Card${activeSv === i ? ' is-active' : ''}`}
+                style={{ '--sc': s.color, '--sv-i': i }}
+              >
+                {activeSv === i && <div className="PQ-Sv-Bar" aria-hidden="true" />}
                 <div className="PQ-Sv-IcoWrap">{s.icon}</div>
                 <div>
                   <h3 className="PQ-Sv-Title">{s.title}</h3>
@@ -142,6 +148,15 @@ export default function ParticuliersPage() {
                   </svg>
                 </div>
               </div>
+            ))}
+          </div>
+          <div className="PQ-Sv-Dots" aria-hidden="true">
+            {PT_SERVICES.map((s, i) => (
+              <span
+                key={i}
+                className={`PQ-Sv-Dot${activeSv === i ? ' is-active' : ''}`}
+                style={{ '--sc': s.color }}
+              />
             ))}
           </div>
         </div>

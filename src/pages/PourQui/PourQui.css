@@ -1101,17 +1101,23 @@
   font-weight: 600;
 }
 
-/* 4 — Services */
+/* 4 — Services (cycle auto, sans survol) */
 .PQ-Sv-Grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
 .PQ-Sv-Card {
   --sv-i: 0;
+  position: relative;
+  overflow: hidden;
   display: flex; align-items: center; gap: 16px; padding: 18px 20px;
   background: #fff; border: 1px solid var(--card-bd); border-radius: 14px;
   border-left: 3px solid var(--sc, #4381C1);
   box-shadow: var(--card-sh);
   opacity: 0;
   transform: translateY(22px) scale(0.97);
-  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s ease,
+    border-color 0.55s ease;
 }
 .PQ-Block.is-vis .PQ-Sv-Card {
   animation: pqSvCardIn 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -1121,20 +1127,52 @@
   from { opacity: 0; transform: translateY(26px) scale(0.94); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
-.PQ-Sv-Card:hover {
-  box-shadow: 0 14px 36px color-mix(in srgb, var(--sc, #4381C1) 22%, transparent);
-  transform: translateY(-6px) translateX(4px);
-  border-color: color-mix(in srgb, var(--sc, #4381C1) 35%, var(--card-bd));
+.PQ-Sv-Grid:has(.is-active) .PQ-Sv-Card:not(.is-active) {
+  opacity: 0.62;
+  transform: scale(0.98);
+}
+.PQ-Sv-Card.is-active {
+  opacity: 1 !important;
+  transform: translateY(-6px) translateX(5px) scale(1.02);
+  border-color: color-mix(in srgb, var(--sc, #4381C1) 40%, var(--card-bd));
+  box-shadow: 0 16px 40px color-mix(in srgb, var(--sc, #4381C1) 24%, transparent);
+}
+.PQ-Sv-Bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--sc, #4381C1), color-mix(in srgb, var(--sc, #4381C1) 55%, #00b6de));
+  border-radius: 0 0 14px 14px;
+  animation: pqSvBarFill 2.6s linear forwards;
+}
+@keyframes pqSvBarFill {
+  from { width: 0%; }
+  to   { width: 100%; }
 }
 .PQ-Sv-IcoWrap {
   width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
   background: color-mix(in srgb, var(--sc, #4381C1) 16%, #ffffff);
   display: flex; align-items: center; justify-content: center;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s ease;
+  transition: background 0.45s ease, box-shadow 0.45s ease;
 }
-.PQ-Sv-Card:hover .PQ-Sv-IcoWrap {
-  transform: scale(1.12) rotate(-5deg);
-  background: color-mix(in srgb, var(--sc, #4381C1) 26%, #ffffff);
+.PQ-Block.is-vis .PQ-Sv-IcoWrap {
+  animation: pqSvIcoIdle 3.6s ease-in-out infinite;
+  animation-delay: calc(var(--sv-i) * 0.45s);
+}
+.PQ-Sv-Card.is-active .PQ-Sv-IcoWrap {
+  background: color-mix(in srgb, var(--sc, #4381C1) 28%, #ffffff);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--sc, #4381C1) 30%, transparent);
+  animation: pqSvIcoActive 2.2s ease-in-out infinite;
+}
+@keyframes pqSvIcoIdle {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-2px) scale(1.03); }
+}
+@keyframes pqSvIcoActive {
+  0%, 100% { transform: scale(1.1) rotate(-4deg) translateY(0); }
+  50%      { transform: scale(1.14) rotate(4deg) translateY(-4px); }
 }
 .PQ-Sv-IcoWrap svg {
   width: 20px;
@@ -1152,16 +1190,38 @@
   color: #94a3b8;
   margin-left: auto;
   flex-shrink: 0;
-  transition: color 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .PQ-Sv-Chevron svg,
 .PQ-Sv-Chevron svg * {
   stroke: currentColor !important;
   color: currentColor !important;
 }
-.PQ-Sv-Card:hover .PQ-Sv-Chevron {
+.PQ-Sv-Card.is-active .PQ-Sv-Chevron {
   color: var(--sc, #00b6de);
-  transform: translateX(7px);
+  animation: pqSvChevronNudge 1.35s ease-in-out infinite;
+}
+@keyframes pqSvChevronNudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(8px); }
+}
+.PQ-Sv-Dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+.PQ-Sv-Dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.55);
+  transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+.PQ-Sv-Dot.is-active {
+  background: var(--sc, #4381C1);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--sc, #4381C1) 28%, transparent);
+  animation: pulseDot 1.5s ease-in-out infinite;
 }
 
 /* 5 — Timeline  (horizontal clean) */
@@ -1624,6 +1684,15 @@
   .PQ-Block.is-vis .PQ-Photo,
   .PQ-Block.is-vis .PQ-Sv-Card {
     animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  .PQ-Sv-IcoWrap,
+  .PQ-Sv-Chevron,
+  .PQ-Sv-Dot.is-active {
+    animation: none !important;
+  }
+  .PQ-Sv-Grid:has(.is-active) .PQ-Sv-Card:not(.is-active) {
     opacity: 1;
     transform: none;
   }
@@ -2554,9 +2623,6 @@
 .PQ-Block.is-vis .PQ-Promise-Card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 48px rgba(67, 129, 193, 0.18);
-}
-.PQ-Block.is-vis .PQ-Sv-Card:hover {
-  transform: translateY(-5px) translateX(4px);
 }
 .PQ-Counter {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
