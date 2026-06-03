@@ -289,31 +289,96 @@
 .BR-CardShell:nth-child(3) .BR-Card { animation-delay: 0.2s; }
 .BR-CardShell:nth-child(4) .BR-Card { animation-delay: 0.3s; }
 
-/* Ruban badge (maquette) */
+/* Ruban badge — coin premium */
 .BR-Card-Badge {
+  --badge-rot: 28deg;
   position: absolute;
-  top: 18px;
-  right: -34px;
-  z-index: 2;
+  top: 20px;
+  right: -32px;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 7px 38px;
-  background: linear-gradient(135deg, #00b6de 0%, #00a8d4 100%);
+  gap: 6px;
+  padding: 8px 40px 8px 34px;
+  background: var(--kap-premium-gradient);
   color: #fff;
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  transform: rotate(32deg);
-  box-shadow: 0 4px 14px rgba(0, 182, 222, 0.35);
+  line-height: 1.15;
+  transform: rotate(var(--badge-rot));
+  transform-origin: center center;
   white-space: nowrap;
+  pointer-events: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 1px solid rgba(0, 70, 130, 0.25);
+  box-shadow:
+    0 8px 22px rgba(0, 113, 188, 0.38),
+    0 2px 6px rgba(0, 191, 99, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.12));
+}
+
+.BR-Card-Badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.08) 38%,
+    transparent 62%
+  );
+  pointer-events: none;
+}
+
+.BR-Card-Badge::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 42%;
+  background: linear-gradient(180deg, transparent, rgba(0, 50, 100, 0.14));
   pointer-events: none;
 }
 
 .BR-Card-Badge-Icon {
-  font-size: 0.7rem;
-  line-height: 1;
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 6px rgba(0, 60, 120, 0.2);
+  color: #fff;
+}
+
+.BR-Card-Badge-Text {
+  position: relative;
+  z-index: 1;
+}
+
+.BR-Card-Badge--maitrise {
+  --badge-rot: 26deg;
+  box-shadow:
+    0 10px 26px rgba(0, 182, 222, 0.45),
+    0 4px 12px rgba(0, 191, 99, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.BR-Card-Badge--prestige {
+  background: linear-gradient(125deg, #005a9e 0%, #0071bc 22%, #00b6de 52%, #00bf63 100%);
+}
+
+.BR-Card-Badge--prestige .BR-Card-Badge-Icon {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.12));
 }
 
 .BR-Card:hover {
@@ -960,10 +1025,16 @@
     padding: 24px 18px 20px;
   }
   .BR-Card-Badge {
-    top: 14px;
-    right: -38px;
-    font-size: 0.58rem;
-    padding: 6px 34px;
+    top: 16px;
+    right: -36px;
+    font-size: 0.54rem;
+    padding: 7px 36px 7px 30px;
+    gap: 5px;
+  }
+
+  .BR-Card-Badge-Icon {
+    width: 18px;
+    height: 18px;
   }
 }
 

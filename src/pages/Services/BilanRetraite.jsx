@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import './BilanRetraite.css';
+import { Crown, Star } from 'lucide-react';
 import LogoSticker from '../../components/Common/LogoSticker';
 import KapGrad from '../../components/Common/KapGrad';
 
@@ -373,11 +374,15 @@ export default function BilanRetraite() {
           {packs.map((pack) => (
             <div key={pack.id} className="BR-CardShell">
               {pack.badge && (
-                <span className="BR-Card-Badge">
+                <span className={`BR-Card-Badge BR-Card-Badge--${pack.id}`}>
                   <span className="BR-Card-Badge-Icon" aria-hidden>
-                    {pack.badgeIcon === 'crown' ? '👑' : '⭐'}
+                    {pack.badgeIcon === 'crown' ? (
+                      <Crown size={12} strokeWidth={2.4} />
+                    ) : (
+                      <Star size={12} strokeWidth={2.4} fill="currentColor" />
+                    )}
                   </span>
-                  {pack.badge}
+                  <span className="BR-Card-Badge-Text">{pack.badge}</span>
                 </span>
               )}
               <div className="BR-Card">
