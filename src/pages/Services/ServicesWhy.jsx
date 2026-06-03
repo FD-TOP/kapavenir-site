@@ -33,7 +33,7 @@ export default function ServicesWhy() {
       <div className="pil-container">
         <header className="pil-header">
           <h2 className="pil-title">
-            Pourquoi nous <span className="pil-gradient">choisir</span> ?
+            Pourquoi nous <span className="pil-gradient">choisir&nbsp;?</span>
           </h2>
           <p className="pil-subtitle">
             Trois raisons de confier votre dossier retraite à KapAvenir : expertise pointue,
