@@ -22,7 +22,7 @@
 .KH-header {
   text-align: center;
   margin-bottom: 64px;
-  max-width: 780px;
+  max-width: min(100%, 1040px);
   margin-left: auto;
   margin-right: auto;
 }
@@ -43,11 +43,16 @@
   margin: 0 0 20px;
   color: #1a1a1b;
   font-size: clamp(1.7rem, 3vw, 2.4rem);
-  line-height: 1.3;
+  line-height: 1.35;
   font-weight: 800;
+  text-wrap: balance;
 }
 
 .KH-gradient { display: inline; }
+
+.KH-title-phrase {
+  white-space: nowrap;
+}
 
 .KH-subtitle {
   margin: 0;
@@ -174,6 +179,9 @@
   }
   .KH-header {
     margin-bottom: 40px;
+  }
+  .KH-title-phrase {
+    white-space: normal;
   }
   .KH-card {
     padding: 24px 20px;
