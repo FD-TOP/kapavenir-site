@@ -28,7 +28,7 @@ const highlights = [
   {
     icon: <Rocket size={28} />,
     title: 'Passer à l\'action',
-    desc: 'Bilan, optimisation, stratégie — transformez la compréhension en décisions concrètes.',
+    desc: 'Bilan, optimisation, stratégie, transformez la compréhension en décisions concrètes.',
   },
 ];
 
