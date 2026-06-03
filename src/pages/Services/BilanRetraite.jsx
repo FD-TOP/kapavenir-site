@@ -102,10 +102,7 @@ const packs = [
       'Détection des anomalies et incohérences',
       'Estimation optimisée des droits retraite (âge, montant, trimestres)',
       'Simulations selon plusieurs âges de départ',
-      'Recommandations stratégiques personnalisées',
-      'Aide aux démarches prioritaires auprès des caisses',
-      'Plan d’actions retraite clair et structuré',
-      'Conseils d’optimisation de premier niveau',
+      'Recommandations stratégiques personnalisées, et bien plus..',
     ],
   },
   {
