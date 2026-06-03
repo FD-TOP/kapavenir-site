@@ -22,57 +22,26 @@
 .KH-header {
   text-align: center;
   margin-bottom: 56px;
-}
-
-.KH-intro-panel {
-  max-width: 760px;
-  margin: 0 auto 28px;
-  padding: clamp(28px, 4vw, 40px) clamp(24px, 5vw, 48px);
-  border-radius: var(--radius-lg);
-  background: linear-gradient(145deg, rgba(0, 113, 188, 0.06) 0%, rgba(0, 191, 99, 0.05) 100%);
-  border: 1px solid rgba(0, 182, 222, 0.14);
-  box-shadow: var(--shadow-1);
-}
-
-.KH-kicker {
-  display: inline-block;
-  margin: 0 0 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: #0071bc;
-  background: rgba(0, 182, 222, 0.1);
-  padding: 6px 14px;
-  border-radius: 999px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .KH-title {
-  margin: 0 0 18px;
-  font-size: clamp(2.2rem, 5vw, 3.1rem);
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  margin: 0 0 28px;
+  color: #1a1a1b;
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.4;
+  text-wrap: balance;
 }
 
 .KH-gradient {
-  display: inline-block;
-}
-
-.KH-lead {
-  margin: 0;
-  color: #334155;
-  font-size: clamp(1.05rem, 2vw, 1.2rem);
-  line-height: 1.75;
-  font-weight: 500;
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
+  display: inline;
 }
 
 .KH-subtitle {
-  margin: 0 auto;
-  max-width: 640px;
+  margin: 0;
   color: #64748b;
   font-size: 1.05rem;
   line-height: 1.65;
@@ -138,8 +107,6 @@
   color: #64748b;
   font-size: 0.9rem;
   line-height: 1.65;
-  text-align: justify;
-  text-justify: inter-word;
 }
 
 /* ── Bouton CTA centré ───────────────────────────────────── */
@@ -196,20 +163,6 @@
     padding: var(--section-pad-mobile) 5%;
   }
 
-  .KH-intro-panel {
-    text-align: left;
-    padding: 24px 20px;
-  }
-
-  .KH-title {
-    text-align: center;
-  }
-
-  .KH-lead {
-    text-align: left;
-    hyphens: none;
-  }
-
   .KH-grid {
     grid-template-columns: 1fr;
   }
@@ -226,9 +179,5 @@
 
   .KH-card {
     padding: 24px 20px;
-  }
-
-  .KH-card-desc {
-    text-align: left;
   }
 }
