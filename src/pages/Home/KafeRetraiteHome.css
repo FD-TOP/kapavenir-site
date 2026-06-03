@@ -32,27 +32,15 @@
 }
 
 .KH-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  gap: 0.35em;
   width: 100%;
   margin: 0 0 28px;
   color: #1a1a1b;
   font-size: clamp(1.65rem, 3.2vw, 2.35rem);
   font-weight: 800;
-  line-height: 1.45;
+  line-height: 1.5;
+  text-align: center;
   hyphens: none;
   word-break: normal;
-}
-
-.KH-title-line {
-  display: block;
-  width: 100%;
-  text-align: justify;
-  text-justify: inter-word;
-  text-align-last: center;
 }
 
 .KH-gradient {
