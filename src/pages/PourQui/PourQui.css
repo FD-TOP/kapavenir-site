@@ -548,10 +548,25 @@
 
 .PQ-Title-Line {
   display: block;
+  white-space: nowrap;
 }
 
-.PQ-Title-Line:first-child {
-  margin-bottom: 0.06em;
+.PQ-Title-Line--1 {
+  margin-bottom: 0.08em;
+}
+
+.PQ-Title-Line--1 .PQ-Grad {
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .PQ-Title {
+    font-size: clamp(1.65rem, 8vw, 2.2rem);
+  }
+
+  .PQ-Title-Line {
+    white-space: normal;
+  }
 }
 .PQ-Accent { transition: opacity .6s; }
 .PQ-Desc {

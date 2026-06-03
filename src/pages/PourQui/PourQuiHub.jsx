@@ -71,10 +71,13 @@ export default function PourQuiHub() {
 
         <div className="PQ-Stage" key={`stage-${cur}`}>
           <h1 className="PQ-Title PQ-Stage-Item">
-            <span className="PQ-Title-Line">
-              Un <Grad className="PQ-Grad">accompagnement</Grad>
+            <span className="PQ-Title-Line PQ-Title-Line--1">
+              Un{'\u00A0'}
+              <Grad className="PQ-Grad">accompagnement</Grad>
             </span>
-            <span className="PQ-Title-Line">adapté à chaque situation</span>
+            <span className="PQ-Title-Line PQ-Title-Line--2">
+              adapté{'\u00A0'}à{'\u00A0'}chaque{'\u00A0'}situation
+            </span>
           </h1>
           <p className="PQ-Desc PQ-Stage-Item PQ-Stage-Item--d2">
             Que vous soyez un particulier, une entreprise ou un organisme, KapAvenir vous aide à sécuriser et optimiser la retraite avec une approche <strong>claire et personnalisée</strong>.
