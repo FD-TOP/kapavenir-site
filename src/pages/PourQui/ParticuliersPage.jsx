@@ -130,7 +130,7 @@ export default function ParticuliersPage() {
           </div>
           <div className="PQ-Sv-Grid">
             {PT_SERVICES.map((s, i) => (
-              <div key={i} className="PQ-Sv-Card" style={{ '--sc': s.color, transitionDelay: `${i * 100}ms` }}>
+              <div key={i} className="PQ-Sv-Card" style={{ '--sc': s.color, '--sv-i': i }}>
                 <div className="PQ-Sv-IcoWrap">{s.icon}</div>
                 <div>
                   <h3 className="PQ-Sv-Title">{s.title}</h3>
