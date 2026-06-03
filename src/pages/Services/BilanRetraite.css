@@ -229,8 +229,8 @@
 
 /* ── CARTE — base blanche ────────────────────────────────── */
 @keyframes BR-cardIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 .BR-Card {
   background: linear-gradient(165deg, #ffffff 0%, #fbfdff 55%, #ffffff 100%);
@@ -245,7 +245,7 @@
   position: relative;
   overflow: visible;
   text-align: center;
-  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease, border-color 0.3s;
+  transition: box-shadow 0.35s ease, border-color 0.3s;
   animation: BR-cardIn 0.55s both;
 }
 
@@ -296,7 +296,6 @@
 }
 
 .BR-Card:hover {
-  transform: translateY(-10px);
   box-shadow:
     0 28px 56px rgba(0, 113, 188, 0.12),
     0 12px 28px rgba(0, 191, 99, 0.08),
@@ -359,6 +358,17 @@
   text-transform: none;
   position: relative;
   z-index: 1;
+}
+
+.BR-Card-TitleGrad {
+  display: inline-block;
+  background-image: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .BR-Card-Tagline {
@@ -1040,17 +1050,3 @@
   }
 }
 
-/* Titres packs — dégradé charte (priorité sur styles globaux) */
-:is(h3, h4).BR-Card-Title,
-.BR-Card-Title.kap-grad {
-  display: block;
-  width: 100%;
-  background-image: linear-gradient(100deg, #0071bc 0%, #00b6de 55%, #00bf63 100%) !important;
-  background-size: 100% 100% !important;
-  background-repeat: no-repeat !important;
-  background-color: transparent !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-}
