@@ -392,11 +392,9 @@ export default function BilanRetraite() {
               <h3 className="BR-Card-Title">
                 <span className="BR-Card-TitleGrad">{pack.title}</span>
               </h3>
-              <p className="BR-Card-Tagline">{pack.tagline}</p>
+              <p className="BR-Card-Lead">{pack.intro}</p>
 
               <div className="BR-Price-Pill">{pack.pricePill}</div>
-
-              <p className="BR-Card-Lead">{pack.intro}</p>
 
               <ul className="BR-Features">
                 {pack.features.map((f, i) => (

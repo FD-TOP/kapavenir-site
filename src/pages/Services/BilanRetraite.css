@@ -394,15 +394,7 @@
   color: transparent;
 }
 
-.BR-Card-Tagline {
-  font-size: 0.86rem;
-  color: #64748b;
-  line-height: 1.58;
-  margin-bottom: 18px;
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-}
+/* .BR-Card-Tagline — retiré des cartes (intro affichée sous le titre) */
 
 /* Pilule prix — charte */
 .BR-Price-Pill {
@@ -427,7 +419,7 @@
   font-size: 0.87rem;
   color: #475569;
   line-height: 1.62;
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   text-align: left;
   position: relative;
   z-index: 1;
@@ -517,10 +509,6 @@
 
 /* Alignement visuel des blocs courts (grille 2×2 desktop) */
 @media (min-width: 901px) {
-  .BR-Card-Tagline {
-    min-height: 4.35em;
-  }
-
   .BR-Card-Lead {
     min-height: 5.4em;
   }
@@ -1026,7 +1014,6 @@
     min-height: unset;
   }
 
-  .BR-Card-Tagline,
   .BR-Card-Lead {
     min-height: unset;
   }
