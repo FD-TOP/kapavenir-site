@@ -104,8 +104,8 @@
 /* ─── Grille principale ─────────────────────────────────────── */
 .FT-Grid {
   display: grid;
-  grid-template-columns: minmax(240px, 1fr) minmax(320px, 1fr) minmax(250px, .8fr);
-  gap: clamp(24px, 3.5vw, 44px);
+  grid-template-columns: minmax(260px, 1.2fr) minmax(150px, 0.75fr) minmax(180px, 0.85fr) minmax(220px, 0.7fr);
+  gap: clamp(24px, 3.5vw, 40px);
   align-items: start;
   overflow: visible;
 }
@@ -132,60 +132,35 @@
 .FT-BrandPanel .nav-logo {
   margin-bottom: 18px;
   width: fit-content;
-  padding: 10px 14px;
+  padding: 12px 16px;
   border-radius: 16px;
-  background:
-    linear-gradient(110deg, rgba(0, 113, 188, 0.3) 0%, rgba(0, 182, 222, 0.22) 52%, rgba(0, 191, 99, 0.24) 100%),
-    rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(203, 235, 245, 0.36);
+  background: linear-gradient(
+    145deg,
+    rgba(0, 45, 95, 0.72) 0%,
+    rgba(0, 70, 120, 0.65) 50%,
+    rgba(0, 55, 100, 0.7) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow:
-    0 10px 22px rgba(9, 44, 76, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(7px);
+    0 10px 24px rgba(0, 20, 50, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .FT-BrandPanel .nav-logo-img {
   filter: saturate(1.08) contrast(1.08) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
 }
 
-.FT-Tagline {
-  font-size: clamp(1.25rem, 2.1vw, 1.55rem);
-  font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  margin: 0 0 12px;
-  color: var(--ft-text);
-}
-
-/* .FT-Grad — dégradé charte via index.css */
-
 .FT-Pitch {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.7;
-  color: var(--ft-muted);
-  margin: 0 0 18px;
-  max-width: 38ch;
-}
-
-.FT-Trust {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.FT-TrustItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.78rem;
-  font-weight: 600;
   color: var(--ft-text);
+  margin: 0 0 14px;
+  max-width: none;
 }
 
-.FT-TrustItem svg {
+.FT-Pitch strong {
+  font-weight: 800;
   color: #fff;
-  flex-shrink: 0;
 }
 
 .FT-CTA {
@@ -216,13 +191,16 @@
   align-self: start;
 }
 
-.FT-NavTitle {
-  font-size: 0.7rem;
+.FT-SectionTitle {
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin: 0 0 12px;
-  color: rgba(255, 255, 255, 0.94);
+  margin: 0 0 14px;
+  color: #1a1a1b !important;
+  -webkit-text-fill-color: #1a1a1b !important;
+  background: none !important;
+  background-image: none !important;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 .FT-NavList {
@@ -234,44 +212,51 @@
   gap: 2px;
 }
 
-.FT-NavList--main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px 12px;
-}
-
 .FT-NavLink {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 8px 10px;
-  margin: 0 -10px;
-  border-radius: 10px;
+  display: inline-block;
+  padding: 6px 0;
   text-decoration: none;
-  color: var(--ft-muted);
-  font-size: 0.84rem;
+  color: var(--ft-text);
+  font-size: 0.9rem;
   font-weight: 500;
-  transition: background 0.25s, color 0.25s, transform 0.25s;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .FT-NavLink:hover {
-  background: rgba(255, 255, 255, 0.2);
   color: #fff;
-  transform: translateX(3px);
+  opacity: 0.95;
 }
 
-.FT-NavLinkArrow {
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: opacity 0.25s, transform 0.25s;
-  color: #fff;
-  flex-shrink: 0;
+/* ─── Colonne contact ─────────────────────────────────────── */
+.FT-ContactCol {
+  padding-top: 4px;
+  align-self: start;
 }
 
-.FT-NavLink:hover .FT-NavLinkArrow {
-  opacity: 1;
-  transform: translateX(0);
+.FT-ContactList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.FT-ContactLink {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ft-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a.FT-ContactLink:hover {
+  color: #fff;
+}
+
+.FT-ContactLink--addr {
+  cursor: default;
 }
 
 /* ─── Visuel conseillère — photo peut dépasser haut / côtés ─── */
@@ -343,46 +328,6 @@
   text-transform: uppercase;
 }
 
-/* ─── Bandeau contact ───────────────────────────────────────── */
-.FT-ContactStrip {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px 28px;
-  margin-top: clamp(28px, 4vw, 40px);
-  padding: 18px 22px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-}
-
-.FT-ContactItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--ft-muted);
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-a.FT-ContactItem:hover {
-  color: #fff;
-  transform: translateY(-1px);
-}
-
-.FT-ContactItem svg {
-  color: #fff;
-  flex-shrink: 0;
-}
-
-.FT-ContactItem--addr {
-  cursor: default;
-}
-
 /* ─── Barre légale ──────────────────────────────────────────── */
 .FT-Bar {
   position: relative;
@@ -452,6 +397,10 @@ a.FT-ContactItem:hover {
     gap: 28px;
   }
 
+  .FT-BrandPanel {
+    grid-column: 1 / -1;
+  }
+
   .FT-Visual {
     grid-column: 1 / -1;
     width: min(100%, 300px);
@@ -466,10 +415,6 @@ a.FT-ContactItem:hover {
     bottom: -34px;
     height: 112%;
     transform: translateX(-50%) scale(1.16);
-  }
-
-  .FT-Nav {
-    grid-column: 1 / -1;
   }
 }
 
@@ -488,10 +433,6 @@ a.FT-ContactItem:hover {
 
   .FT-Nav {
     gap: 20px;
-  }
-
-  .FT-NavList--main {
-    grid-template-columns: 1fr;
   }
 
   .FT-Visual {
@@ -514,11 +455,6 @@ a.FT-ContactItem:hover {
     right: auto;
     transform: translateX(-50%);
     max-width: min(240px, calc(100% - 24px));
-  }
-
-  .FT-ContactStrip {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .FT-BarInner {

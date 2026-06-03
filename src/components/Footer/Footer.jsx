@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, MapPin, Phone, Shield } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './Footer.css';
 import '../Navbar/Navbar.css';
 
@@ -16,11 +16,6 @@ const NAV = [
   { label: 'Kafé retraite', to: '/kafe-retraite' },
   { label: 'À propos', to: '/a-propos' },
   { label: 'Contact', to: '/contact' },
-];
-
-const TRUST = [
-  { icon: Shield, text: 'Expertise retraite certifiée' },
-  { icon: Mail, text: 'Réponse sous 48 h' },
 ];
 
 export default function Footer() {
@@ -42,23 +37,16 @@ export default function Footer() {
               <img src={logoImg} alt="KapAvenir" className="nav-logo-img" draggable={false} />
             </Link>
 
-            <p className="FT-Tagline">
-              La retraite, enfin lisible et sereine.
+            <p className="FT-Pitch">
+              Préparer son départ à la retraite est loin d&apos;être une simple formalité, c&apos;est se
+              préparer à vivre un nouveau chapitre de sa vie.
             </p>
 
             <p className="FT-Pitch">
-              KapAvenir accompagne particuliers, entreprises et organismes pour sécuriser les droits,
-              optimiser les pensions et préparer chaque départ en toute confiance.
+              Chez <strong>KapAvenir</strong>, nous savons à quel point chaque trimestre compte. C&apos;est
+              pourquoi nous vous aidons à sécuriser votre dossier retraite pour éviter toute mauvaise
+              surprise et garantir les revenus pour lesquels vous avez durement travaillé.
             </p>
-
-            <div className="FT-Trust">
-              {TRUST.map(({ icon: Icon, text }) => (
-                <span key={text} className="FT-TrustItem">
-                  <Icon size={15} strokeWidth={2.2} aria-hidden />
-                  {text}
-                </span>
-              ))}
-            </div>
 
             <Link to="/contact" className="FT-CTA">
               Prendre rendez-vous
@@ -66,19 +54,39 @@ export default function Footer() {
             </Link>
           </div>
 
-          <nav className="FT-Nav" aria-label="Navigation principale du pied de page">
-            <h3 className="FT-NavTitle">Pages principales</h3>
-            <ul className="FT-NavList FT-NavList--main">
+          <nav className="FT-Nav" aria-label="Liens rapides du pied de page">
+            <h3 className="FT-SectionTitle">Liens rapides</h3>
+            <ul className="FT-NavList">
               {NAV.map((link) => (
                 <li key={link.to}>
                   <Link to={link.to} className="FT-NavLink">
-                    <span className="FT-NavLinkText">{link.label}</span>
-                    <ArrowRight size={14} className="FT-NavLinkArrow" aria-hidden />
+                    {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
+
+          <div className="FT-ContactCol" aria-label="Coordonnées KapAvenir">
+            <h3 className="FT-SectionTitle">Contact</h3>
+            <ul className="FT-ContactList">
+              <li>
+                <a href="mailto:contact@kapavenir.fr" className="FT-ContactLink">
+                  contact@kapavenir.fr
+                </a>
+              </li>
+              <li>
+                <a href="tel:+33139300000" className="FT-ContactLink">
+                  01 39 30 00 00
+                </a>
+              </li>
+              <li>
+                <span className="FT-ContactLink FT-ContactLink--addr">
+                  12 Av. des Prés, 78180 Montigny-le-Bretonneux
+                </span>
+              </li>
+            </ul>
+          </div>
 
           <div className="FT-Visual">
             <div className="FT-VisualBody">
@@ -99,20 +107,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="FT-ContactStrip">
-          <a href="mailto:contact@kapavenir.fr" className="FT-ContactItem">
-            <Mail size={16} strokeWidth={2} aria-hidden />
-            contact@kapavenir.fr
-          </a>
-          <a href="tel:+33139300000" className="FT-ContactItem">
-            <Phone size={16} strokeWidth={2} aria-hidden />
-            01 39 30 00 00
-          </a>
-          <span className="FT-ContactItem FT-ContactItem--addr">
-            <MapPin size={16} strokeWidth={2} aria-hidden />
-            12 Av. des Prés, 78180 Montigny-le-Bretonneux
-          </span>
-        </div>
       </div>
 
       <div className="FT-Bar">
