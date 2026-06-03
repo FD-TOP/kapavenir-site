@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PieChart, Rocket } from 'lucide-react';
+import { PieChart } from 'lucide-react';
 import './ServiceHero.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 
@@ -45,12 +45,6 @@ export default function ServiceHero() {
                 <PieChart size={20} />
               </div>
               <span>Je découvre les bilan retraite</span>
-            </button>
-            <button type="button" className="SH-Btn-Gradient" onClick={() => navigate('/services/aide-depart')}>
-              <div className="SH-Icon-Circle">
-                <Rocket size={20} />
-              </div>
-              <span>Je découvre les aides au départ en retraite</span>
             </button>
           </div>
         </div>
