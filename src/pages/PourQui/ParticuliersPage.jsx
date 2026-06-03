@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './PourQui.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 import PourQuiPageHero from './PourQuiPageHero';
-import meeting3 from '../../assets/meeting3.png';
+import woman3 from '../../assets/women3.jpeg';
 import {
   SLIDES,
   Icon,
@@ -98,27 +98,20 @@ export default function ParticuliersPage() {
         <LogoSticker size={70} bottom="10%" left="2%" rotation={-18} opacity={0.13} animation="float" hideMobile />
         <div className="PQ-Block-Inner PQ-Split PQ-Split--photo-right">
           <div className="PQ-Pb-Content">
-            <span className="PQ-Label PQ-Label--slate">Le problème</span>
             <h2 className="PQ-Block-Title">
               La retraite est complexe…<br /><Grad className="PQ-Grad">mais ça ne devrait pas l’être</Grad>
             </h2>
             <div className="PQ-Pb-List">
               {PROBLEMS.map((p, i) => (
-                <div key={i} className="PQ-Pb-Row" style={{ transitionDelay: `${i * 100}ms` }}>
+                <div key={i} className="PQ-Pb-Row" style={{ '--pb-i': i }}>
                   <div className="PQ-Pb-Ico">{p.icon}</div>
                   <span className="PQ-Pb-Text">{p.text}</span>
-                  <div className="PQ-Pb-Cross">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-                      <line x1="18" y1="6" x2="6" y2="18" />
-                      <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                  </div>
                 </div>
               ))}
             </div>
           </div>
           <div className="PQ-Photo-Wrap">
-            <img src={meeting3} alt="Complexité retraite" className="PQ-Photo" />
+            <img src={woman3} alt="Accompagnement retraite KapAvenir" className="PQ-Photo" />
             <div className="PQ-Photo-Float PQ-Photo-Float--tr">
               <div className="PQ-Float-Icon">{Icon.doc}</div>
               <span>+4 régimes différents</span>
