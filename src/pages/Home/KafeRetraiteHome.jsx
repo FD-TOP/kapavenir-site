@@ -45,15 +45,12 @@ export default function KafeRetraiteHome() {
         {/* ── En-tête centré ── */}
         <header className="KH-header">
           <h2 className="KH-title">
-            Le Kafé Retraite est un format
+            Le Kafé Retraite est un format d&apos;accompagnement{' '}
+            <KapGrad className="KH-gradient">humain et accessible</KapGrad>
             <br />
-            d&apos;accompagnement
+            qui permet de <KapGrad className="KH-gradient">mieux comprendre</KapGrad> la retraite
             <br />
-            <KapGrad className="KH-gradient">humain et accessible</KapGrad> qui permet de
-            <br />
-            <KapGrad className="KH-gradient">mieux comprendre</KapGrad> la retraite dans un
-            <br />
-            cadre convivial.
+            dans un cadre convivial.
           </h2>
           <p className="KH-subtitle">
             KapAvenir propose des rencontres (physiques ou digitales) où les participants peuvent&nbsp;:

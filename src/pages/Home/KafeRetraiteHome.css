@@ -32,8 +32,10 @@
   color: #1a1a1b;
   font-size: clamp(1.65rem, 3.2vw, 2.35rem);
   font-weight: 800;
-  line-height: 1.4;
-  text-wrap: balance;
+  line-height: 1.45;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .KH-gradient {
