@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, BookOpen, MessageCircle, UserCheck, Laptop, Rocket } from 'lucide-react';
 import LogoSticker from '../../components/Common/LogoSticker';
+import KapGrad from '../../components/Common/KapGrad';
 import './KafeRetraiteHome.css';
 
 const highlights = [
@@ -43,16 +44,18 @@ export default function KafeRetraiteHome() {
       <div className="KH-inner">
         {/* ── En-tête centré ── */}
         <header className="KH-header">
-          <p className="KH-kicker">Kafé Retraite</p>
-          <h2 className="KH-title">
-            Le Kafé Retraite est un format{'\u00A0'}d&apos;accompagnement{' '}
-            <span className="KH-gradient KH-title-phrase">humain et accessible</span>{' '}
-            qui permet de{' '}
-            <span className="KH-gradient KH-title-phrase">mieux comprendre</span>{' '}
-            la retraite dans un{'\u00A0'}cadre convivial.
-          </h2>
+          <div className="KH-intro-panel">
+            <p className="KH-kicker">Format KapAvenir</p>
+            <h2 className="KH-title">
+              <KapGrad className="KH-gradient">Kafé Retraite</KapGrad>
+            </h2>
+            <p className="KH-lead">
+              Le Kafé Retraite est un format d&apos;accompagnement humain et accessible qui permet
+              de mieux comprendre la retraite dans un cadre convivial.
+            </p>
+          </div>
           <p className="KH-subtitle">
-            KapAvenir propose des rencontres (physiques ou digitales) où les participants peuvent :
+            KapAvenir propose des rencontres (physiques ou digitales) où les participants peuvent&nbsp;:
           </p>
         </header>
 
