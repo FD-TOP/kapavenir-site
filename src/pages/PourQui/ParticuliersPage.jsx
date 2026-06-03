@@ -8,7 +8,6 @@ import {
   SLIDES,
   Icon,
   PROBLEMS,
-  PROMISES,
   PT_SERVICES,
   PT_STEPS,
   PT_BENEFITS,
@@ -30,7 +29,6 @@ export default function ParticuliersPage() {
   const age = useCounter(63, 1600, introVis);
   const montant = useCounter(1840, 2000, introVis);
   const [pbRef, pbVis] = useReveal();
-  const [prRef, prVis] = useReveal();
   const [svRef, svVis] = useReveal();
   const [stRef, stVis] = useReveal();
   const [bnRef, bnVis] = useReveal();
@@ -120,30 +118,6 @@ export default function ParticuliersPage() {
               <div className="PQ-Float-Icon">{Icon.alert}</div>
               <span>Droits souvent mal calculés</span>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div className={`PQ-Block ${prVis ? 'is-vis' : ''}`} ref={prRef}>
-        <LogoSticker size={88} top="5%" right="4%" rotation={-14} opacity={0.15} animation="wobble" hideMobile />
-        <div className="PQ-Block-Inner">
-          <div className="PQ-Head">
-            <span className="PQ-Label PQ-Label--blue">Notre promesse</span>
-            <h2 className="PQ-Block-Title">
-              Une approche <Grad className="PQ-Grad">simple</Grad>, <Grad className="PQ-Grad">claire</Grad> et <Grad className="PQ-Grad">actionnable</Grad>
-            </h2>
-          </div>
-          <div className="PQ-Promise-Grid">
-            {PROMISES.map((p, i) => (
-              <div key={i} className="PQ-Promise-Card" style={{ transitionDelay: `${i * 150}ms` }}>
-                <div className="PQ-Promise-Top">
-                  <div className="PQ-Promise-IcoBox">{p.icon}</div>
-                </div>
-                <h3 className="PQ-Promise-Title">{p.label}</h3>
-                <p className="PQ-Promise-Desc">{p.desc}</p>
-                <div className="PQ-Promise-Rule" />
-              </div>
-            ))}
           </div>
         </div>
       </div>
