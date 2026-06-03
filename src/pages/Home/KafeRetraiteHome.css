@@ -20,22 +20,39 @@
 
 /* ── En-tête ─────────────────────────────────────────────── */
 .KH-header {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 56px;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 .KH-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.35em;
+  width: 100%;
   margin: 0 0 28px;
   color: #1a1a1b;
   font-size: clamp(1.65rem, 3.2vw, 2.35rem);
   font-weight: 800;
   line-height: 1.45;
+  hyphens: none;
+  word-break: normal;
+}
+
+.KH-title-line {
+  display: block;
+  width: 100%;
   text-align: justify;
   text-justify: inter-word;
-  hyphens: auto;
+  text-align-last: center;
 }
 
 .KH-gradient {
