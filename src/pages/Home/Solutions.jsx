@@ -52,7 +52,7 @@ const Solutions = () => {
             <span className="sol-h2-lead">pour préparer votre retraite</span>
           </h2>
           <p className="sol-p">
-            Chez KapAvenir, nous simplifions la retraite pour que vous puissiez prendre vos décisions en toute sérénité. Du Bilan retraite à l’Aide au départ, nous vous accompagnons pas à pas ,avec des conseils clairs et un suivi personnalisé adapté à votre situation.
+            Chez KapAvenir, nous simplifions la retraite pour vous permettre de prendre vos décisions en toute sérénité. Du bilan retraite à l’optimisation de votre parcours, nous vous accompagnons à chaque étape grâce à des conseils clairs et un suivi personnalisé adapté à votre situation.
           </p>
         </div>
 
