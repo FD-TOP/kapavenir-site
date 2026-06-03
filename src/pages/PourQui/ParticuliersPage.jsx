@@ -47,9 +47,6 @@ export default function ParticuliersPage() {
         <button type="button" className="PQ-Btn PQ-Btn--solid" onClick={() => navigate('/services/bilan')}>
           Faire mon bilan retraite
         </button>
-        <button type="button" className="PQ-Btn PQ-Btn--border PQ-Btn--hero-ghost" onClick={() => navigate('/contact')}>
-          Estimer ma retraite
-        </button>
       </PourQuiPageHero>
 
       <div className={`PQ-Block PQ-Block--gradient ${introVis ? 'is-vis' : ''}`} ref={introRef}>
