@@ -233,8 +233,9 @@ export default function AideDepart() {
 
           <div className="BR-Grid">
             {packs.map((pack) => (
-              <div key={pack.id} className="BR-Card">
-                <div className="BR-Card-Accent" aria-hidden />
+              <div key={pack.id} className="BR-CardShell">
+                <div className="BR-Card">
+                  <div className="BR-Card-Accent" aria-hidden />
 
                 <div className="BR-Card-Meta">
                   <span className="BR-Card-Icon">
@@ -272,6 +273,7 @@ export default function AideDepart() {
                     />
                   </svg>
                 </button>
+                </div>
               </div>
             ))}
           </div>

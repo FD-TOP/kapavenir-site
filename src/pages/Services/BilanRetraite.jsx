@@ -371,8 +371,7 @@ export default function BilanRetraite() {
 
         <div className="BR-Grid">
           {packs.map((pack) => (
-            <div key={pack.id} className="BR-Card">
-              <div className="BR-Card-Accent" aria-hidden />
+            <div key={pack.id} className="BR-CardShell">
               {pack.badge && (
                 <span className="BR-Card-Badge">
                   <span className="BR-Card-Badge-Icon" aria-hidden>
@@ -381,6 +380,8 @@ export default function BilanRetraite() {
                   {pack.badge}
                 </span>
               )}
+              <div className="BR-Card">
+                <div className="BR-Card-Accent" aria-hidden />
 
               <div className="BR-Card-Meta">
                 <span className="BR-Card-Icon">
@@ -418,6 +419,7 @@ export default function BilanRetraite() {
                   />
                 </svg>
               </button>
+              </div>
             </div>
           ))}
         </div>

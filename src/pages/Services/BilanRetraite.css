@@ -241,6 +241,10 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+.BR-CardShell {
+  position: relative;
+}
+
 .BR-Card {
   background: linear-gradient(165deg, #ffffff 0%, #fbfdff 55%, #ffffff 100%);
   border-radius: 24px;
@@ -252,7 +256,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   text-align: center;
   transition: box-shadow 0.35s ease, border-color 0.3s;
   animation: BR-cardIn 0.55s both;
@@ -272,10 +276,10 @@
 .BR-Card:hover::before {
   opacity: 1;
 }
-.BR-Card:nth-child(1) { animation-delay: 0.0s; }
-.BR-Card:nth-child(2) { animation-delay: 0.1s; }
-.BR-Card:nth-child(3) { animation-delay: 0.2s; }
-.BR-Card:nth-child(4) { animation-delay: 0.3s; }
+.BR-CardShell:nth-child(1) .BR-Card { animation-delay: 0.0s; }
+.BR-CardShell:nth-child(2) .BR-Card { animation-delay: 0.1s; }
+.BR-CardShell:nth-child(3) .BR-Card { animation-delay: 0.2s; }
+.BR-CardShell:nth-child(4) .BR-Card { animation-delay: 0.3s; }
 
 /* Ruban badge (maquette) */
 .BR-Card-Badge {
@@ -312,16 +316,18 @@
   border-color: rgba(0, 191, 99, 0.42);
 }
 
-/* Bande accent — dégradé marque */
+/* Bande accent — dégradé marque (coins = border-radius de la carte) */
 .BR-Card-Accent {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 5px;
-  border-radius: 24px 24px 0 0;
+  border-radius: inherit;
   background: var(--kap-premium-gradient);
   box-shadow: 0 2px 12px rgba(0, 113, 188, 0.25);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* ── Icône ───────────────────────────────────────────────── */
@@ -1041,12 +1047,14 @@
 
 @media (prefers-reduced-motion: reduce) {
   .BR-Card,
+  .BR-CardShell .BR-Card,
   .BR-Card::before,
   .BR-Modal {
     animation: none !important;
   }
 
   .BR-Card,
+  .BR-CardShell .BR-Card,
   .BR-Card::before,
   .BR-Card-Icon,
   .BR-Btn,
