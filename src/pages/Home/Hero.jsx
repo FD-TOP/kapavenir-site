@@ -34,8 +34,9 @@ const Hero = () => {
             </p>
             
             <div className="hero-cta-group">
-              <button className="btn-bilan" onClick={() => navigate('/services/bilan')}>Je fais mon bilan retraite</button>
-              <button className="btn-depart" onClick={() => navigate('/services/aide-depart')}>Je pars en retraite</button>
+              <button className="btn-depart" onClick={() => navigate('/services/aide-depart')}>
+                Je pars en retraite
+              </button>
             </div>
           </div>
 
