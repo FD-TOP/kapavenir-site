@@ -15,7 +15,14 @@ export default function PourQuiPageHero({ slide, children }) {
 
   return (
     <section className={`PQ-PageHero ${entered ? 'is-entered' : ''}`} style={{ '--ph-ac': slide.color }}>
-      <div className="PQ-PageHero-Bg" style={{ backgroundImage: `url(${slide.image})` }} aria-hidden="true" />
+      <div
+        className="PQ-PageHero-Bg"
+        style={{
+          backgroundImage: `url(${slide.image})`,
+          '--pq-bg-position': slide.bgPosition ?? 'center center',
+        }}
+        aria-hidden="true"
+      />
       <div className="PQ-PageHero-Grid" aria-hidden="true" />
       <div className="PQ-PageHero-Mesh" aria-hidden="true">
         <span className="PQ-PageHero-Orb PQ-PageHero-Orb--1" />

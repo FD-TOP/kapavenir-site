@@ -212,7 +212,7 @@
 /* ═══ SOUS-PAGES — hero dédié ═════════════════════════════════ */
 .PQ-PageHero {
   position: relative;
-  min-height: clamp(520px, 72vh, 680px);
+  min-height: clamp(620px, 88vh, 860px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -228,14 +228,14 @@
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
-  transform: scale(1.1);
+  background-position: var(--pq-bg-position, center center);
+  transform: scale(1.02);
 }
 .PQ-PageHero.is-entered .PQ-PageHero-Bg {
   animation: pageHeroKen 12s ease-out forwards;
 }
 @keyframes pageHeroKen {
-  from { transform: scale(1.1); }
+  from { transform: scale(1.02); }
   to   { transform: scale(1); }
 }
 .PQ-PageHero-Grid {
@@ -2586,7 +2586,7 @@
   .PQ-Guide-Img { height: 280px; }
   .PQ-Guide-Text { font-size: .95rem; }
   .PQ-Hero { height: 88vh; min-height: 520px; }
-  .PQ-PageHero { min-height: clamp(460px, 68vh, 580px); }
+  .PQ-PageHero { min-height: clamp(540px, 82vh, 720px); }
   .PQ-Stage { padding: 0 20px 130px; }
   .PQ-Thumbs { display: none; } .PQ-Dots { display: flex; }
   .PQ-Promise-Grid { grid-template-columns: 1fr; }
