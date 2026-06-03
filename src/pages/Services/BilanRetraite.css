@@ -62,7 +62,12 @@
   letter-spacing: -0.02em;
 }
 
-.BR-Accent { display: inline; }
+.BR-Accent {
+  display: inline;
+  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(-2px);
+}
+
 .BR-Accent::after { display: none; }
 
 .BR-Intro {

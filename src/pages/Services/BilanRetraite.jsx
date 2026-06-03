@@ -334,8 +334,8 @@ export default function BilanRetraite() {
       <div className="BR-Container">
         <div className="BR-Header">
           <h2 className="BR-Title">
-            Quatre niveaux d’accompagnement pour votre{' '}
-            <span className="BR-Accent">bilan retraite</span>
+            Quatre niveaux <KapGrad className="BR-Accent">d&apos;accompagnement</KapGrad> pour votre{' '}
+            <KapGrad className="BR-Accent">bilan retraite</KapGrad>
           </h2>
           <p className="BR-Intro">
             Du diagnostic à l’accompagnement premium, choisissez la formule qui correspond à votre besoin et
