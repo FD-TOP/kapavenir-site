@@ -11,6 +11,7 @@ export const SLIDES = [
     id: 'particuliers',
     path: '/pour-qui/particuliers',
     image: couple1,
+    bgPosition: 'center 18%',
     label: 'Particuliers',
     sub: 'Retraite individuelle',
     color: '#4381C1',

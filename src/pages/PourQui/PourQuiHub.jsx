@@ -56,7 +56,10 @@ export default function PourQuiHub() {
           <div
             key={s.id}
             className={`PQ-Bg ${i === cur ? 'is-cur' : i === prev ? 'is-prev' : ''}`}
-            style={{ backgroundImage: `url(${s.image})` }}
+            style={{
+              backgroundImage: `url(${s.image})`,
+              '--pq-bg-position': s.bgPosition ?? 'center center',
+            }}
             aria-hidden="true"
           />
         ))}
