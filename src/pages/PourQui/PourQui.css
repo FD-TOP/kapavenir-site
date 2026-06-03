@@ -961,11 +961,11 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .PQ-Block.is-vis .PQ-Pb-Row {
-  animation: pqPbRowIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(var(--pb-i) * 0.11s + 0.08s);
+  animation: pqPbRowIn 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--pb-i) * 0.24s + 0.25s);
 }
 @keyframes pqPbRowIn {
-  from { opacity: 0; transform: translateX(-22px); }
+  from { opacity: 0; transform: translateX(-28px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 .PQ-Pb-Row:hover {
