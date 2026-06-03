@@ -70,12 +70,20 @@
 }
 
 .F-pre-title {
-  display: block;
+  display: inline-block;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 0.75rem;
+  letter-spacing: 3px;
+  font-size: 0.78rem;
   margin-bottom: 20px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 .F-main-title {
