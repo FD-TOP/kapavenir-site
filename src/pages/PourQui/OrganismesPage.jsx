@@ -7,6 +7,7 @@ import {
   SLIDES,
   Icon,
   OR_PILLARS,
+  couple4,
   OR_SERVICES,
   OR_STEPS,
   OR_DIFFS,
@@ -47,36 +48,47 @@ export default function OrganismesPage() {
               Une <Grad className="OR-Grad">offre retraite</Grad> pensée <Grad className="OR-Green">pour vos enjeux</Grad>
             </h2>
           </div>
-          <div className="OR-Pillars">
-            {OR_PILLARS.map((p, i) => (
-              <div
-                key={p.key}
-                className={`OR-Pillar ${activeOrPil === i ? 'is-active' : ''}`}
-                style={{ '--pc': p.color, '--i': i }}
-                onClick={() => setActiveOrPil(i)}
-                onMouseEnter={() => setActiveOrPil(i)}
-              >
-                <div className="OR-Pillar-Face">
-                  <div className="OR-Pillar-Top">
-                    <div className="OR-Pillar-Dot" />
-                    <h3 className="OR-Pillar-Title">{p.title}</h3>
-                  </div>
-                  <p className="OR-Pillar-Desc">{p.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="OR-Pillars-Dots">
-            {OR_PILLARS.map((p, i) => (
-              <button
-                key={p.key}
-                type="button"
-                className={`OR-Pillars-Dot ${activeOrPil === i ? 'is-active' : ''}`}
-                style={{ '--pc': p.color }}
-                onClick={() => setActiveOrPil(i)}
-                aria-label={`Voir le pilier ${p.title}`}
+          <div className="OR-Pillars-Split">
+            <div className="PQ-Photo-Wrap OR-Pillars-Photo">
+              <img
+                src={couple4}
+                alt="Couple accompagné dans ses décisions retraite"
+                className="PQ-Photo"
               />
-            ))}
+            </div>
+            <div className="OR-Pillars-Col">
+              <div className="OR-Pillars">
+                {OR_PILLARS.map((p, i) => (
+                  <div
+                    key={p.key}
+                    className={`OR-Pillar ${activeOrPil === i ? 'is-active' : ''}`}
+                    style={{ '--pc': p.color, '--i': i }}
+                    onClick={() => setActiveOrPil(i)}
+                    onMouseEnter={() => setActiveOrPil(i)}
+                  >
+                    <div className="OR-Pillar-Face">
+                      <div className="OR-Pillar-Top">
+                        <div className="OR-Pillar-Dot" />
+                        <h3 className="OR-Pillar-Title">{p.title}</h3>
+                      </div>
+                      <p className="OR-Pillar-Desc">{p.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="OR-Pillars-Dots">
+                {OR_PILLARS.map((p, i) => (
+                  <button
+                    key={p.key}
+                    type="button"
+                    className={`OR-Pillars-Dot ${activeOrPil === i ? 'is-active' : ''}`}
+                    style={{ '--pc': p.color }}
+                    onClick={() => setActiveOrPil(i)}
+                    aria-label={`Voir le pilier ${p.title}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

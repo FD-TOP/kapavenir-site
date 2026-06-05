@@ -3,6 +3,8 @@ import KapGrad from '../../components/Common/KapGrad';
 
 import couple1 from '../../assets/couple1.jpeg';
 import couple4 from '../../assets/couple4.jpeg';
+
+export { couple4 };
 import meeting3 from '../../assets/meeting3.png';
 import meeting4 from '../../assets/meeting4.jpg';
 
