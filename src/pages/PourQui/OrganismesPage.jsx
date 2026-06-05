@@ -34,10 +34,7 @@ export default function OrganismesPage() {
     <div className="PQ-Root PQ-Root--subpage PQ-Root--org">
       <PourQuiPageHero slide={slide}>
         <button type="button" className="OR-Btn OR-Btn--solid" onClick={() => navigate('/contact')}>
-          Demander une démo gratuite
-        </button>
-        <button type="button" className="OR-Btn OR-Btn--ghost PQ-Btn--hero-ghost" onClick={() => navigate('/contact')}>
-          Nous contacter
+          Parler à un expert
         </button>
       </PourQuiPageHero>
 
