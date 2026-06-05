@@ -211,7 +211,7 @@ export default function ParticuliersPage() {
                 {activeBn === i && <div className="PQ-Bn-Bar" key={`bnbar-${i}`} />}
                 <div className="PQ-Bn-IcoWrap">{b.icon}</div>
                 <strong className="PQ-Bn-Title">{renderBnParts(b.titleParts)}</strong>
-                {b.subParts.length > 0 ? <span className="PQ-Bn-Sub">{renderBnParts(b.subParts)}</span> : null}
+                {b.subParts.length > 0 ? <strong className="PQ-Bn-Sub">{renderBnParts(b.subParts)}</strong> : null}
               </div>
             ))}
           </div>

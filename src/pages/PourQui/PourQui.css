@@ -1329,8 +1329,19 @@
   box-shadow: 0 4px 14px rgba(0, 113, 188, 0.12);
 }
 .PQ-Bn-IcoWrap svg { width: 22px; height: 22px; }
-.PQ-Bn-Title { font-size: .85rem; font-weight: 800; color: var(--k-dark); text-align: center; line-height: 1.35; }
-.PQ-Bn-Sub   { font-size: .72rem; color: var(--k-muted); text-align: center; line-height: 1.25; margin-top: 2px; }
+.PQ-Bn-Title,
+.PQ-Bn-Sub {
+  font-size: .85rem;
+  font-weight: 800;
+  color: var(--k-dark);
+  text-align: center;
+  line-height: 1.35;
+}
+.PQ-Bn-Sub { margin-top: 0; }
+.PQ-Bn-Title :is(.PQ-Grad, .kap-grad),
+.PQ-Bn-Sub :is(.PQ-Grad, .kap-grad) {
+  font-weight: 800;
+}
 /* Texte actif → kap-grad.css (.PQ-Bn-Card.is-active …) */
 
 /* 7 — Différenciation */
