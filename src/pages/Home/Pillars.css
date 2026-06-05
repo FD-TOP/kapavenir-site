@@ -91,77 +91,38 @@
   }
 }
 
-@keyframes pilIconBlue1 {
+/* Mise en avant légère — charte (dégradé, pas de fond sombre) */
+@keyframes pilIconHighlight {
   0%,
   33% {
-    background: #001f3d;
-    color: #ffffff;
-    transform: rotate(10deg) scale(1.08);
-    box-shadow: 0 16px 40px rgba(0, 20, 50, 0.45);
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: rgba(0, 182, 222, 0.07);
+    transform: rotate(8deg) scale(1.1);
+    box-shadow: 0 14px 36px rgba(0, 113, 188, 0.14);
+    border-color: rgba(0, 182, 222, 0.28);
   }
   34%,
   100% {
     background: transparent;
-    color: #0071bc;
     transform: rotate(0) scale(1);
     box-shadow: none;
     border-color: transparent;
   }
 }
 
-@keyframes pilIconBlue3 {
+@keyframes pilIconHighlightAlt {
   0%,
   33% {
-    background: #001f3d;
-    color: #ffffff;
-    transform: rotate(10deg) scale(1.08);
-    box-shadow: 0 16px 40px rgba(0, 20, 50, 0.45);
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: rgba(0, 191, 99, 0.07);
+    transform: rotate(-8deg) scale(1.1);
+    box-shadow: 0 14px 36px rgba(0, 191, 99, 0.14);
+    border-color: rgba(0, 191, 99, 0.28);
   }
   34%,
   100% {
     background: transparent;
-    color: #00b6de;
     transform: rotate(0) scale(1);
     box-shadow: none;
     border-color: transparent;
-  }
-}
-
-@keyframes pilIconGreen {
-  0%,
-  33% {
-    background: #004d2a;
-    color: #ffffff;
-    transform: rotate(-10deg) scale(1.08);
-    box-shadow: 0 16px 40px rgba(0, 40, 30, 0.45);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-  }
-  34%,
-  100% {
-    background: transparent;
-    color: #00a356;
-    transform: rotate(0) scale(1);
-    box-shadow: none;
-    border-color: transparent;
-  }
-}
-
-/* Traits blancs pendant la mise en avant (évite le conflit dégradé SVG / fond coloré) */
-@keyframes pilIconStrokeHighlight {
-  0%,
-  33% {
-    stroke: #ffffff !important;
-    color: #ffffff !important;
-    fill: none !important;
-    opacity: 1 !important;
-  }
-  34%,
-  100% {
-    stroke: url(#kap-brand-gradient) !important;
-    color: url(#kap-brand-gradient) !important;
-    fill: none !important;
   }
 }
 
@@ -176,11 +137,7 @@
 }
 
 .pil-item--1 .pil-icon-wrap {
-  animation: pilIconBlue1 9s ease-in-out infinite;
-}
-
-.pil-item--1 .pil-icon-wrap :is(svg, svg *, path, circle, line, polyline) {
-  animation: pilIconStrokeHighlight 9s ease-in-out infinite;
+  animation: pilIconHighlight 9s ease-in-out infinite;
 }
 
 .pil-item--2 {
@@ -189,12 +146,7 @@
 }
 
 .pil-item--2 .pil-icon-wrap {
-  animation: pilIconGreen 9s ease-in-out infinite;
-  animation-delay: 3s;
-}
-
-.pil-item--2 .pil-icon-wrap :is(svg, svg *, path, circle, line, polyline) {
-  animation: pilIconStrokeHighlight 9s ease-in-out infinite;
+  animation: pilIconHighlightAlt 9s ease-in-out infinite;
   animation-delay: 3s;
 }
 
@@ -204,12 +156,7 @@
 }
 
 .pil-item--3 .pil-icon-wrap {
-  animation: pilIconBlue3 9s ease-in-out infinite;
-  animation-delay: 6s;
-}
-
-.pil-item--3 .pil-icon-wrap :is(svg, svg *, path, circle, line, polyline) {
-  animation: pilIconStrokeHighlight 9s ease-in-out infinite;
+  animation: pilIconHighlight 9s ease-in-out infinite;
   animation-delay: 6s;
 }
 
@@ -219,10 +166,7 @@
   .pil-item--3,
   .pil-item--1 .pil-icon-wrap,
   .pil-item--2 .pil-icon-wrap,
-  .pil-item--3 .pil-icon-wrap,
-  .pil-item--1 .pil-icon-wrap :is(svg, svg *, path, circle, line, polyline),
-  .pil-item--2 .pil-icon-wrap :is(svg, svg *, path, circle, line, polyline),
-  .pil-item--3 .pil-icon-wrap :is(svg, svg *, path, circle, line, polyline) {
+  .pil-item--3 .pil-icon-wrap {
     animation: none !important;
   }
 }
