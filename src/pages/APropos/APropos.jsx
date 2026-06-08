@@ -17,8 +17,7 @@ import salut from '../../assets/salut.jpg';
 import couple5 from '../../assets/couple5.jpg';
 import couple10 from '../../assets/couple10.jpg';
 import couple77 from '../../assets/couple77.jpg';
-import couple11 from '../../assets/couple11.jpg';
-import '../Home/PreFooter.css';
+import couple88 from '../../assets/couple88.jpg';
 import './APropos.css';
 
 const sectionByPath = {
@@ -291,62 +290,59 @@ export default function APropos() {
             </div>
           </div>
         </section>
-      </div>
 
-      <section
-        id="expertise"
-        ref={expRef}
-        className={`ap-exp-cta F-ethereal-layout ${expRevealed ? 'is-revealed' : ''}`}
-        aria-labelledby="ap-exp-title"
-      >
-        <LogoSticker size={92} top="8%" left="2%" rotation={-14} opacity={0.18} animation="wobble" hideMobile />
-        <LogoSticker size={78} bottom="10%" right="2%" rotation={12} opacity={0.14} animation="float" hideMobile />
-
-        <div className="F-bg-image-container">
-          <img src={couple11} alt="" className="F-bg-parallax" role="presentation" />
-          <div className="F-bg-overlay" />
-        </div>
-
-        <div className="F-container ap-exp-container">
-          <div className="F-glass-card ap-exp-glass-card">
-            <div className="F-card-content">
-              <header className="F-header">
-                <h2 id="ap-exp-title" className="F-main-title">
-                  Une expertise <span className="F-gradient-text">solide</span>
-                </h2>
-                <div className="F-separator" />
-              </header>
-
-              <p className="F-description ap-exp-description">
+        <section
+          id="expertise"
+          ref={expRef}
+          className={`ap-panel ap-panel--expertise ${expRevealed ? 'is-revealed' : ''}`}
+          aria-labelledby="ap-exp-title"
+        >
+          <div className="ap-exp-layout">
+            <div className="ap-exp-copy">
+              <h2 id="ap-exp-title">
+                Une expertise <span className="kap-grad">solide</span>
+              </h2>
+              <p className="ap-exp-lead">
                 Une équipe spécialisée pour décrypter votre situation, sécuriser vos droits et optimiser chaque étape de
                 votre parcours retraite.
               </p>
 
-              <ul className="ap-exp-premium-list">
+              <div className="ap-exp-rail" aria-hidden>
+                <span
+                  className="ap-exp-rail-fill"
+                  style={{ width: `${((activeExp + 1) / expertisePoints.length) * 100}%` }}
+                />
+              </div>
+
+              <ul className="ap-exp-grid">
                 {expertisePoints.map((point, index) => {
                   const Icon = point.icon;
                   return (
                     <li key={point.text}>
                       <button
                         type="button"
-                        className={`ap-exp-premium-item ${activeExp === index ? 'is-active' : ''}`}
+                        className={`ap-exp-card ${activeExp === index ? 'is-active' : ''}`}
                         aria-pressed={activeExp === index}
                         onClick={() => setActiveExp(index)}
+                        style={{ '--i': index }}
                       >
-                        <span className="ap-exp-premium-icon" aria-hidden>
-                          <Icon size={18} strokeWidth={2.2} />
+                        <span className="ap-exp-card-icon" aria-hidden>
+                          <Icon size={20} strokeWidth={2.2} />
                         </span>
-                        <span>{point.text}</span>
+                        <span className="ap-exp-card-text">{point.text}</span>
                       </button>
                     </li>
                   );
                 })}
               </ul>
             </div>
-            <div className="F-card-border-glow" />
+
+            <figure className="ap-exp-media">
+              <img src={couple88} alt="Expertise KapAvenir en accompagnement retraite" />
+            </figure>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <section id="credibilite" className="ap-panel ap-panel--cred">
         <Testimonials />
