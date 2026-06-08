@@ -106,7 +106,18 @@ export default function Etapes() {
         </div>
 
         <div className="etp-right">
-          <img src={couple2} alt="Accompagnement KapAvenir" className="etp-image" />
+          <div className="etp-photo-stage">
+            <div className="etp-photo-blob etp-photo-blob--a" aria-hidden />
+            <div className="etp-photo-blob etp-photo-blob--b" aria-hidden />
+            <div className="etp-photo-ring" aria-hidden />
+            <div className="etp-photo-mask">
+              <img src={couple2} alt="Accompagnement KapAvenir" className="etp-image" />
+            </div>
+            <div className="etp-photo-chip">
+              <span className="etp-photo-chip-dot" aria-hidden />
+              Accompagnement humain
+            </div>
+          </div>
         </div>
       </section>
 
