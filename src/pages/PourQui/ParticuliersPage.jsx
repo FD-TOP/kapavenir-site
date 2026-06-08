@@ -37,7 +37,7 @@ export default function ParticuliersPage() {
 
   const [activeStep, setActiveStep] = useAutoCycle(stVis, PT_STEPS.length, 2400);
   const [activeSv, setActiveSv] = useAutoCycle(svVis, PT_SERVICES.length, 2600);
-  const [activeBn, setActiveBn] = useAutoCycle(bnVis, PT_BENEFITS.length, 2000);
+  const [activeBn, setActiveBn] = useAutoCycle(bnVis, PT_BENEFITS.length, 3200);
   const revealedDiffs = useSequentialReveal(dfVis, PT_DIFFS.length, 480);
 
   return (
