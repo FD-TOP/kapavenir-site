@@ -179,7 +179,6 @@ export default function EntreprisesRhPage() {
       <div className={`ER-Block ER-Block--tint ${bnVis ? 'is-vis' : ''}`} ref={bnRef}>
         <div className="ER-Inner">
           <div className="ER-Head">
-            <span className="ER-Label">Les bénéfices</span>
             <h2 className="ER-Title">
               Ce que vous <Grad className="ER-Cyan">y gagnez</Grad>
             </h2>
@@ -193,10 +192,7 @@ export default function EntreprisesRhPage() {
                 onMouseEnter={() => setActiveErBn(i)}
                 onClick={() => setActiveErBn(i)}
               >
-                <div className="ER-Bn-ItemTop">
-                  <span className="ER-Bn-Num">{`0${i + 1}`.slice(-2)}</span>
-                  <span className="ER-Bn-Pulse" />
-                </div>
+                <span className="ER-Bn-Pulse" aria-hidden="true" />
                 <div className="ER-Bn-ItemBody">
                   <div className="ER-Bn-IconWrap">
                     <span className="ER-Bn-Icon">{b.icon}</span>
