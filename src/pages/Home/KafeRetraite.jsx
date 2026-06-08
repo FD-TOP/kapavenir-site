@@ -173,16 +173,19 @@ export default function KafeRetraite() {
             <article className="K-info-card K-animate">
               <div className="K-info-content">
                 <h3>Pourquoi participer ?</h3>
-                <p className="K-info-intro">Parce que dans la majorité des cas :</p>
-                <div className="K-info-columns">
-                  <ul>
-                    {whyParticipate.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                  <p className="K-info-arrow">→</p>
-                  <div className="K-info-result-col">
-                    <p className="K-info-intro K-info-result-label">Résultat :</p>
+                <div className="K-info-compare">
+                  <div className="K-info-labels">
+                    <p className="K-info-intro">Parce que dans la majorité des cas :</p>
+                    <span className="K-info-label-spacer" aria-hidden="true" />
+                    <p className="K-info-intro">Résultat :</p>
+                  </div>
+                  <div className="K-info-columns">
+                    <ul>
+                      {whyParticipate.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                    <p className="K-info-arrow">→</p>
                     <ul className="K-result-list">
                       {resultPoints.map((item) => (
                         <li key={item}>{item}</li>
