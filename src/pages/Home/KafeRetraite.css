@@ -387,6 +387,14 @@
   align-items: start;
 }
 
+.K-info-result-col .K-info-result-label {
+  margin-bottom: 10px;
+}
+
+.K-info-result-col .K-result-list {
+  margin: 0;
+}
+
 .K-info-columns ul,
 .K-outcome-list {
   margin: 0;

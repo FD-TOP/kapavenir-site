@@ -181,13 +181,16 @@ export default function KafeRetraite() {
                     ))}
                   </ul>
                   <p className="K-info-arrow">→</p>
-                  <ul className="K-result-list">
-                    {resultPoints.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  <div className="K-info-result-col">
+                    <p className="K-info-intro K-info-result-label">Résultat :</p>
+                    <ul className="K-result-list">
+                      {resultPoints.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <p className="K-info-note">Le Kafe Retraite vous permet d anticiper et d eviter cela.</p>
+                <p className="K-info-note">Le Kafé Retraite vous permet d’anticiper et d’éviter cela.</p>
               </div>
             <img src={grp1} alt="Session Kafe Retraite" className="K-info-image" />
             </article>
