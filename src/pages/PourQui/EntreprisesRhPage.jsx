@@ -249,9 +249,11 @@ export default function EntreprisesRhPage() {
         <div className="ER-CTA-Inner">
           <span className="ER-CTA-Eye">Passez à l&apos;action</span>
           <h2 className="ER-CTA-Title">
-            Vous êtes intéressé(e)s par nos <Grad className="ER-Cyan">prestations</Grad> ?
+            Vous êtes intéressé(e)s par <Grad className="ER-Cyan">nos</Grad>{' '}
+            <Grad className="ER-Cyan">prestations</Grad>
+            <Grad className="ER-Cyan"> ?</Grad>
           </h2>
-          <p className="ER-CTA-Sub">Un devis personnalisé en 48h — sans engagement.</p>
+          <p className="ER-CTA-Sub">Un devis personnalisé en 48h, sans engagement.</p>
           <div className="ER-CTA-Btns">
             <button type="button" className="ER-Btn ER-Btn--white" onClick={() => navigate('/contact')}>
               Échanger avec un expert
