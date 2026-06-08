@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BookOpen, LineChart, CircleCheck, ChevronRight } from 'lucide-react';
 import './PourQui.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 import PourQuiPageHero from './PourQuiPageHero';
@@ -18,6 +19,12 @@ import {
 } from './pourQuiShared';
 
 const slide = SLIDES[1];
+
+const OR_PILLAR_ICONS = {
+  A: BookOpen,
+  B: LineChart,
+  C: CircleCheck,
+};
 
 export default function OrganismesPage() {
   const navigate = useNavigate();
@@ -67,30 +74,58 @@ export default function OrganismesPage() {
             </div>
 
             <div className="OR-Approach-Panel">
-              <div className="OR-Approach-Rail">
-                <div
-                  className="OR-Approach-RailFill"
-                  style={{ height: `${((activeOrPil + 1) / OR_PILLARS.length) * 100}%` }}
-                />
+              <div className="OR-Approach-PanelHead">
+                <span className="OR-Approach-Kicker">3 étapes clés</span>
+                <p className="OR-Approach-PanelSub">Un parcours structuré pour accompagner chaque assuré</p>
               </div>
-              <div className="OR-Approach-Steps">
-                {OR_PILLARS.map((p, i) => (
-                  <button
-                    key={p.key}
-                    type="button"
-                    className={`OR-Approach-Step${activeOrPil === i ? ' is-active' : ''}`}
-                    style={{ '--pc': p.color, '--i': i }}
-                    onClick={() => setActiveOrPil(i)}
-                    onMouseEnter={() => setActiveOrPil(i)}
-                    aria-expanded={activeOrPil === i}
-                  >
-                    <span className="OR-Approach-Num">0{i + 1}</span>
-                    <span className="OR-Approach-StepBody">
-                      <strong className="OR-Approach-Title">{p.title}</strong>
-                      <span className="OR-Approach-Desc">{p.desc}</span>
-                    </span>
-                  </button>
-                ))}
+
+              <div className="OR-Approach-PanelBody">
+                <div className="OR-Approach-Track" aria-hidden>
+                  <div className="OR-Approach-Rail">
+                    <div
+                      className="OR-Approach-RailFill"
+                      style={{ height: `${((activeOrPil + 1) / OR_PILLARS.length) * 100}%` }}
+                    />
+                  </div>
+                  {OR_PILLARS.map((p, i) => (
+                    <span
+                      key={p.key}
+                      className={`OR-Approach-RailNode${activeOrPil === i ? ' is-active' : ''}${activeOrPil > i ? ' is-done' : ''}`}
+                      style={{ '--pc': p.color }}
+                    />
+                  ))}
+                </div>
+
+                <div className="OR-Approach-Steps">
+                  {OR_PILLARS.map((p, i) => {
+                    const Ico = OR_PILLAR_ICONS[p.key];
+                    return (
+                      <button
+                        key={p.key}
+                        type="button"
+                        className={`OR-Approach-Step${activeOrPil === i ? ' is-active' : ''}`}
+                        style={{ '--pc': p.color, '--i': i }}
+                        onClick={() => setActiveOrPil(i)}
+                        onMouseEnter={() => setActiveOrPil(i)}
+                        aria-expanded={activeOrPil === i}
+                      >
+                        <span className="OR-Approach-IcoWrap">
+                          <Ico size={22} strokeWidth={2.2} />
+                        </span>
+                        <span className="OR-Approach-StepBody">
+                          <span className="OR-Approach-StepMeta">
+                            <span className="OR-Approach-Num">0{i + 1}</span>
+                            <span className="OR-Approach-Tag">Étape {i + 1}</span>
+                          </span>
+                          <strong className="OR-Approach-Title">{p.title}</strong>
+                          <span className="OR-Approach-Desc">{p.desc}</span>
+                        </span>
+                        <ChevronRight size={18} className="OR-Approach-Chevron" strokeWidth={2.5} />
+                        {activeOrPil === i && <span className="OR-Approach-StepBar" key={`orbar-${i}`} />}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

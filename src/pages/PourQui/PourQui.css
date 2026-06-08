@@ -1638,16 +1638,70 @@
 }
 .OR-Approach-Panel {
   display: flex;
-  gap: 18px;
-  align-items: stretch;
+  flex-direction: column;
+  gap: 22px;
   min-height: 100%;
+  padding: clamp(22px, 3vw, 30px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(244, 250, 255, 0.9)),
+    radial-gradient(circle at 100% 0%, rgba(0, 182, 222, 0.1), transparent 42%);
+  box-shadow:
+    0 20px 56px rgba(0, 35, 70, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.OR-Approach-PanelHead {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(0, 113, 188, 0.08);
+}
+.OR-Approach-Kicker {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0071bc;
+  background: rgba(0, 113, 188, 0.08);
+  border: 1px solid rgba(0, 182, 222, 0.18);
+}
+.OR-Approach-PanelSub {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #64748b;
+  line-height: 1.5;
+}
+.OR-Approach-PanelBody {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  flex: 1;
+}
+.OR-Approach-Track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34px 0;
 }
 .OR-Approach-Rail {
-  width: 4px;
-  flex-shrink: 0;
+  position: absolute;
+  top: 34px;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
   border-radius: 999px;
-  background: rgba(0, 113, 188, 0.1);
-  position: relative;
+  background: rgba(0, 113, 188, 0.12);
   overflow: hidden;
 }
 .OR-Approach-RailFill {
@@ -1657,29 +1711,55 @@
   width: 100%;
   border-radius: inherit;
   background: linear-gradient(180deg, #0071bc, #00b6de 55%, #00bf63);
-  transition: height 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: height 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 14px rgba(0, 182, 222, 0.35);
+}
+.OR-Approach-RailNode {
+  --pc: #00bf63;
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid rgba(0, 113, 188, 0.16);
+  box-shadow: 0 2px 8px rgba(0, 25, 50, 0.06);
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+.OR-Approach-RailNode.is-done {
+  border-color: color-mix(in srgb, var(--pc) 55%, #ffffff);
+  background: color-mix(in srgb, var(--pc) 12%, #ffffff);
+}
+.OR-Approach-RailNode.is-active {
+  border-color: var(--pc);
+  transform: scale(1.28);
+  box-shadow:
+    0 0 0 5px color-mix(in srgb, var(--pc) 18%, transparent),
+    0 4px 14px color-mix(in srgb, var(--pc) 28%, transparent);
 }
 .OR-Approach-Steps {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 .OR-Approach-Step {
   --pc: #00bf63;
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
   width: 100%;
   text-align: left;
-  padding: 22px 24px;
-  border-radius: 22px;
-  border: 1.5px solid rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 8px 28px rgba(0, 25, 50, 0.07);
+  padding: 18px 18px 18px 16px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 6px 22px rgba(0, 25, 50, 0.06);
   cursor: pointer;
   opacity: 0;
-  transform: translateX(16px);
+  transform: translateX(14px);
   transition:
     opacity 0.45s ease,
     transform 0.45s ease,
@@ -1688,7 +1768,7 @@
     background 0.35s ease;
 }
 .OR-Block.is-vis .OR-Approach-Step {
-  opacity: 0.72;
+  opacity: 0.68;
   transform: none;
 }
 .OR-Block.is-vis .OR-Approach-Step:nth-child(1) { transition-delay: 0.12s; }
@@ -1697,58 +1777,123 @@
 .OR-Approach-Step.is-active,
 .OR-Approach-Step:hover {
   opacity: 1;
-  border-color: color-mix(in srgb, var(--pc) 38%, #ffffff);
-  background: #ffffff;
+  border-color: color-mix(in srgb, var(--pc) 42%, #ffffff);
+  background:
+    linear-gradient(135deg, #ffffff, color-mix(in srgb, var(--pc) 5%, #ffffff));
   box-shadow:
-    0 18px 44px rgba(0, 25, 50, 0.12),
-    0 0 0 1px color-mix(in srgb, var(--pc) 16%, transparent);
-  transform: translateX(4px);
+    0 16px 40px color-mix(in srgb, var(--pc) 14%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--pc) 18%, transparent);
+  transform: translateX(6px);
+}
+.OR-Approach-IcoWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--pc) 14%, #ffffff),
+    color-mix(in srgb, var(--pc) 6%, #ffffff)
+  );
+  border: 1px solid color-mix(in srgb, var(--pc) 22%, #ffffff);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.OR-Approach-IcoWrap :is(svg, svg *) {
+  stroke: url(#kap-brand-gradient) !important;
+  color: url(#kap-brand-gradient) !important;
+}
+.OR-Approach-Step.is-active .OR-Approach-IcoWrap,
+.OR-Approach-Step:hover .OR-Approach-IcoWrap {
+  transform: scale(1.06);
+  box-shadow:
+    0 6px 18px color-mix(in srgb, var(--pc) 18%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.OR-Approach-StepMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
 }
 .OR-Approach-Num {
-  flex-shrink: 0;
-  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  font-size: 0.78rem;
   font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.06em;
   background: linear-gradient(135deg, #0071bc, #00b6de 55%, #00bf63);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  opacity: 0.45;
-  transition: opacity 0.35s ease;
+  opacity: 0.85;
 }
-.OR-Approach-Step.is-active .OR-Approach-Num,
-.OR-Approach-Step:hover .OR-Approach-Num {
-  opacity: 1;
+.OR-Approach-Tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+.OR-Approach-Step.is-active .OR-Approach-Tag {
+  color: color-mix(in srgb, var(--pc) 72%, #64748b);
 }
 .OR-Approach-StepBody {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
 }
 .OR-Approach-Title {
   display: block;
-  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
   font-weight: 900;
   color: #0f172a;
   line-height: 1.25;
 }
 .OR-Approach-Desc {
   display: block;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  color: #475569;
-  line-height: 1.6;
+  color: #64748b;
+  line-height: 1.55;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 0.45s ease, opacity 0.35s ease, margin 0.35s ease;
+  transition: max-height 0.45s ease, opacity 0.35s ease;
 }
 .OR-Approach-Step.is-active .OR-Approach-Desc {
-  max-height: 120px;
+  max-height: 80px;
   opacity: 1;
+  color: #475569;
+}
+.OR-Approach-Chevron {
+  flex-shrink: 0;
+  color: #cbd5e1;
+  transition: transform 0.35s ease, color 0.35s ease, opacity 0.35s ease;
+  opacity: 0.5;
+}
+.OR-Approach-Step.is-active .OR-Approach-Chevron,
+.OR-Approach-Step:hover .OR-Approach-Chevron {
+  color: var(--pc);
+  opacity: 1;
+  transform: translateX(3px);
+}
+.OR-Approach-StepBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 0 0 18px 18px;
+  background: var(--kap-premium-gradient);
+  animation: or-step-fill 2.6s linear forwards;
+}
+@keyframes or-step-fill {
+  from { width: 0%; }
+  to   { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1791,6 +1936,7 @@
   .ER-Block:not(.is-vis) { filter: none; }
   .OR-Block.is-vis .OR-Approach-Frame,
   .OR-Block.is-vis .OR-Approach-Step,
+  .OR-Approach-StepBar,
   .ER-Enj-Card::before,
   .ER-Enj-Dot.is-active {
     animation: none !important;
@@ -2799,7 +2945,10 @@
   }
   .OR-Approach-Visual { order: -1; min-height: 320px; }
   .OR-Approach-Img { min-height: 314px; }
-  .OR-Approach-Panel { min-height: unset; }
+  .OR-Approach-Panel { min-height: unset; padding: 20px; }
+  .OR-Approach-PanelBody { grid-template-columns: 24px minmax(0, 1fr); gap: 10px; }
+  .OR-Approach-Step { grid-template-columns: auto minmax(0, 1fr); gap: 12px; padding: 16px 14px; }
+  .OR-Approach-Chevron { display: none; }
   .ER-Hero-ImgWrap { order: -1; } .ER-Hero-Content { order: 1; }
   .OR-Hero-Inner { grid-template-columns: 1fr; gap: 44px; }
 }
