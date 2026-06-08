@@ -94,9 +94,10 @@ export default function Etapes() {
         <div className="etp-left">
           <p className="etp-label">Comment ça marche ?</p>
           <h1 className="etp-title">
-            Un accompagnement <span>simple,</span>
-            <br />
-            <span>clair et efficace</span>
+            Un accompagnement{' '}
+            <span className="etp-title-accent">
+              <span>simple,</span> <span>clair et efficace</span>
+            </span>
           </h1>
           <p className="etp-text">
             Préparer sa retraite peut sembler complexe. Chez KapAvenir, tout est conçu pour

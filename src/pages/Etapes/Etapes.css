@@ -64,7 +64,11 @@
 }
 
 /* .etp-title span — dégradé charte (kap-grad.css) */
-.etp-title span {
+.etp-title-accent {
+  display: block;
+  white-space: nowrap;
+}
+.etp-title-accent > span {
   display: inline;
 }
 
