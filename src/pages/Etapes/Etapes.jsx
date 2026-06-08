@@ -197,7 +197,8 @@ export default function Etapes() {
           <div className="etp-panel-head">
             <p className="etp-panel-eyebrow">Nos atouts</p>
             <h3 className="etp-panel-title" id="etp-diff-title">
-              Un accompagnement pensé pour vous simplifier la vie
+              Un <span className="kap-grad">accompagnement</span> pensé pour vous{' '}
+              <span className="kap-grad">simplifier la vie</span>
             </h3>
           </div>
           <div className="etp-diff-cards">
