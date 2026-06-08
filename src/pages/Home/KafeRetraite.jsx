@@ -111,12 +111,7 @@ export default function KafeRetraite() {
         </header>
 
         <section className="K-promises K-animate">
-          <div className="K-promises-top">
-            <h3 className="K-promises-title">Pendant cette session, vous bénéficiez :</h3>
-            <button className="K-btn-premium" onClick={() => navigate('/contact')}>
-              En savoir plus <ArrowRight size={18} />
-            </button>
-          </div>
+          <h3 className="K-promises-title">Pendant cette session, vous bénéficiez :</h3>
           <div className="K-promises-grid">
             {pillarData.map((item, idx) => (
               <article key={idx} className="K-promise-card" style={{ '--k-delay': `${idx * 0.12}s` }}>
@@ -127,6 +122,11 @@ export default function KafeRetraite() {
                 </div>
               </article>
             ))}
+          </div>
+          <div className="K-promises-footer">
+            <button type="button" className="K-btn-premium" onClick={() => navigate('/contact')}>
+              En savoir plus <ArrowRight size={18} />
+            </button>
           </div>
         </section>
 

@@ -82,19 +82,17 @@
   margin-bottom: 44px;
 }
 
-.K-promises-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
 .K-promises-title {
-  margin: 0;
+  margin: 0 0 18px;
   color: #0f172a;
   font-size: clamp(1.15rem, 1.8vw, 1.42rem);
   letter-spacing: -.01em;
+}
+
+.K-promises-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
 }
 
 .K-btn-premium {
@@ -573,7 +571,7 @@
 
 @media (max-width: 1080px) {
   #KafeRetraiteSection.K-corporate { padding: 90px 5% 90px; }
-  .K-promises-top { flex-direction: column; align-items: flex-start; }
+  .K-promises-footer { margin-top: 18px; }
   .K-flip-grid { grid-template-columns: 1fr; }
   .K-info-card { grid-template-columns: 1fr; }
 }
