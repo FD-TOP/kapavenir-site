@@ -79,6 +79,9 @@ export default function APropos() {
   const [activeEng, setActiveEng] = useState(0);
   const [activeExp, setActiveExp] = useState(0);
 
+  const currentEng = engagements[activeEng];
+  const CurrentEngIcon = currentEng.icon;
+
   useEffect(() => {
     const node = engRef.current;
     if (!node) return undefined;
@@ -249,31 +252,42 @@ export default function APropos() {
                 Quatre principes qui guident chaque accompagnement et chaque conseil que nous vous apportons.
               </p>
 
-              <div className="ap-eng-list-wrap">
-                <span
-                  className="ap-eng-rail-marker"
-                  aria-hidden
-                  style={{ '--ap-eng-index': activeEng }}
-                />
-                <ul className="ap-eng-list" aria-label="Nos engagements">
-                  {engagements.map((item, index) => (
-                    <li key={item.title} className="ap-eng-list-item" style={{ '--i': index }}>
-                      <button
-                        type="button"
-                        className={`ap-eng-item ${activeEng === index ? 'is-active' : ''}`}
-                        aria-pressed={activeEng === index}
-                        onClick={() => setActiveEng(index)}
-                      >
-                        <span className="ap-eng-num">{String(index + 1).padStart(2, '0')}</span>
-                        <div className="ap-eng-item-text">
-                          <h3>{item.title}</h3>
-                          <p>{item.text}</p>
-                        </div>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
+              <div className="ap-eng-switcher" role="tablist" aria-label="Nos engagements">
+                {engagements.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.title}
+                      type="button"
+                      role="tab"
+                      aria-selected={activeEng === index}
+                      className={`ap-eng-tab ${activeEng === index ? 'is-active' : ''}`}
+                      onClick={() => setActiveEng(index)}
+                    >
+                      <span className="ap-eng-tab-num">{String(index + 1).padStart(2, '0')}</span>
+                      <Icon size={16} strokeWidth={2.2} aria-hidden />
+                      <span className="ap-eng-tab-label">{item.title}</span>
+                    </button>
+                  );
+                })}
               </div>
+
+              <div className="ap-eng-rail" aria-hidden>
+                <span
+                  className="ap-eng-rail-fill"
+                  style={{ width: `${((activeEng + 1) / engagements.length) * 100}%` }}
+                />
+              </div>
+
+              <article className="ap-eng-detail" key={activeEng} role="tabpanel">
+                <span className="ap-eng-detail-icon" aria-hidden>
+                  <CurrentEngIcon size={22} strokeWidth={2.2} />
+                </span>
+                <div className="ap-eng-detail-copy">
+                  <h3>{currentEng.title}</h3>
+                  <p>{currentEng.text}</p>
+                </div>
+              </article>
             </div>
           </div>
         </section>
