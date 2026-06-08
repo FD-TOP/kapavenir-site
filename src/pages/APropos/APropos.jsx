@@ -291,10 +291,6 @@ export default function APropos() {
             </div>
           </div>
         </section>
-
-        <section id="credibilite" className="ap-panel ap-panel--cred">
-          <Testimonials />
-        </section>
       </div>
 
       <section
@@ -350,6 +346,10 @@ export default function APropos() {
             <div className="F-card-border-glow" />
           </div>
         </div>
+      </section>
+
+      <section id="credibilite" className="ap-panel ap-panel--cred">
+        <Testimonials />
       </section>
     </div>
   );

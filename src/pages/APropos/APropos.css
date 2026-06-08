@@ -669,7 +669,9 @@
 
 /* ── TÉMOIGNAGES ──────────────────────────────────────────── */
 .ap-panel--cred {
-  padding: 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 5% 80px;
   border: none;
   background: transparent !important;
   box-shadow: none;
