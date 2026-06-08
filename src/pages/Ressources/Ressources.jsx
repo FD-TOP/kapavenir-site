@@ -64,6 +64,10 @@ const FAQ_SECTIONS = [
         a: 'Après une première prise de contact, nous analysons votre situation, puis nous vous restituons nos recommandations et vous accompagnons si besoin dans la mise en place.',
       },
       {
+        q: 'Combien de temps ça prend ?',
+        a: 'Le processus est simple et rapide. Quelques échanges suffisent pour obtenir une vision claire et fiable de votre retraite.',
+      },
+      {
         q: 'Est-ce un engagement long ?',
         a: 'Non, vous êtes libre de choisir le niveau d’accompagnement qui vous convient.',
       },

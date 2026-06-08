@@ -210,22 +210,6 @@ export default function Etapes() {
           </div>
         </section>
 
-        <section className="etp-panel etp-panel--time" aria-labelledby="etp-time-title">
-          <div className="etp-panel-split">
-            <div className="etp-panel-copy">
-              <p className="etp-panel-eyebrow">Délai</p>
-              <h3 className="etp-panel-title" id="etp-time-title">
-                Combien de temps ça prend ?
-              </h3>
-            </div>
-            <p className="etp-panel-text">
-              Le processus est simple et rapide.
-              <br />
-              Quelques échanges suffisent pour obtenir une vision claire et fiable de votre retraite.
-            </p>
-          </div>
-        </section>
-
         <section className="etp-panel etp-panel--cta" aria-labelledby="etp-cta-title">
           <div className="etp-cta-layout">
             <div className="etp-panel-copy">

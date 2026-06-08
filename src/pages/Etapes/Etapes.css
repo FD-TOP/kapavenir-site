@@ -591,13 +591,6 @@
   max-width: 52ch;
 }
 
-.etp-panel-split {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(20px, 4vw, 36px);
-  align-items: center;
-}
-
 .etp-diff-cards {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -855,7 +848,6 @@
     padding: 22px 18px;
   }
 
-  .etp-panel-split,
   .etp-cta-layout {
     grid-template-columns: 1fr;
     gap: 20px;
