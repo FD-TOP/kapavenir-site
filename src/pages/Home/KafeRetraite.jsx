@@ -200,8 +200,7 @@ export default function KafeRetraite() {
 
             <article className="K-info-card K-animate">
               <div className="K-info-content">
-                <h3>Ce que vous allez obtenir a l issue du Kafe Retraite :</h3>
-                <p className="K-info-intro">Résultats :</p>
+                <h3>Ce que vous allez obtenir à l’issue du Kafé Retraite :</h3>
                 <ul className="K-outcome-list">
                   {outcomes.map((item) => (
                     <li key={item}>{item}</li>
