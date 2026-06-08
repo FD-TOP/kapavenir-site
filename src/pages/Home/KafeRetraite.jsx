@@ -132,7 +132,7 @@ export default function KafeRetraite() {
 
         <div className="K-post-hero">
           <section className="K-flip-section K-animate">
-            <h3 className="K-flip-title">A qui s’adresse le Kafe Retraite ?</h3>
+            <h3 className="K-flip-title">À qui s’adresse le Kafé Retraite ?</h3>
             <div className="K-flip-grid">
               {flipCards.map((card) => (
                 <article
