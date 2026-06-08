@@ -237,6 +237,7 @@ export default function Etapes() {
                 muted
                 loop
                 playsInline
+                preload="none"
                 title="Présentation vidéo KapAvenir"
                 aria-label="Vidéo de présentation KapAvenir (sans son)"
               />

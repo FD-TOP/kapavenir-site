@@ -19,6 +19,7 @@ export default function ServiceHero() {
           muted
           loop
           playsInline
+          preload="metadata"
         />
         <div className="SH-Video-Scrim" />
       </div>

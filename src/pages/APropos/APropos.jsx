@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import LogoSticker from '../../components/Common/LogoSticker';
 import AnimatedBG from '../../components/Common/AnimatedBG';
+import SectionImage from '../../components/Common/SectionImage';
+import { preloadImage } from '../../utils/preloadImage';
 import Testimonials from '../Home/Testimonials';
 import salut from '../../assets/salut.jpg';
 import couple5 from '../../assets/couple5.jpg';
@@ -25,6 +27,13 @@ const sectionByPath = {
   '/mission': 'mission',
   '/expertise': 'expertise',
   '/engagements': 'engagements',
+};
+
+const sectionImageById = {
+  histoire: couple10,
+  mission: couple5,
+  engagements: couple77,
+  expertise: couple88,
 };
 
 const engagements = [
@@ -137,6 +146,10 @@ export default function APropos() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
+
+    const sectionSrc = sectionImageById[id];
+    if (sectionSrc) preloadImage(sectionSrc);
+
     setTimeout(() => {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -167,16 +180,34 @@ export default function APropos() {
             </p>
 
             <nav className="ap-hero-nav" aria-label="Sections de la page">
-              <a href="#histoire">Notre histoire</a>
-              <a href="#mission">Mission</a>
-              <a href="#engagements">Engagements</a>
-              <a href="#expertise">Expertise</a>
+              <a href="#histoire" onMouseEnter={() => preloadImage(couple10)} onFocus={() => preloadImage(couple10)}>
+                Notre histoire
+              </a>
+              <a href="#mission" onMouseEnter={() => preloadImage(couple5)} onFocus={() => preloadImage(couple5)}>
+                Mission
+              </a>
+              <a
+                href="#engagements"
+                onMouseEnter={() => preloadImage(couple77)}
+                onFocus={() => preloadImage(couple77)}
+              >
+                Engagements
+              </a>
+              <a href="#expertise" onMouseEnter={() => preloadImage(couple88)} onFocus={() => preloadImage(couple88)}>
+                Expertise
+              </a>
             </nav>
           </div>
 
           <div className="ap-hero-media">
             <div className="ap-hero-frame">
-              <img src={salut} alt="Équipe KapAvenir" />
+              <img
+                src={salut}
+                alt="Équipe KapAvenir"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
             </div>
           </div>
         </div>
@@ -213,7 +244,10 @@ export default function APropos() {
               </p>
             </div>
             <figure className="ap-story-media">
-              <img src={couple10} alt="Couple préparant sereinement sa retraite avec KapAvenir" />
+              <SectionImage
+                src={couple10}
+                alt="Couple préparant sereinement sa retraite avec KapAvenir"
+              />
             </figure>
           </div>
         </section>
@@ -229,7 +263,7 @@ export default function APropos() {
             </div>
             <div className="ap-mission-media">
               <div className="ap-hero-frame">
-                <img src={couple5} alt="Mission KapAvenir" />
+                <SectionImage src={couple5} alt="Mission KapAvenir" />
               </div>
             </div>
           </div>
@@ -242,7 +276,7 @@ export default function APropos() {
         >
           <div className="ap-eng-layout">
             <figure className="ap-eng-media">
-              <img src={couple77} alt="Accompagnement humain KapAvenir" />
+              <SectionImage src={couple77} alt="Accompagnement humain KapAvenir" />
             </figure>
 
             <div className="ap-eng-content">
@@ -338,7 +372,7 @@ export default function APropos() {
             </div>
 
             <figure className="ap-exp-media">
-              <img src={couple88} alt="Expertise KapAvenir en accompagnement retraite" />
+              <SectionImage src={couple88} alt="Expertise KapAvenir en accompagnement retraite" />
             </figure>
           </div>
         </section>
