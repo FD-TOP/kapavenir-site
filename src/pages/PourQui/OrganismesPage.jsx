@@ -113,10 +113,7 @@ export default function OrganismesPage() {
                           <Ico size={22} strokeWidth={2.2} />
                         </span>
                         <span className="OR-Approach-StepBody">
-                          <span className="OR-Approach-StepMeta">
-                            <span className="OR-Approach-Num">0{i + 1}</span>
-                            <span className="OR-Approach-Tag">Étape {i + 1}</span>
-                          </span>
+                          <span className="OR-Approach-Num">0{i + 1}</span>
                           <strong className="OR-Approach-Title">{p.title}</strong>
                           <span className="OR-Approach-Desc">{p.desc}</span>
                         </span>
