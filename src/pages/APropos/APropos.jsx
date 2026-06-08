@@ -158,7 +158,6 @@ export default function APropos() {
 
         <div className="ap-hero-inner">
           <div className="ap-hero-text">
-            <span className="ap-kicker">À propos de KapAvenir</span>
             <h1>
               Une <span className="ap-hero-grad">expertise</span> au service de votre{' '}
               <span className="ap-hero-grad">sérénité</span>
@@ -167,12 +166,6 @@ export default function APropos() {
               KapAvenir est né d’une conviction simple : chacun mérite de comprendre et d’optimiser sa retraite, sans
               complexité ni stress.
             </p>
-
-            <ul className="ap-hero-pills" aria-label="Points forts">
-              <li>Accompagnement humain</li>
-              <li>Expertise retraite</li>
-              <li>Conseils clairs</li>
-            </ul>
 
             <nav className="ap-hero-nav" aria-label="Sections de la page">
               <a href="#histoire">Notre histoire</a>
@@ -185,12 +178,6 @@ export default function APropos() {
           <div className="ap-hero-media">
             <div className="ap-hero-frame">
               <img src={salut} alt="Équipe KapAvenir" />
-              <div className="ap-hero-frame-deco ap-hero-frame-deco--cyan" aria-hidden />
-              <div className="ap-hero-frame-deco ap-hero-frame-deco--green" aria-hidden />
-              <span className="ap-hero-float-badge">
-                <strong>KapAvenir</strong>
-                <span>Votre retraite, notre priorité</span>
-              </span>
             </div>
           </div>
         </div>
@@ -206,7 +193,6 @@ export default function APropos() {
         <section id="histoire" className="ap-panel ap-panel--story">
           <div className="ap-story-layout">
             <div className="ap-story-content">
-              <span className="ap-kicker ap-kicker--dark">Notre parcours</span>
               <h2>Notre histoire</h2>
               <div className="ap-story-body">
                 <p>
@@ -236,7 +222,6 @@ export default function APropos() {
         <section id="mission" className="ap-panel ap-panel--mission">
           <div className="ap-mission-grid">
             <div className="ap-mission-copy">
-              <span className="ap-kicker ap-kicker--dark">Notre raison d’être</span>
               <h2>Notre mission</h2>
               <p>
                 Vous aider à prendre les bonnes décisions au bon moment, en vous donnant une vision claire de votre
@@ -246,7 +231,6 @@ export default function APropos() {
             <div className="ap-mission-media">
               <div className="ap-hero-frame">
                 <img src={couple5} alt="Mission KapAvenir" />
-                <div className="ap-hero-frame-deco" aria-hidden />
               </div>
             </div>
           </div>
@@ -260,11 +244,9 @@ export default function APropos() {
           <div className="ap-eng-layout">
             <figure className="ap-eng-media">
               <img src={couple9} alt="Accompagnement humain KapAvenir" />
-              <span className="ap-eng-media-label">À vos côtés</span>
             </figure>
 
             <div className="ap-eng-content">
-              <span className="ap-kicker ap-kicker--dark">Nos valeurs</span>
               <h2>Nos engagements</h2>
               <p className="ap-eng-lead">
                 Quatre principes qui guident chaque accompagnement et chaque conseil que nous vous apportons.
@@ -333,7 +315,6 @@ export default function APropos() {
           <div className="F-glass-card ap-exp-glass-card">
             <div className="F-card-content">
               <header className="F-header">
-                <span className="F-pre-title">Notre savoir-faire</span>
                 <h2 id="ap-exp-title" className="F-main-title">
                   Une expertise <span className="F-gradient-text">solide</span>
                 </h2>
