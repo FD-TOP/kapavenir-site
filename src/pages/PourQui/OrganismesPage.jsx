@@ -205,9 +205,6 @@ export default function OrganismesPage() {
             <h2 className="OR-Title">
               Pourquoi <Grad className="OR-Green">KapAvenir ?</Grad>
             </h2>
-            <p className="OR-Sub">
-              Ce qui nous distingue : une méthode pensée pour l&apos;humain, portée par la technologie.
-            </p>
           </div>
           <div className="OR-Diff-List">
             {OR_DIFFS.map((d, i) => (
