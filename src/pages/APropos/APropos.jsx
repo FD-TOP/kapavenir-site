@@ -1,6 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Briefcase, LineChart, Scale, UserCheck } from 'lucide-react';
+import {
+  BookOpen,
+  Briefcase,
+  HeartHandshake,
+  LineChart,
+  Scale,
+  ShieldCheck,
+  TrendingUp,
+  UserCheck,
+} from 'lucide-react';
 import LogoSticker from '../../components/Common/LogoSticker';
 import AnimatedBG from '../../components/Common/AnimatedBG';
 import Testimonials from '../Home/Testimonials';
@@ -23,18 +32,22 @@ const engagements = [
   {
     title: 'Pédagogie',
     text: 'Vous comprenez réellement votre situation, sans jargon ni complexité inutile.',
+    icon: BookOpen,
   },
   {
     title: 'Accompagnement humain',
     text: 'Un interlocuteur dédié, à votre écoute.',
+    icon: HeartHandshake,
   },
   {
     title: 'Performance',
     text: 'Chaque recommandation vise à améliorer concrètement votre retraite.',
+    icon: TrendingUp,
   },
   {
     title: 'Transparence',
     text: 'Des conseils clairs, honnêtes et sans surprise.',
+    icon: ShieldCheck,
   },
 ];
 
@@ -60,7 +73,14 @@ const expertisePoints = [
 export default function APropos() {
   const { pathname } = useLocation();
   const engRef = useRef(null);
+  const expRef = useRef(null);
   const [engRevealed, setEngRevealed] = useState(false);
+  const [expRevealed, setExpRevealed] = useState(false);
+  const [activeEng, setActiveEng] = useState(0);
+  const [activeExp, setActiveExp] = useState(0);
+
+  const currentEng = engagements[activeEng];
+  const CurrentEngIcon = currentEng.icon;
 
   useEffect(() => {
     const node = engRef.current;
@@ -78,6 +98,38 @@ export default function APropos() {
 
     observer.observe(node);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const node = expRef.current;
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setExpRevealed(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.18, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveEng((prev) => (prev + 1) % engagements.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveExp((prev) => (prev + 1) % expertisePoints.length);
+    }, 3200);
+    return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -218,19 +270,42 @@ export default function APropos() {
                 Quatre principes qui guident chaque accompagnement et chaque conseil que nous vous apportons.
               </p>
 
-              <ul className="ap-eng-list">
-                {engagements.map((item, index) => (
-                  <li key={item.title} className="ap-eng-item" style={{ '--i': index }}>
-                    <span className="ap-eng-num" aria-hidden>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="ap-eng-item-text">
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <div className="ap-eng-switcher" role="tablist" aria-label="Nos engagements">
+                {engagements.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.title}
+                      type="button"
+                      role="tab"
+                      aria-selected={activeEng === index}
+                      className={`ap-eng-tab ${activeEng === index ? 'is-active' : ''}`}
+                      onClick={() => setActiveEng(index)}
+                    >
+                      <span className="ap-eng-tab-num">{String(index + 1).padStart(2, '0')}</span>
+                      <Icon size={16} strokeWidth={2.2} aria-hidden />
+                      <span className="ap-eng-tab-label">{item.title}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="ap-eng-rail" aria-hidden>
+                <span
+                  className="ap-eng-rail-fill"
+                  style={{ width: `${((activeEng + 1) / engagements.length) * 100}%` }}
+                />
+              </div>
+
+              <article className="ap-eng-detail" key={activeEng} role="tabpanel">
+                <span className="ap-eng-detail-icon" aria-hidden>
+                  <CurrentEngIcon size={22} strokeWidth={2.2} />
+                </span>
+                <div className="ap-eng-detail-copy">
+                  <h3>{currentEng.title}</h3>
+                  <p>{currentEng.text}</p>
+                </div>
+              </article>
             </div>
           </div>
         </section>
@@ -240,7 +315,12 @@ export default function APropos() {
         </section>
       </div>
 
-      <section id="expertise" className="ap-exp-cta F-ethereal-layout" aria-labelledby="ap-exp-title">
+      <section
+        id="expertise"
+        ref={expRef}
+        className={`ap-exp-cta F-ethereal-layout ${expRevealed ? 'is-revealed' : ''}`}
+        aria-labelledby="ap-exp-title"
+      >
         <LogoSticker size={92} top="8%" left="2%" rotation={-14} opacity={0.18} animation="wobble" hideMobile />
         <LogoSticker size={78} bottom="10%" right="2%" rotation={12} opacity={0.14} animation="float" hideMobile />
 
@@ -266,14 +346,21 @@ export default function APropos() {
               </p>
 
               <ul className="ap-exp-premium-list">
-                {expertisePoints.map((point) => {
+                {expertisePoints.map((point, index) => {
                   const Icon = point.icon;
                   return (
-                    <li key={point.text} className="ap-exp-premium-item">
-                      <span className="ap-exp-premium-icon" aria-hidden>
-                        <Icon size={18} strokeWidth={2.2} />
-                      </span>
-                      <span>{point.text}</span>
+                    <li key={point.text}>
+                      <button
+                        type="button"
+                        className={`ap-exp-premium-item ${activeExp === index ? 'is-active' : ''}`}
+                        aria-pressed={activeExp === index}
+                        onClick={() => setActiveExp(index)}
+                      >
+                        <span className="ap-exp-premium-icon" aria-hidden>
+                          <Icon size={18} strokeWidth={2.2} />
+                        </span>
+                        <span>{point.text}</span>
+                      </button>
                     </li>
                   );
                 })}
