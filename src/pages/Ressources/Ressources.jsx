@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ChevronDown, Search } from 'lucide-react';
 import LogoSticker from '../../components/Common/LogoSticker';
+import GLOSSARY from './glossaryKapAvenir';
 import './Ressources.css';
 
 const FAQ_SECTIONS = [
@@ -100,52 +101,6 @@ const FAQ_SECTIONS = [
     ],
   },
 ];
-
-const GLOSSARY = {
-  A: [
-    ['Âge légal de départ', 'Âge minimum pour demander sa retraite, variable selon votre année de naissance.'],
-    ['Âge du taux plein automatique', 'Âge auquel vous obtenez le taux plein même sans tous vos trimestres (67 ans en général).'],
-    ['Assurance retraite', 'Organisme qui gère la retraite de base des salariés du privé.'],
-  ],
-  B: [['Bilan retraite', 'Analyse complète de votre carrière pour estimer votre pension et identifier des optimisations.']],
-  C: [
-    ['Carrière longue', 'Dispositif permettant de partir plus tôt si vous avez commencé à travailler jeune.'],
-    ['Caisse de retraite', 'Organisme qui verse votre pension (régime de base ou complémentaire).'],
-    ['Cumul emploi-retraite', 'Possibilité de travailler tout en percevant sa retraite.'],
-    ['Cotisations retraite', 'Sommes prélevées sur vos revenus pour financer votre retraite.'],
-  ],
-  D: [
-    ['Décote', 'Réduction de la pension si vous n’avez pas tous vos trimestres.'],
-    ['Durée d’assurance', 'Nombre total de trimestres validés dans votre carrière.'],
-  ],
-  E: [
-    ['Épargne retraite', 'Produits d’épargne permettant de compléter vos revenus à la retraite.'],
-    ['Estimation indicative globale (EIG)', 'Document officiel donnant une estimation de votre future retraite.'],
-  ],
-  L: [['Liquidation de la retraite', 'Action de demander sa retraite pour déclencher le paiement.']],
-  M: [['Majoration de pension', 'Augmentation de votre retraite (ex : pour enfants).']],
-  P: [
-    ['Pension de retraite', 'Revenu versé chaque mois après votre départ.'],
-    ['Plafond de la Sécurité sociale (PASS)', 'Montant de référence utilisé pour calculer certaines cotisations et droits.'],
-    ['Points retraite', 'Unités utilisées pour calculer la retraite complémentaire.'],
-  ],
-  R: [
-    ['Rachat de trimestres', 'Paiement volontaire pour compléter des trimestres manquants.'],
-    ['Régime de base', 'Retraite obligatoire principale.'],
-    ['Régime complémentaire', 'Retraite qui s’ajoute au régime de base.'],
-    ['Relevé de carrière', 'Document récapitulant votre carrière et vos trimestres.'],
-    ['Retraite progressive', 'Dispositif permettant de réduire son activité tout en touchant une partie de sa retraite.'],
-  ],
-  S: [
-    ['Salaire annuel moyen (SAM)', 'Moyenne des meilleures années de salaire servant au calcul de la retraite.'],
-    ['Surcote', 'Augmentation de la pension si vous continuez à travailler après le taux plein.'],
-  ],
-  T: [
-    ['Taux plein', 'Taux maximum appliqué au calcul de la retraite.'],
-    ['Trimestre', 'Unité de mesure de la durée de cotisation.'],
-  ],
-  V: [['Validation des trimestres', 'Acquisition de trimestres grâce au travail ou à certaines périodes (chômage, maladie…).']],
-};
 
 export default function Ressources() {
   const { pathname } = useLocation();
@@ -254,6 +209,7 @@ export default function Ressources() {
           role="tabpanel"
           aria-labelledby="res-tab-glossaire"
         >
+          <h2 className="res-glossary-title">Glossaire KapAvenir</h2>
           <div className="res-search">
             <label htmlFor="res-glossary-search" className="sr-only">
               Rechercher un terme dans le glossaire
