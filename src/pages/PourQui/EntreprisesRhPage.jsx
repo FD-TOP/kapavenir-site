@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './PourQui.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 import PourQuiPageHero from './PourQuiPageHero';
+import meeting1 from '../../assets/meeting1.jpg';
 import meeting3 from '../../assets/meeting3.png';
 import {
   SLIDES,
@@ -44,42 +45,68 @@ export default function EntreprisesRhPage() {
       <div className={`ER-Block ER-Block--white ${enjVis ? 'is-vis' : ''}`} ref={enjRef}>
         <LogoSticker size={80} top="5%" left="3%" rotation={-16} opacity={0.13} animation="float" hideMobile />
         <div className="ER-Inner">
-          <div className="ER-Head">
-            <span className="ER-Label">Enjeux RH</span>
-            <h2 className="ER-Title">
-              <Grad className="OR-Grad">Un sujet clé</Grad> pour vos équipes
-            </h2>
-            <p className="ER-Sub">
-              La retraite impacte votre organisation à chaque étape.
-              <br />
-              Voici pourquoi agir maintenant.
-            </p>
-          </div>
-          <div className="ER-Enjeux-Grid">
-            {ER_ENJEUX_ORDERED.map((e, i) => (
-              <div
-                key={e.key}
-                className={`ER-Enj-Card ${activeEnj === i ? 'is-active' : ''}`}
-                style={{ '--ec': e.color, '--i': i }}
-                onClick={() => setActiveEnj(i)}
-                onMouseEnter={() => setActiveEnj(i)}
-              >
-                {activeEnj === i && <div className="ER-Enj-Bar" key={`enj-${i}`} />}
-                <p className="ER-Enj-Title">{e.title}</p>
+          <div className="ER-Enjeux-Split">
+            <div className="ER-Enjeux-Visual" aria-hidden>
+              <div className="ER-Enjeux-Orb ER-Enjeux-Orb--a" />
+              <div className="ER-Enjeux-Orb ER-Enjeux-Orb--b" />
+              <div className="ER-Enjeux-Frame">
+                <img
+                  src={meeting1}
+                  alt="Équipe RH en réunion autour des enjeux retraite"
+                  className="ER-Enjeux-Img"
+                />
+                <div className="ER-Enjeux-ImgScrim" />
+                <div className="ER-Enjeux-ImgBadge">
+                  <span className="ER-Enjeux-ImgBadgeDot" />
+                  Retraite &amp; organisation
+                </div>
               </div>
-            ))}
-          </div>
-          <div className="ER-Enjeux-Dots">
-            {ER_ENJEUX_ORDERED.map((e, i) => (
-              <button
-                key={e.key}
-                type="button"
-                className={`ER-Enj-Dot ${activeEnj === i ? 'is-active' : ''}`}
-                style={{ '--ec': e.color }}
-                onClick={() => setActiveEnj(i)}
-                aria-label={e.title}
-              />
-            ))}
+            </div>
+
+            <div className="ER-Enjeux-Panel">
+              <div className="ER-Head ER-Head--left">
+                <span className="ER-Label">Enjeux RH</span>
+                <h2 className="ER-Title">
+                  <Grad className="OR-Grad">Un sujet clé</Grad> pour vos équipes
+                </h2>
+                <p className="ER-Sub">
+                  La retraite impacte votre organisation à chaque étape.
+                  <br />
+                  Voici pourquoi agir maintenant.
+                </p>
+              </div>
+              <div className="ER-Enjeux-List">
+                {ER_ENJEUX_ORDERED.map((e, i) => (
+                  <div
+                    key={e.key}
+                    className={`ER-Enj-Card ${activeEnj === i ? 'is-active' : ''}`}
+                    style={{ '--ec': e.color, '--i': i }}
+                    onClick={() => setActiveEnj(i)}
+                    onMouseEnter={() => setActiveEnj(i)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(ev) => {
+                      if (ev.key === 'Enter' || ev.key === ' ') setActiveEnj(i);
+                    }}
+                  >
+                    {activeEnj === i && <div className="ER-Enj-Bar" key={`enj-${i}`} />}
+                    <p className="ER-Enj-Title">{e.title}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="ER-Enjeux-Dots">
+                {ER_ENJEUX_ORDERED.map((e, i) => (
+                  <button
+                    key={e.key}
+                    type="button"
+                    className={`ER-Enj-Dot ${activeEnj === i ? 'is-active' : ''}`}
+                    style={{ '--ec': e.color }}
+                    onClick={() => setActiveEnj(i)}
+                    aria-label={e.title}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
