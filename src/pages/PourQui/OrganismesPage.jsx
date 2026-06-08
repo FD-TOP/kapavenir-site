@@ -48,44 +48,48 @@ export default function OrganismesPage() {
               Une <Grad className="OR-Grad">offre retraite</Grad> pensée <Grad className="OR-Green">pour vos enjeux</Grad>
             </h2>
           </div>
-          <div className="OR-Pillars-Split">
-            <div className="PQ-Photo-Wrap OR-Pillars-Photo">
-              <img
-                src={couple4}
-                alt="Couple accompagné dans ses décisions retraite"
-                className="PQ-Photo"
-              />
-            </div>
-            <div className="OR-Pillars-Col">
-              <div className="OR-Pillars">
-                {OR_PILLARS.map((p, i) => (
-                  <div
-                    key={p.key}
-                    className={`OR-Pillar ${activeOrPil === i ? 'is-active' : ''}`}
-                    style={{ '--pc': p.color, '--i': i }}
-                    onClick={() => setActiveOrPil(i)}
-                    onMouseEnter={() => setActiveOrPil(i)}
-                  >
-                    <div className="OR-Pillar-Face">
-                      <div className="OR-Pillar-Top">
-                        <div className="OR-Pillar-Dot" />
-                        <h3 className="OR-Pillar-Title">{p.title}</h3>
-                      </div>
-                      <p className="OR-Pillar-Desc">{p.desc}</p>
-                    </div>
-                  </div>
-                ))}
+          <div className="OR-Approach">
+            <div className="OR-Approach-Visual" aria-hidden>
+              <div className="OR-Approach-Orb OR-Approach-Orb--a" />
+              <div className="OR-Approach-Orb OR-Approach-Orb--b" />
+              <div className="OR-Approach-Frame">
+                <img
+                  src={couple4}
+                  alt="Couple accompagné dans ses décisions retraite"
+                  className="OR-Approach-Img"
+                />
+                <div className="OR-Approach-ImgScrim" />
+                <div className="OR-Approach-ImgBadge">
+                  <span className="OR-Approach-ImgBadgeDot" />
+                  Accompagnement humain &amp; personnalisé
+                </div>
               </div>
-              <div className="OR-Pillars-Dots">
+            </div>
+
+            <div className="OR-Approach-Panel">
+              <div className="OR-Approach-Rail">
+                <div
+                  className="OR-Approach-RailFill"
+                  style={{ height: `${((activeOrPil + 1) / OR_PILLARS.length) * 100}%` }}
+                />
+              </div>
+              <div className="OR-Approach-Steps">
                 {OR_PILLARS.map((p, i) => (
                   <button
                     key={p.key}
                     type="button"
-                    className={`OR-Pillars-Dot ${activeOrPil === i ? 'is-active' : ''}`}
-                    style={{ '--pc': p.color }}
+                    className={`OR-Approach-Step${activeOrPil === i ? ' is-active' : ''}`}
+                    style={{ '--pc': p.color, '--i': i }}
                     onClick={() => setActiveOrPil(i)}
-                    aria-label={`Voir le pilier ${p.title}`}
-                  />
+                    onMouseEnter={() => setActiveOrPil(i)}
+                    aria-expanded={activeOrPil === i}
+                  >
+                    <span className="OR-Approach-Num">0{i + 1}</span>
+                    <span className="OR-Approach-StepBody">
+                      <strong className="OR-Approach-Title">{p.title}</strong>
+                      <span className="OR-Approach-Desc">{p.desc}</span>
+                    </span>
+                  </button>
                 ))}
               </div>
             </div>
