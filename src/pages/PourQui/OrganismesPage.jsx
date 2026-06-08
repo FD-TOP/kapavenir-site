@@ -221,20 +221,14 @@ export default function OrganismesPage() {
         <div className="OR-Orb OR-Orb--1" />
         <div className="OR-Orb OR-Orb--2" />
         <div className="OR-CTA-Inner">
-          <span className="OR-CTA-Eye">Passez à l&apos;étape suivante</span>
+          <span className="OR-CTA-Eye">Passez à l&apos;action</span>
           <h2 className="OR-CTA-Title">
             <span className="OR-CTA-Title--grad">Construisons</span> votre offre retraite
           </h2>
           <p className="OR-CTA-Sub">Mutuelles, assureurs, caisses complémentaires — parlons de vos besoins.</p>
           <div className="OR-CTA-Btns">
-            <button type="button" className="OR-Btn OR-Btn--white" onClick={() => navigate('/contact')}>
-              Demander une démo gratuite
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-            <button type="button" className="OR-Btn OR-Btn--outline" onClick={() => navigate('/contact')}>
-              Contacter un conseiller
+            <button type="button" className="OR-Btn OR-Btn--solid" onClick={() => navigate('/contact')}>
+              Contacter un expert
             </button>
           </div>
         </div>
