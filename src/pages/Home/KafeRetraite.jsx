@@ -106,13 +106,13 @@ export default function KafeRetraite() {
           </h1>
           <p className="K-editorial-lead">
             Le Kafé Retraite est un moment d’échange, en petit comité, dans un cadre convivial
-            (physique ou en ligne). Pendant cette session, vous bénéficiez :
+            (physique ou en ligne). Vous bénéficiez :
           </p>
         </header>
 
         <section className="K-promises K-animate">
           <div className="K-promises-top">
-            <h3 className="K-promises-title">Notre promesse lors des rencontres :</h3>
+            <h3 className="K-promises-title">Pendant cette session :</h3>
             <button className="K-btn-premium" onClick={() => navigate('/contact')}>
               En savoir plus <ArrowRight size={18} />
             </button>
