@@ -16,7 +16,7 @@ import Testimonials from '../Home/Testimonials';
 import salut from '../../assets/salut.jpg';
 import couple5 from '../../assets/couple5.jpg';
 import couple10 from '../../assets/couple10.jpg';
-import couple9 from '../../assets/couple9.png';
+import couple77 from '../../assets/couple77.jpg';
 import couple11 from '../../assets/couple11.jpg';
 import '../Home/PreFooter.css';
 import './APropos.css';
@@ -243,7 +243,7 @@ export default function APropos() {
         >
           <div className="ap-eng-layout">
             <figure className="ap-eng-media">
-              <img src={couple9} alt="Accompagnement humain KapAvenir" />
+              <img src={couple77} alt="Accompagnement humain KapAvenir" />
             </figure>
 
             <div className="ap-eng-content">
