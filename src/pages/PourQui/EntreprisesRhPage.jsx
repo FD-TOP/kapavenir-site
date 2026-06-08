@@ -64,36 +64,36 @@ export default function EntreprisesRhPage() {
               className="ER-Enjeux-Photo"
             />
             <div className="ER-Enjeux-Cards">
-              <div className="ER-Enjeux-Grid">
-                {ER_ENJEUX_ORDERED.map((e, i) => (
+              <div className="ER-Enjeux-StackWrap">
+                <div className="ER-Enjeux-Rail" aria-hidden>
                   <div
-                    key={e.key}
-                    className={`ER-Enj-Card ${activeEnj === i ? 'is-active' : ''}`}
-                    style={{ '--ec': e.color, '--i': i }}
-                    onClick={() => setActiveEnj(i)}
-                    onMouseEnter={() => setActiveEnj(i)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(ev) => {
-                      if (ev.key === 'Enter' || ev.key === ' ') setActiveEnj(i);
-                    }}
-                  >
-                    {activeEnj === i && <div className="ER-Enj-Bar" key={`enj-${i}`} />}
-                    <p className="ER-Enj-Title">{e.title}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="ER-Enjeux-Dots">
-                {ER_ENJEUX_ORDERED.map((e, i) => (
-                  <button
-                    key={e.key}
-                    type="button"
-                    className={`ER-Enj-Dot ${activeEnj === i ? 'is-active' : ''}`}
-                    style={{ '--ec': e.color }}
-                    onClick={() => setActiveEnj(i)}
-                    aria-label={e.title}
+                    className="ER-Enjeux-RailFill"
+                    style={{ height: `${((activeEnj + 1) / ER_ENJEUX_ORDERED.length) * 100}%` }}
                   />
-                ))}
+                  {ER_ENJEUX_ORDERED.map((e, i) => (
+                    <span
+                      key={e.key}
+                      className={`ER-Enjeux-RailDot${activeEnj === i ? ' is-active' : ''}${activeEnj > i ? ' is-done' : ''}`}
+                      style={{ '--ec': e.color }}
+                    />
+                  ))}
+                </div>
+                <div className="ER-Enjeux-Stack">
+                  {ER_ENJEUX_ORDERED.map((e, i) => (
+                    <button
+                      key={e.key}
+                      type="button"
+                      className={`ER-Enj-Item${activeEnj === i ? ' is-active' : ''}`}
+                      style={{ '--ec': e.color, '--i': i }}
+                      onClick={() => setActiveEnj(i)}
+                      onMouseEnter={() => setActiveEnj(i)}
+                      aria-pressed={activeEnj === i}
+                    >
+                      <span className="ER-Enj-Index">0{i + 1}</span>
+                      <span className="ER-Enj-Label">{e.title}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

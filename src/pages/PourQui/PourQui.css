@@ -1924,9 +1924,8 @@
   .OR-Block.is-vis .OR-Approach-Step,
   .OR-Approach-StepBar,
   .ER-Block.is-vis .ER-Enjeux-Photo,
-  .ER-Block.is-vis .ER-Enj-Card,
-  .ER-Enj-Card::before,
-  .ER-Enj-Dot.is-active {
+  .ER-Block.is-vis .ER-Enj-Item,
+  .ER-Enjeux-RailDot.is-active {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -2368,140 +2367,134 @@
   flex-direction: column;
   gap: 18px;
 }
-.ER-Enjeux-Grid {
+.ER-Enjeux-StackWrap {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    "a b"
-    "c d";
-  gap: 12px;
-  width: 100%;
-  margin: 0;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
 }
-.ER-Enj-Card {
+.ER-Enjeux-Rail {
   position: relative;
-  border-radius: 16px;
-  padding: 18px 18px 16px;
-  cursor: pointer;
-  background: #ffffff;
-  border: 1px solid rgba(0, 113, 188, 0.1);
-  border-left: 3px solid var(--ec, #00b6de);
-  overflow: hidden;
-  min-height: 112px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  box-shadow: 0 4px 18px rgba(0, 25, 50, 0.06);
-  opacity: 0.78;
-  transform: translateY(6px);
-  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
 }
-.ER-Block.is-vis .ER-Enj-Card {
-  opacity: 0.78;
-  transform: none;
-  animation: erEnjCardIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(var(--i, 0) * 0.1s + 0.2s);
-}
-@keyframes erEnjCardIn {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 0.78; transform: none; }
-}
-.ER-Enjeux-Grid:has(.is-active) .ER-Enj-Card:not(.is-active) {
-  opacity: 0.5;
-  transform: scale(0.98);
-}
-.ER-Enj-Card::before {
+.ER-Enjeux-Rail::before {
   content: '';
   position: absolute;
-  inset: -35% -20% auto;
-  height: 70%;
-  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.78) 50%, transparent 70%);
-  transform: translateX(-120%) rotate(8deg);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity .35s;
+  top: 22px;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  border-radius: 999px;
+  background: rgba(0, 113, 188, 0.12);
 }
-.ER-Enj-Card::after {
-  content: "";
+.ER-Enjeux-RailFill {
   position: absolute;
-  width: 160px;
-  height: 160px;
-  right: -56px;
-  bottom: -82px;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #0071bc, #00b6de 55%, #00bf63);
+  transition: height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 10px rgba(0, 182, 222, 0.35);
+}
+.ER-Enjeux-RailDot {
+  --ec: #00b6de;
+  position: relative;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(67,129,193,.14) 0%, transparent 70%);
-  opacity: .45;
-  pointer-events: none;
-  z-index: 0;
+  background: #fff;
+  border: 2px solid rgba(0, 113, 188, 0.2);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
-.ER-Enj-Card.is-active {
-  opacity: 1 !important;
-  border-color: color-mix(in srgb, var(--ec) 35%, #ffffff);
-  border-left-color: var(--ec);
-  transform: translateY(-4px) scale(1.02);
-  background: var(--kap-premium-gradient);
-  box-shadow: 0 14px 36px color-mix(in srgb, var(--ec) 22%, transparent);
+.ER-Enjeux-RailDot.is-done {
+  border-color: color-mix(in srgb, var(--ec) 50%, #fff);
+  background: color-mix(in srgb, var(--ec) 10%, #fff);
 }
-.ER-Enj-Card.is-active::before {
-  opacity: 1;
-  animation: er-enj-shine 2.6s ease-out;
+.ER-Enjeux-RailDot.is-active {
+  border-color: var(--ec);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ec) 20%, transparent);
+  animation: erEnjDotPulse 2.6s ease-in-out infinite;
 }
-.ER-Enj-Card:nth-child(1) { grid-area: a; }
-.ER-Enj-Card:nth-child(2) { grid-area: b; }
-.ER-Enj-Card:nth-child(3) { grid-area: c; }
-.ER-Enj-Card:nth-child(4) { grid-area: d; }
-.ER-Enj-Letter {
-  font-size: 4.4rem;
-  font-weight: 900;
-  line-height: 1;
-  font-style: italic;
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  color: #cbd5e1;
-  opacity: .5;
-  transition: color .35s, opacity .35s;
-  pointer-events: none;
-  z-index: 0;
+@keyframes erEnjDotPulse {
+  0%, 100% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--ec) 20%, transparent); }
+  50%      { box-shadow: 0 0 0 7px color-mix(in srgb, var(--ec) 10%, transparent); }
 }
-.ER-Enj-Card.is-active .ER-Enj-Letter { color: #ffffff; opacity:.22; }
-.ER-Enj-Title {
-  font-size: clamp(0.82rem, 1vw, 0.95rem);
-  font-weight: 800;
-  color: #0f172a;
-  line-height: 1.4;
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  letter-spacing: -.01em;
-  transition: color .3s;
+.ER-Enjeux-Stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.ER-Enj-Card.is-active .ER-Enj-Title { color:#ffffff; }
-.ER-Enj-Stat {
-  font-size: .68rem;
-  font-weight: 800;
-  letter-spacing: .08em;
-  background: rgba(255,255,255,.9);
-  color: #0f172a;
-  border: 1px solid rgba(67,129,193,.35);
-  border-radius: 50px;
-  padding: 4px 11px;
-  display: inline-block;
-  position: relative;
-  z-index: 1;
+.ER-Enj-Item {
+  --ec: #00b6de;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  cursor: pointer;
   opacity: 0;
-  transition: opacity .3s;
-  width: fit-content;
+  transform: translateX(20px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s ease;
 }
-.ER-Enj-Card.is-active .ER-Enj-Stat { opacity:1; }
-.ER-Enj-Bar { position:absolute;bottom:0;left:0;height:3px;border-radius:0 0 20px 20px;background:rgba(255,255,255,.55);animation:enj-fill 2.6s linear forwards; }
-@keyframes enj-fill { from{width:0%}to{width:100%} }
-@keyframes er-enj-shine {
-  0%, 55%, 100% { transform: translateX(-120%) rotate(8deg); opacity: 0; }
-  62%           { opacity: .55; }
-  75%           { transform: translateX(130%) rotate(8deg); opacity: .15; }
+.ER-Block.is-vis .ER-Enj-Item {
+  animation: erEnjItemIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 0.12s + 0.15s);
+}
+@keyframes erEnjItemIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 0.55; transform: none; }
+}
+.ER-Enjeux-Stack:has(.is-active) .ER-Enj-Item:not(.is-active) {
+  opacity: 0.42;
+}
+.ER-Enj-Item.is-active {
+  opacity: 1 !important;
+  transform: translateX(6px);
+  background: color-mix(in srgb, var(--ec) 7%, #ffffff);
+  animation: erEnjItemActive 2.6s ease-in-out infinite;
+}
+@keyframes erEnjItemActive {
+  0%, 100% { box-shadow: none; }
+  50%      { box-shadow: 0 8px 24px color-mix(in srgb, var(--ec) 12%, transparent); }
+}
+.ER-Enj-Index {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--ec);
+  opacity: 0.55;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.ER-Enj-Item.is-active .ER-Enj-Index {
+  opacity: 1;
+  transform: scale(1.08);
+}
+.ER-Enj-Label {
+  font-size: clamp(0.84rem, 1vw, 0.96rem);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.45;
+  transition: color 0.35s ease;
+}
+.ER-Enj-Item.is-active .ER-Enj-Label {
+  color: color-mix(in srgb, var(--ec) 55%, #0f172a);
 }
 
 /* ── Global enhanced animations ── */
@@ -2516,23 +2509,6 @@
   0%, 100% { background-position: 0% 50%; }
   50%      { background-position: 100% 50%; }
 }
-.ER-Enjeux-Dots { display:flex;justify-content:center;gap:8px;margin-top:0; }
-.ER-Enj-Dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  background: rgba(148, 163, 184, .65);
-  transition: all .3s;
-}
-.ER-Enj-Dot.is-active {
-  background: var(--ec);
-  box-shadow: 0 0 0 4px rgba(67,129,193,.2);
-  transform: scale(1.4);
-  animation: pulseDot 1.5s ease-in-out infinite;
-}
-
 /* ER Services */
 .ER-Sv-Layout { display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start; }
 .ER-Sv-Left   { position:sticky;top:100px; }
@@ -3050,7 +3026,7 @@
     gap: 32px;
   }
   .ER-Enjeux-Photo { order: -1; min-height: 280px; max-height: 360px; }
-  .ER-Enjeux-Grid { grid-template-columns: 1fr; grid-template-areas: none; }
+  .ER-Enjeux-StackWrap { grid-template-columns: 22px minmax(0, 1fr); gap: 12px; }
   .ER-Hero-FloatA, .ER-Hero-FloatB { display: none; }
   .OR-Diff-Layout { grid-template-columns: 1fr; }
   .ER-Df-Layout { grid-template-columns: 1fr; }
