@@ -36,6 +36,7 @@ export default function OrganismesPage() {
   const [ctRef, ctVis] = useReveal(0.2);
 
   const [activeOrPil, setActiveOrPil] = useAutoCycle(pilVis, OR_PILLARS.length, 2600);
+  const [activeOrSv, setActiveOrSv] = useAutoCycle(svVis, OR_SERVICES.length, 2800);
   const revealedOR = useSequentialReveal(dfVis, OR_DIFFS.length, 450);
 
   return (
@@ -137,17 +138,43 @@ export default function OrganismesPage() {
             <h2 className="OR-Title">
               Des services <Grad className="OR-Grad">modulables</Grad>
               <br />
-              selon vos besoins
+              selon vos <Grad className="OR-Green">besoins</Grad>
             </h2>
             <p className="OR-Sub">Chaque organisme est unique. Nous adaptons notre accompagnement à votre structure, votre volume et vos objectifs.</p>
           </div>
-          <div className="OR-Sv-Bubbles">
-            {OR_SERVICES.map((s, i) => (
-              <div key={s.title} className="OR-Sv-Bubble" style={{ '--i': i }}>
-                <strong className="OR-Sv-Title">{s.title}</strong>
-                <p className="OR-Sv-Desc">{s.desc}</p>
-              </div>
-            ))}
+          <div className="OR-Sv-Right">
+            <div className="OR-Sv-Bubbles">
+              {OR_SERVICES.map((s, i) => (
+                <div
+                  key={s.title}
+                  className={`OR-Sv-Bubble${activeOrSv === i ? ' is-active' : ''}`}
+                  style={{ '--sc': s.color, '--i': i }}
+                  onMouseEnter={() => setActiveOrSv(i)}
+                  onClick={() => setActiveOrSv(i)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') setActiveOrSv(i);
+                  }}
+                >
+                  {activeOrSv === i && <div className="OR-Sv-Bar" aria-hidden="true" key={`orsvbar-${i}`} />}
+                  <strong className="OR-Sv-Title">{s.title}</strong>
+                  <p className="OR-Sv-Desc">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="OR-Sv-Dots" aria-hidden="true">
+              {OR_SERVICES.map((s, i) => (
+                <button
+                  key={s.title}
+                  type="button"
+                  className={`OR-Sv-Dot${activeOrSv === i ? ' is-active' : ''}`}
+                  style={{ '--sc': s.color }}
+                  onClick={() => setActiveOrSv(i)}
+                  aria-label={`Voir ${s.title}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

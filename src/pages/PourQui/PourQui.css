@@ -1951,8 +1951,14 @@
 
 /* OR Services — bulles type pastille (sans numéros ni flèches) */
 .OR-Sv-Layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
-.OR-Sv-Layout > .OR-Sv-Bubbles {
+.OR-Sv-Layout > .OR-Sv-Bubbles,
+.OR-Sv-Layout > .OR-Sv-Right {
   min-width: 0;
+}
+.OR-Sv-Right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 .OR-Sv-Left   { position: sticky; top: 100px; }
 .OR-Sv-Bubbles {
@@ -1965,6 +1971,7 @@
   min-width: 0;
 }
 .OR-Sv-Bubble {
+  --sc: #00bf63;
   position: relative;
   width: 100%;
   box-sizing: border-box;
@@ -1973,43 +1980,86 @@
   background: linear-gradient(
     165deg,
     rgba(255, 255, 255, 0.98) 0%,
-    rgba(236, 253, 245, 0.45) 45%,
+    color-mix(in srgb, var(--sc) 6%, #ffffff) 45%,
     rgba(248, 252, 255, 0.96) 100%
   );
-  border: 1px solid rgba(0, 191, 99, 0.22);
+  border: 1.5px solid color-mix(in srgb, var(--sc) 22%, #ffffff);
+  border-left: 3px solid var(--sc);
   box-shadow:
-    0 2px 14px rgba(0, 191, 99, 0.07),
+    0 2px 14px color-mix(in srgb, var(--sc) 8%, transparent),
     0 6px 22px rgba(0, 113, 188, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.95);
   opacity: 0;
-  transform: translateY(10px) scale(0.99);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  transform: translateY(14px) scale(0.98);
+  cursor: pointer;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
   isolation: isolate;
   overflow: hidden;
 }
-.OR-Block.is-vis .OR-Sv-Bubble {
-  opacity: 1;
-  transform: none;
-}
 .OR-Block.is-vis .OR-Sv-Bubble,
-.ER-Block.is-vis .OR-Sv-Bubble { opacity: 1; transform: none; }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(1),
-.ER-Block.is-vis .OR-Sv-Bubble:nth-child(1) { transition-delay: 0.08s; }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(2),
-.ER-Block.is-vis .OR-Sv-Bubble:nth-child(2) { transition-delay: 0.16s; }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(3),
-.ER-Block.is-vis .OR-Sv-Bubble:nth-child(3) { transition-delay: 0.24s; }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(4),
-.ER-Block.is-vis .OR-Sv-Bubble:nth-child(4) { transition-delay: 0.32s; }
-.OR-Block.is-vis .OR-Sv-Bubble:nth-child(5),
-.ER-Block.is-vis .OR-Sv-Bubble:nth-child(5) { transition-delay: 0.4s; }
-.OR-Sv-Bubble:hover {
-  transform: translateY(-3px) scale(1.005);
-  border-color: rgba(0, 191, 99, 0.38);
+.ER-Block.is-vis .OR-Sv-Bubble {
+  animation: orSvBubbleIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 0.14s + 0.1s);
+}
+@keyframes orSvBubbleIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.OR-Sv-Bubbles:has(.is-active) .OR-Sv-Bubble:not(.is-active) {
+  opacity: 0.58;
+  transform: scale(0.98);
+}
+.OR-Sv-Bubble.is-active {
+  opacity: 1 !important;
+  transform: translateX(8px) translateY(-4px) scale(1.02);
+  border-color: color-mix(in srgb, var(--sc) 42%, #ffffff);
   box-shadow:
-    0 4px 20px rgba(0, 191, 99, 0.12),
-    0 12px 32px rgba(0, 113, 188, 0.08),
+    0 14px 38px color-mix(in srgb, var(--sc) 22%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--sc) 14%, transparent);
+}
+.OR-Sv-Bubble:hover {
+  border-color: color-mix(in srgb, var(--sc) 38%, #ffffff);
+  box-shadow:
+    0 8px 26px color-mix(in srgb, var(--sc) 16%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.98);
+}
+.OR-Sv-Bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--sc), color-mix(in srgb, var(--sc) 55%, #00b6de));
+  border-radius: 0 0 20px 20px;
+  animation: orSvBarFill 2.8s linear forwards;
+}
+@keyframes orSvBarFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+.OR-Sv-Dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.OR-Sv-Dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: var(--card-bd);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.OR-Sv-Dot.is-active {
+  background: var(--sc, #00bf63);
+  transform: scale(1.35);
+  animation: pulseDot 1.5s ease-in-out infinite;
 }
 .OR-Sv-Bubble .OR-Sv-Title {
   display: block;
