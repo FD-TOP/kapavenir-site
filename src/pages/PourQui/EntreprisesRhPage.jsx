@@ -31,6 +31,7 @@ export default function EntreprisesRhPage() {
   const [ctRef, ctVis] = useReveal(0.2);
 
   const [activeEnj, setActiveEnj] = useAutoCycle(enjVis, ER_ENJEUX_ORDERED.length, 2600);
+  const [activeErSv, setActiveErSv] = useAutoCycle(svVis, ER_SERVICES.length, 2800);
   const [activeErBn, setActiveErBn] = useAutoCycle(bnVis, ER_BENEFITS.length, 2000);
   const revealedER = useSequentialReveal(dfVis, ER_DIFFS.length, 460);
 
@@ -111,13 +112,39 @@ export default function EntreprisesRhPage() {
             </h2>
             <p className="ER-Sub">Chaque entreprise est unique. Nous adaptons notre approche à votre structure et vos objectifs RH.</p>
           </div>
-          <div className="OR-Sv-Bubbles">
-            {ER_SERVICES.map((s, i) => (
-              <div key={s.title} className="OR-Sv-Bubble ER-Sv-Bubble" style={{ '--i': i }}>
-                <strong className="OR-Sv-Title">{s.title}</strong>
-                <p className="OR-Sv-Desc">{s.desc}</p>
-              </div>
-            ))}
+          <div className="OR-Sv-Right">
+            <div className="OR-Sv-Bubbles">
+              {ER_SERVICES.map((s, i) => (
+                <div
+                  key={s.title}
+                  className={`OR-Sv-Bubble ER-Sv-Bubble${activeErSv === i ? ' is-active' : ''}`}
+                  style={{ '--sc': s.color, '--i': i }}
+                  onMouseEnter={() => setActiveErSv(i)}
+                  onClick={() => setActiveErSv(i)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') setActiveErSv(i);
+                  }}
+                >
+                  {activeErSv === i && <div className="OR-Sv-Bar" aria-hidden="true" key={`ersvbar-${i}`} />}
+                  <strong className="OR-Sv-Title">{s.title}</strong>
+                  <p className="OR-Sv-Desc">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="OR-Sv-Dots" aria-hidden="true">
+              {ER_SERVICES.map((s, i) => (
+                <button
+                  key={s.title}
+                  type="button"
+                  className={`OR-Sv-Dot${activeErSv === i ? ' is-active' : ''}`}
+                  style={{ '--sc': s.color }}
+                  onClick={() => setActiveErSv(i)}
+                  aria-label={`Voir ${s.title}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

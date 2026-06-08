@@ -289,10 +289,10 @@ export const ER_ENJEUX = [
 export const ER_ENJEUX_ORDERED = [...ER_ENJEUX].sort((a, b) => a.key.localeCompare(b.key));
 
 export const ER_SERVICES = [
-  { title: 'Pilotage des départs', desc: 'Anticipez les âges de départ et structurez vos effectifs.' },
-  { title: 'Diagnostic retraite collaborateurs', desc: 'Vision claire + projections personnalisées pour chaque salarié.' },
-  { title: 'Parcours salarié', desc: 'Accompagnement progressif tout au long de la carrière.' },
-  { title: 'Accompagnement fin de carrière', desc: 'Aide à la transition : temps partiel, retraite progressive, départ.' },
+  { title: 'Pilotage des départs', desc: 'Anticipez les âges de départ et structurez vos effectifs.', color: '#00b6de' },
+  { title: 'Diagnostic retraite collaborateurs', desc: 'Vision claire + projections personnalisées pour chaque salarié.', color: '#4381C1' },
+  { title: 'Parcours salarié', desc: 'Accompagnement progressif tout au long de la carrière.', color: '#00bf63' },
+  { title: 'Accompagnement fin de carrière', desc: 'Aide à la transition : temps partiel, retraite progressive, départ.', color: '#0071bc' },
 ];
 
 export const ER_STEPS = [
