@@ -232,7 +232,7 @@ export default function KafeRetraite() {
                 </button>
                 <button className="K-final-cta-btn is-secondary" onClick={() => navigate('/contact')}>
                   <MessageSquare size={18} />
-                  Contactez-nous
+                  Participer au prochain Kafé Retraite
                 </button>
               </div>
             </div>
