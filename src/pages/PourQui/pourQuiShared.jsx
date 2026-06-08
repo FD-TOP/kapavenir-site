@@ -310,6 +310,7 @@ export const ER_OUTILS = [
 
 export const ER_BENEFITS = [
   { color: '#00b6de', icon: Icon.chart, title: 'Meilleure anticipation RH' },
+  { color: '#0071bc', icon: Icon.heart, title: 'Collaborateurs plus sereins' },
   { color: '#00bf63', icon: Icon.shield, title: 'Marque employeur renforcée' },
   { color: '#4381C1', icon: Icon.target, title: 'Décisions plus éclairées' },
 ];
