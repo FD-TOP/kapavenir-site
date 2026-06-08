@@ -21,7 +21,7 @@ const STEPS = [
   },
   {
     id: '2',
-    nav: 'ANALYSE DE VOTRE CARRIERE',
+    nav: 'ANALYSE DE VOTRE CARRIÈRE',
     heading: 'Une analyse complète et précise de vos droits',
     intro:
       'Nous analysons en détail votre parcours professionnel pour reconstituer votre situation retraite et vérifier l’exactitude de vos droits.',
@@ -49,7 +49,7 @@ const STEPS = [
   },
   {
     id: '4',
-    nav: 'ACCOMPAGNEMENT JUSQU’AU DEPART',
+    nav: 'ACCOMPAGNEMENT JUSQU’AU DÉPART À LA RETRAITE',
     heading: 'Un accompagnement jusqu’à votre départ',
     intro:
       'Nous restons à vos côtés pour vous aider à mettre en place les actions recommandées et sécuriser votre départ à la retraite.',
