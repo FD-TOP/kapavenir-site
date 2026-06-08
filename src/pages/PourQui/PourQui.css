@@ -2802,19 +2802,44 @@
   font-weight: 800;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
   margin: 0 0 16px;
   position: relative;
   z-index: 1;
 }
-.ER-Df-Quote { font-size:.93rem;font-weight:600;color:rgba(255,255,255,.85);line-height:1.7;margin:0 0 28px;font-style:italic;position:relative;z-index:1; }
+.ER-Df-Quote {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.65;
+  margin: 0 0 28px;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 12px rgba(0, 35, 70, 0.25);
+}
 .ER-Df-Stats { display:flex;gap:28px;position:relative;z-index:1; }
-.ER-Df-Stat { display:flex;flex-direction:column;gap:3px; }
-.ER-Df-Stat strong { font-size:1.7rem;font-weight:900;color:#fff;line-height:1; }
-.ER-Df-Stat span   { font-size:.65rem;font-weight:600;color:rgba(255,255,255,.55); }
+.ER-Df-Stat { display:flex;flex-direction:column;gap:4px; }
+.ER-Df-Stat strong {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 1px 10px rgba(0, 35, 70, 0.2);
+}
+.ER-Df-Stat span {
+  font-size: .72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.35;
+}
 .ER-Df-Title { font-size:1.25rem;font-weight:900;color:var(--k-dark);margin:0 0 24px; }
 .ER-Df-List { display:flex;flex-direction:column;gap:10px; }
 .ER-Diff-Row {
