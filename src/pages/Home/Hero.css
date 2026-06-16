@@ -4,8 +4,7 @@
   height: 100vh;
   width: 100%;
   
-  /* Gestion de l'image de fond */
-  background: url('../../assets/meeting6.jpg') no-repeat center center/cover;
+  background: none;
   
   /* On réinitialise les marges pour éviter les bandes blanches */
   margin: 0;
@@ -15,6 +14,15 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+}
+
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 /* --- OVERLAY (VOILE SOMBRE) --- */
@@ -52,8 +60,12 @@
   font-weight: 900;
   line-height: 1.1;
   margin: 0 auto 22px;
-  max-width: 17ch;
+  max-width: 26ch;
   text-shadow: none;
+}
+
+.hero-title-keep-together {
+  white-space: nowrap; /* Empêche "stress ni perte d’argent" de passer à la ligne au zoom */
 }
 
 .hero-title-plain {
@@ -110,7 +122,8 @@
   }
 
   .hero-container { padding-top: 42px; }
-  .hero-title { font-size: 2.2rem; max-width: 19ch; }
+  .hero-title { font-size: 2.2rem; max-width: 22ch; }
+  .hero-title-keep-together { white-space: normal; }
 
   .hero-cta-group {
     flex-direction: column;
