@@ -26,7 +26,7 @@ export default function ParticuliersPage() {
   const navigate = useNavigate();
 
   const [introRef, introVis] = useReveal(0.2);
-  const age = useCounter(63, 1600, introVis);
+  const age = useCounter(62, 1600, introVis);
   const montant = useCounter(1840, 2000, introVis);
   const [pbRef, pbVis] = useReveal();
   const [svRef, svVis] = useReveal();
@@ -65,7 +65,7 @@ export default function ParticuliersPage() {
               </div>
               <div className="PQ-Counter-ValRow">
                 <span className="PQ-Counter-Big">{age}</span>
-                <span className="PQ-Counter-Unit">ans</span>
+                <span className="PQ-Counter-Unit">ans et 9 mois</span>
               </div>
               <p className="PQ-Counter-Hint">Âge moyen de départ à la retraite en France</p>
               <div className="PQ-Counter-Track">
