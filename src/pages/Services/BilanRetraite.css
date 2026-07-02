@@ -318,7 +318,7 @@
     0 3px 10px rgba(0, 191, 99, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.42);
   overflow: hidden;
-  transform: rotate(-10deg);
+  transform: rotate(10deg);
   transform-origin: center center;
 }
 
@@ -1030,7 +1030,7 @@
     font-size: 0.58rem;
     padding: 0 10px;
     border-radius: 12px;
-    transform: rotate(-8deg);
+    transform: rotate(8deg);
   }
 
   .BR-Card-Badge-Icon {
