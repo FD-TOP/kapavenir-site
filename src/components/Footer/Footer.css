@@ -236,13 +236,15 @@ a.FT-ContactLink:hover {
 
 .FT-ContactLink--addr {
   cursor: default;
+  white-space: nowrap;
 }
 
 /* ─── Visuel conseillère — photo peut dépasser haut / côtés ─── */
 .FT-Visual {
   align-self: start;
   width: min(100%, var(--ft-advisor-w));
-  margin: 0 auto 0 0;
+  margin: 0 0 0 auto;
+  transform: translateX(26px);
   overflow: visible;
 }
 
@@ -384,6 +386,7 @@ a.FT-ContactLink:hover {
     grid-column: 1 / -1;
     width: min(100%, 300px);
     margin: 0 auto;
+    transform: none;
   }
 
   .FT-VisualBody {
@@ -417,6 +420,7 @@ a.FT-ContactLink:hover {
   .FT-Visual {
     width: min(100%, 280px);
     margin: 0 auto;
+    transform: none;
   }
 
   .FT-VisualBody {
