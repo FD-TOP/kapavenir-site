@@ -52,7 +52,6 @@ export default function ParticuliersPage() {
         <LogoSticker size={95} top="6%" right="3%" rotation={15} opacity={0.16} animation="wobble" hideMobile />
         <div className="PQ-Block-Inner PQ-Split">
           <div className="PQ-Intro-Left">
-            <span className="PQ-Label PQ-Label--blue">En chiffres</span>
             <h2 className="PQ-Block-Title">
               Des repères <Grad className="PQ-Grad">concrets</Grad> pour décider
             </h2>
