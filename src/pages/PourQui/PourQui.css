@@ -974,8 +974,19 @@
   box-shadow: 0 6px 22px rgba(67,129,193,.12);
   transform: translateX(6px);
 }
-.PQ-Pb-Ico { flex-shrink: 0; }
-.PQ-Pb-Ico svg { width: 18px; height: 18px; }
+.PQ-Pb-Ico {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.PQ-Pb-Ico svg {
+  width: 18px;
+  height: 18px;
+  overflow: visible;
+}
 .PQ-Pb-Text { font-size: .9rem; color: var(--k-dark); flex: 1; font-weight: 600; }
 .PQ-Photo-Wrap { position: relative; border-radius: 24px; overflow: visible; }
 .PQ-Photo {
@@ -1004,8 +1015,19 @@
 }
 .PQ-Photo-Float--tr { top: -16px; right: -16px; }
 .PQ-Photo-Float--bl { bottom: -16px; left: -16px; }
-.PQ-Float-Icon { }
-.PQ-Float-Icon svg { width: 16px; height: 16px; }
+.PQ-Float-Icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.PQ-Float-Icon svg {
+  width: 16px;
+  height: 16px;
+  overflow: visible;
+}
 
 /* 3 — Promise cards */
 .PQ-Promise-Grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
