@@ -76,7 +76,9 @@ export default function Footer() {
               </li>
               <li>
                 <span className="FT-ContactLink FT-ContactLink--addr">
-                  12 Av. des Prés, 78180 Montigny-le-Bretonneux
+                  12 Av. des Prés
+                  <br />
+                  78180 Montigny-le-Bretonneux
                 </span>
               </li>
             </ul>

@@ -236,7 +236,8 @@ a.FT-ContactLink:hover {
 
 .FT-ContactLink--addr {
   cursor: default;
-  white-space: nowrap;
+  display: inline-block;
+  line-height: 1.5;
 }
 
 /* ─── Visuel conseillère — photo peut dépasser haut / côtés ─── */
