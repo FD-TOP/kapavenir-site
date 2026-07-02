@@ -292,31 +292,31 @@
 /* Badge Kap — taille fixe, coins arrondis */
 .BR-Card-Badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   z-index: 3;
   box-sizing: border-box;
-  width: 168px;
-  height: 40px;
+  width: 196px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 0 8px;
+  gap: 8px;
+  padding: 0 12px;
   background: var(--kap-premium-gradient);
   color: #fff;
-  font-size: 0.5rem;
-  font-weight: 800;
-  letter-spacing: 0.07em;
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height: 1.15;
-  border-radius: 12px;
+  line-height: 1.2;
+  border-radius: 14px;
   pointer-events: none;
-  border: 1px solid rgba(255, 255, 255, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   box-shadow:
-    0 6px 18px rgba(0, 113, 188, 0.32),
-    0 2px 6px rgba(0, 191, 99, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    0 8px 22px rgba(0, 113, 188, 0.38),
+    0 3px 10px rgba(0, 191, 99, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
   overflow: hidden;
 }
 
@@ -340,12 +340,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.42);
   color: #fff;
 }
 
@@ -1021,18 +1021,18 @@
     padding: 24px 18px 20px;
   }
   .BR-Card-Badge {
-    top: 10px;
-    right: 10px;
-    width: 152px;
-    height: 38px;
-    font-size: 0.48rem;
-    padding: 0 6px;
-    border-radius: 10px;
+    top: 8px;
+    right: 8px;
+    width: 176px;
+    height: 44px;
+    font-size: 0.58rem;
+    padding: 0 10px;
+    border-radius: 12px;
   }
 
   .BR-Card-Badge-Icon {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
   }
 }
 

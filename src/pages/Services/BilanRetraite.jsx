@@ -376,9 +376,9 @@ export default function BilanRetraite() {
                 <span className={`BR-Card-Badge BR-Card-Badge--${pack.id}`}>
                   <span className="BR-Card-Badge-Icon" aria-hidden>
                     {pack.badgeIcon === 'crown' ? (
-                      <Crown size={12} strokeWidth={2.4} />
+                      <Crown size={14} strokeWidth={2.4} />
                     ) : (
-                      <Star size={12} strokeWidth={2.4} fill="currentColor" />
+                      <Star size={14} strokeWidth={2.4} fill="currentColor" />
                     )}
                   </span>
                   <span className="BR-Card-Badge-Text">{pack.badge}</span>
