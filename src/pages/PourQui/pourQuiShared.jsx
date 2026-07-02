@@ -28,7 +28,15 @@ export const SLIDES = [
     label: 'Organismes & Assurances',
     sub: 'Partenariats institutionnels',
     color: '#00bf63',
-    heroTitle: <>Accompagnez vos assurés dans <KapGrad className="OR-Grad">leurs décisions retraite</KapGrad></>,
+    heroTitle: (
+      <>
+        Accompagnez vos
+        <br />
+        assurés dans leurs
+        <br />
+        <KapGrad className="OR-Grad">décisions retraite</KapGrad>
+      </>
+    ),
     heroDesc: 'Une approche claire, pédagogique et activable pour créer de la valeur à chaque étape du parcours client.',
   },
   {
