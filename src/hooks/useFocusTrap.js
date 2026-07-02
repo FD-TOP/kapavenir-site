@@ -9,7 +9,10 @@ const FOCUSABLE =
 export function useFocusTrap(active, onClose, options = {}) {
   const containerRef = useRef(null);
   const previousFocusRef = useRef(null);
+  const onCloseRef = useRef(onClose);
   const { initialFocusSelector = '[data-autofocus], .BR-Modal-Close, button, a[href]' } = options;
+
+  onCloseRef.current = onClose;
 
   useEffect(() => {
     if (!active) return undefined;
@@ -21,7 +24,7 @@ export function useFocusTrap(active, onClose, options = {}) {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         e.preventDefault();
-        onClose?.();
+        onCloseRef.current?.();
         return;
       }
       if (e.key !== 'Tab' || !containerRef.current) return;
@@ -50,16 +53,16 @@ export function useFocusTrap(active, onClose, options = {}) {
       if (!root) return;
       const target =
         root.querySelector(initialFocusSelector) || root.querySelector(FOCUSABLE);
-      target?.focus();
+      target?.focus({ preventScroll: true });
     }, 0);
 
     return () => {
       window.clearTimeout(timer);
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = previousOverflow;
-      previousFocusRef.current?.focus?.();
+      previousFocusRef.current?.focus?.({ preventScroll: true });
     };
-  }, [active, onClose, initialFocusSelector]);
+  }, [active, initialFocusSelector]);
 
   return containerRef;
 }

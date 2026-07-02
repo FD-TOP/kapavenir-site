@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useId } from 'react';
+import React, { useState, useEffect, useId, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
@@ -328,15 +328,17 @@ export default function BilanRetraite() {
   const modalTitleId = useId();
   const [activeModal, setActiveModal] = useState(null);
   const [activeAcc, setActiveAcc] = useState(0);
-  const closeModal = () => setActiveModal(null);
+  const closeModal = useCallback(() => setActiveModal(null), []);
   const modalRef = useFocusTrap(Boolean(activeModal), closeModal);
 
   useEffect(() => {
+    if (activeModal) return undefined;
+
     const timer = setInterval(() => {
       setActiveAcc((prev) => (prev + 1) % accompagnements.length);
     }, 1800);
     return () => clearInterval(timer);
-  }, []);
+  }, [activeModal]);
 
   const activePack = packs.find((p) => p.id === activeModal);
 

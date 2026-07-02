@@ -621,6 +621,8 @@
   max-height: min(88vh, 100dvh - 2.5rem);
   overflow-y: auto;
   overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   position: relative;
   z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.65);
