@@ -21,12 +21,12 @@ const packs = [
     modalDetail: {
       comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Entretien personnalisé (1h) en présentiel ou à distance',
-        'Analyse complète du relevé de carrière',
-        'Estimation des droits à la retraite (âge, montant, trimestres)',
-        'Détection des anomalies et incohérences',
-        'Recommandations concrètes pour correction en autonomie',
-        'Conseils stratégiques de premier niveau',
+        'Entretien individuel de 1h en présentiel ou à distance',
+        'Analyse complète de votre relevé de carrière',
+        'Estimation de votre âge et montant de départ',
+        'Détection des erreurs et périodes manquantes',
+        'Conseils concrets pour corriger votre dossier',
+        'Recommandations personnalisées pour préparer la suite',
       ],
       recoitTitle: 'Ce que vous recevez',
       recoit: [
@@ -45,12 +45,12 @@ const packs = [
       ],
     },
     features: [
-      'Entretien personnalisé (1h) en présentiel ou à distance',
-      'Analyse complète du relevé de carrière',
-      'Estimation des droits à la retraite (âge, montant, trimestres)',
-      'Détection des anomalies et incohérences',
-      'Recommandations concrètes pour correction en autonomie',
-      'Conseils stratégiques de premier niveau',
+      'Entretien individuel de 1h en présentiel ou à distance',
+      'Analyse complète de votre relevé de carrière',
+      'Estimation de votre âge et montant de départ',
+      'Détection des erreurs et périodes manquantes',
+      'Conseils concrets pour corriger votre dossier',
+      'Recommandations personnalisées pour préparer la suite',
     ],
   },
   {
