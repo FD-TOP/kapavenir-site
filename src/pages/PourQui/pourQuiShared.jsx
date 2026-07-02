@@ -214,7 +214,7 @@ export const Icon = {
 
 export const PROBLEMS = [
   { icon: Icon.doc, text: 'Relevés difficiles à comprendre' },
-  { icon: Icon.alert, text: 'Erreurs non détectées' },
+  { icon: Icon.search, text: 'Erreurs non détectées' },
   { icon: Icon.eye, text: 'Décisions prises sans visibilité' },
   { icon: Icon.refresh, text: 'Règles qui évoluent constamment' },
 ];

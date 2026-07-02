@@ -115,7 +115,7 @@ export default function ParticuliersPage() {
               <span>+4 régimes différents</span>
             </div>
             <div className="PQ-Photo-Float PQ-Photo-Float--bl">
-              <div className="PQ-Float-Icon">{Icon.alert}</div>
+              <div className="PQ-Float-Icon">{Icon.search}</div>
               <span>Droits souvent mal calculés</span>
             </div>
           </div>
