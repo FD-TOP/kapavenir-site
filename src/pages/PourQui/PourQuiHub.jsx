@@ -117,7 +117,13 @@ export default function PourQuiHub() {
               onFocus={() => goTo(i)}
               aria-label={`${s.label} — ${s.sub}`}
             >
-              <div className="PQ-Thumb-Img" style={{ backgroundImage: `url(${s.image})` }} />
+              <div
+                className="PQ-Thumb-Img"
+                style={{
+                  backgroundImage: `url(${s.image})`,
+                  backgroundPosition: s.thumbPosition ?? s.bgPosition ?? 'center center',
+                }}
+              />
               <div className="PQ-Thumb-Info">
                 <span className="PQ-Thumb-Label">{s.label}</span>
                 <span className="PQ-Thumb-Sub">{s.sub}</span>
