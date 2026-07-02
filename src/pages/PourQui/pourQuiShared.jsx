@@ -240,9 +240,9 @@ export const PT_STEPS = [
 ];
 
 export const PT_BENEFITS = [
-  { icon: Icon.eye, color: '#4381C1', titleParts: [{ t: 'Une vision ', g: 'claire' }], subParts: [{ t: 'de votre ', g: 'retraite' }] },
-  { icon: Icon.clock, color: '#00bf63', titleParts: [{ t: '', g: 'Un départ au bon moment' }], subParts: [] },
-  { icon: Icon.wallet, color: '#00b6de', titleParts: [{ t: 'Une pension ', g: 'optimisée' }], subParts: [] },
+  { icon: Icon.eye, color: '#4381C1', titleParts: [{ t: '', g: 'Une vision claire' }], subParts: [{ t: 'de votre retraite', g: null }] },
+  { icon: Icon.clock, color: '#00bf63', titleParts: [{ t: 'Un départ', g: null }], subParts: [{ t: '', g: 'au bon moment' }] },
+  { icon: Icon.wallet, color: '#00b6de', titleParts: [{ t: 'Une pension', g: null }], subParts: [{ t: '', g: 'optimisée' }] },
   { icon: Icon.heart, color: '#4381C1', titleParts: [{ t: 'Plus de sérénité', g: null }], subParts: [{ t: '', g: 'et moins de stress' }] },
 ];
 
