@@ -244,7 +244,7 @@ a.FT-ContactLink:hover {
   align-self: start;
   width: min(100%, var(--ft-advisor-w));
   margin: 0 0 0 auto;
-  transform: translateX(26px);
+  transform: translateX(44px);
   overflow: visible;
 }
 
