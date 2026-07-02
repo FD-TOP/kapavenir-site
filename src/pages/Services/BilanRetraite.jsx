@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import './BilanRetraite.css';
-import { Crown, Star } from 'lucide-react';
+import { Award, Compass, Crown, Scale } from 'lucide-react';
 import LogoSticker from '../../components/Common/LogoSticker';
 import KapGrad from '../../components/Common/KapGrad';
 
@@ -13,7 +13,7 @@ const packs = [
     id: 'clarte',
     title: 'Kap clarté',
     badge: 'Le bon départ',
-    badgeIcon: 'star',
+    badgeIcon: 'compass',
     tagline: 'Faites le point sur votre retraite et identifiez les erreurs avant qu’il ne soit trop tard.',
     pricePill: '300 € TTC',
     intro:
@@ -57,7 +57,7 @@ const packs = [
     id: 'mesure',
     title: 'Kap Mesure',
     badge: 'Le meilleur équilibre',
-    badgeIcon: 'star',
+    badgeIcon: 'scale',
     tagline: 'Préparez une retraite optimisée, avec méthode et sérénité.',
     pricePill: '870 € TTC',
     intro:
@@ -109,7 +109,7 @@ const packs = [
     id: 'maitrise',
     title: 'Kap Maîtrise',
     badge: 'Le plus choisi',
-    badgeIcon: 'star',
+    badgeIcon: 'award',
     tagline: 'Sécurisez et optimisez votre départ à la retraite avec un accompagnement complet.',
     pricePill: '1500 € TTC',
     intro:
@@ -217,6 +217,22 @@ const accompagnements = [
     text: 'Idéal pour déléguer intégralement votre retraite avec un accompagnement premium.',
   },
 ];
+
+function BadgeIcon({ icon, size = 14 }) {
+  const props = { size, strokeWidth: 2.4 };
+  switch (icon) {
+    case 'compass':
+      return <Compass {...props} />;
+    case 'scale':
+      return <Scale {...props} />;
+    case 'award':
+      return <Award {...props} />;
+    case 'crown':
+      return <Crown {...props} />;
+    default:
+      return <Compass {...props} />;
+  }
+}
 
 function PackIcon({ id, color = '#0071bc', size = 24 }) {
   const props = {
@@ -375,11 +391,7 @@ export default function BilanRetraite() {
               {pack.badge && (
                 <span className={`BR-Card-Badge BR-Card-Badge--${pack.id}`}>
                   <span className="BR-Card-Badge-Icon" aria-hidden>
-                    {pack.badgeIcon === 'crown' ? (
-                      <Crown size={14} strokeWidth={2.4} />
-                    ) : (
-                      <Star size={14} strokeWidth={2.4} fill="currentColor" />
-                    )}
+                    <BadgeIcon icon={pack.badgeIcon} />
                   </span>
                   <span className="BR-Card-Badge-Text">{pack.badge}</span>
                 </span>
