@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Target, Sparkles } from 'lucide-react';
 import './Problematic.css';
 import womanImg from '../../assets/women.png';
-import LogoSticker from '../../components/Common/LogoSticker'; // Vérifie que ton image est bien là
+import LogoSticker from '../../components/Common/LogoSticker';
+import SectionImage from '../../components/Common/SectionImage';
 
 const Problematic = () => {
   const navigate = useNavigate();
@@ -29,7 +30,13 @@ const Problematic = () => {
         {/* VISUEL : Image XXL + Déco discrète + Ombre colorée */}
         <div className="prob-visual-side">
           <div className="prob-img-frame">
-            <img src={womanImg} alt="Conseillère KapAvenir accompagnant un client sur sa retraite" className="prob-photo-xxl" />
+            <SectionImage
+              src={womanImg}
+              alt="Conseillère KapAvenir accompagnant un client sur sa retraite"
+              className="prob-photo-xxl"
+              width={800}
+              height={1000}
+            />
             
             {/* Éléments décoratifs abstraits autour de l'image */}
             <div className="deco-abstract-1"></div>

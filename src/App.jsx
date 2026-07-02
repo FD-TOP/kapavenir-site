@@ -15,7 +15,7 @@ import couple77 from './assets/couple77.jpg';
 import couple88 from './assets/couple88.jpg';
 import meeting3 from './assets/meeting3.png';
 import meeting4 from './assets/meeting4.jpg';
-import women from './assets/women.png';
+import meeting6 from './assets/meeting6.jpg';
 import salut from './assets/salut.jpg';
 import grp3 from './assets/grp3.png';
 import couple9 from './assets/couple9.png';
@@ -34,7 +34,7 @@ const APropos = React.lazy(() => import('./pages/APropos/APropos'));
 const Contact = React.lazy(() => import('./pages/Contact/Contact'));
 
 const IMAGE_PRELOADS = {
-  '/': [women],
+  '/': [meeting6],
   '/pour-qui': [couple1],
   '/pour-qui/particuliers': [couple1],
   '/pour-qui/organismes': [meeting4],

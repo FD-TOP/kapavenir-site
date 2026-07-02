@@ -2,8 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageCircle, FileBarChart, ArrowRight } from 'lucide-react';
 import './PreFooter.css';
-import coupleImg from '../../assets/couple3.jpg'; 
+import coupleImg from '../../assets/couple3.jpg';
 import LogoSticker from '../../components/Common/LogoSticker';
+import SectionImage from '../../components/Common/SectionImage';
 
 
 export default function PreFooter() {
@@ -15,7 +16,14 @@ export default function PreFooter() {
       <LogoSticker size={78} bottom="10%" right="2%" rotation={12} opacity={0.14} animation="float" hideMobile />
       {/* L'image est en arrière-plan fixe pour créer de la profondeur */}
       <div className="F-bg-image-container">
-        <img src={coupleImg} alt="" className="F-bg-parallax" role="presentation" />
+        <SectionImage
+          src={coupleImg}
+          alt=""
+          className="F-bg-parallax"
+          role="presentation"
+          width={1920}
+          height={1080}
+        />
         <div className="F-bg-overlay"></div>
       </div>
 

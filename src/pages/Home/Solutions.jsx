@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Target } from 'lucide-react';
 import './Solutions.css';
 import imageBilan from '../../assets/couple7.jpg';
 import LogoSticker from '../../components/Common/LogoSticker';
+import SectionImage from '../../components/Common/SectionImage';
 
 const solutions = [
   {
@@ -57,7 +58,7 @@ const Solutions = () => {
                   
                   {/* RECTO */}
                   <div className="sol-card-front">
-                    <img src={sol.image} alt={sol.title} />
+                    <SectionImage src={sol.image} alt={sol.title} width={600} height={400} />
                     <div className="sol-front-overlay">
                       <div className="sol-front-header">
                         <h3>{sol.title}</h3>

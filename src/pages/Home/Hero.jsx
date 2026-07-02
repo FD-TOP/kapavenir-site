@@ -35,7 +35,6 @@ const Hero = () => {
               <br />
               <KapGrad className="hero-grad-word">sereinement</KapGrad>
               <span className="hero-title-plain">, sans</span>
-              <br />
               <span className="hero-title-plain hero-title-keep-together">
                 stress ni{' '}
                 <KapGrad className="hero-grad-word">perte d’argent</KapGrad>
