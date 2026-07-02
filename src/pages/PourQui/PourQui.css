@@ -1734,7 +1734,7 @@
   width: 100%;
   border-radius: inherit;
   background: linear-gradient(180deg, #0071bc, #00b6de 55%, #00bf63);
-  transition: height 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: height 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: 0 0 14px rgba(0, 182, 222, 0.35);
 }
 .OR-Approach-RailNode {
@@ -1898,7 +1898,7 @@
   height: 3px;
   border-radius: 0 0 18px 18px;
   background: var(--kap-premium-gradient);
-  animation: or-step-fill 2.6s linear forwards;
+  animation: or-step-fill 3.8s linear forwards;
 }
 @keyframes or-step-fill {
   from { width: 0%; }

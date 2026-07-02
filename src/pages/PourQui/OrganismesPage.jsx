@@ -35,7 +35,7 @@ export default function OrganismesPage() {
   const [dfRef, dfVis] = useReveal(0.1);
   const [ctRef, ctVis] = useReveal(0.2);
 
-  const [activeOrPil, setActiveOrPil] = useAutoCycle(pilVis, OR_PILLARS.length, 2600);
+  const [activeOrPil, setActiveOrPil] = useAutoCycle(pilVis, OR_PILLARS.length, 3800);
   const [activeOrSv, setActiveOrSv] = useAutoCycle(svVis, OR_SERVICES.length, 2800);
   const revealedOR = useSequentialReveal(dfVis, OR_DIFFS.length, 450);
 
@@ -67,10 +67,6 @@ export default function OrganismesPage() {
                   className="OR-Approach-Img"
                 />
                 <div className="OR-Approach-ImgScrim" />
-                <div className="OR-Approach-ImgBadge">
-                  <span className="OR-Approach-ImgBadgeDot" />
-                  Accompagnement humain &amp; personnalisé
-                </div>
               </div>
             </div>
 
