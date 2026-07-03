@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Coffee, ArrowRight, CheckCircle2, MessageSquare, FileText } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Coffee, ArrowRight, CheckCircle2, MessageSquare, FileText, Laptop, MousePointerClick, Sparkles } from 'lucide-react';
 import './KafeRetraite.css';
 import LogoSticker from '../../components/Common/LogoSticker';
 import grp1 from '../../assets/grp1.png';
@@ -59,8 +59,19 @@ const outcomes = [
 
 export default function KafeRetraite() {
   const navigate = useNavigate();
+  const location = useLocation();
   const sectionRef = useRef(null);
   const [flippedCards, setFlippedCards] = useState({});
+
+  useEffect(() => {
+    if (!location.hash) return undefined;
+    const id = location.hash.replace('#', '');
+    const timer = setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 320);
+    return () => clearTimeout(timer);
+  }, [location.hash]);
 
   useEffect(() => {
     const root = sectionRef.current;
@@ -166,6 +177,44 @@ export default function KafeRetraite() {
                   </div>
                 </article>
               ))}
+            </div>
+          </section>
+
+          <section
+            id="aide-digitale"
+            className="K-digital K-animate"
+            aria-labelledby="k-digital-title"
+          >
+            <div className="K-digital-glow" aria-hidden="true" />
+            <div className="K-digital-inner">
+              <div className="K-digital-visual">
+                <div className="K-digital-orbit" aria-hidden="true">
+                  <span className="K-digital-orbit-dot K-digital-orbit-dot--1" />
+                  <span className="K-digital-orbit-dot K-digital-orbit-dot--2" />
+                  <span className="K-digital-orbit-dot K-digital-orbit-dot--3" />
+                </div>
+                <div className="K-digital-icon-wrap">
+                  <Laptop size={34} strokeWidth={1.8} />
+                </div>
+                <ul className="K-digital-tags">
+                  <li><MousePointerClick size={14} aria-hidden="true" /> Démarches en ligne</li>
+                  <li><Sparkles size={14} aria-hidden="true" /> 100 % gratuit</li>
+                  <li><CheckCircle2 size={14} aria-hidden="true" /> Autonomie numérique</li>
+                </ul>
+              </div>
+              <div className="K-digital-copy">
+                <span className="K-digital-badge">Aide digitale</span>
+                <h2 id="k-digital-title" className="K-digital-title">
+                  Un service pensé pour vous accompagner
+                </h2>
+                <p className="K-digital-text">
+                  Le Kafé Retraite vous propose une aide digitale gratuite pour faciliter vos démarches
+                  en ligne et vous aider à gagner en autonomie avec les outils numériques.
+                </p>
+                <button type="button" className="K-digital-cta" onClick={() => navigate('/contact')}>
+                  Bénéficier de l&apos;aide digitale <ArrowRight size={16} />
+                </button>
+              </div>
             </div>
           </section>
 

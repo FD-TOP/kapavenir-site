@@ -17,6 +17,13 @@ export default function HomeKafeBanner() {
     }
   }, []);
 
+  const goAideDigitale = () => {
+    navigate('/kafe-retraite#aide-digitale');
+    setTimeout(() => {
+      document.getElementById('aide-digitale')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 350);
+  };
+
   const dismiss = () => {
     setClosing(true);
     setTimeout(() => {
@@ -36,7 +43,7 @@ export default function HomeKafeBanner() {
       <p className="HKB-text">
         Un accompagnement digital gratuit pour vos démarches retraite et services en ligne.
       </p>
-      <button type="button" className="HKB-cta" onClick={() => navigate('/kafe-retraite')}>
+      <button type="button" className="HKB-cta" onClick={goAideDigitale}>
         En savoir plus
         <ArrowRight size={16} aria-hidden="true" />
       </button>

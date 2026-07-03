@@ -25,6 +25,7 @@ const highlights = [
     icon: <Laptop size={28} />,
     title: 'Bénéficier d\'une aide digitale',
     desc: 'Un accompagnement simple pour réaliser vos démarches retraite en ligne, même sans maîtrise de l\'informatique.',
+    anchor: 'aide-digitale',
   },
   {
     icon: <Rocket size={28} />,
@@ -35,6 +36,13 @@ const highlights = [
 
 export default function KafeRetraiteHome() {
   const navigate = useNavigate();
+
+  const goToAnchor = (anchor) => {
+    navigate(`/kafe-retraite#${anchor}`);
+    setTimeout(() => {
+      document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 350);
+  };
 
   return (
     <section className="KH-wrap">
@@ -61,7 +69,19 @@ export default function KafeRetraiteHome() {
         {/* ── Grille 4 cartes ── */}
         <div className="KH-grid">
           {highlights.map((item, idx) => (
-            <article key={idx} className="KH-card">
+            <article
+              key={idx}
+              className={`KH-card${item.anchor ? ' KH-card--link' : ''}`}
+              onClick={item.anchor ? () => goToAnchor(item.anchor) : undefined}
+              onKeyDown={item.anchor ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  goToAnchor(item.anchor);
+                }
+              } : undefined}
+              role={item.anchor ? 'button' : undefined}
+              tabIndex={item.anchor ? 0 : undefined}
+            >
               <div className="KH-icon-box">{item.icon}</div>
               <h3 className="KH-card-title">{item.title}</h3>
               <p className="KH-card-desc">{item.desc}</p>

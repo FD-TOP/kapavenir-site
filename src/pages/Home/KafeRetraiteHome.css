@@ -88,6 +88,15 @@
   box-shadow: var(--shadow-3);
 }
 
+.KH-card--link {
+  cursor: pointer;
+}
+
+.KH-card--link:focus-visible {
+  outline: 3px solid #00b6de;
+  outline-offset: 3px;
+}
+
 .KH-icon-box {
   width: 54px;
   height: 54px;
