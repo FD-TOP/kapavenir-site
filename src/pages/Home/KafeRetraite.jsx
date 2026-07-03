@@ -19,7 +19,7 @@ const pillarData = [
 const flipCards = [
   {
     frontTitle: 'Pour les particuliers',
-    frontImage: meeting55,
+    frontImage: meeting66,
     backPoints: [
       'Vous avez entre 45 et 60 ans',
       'Vous commencez à penser à votre retraite',
@@ -29,7 +29,7 @@ const flipCards = [
   },
   {
     frontTitle: 'Pour les entreprises',
-    frontImage: meeting66,
+    frontImage: meeting55,
     backPoints: [
       'Vous souhaitez accompagner vos collaborateurs',
       'Vous cherchez une action concrète en qualité de vie au travail (QVT)',
