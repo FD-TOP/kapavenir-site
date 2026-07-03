@@ -228,24 +228,8 @@ export default function KafeRetraite() {
             className="K-digital K-animate"
             aria-labelledby="k-digital-title"
           >
-            <div className="K-digital-layout">
-              <div className="K-digital-main">
-                <p className="K-digital-eyebrow">
-                  <Laptop size={15} strokeWidth={2.2} aria-hidden="true" />
-                  Aide digitale gratuite
-                </p>
-                <h2 id="k-digital-title" className="K-digital-title">
-                  Un service pensé pour vous accompagner
-                </h2>
-                <p className="K-digital-text">
-                  Le Kafé Retraite vous propose une aide digitale gratuite pour faciliter vos démarches
-                  en ligne et vous aider à gagner en autonomie avec les outils numériques.
-                </p>
-                <button type="button" className="K-digital-cta" onClick={() => navigate('/contact')}>
-                  Bénéficier de l&apos;aide digitale <ArrowRight size={16} />
-                </button>
-              </div>
-              <figure className="K-digital-photo-wrap">
+            <div className="K-digital-split">
+              <figure className="K-digital-visual">
                 <img
                   src={kafeAideDigitale}
                   alt="Personne senior utilisant un ordinateur portable pour ses démarches en ligne"
@@ -253,12 +237,56 @@ export default function KafeRetraite() {
                   loading="lazy"
                   decoding="async"
                 />
+                <span className="K-digital-float-badge">
+                  <Sparkles size={14} aria-hidden="true" />
+                  100 % gratuit
+                </span>
               </figure>
-              <ul className="K-digital-points">
-                <li><MousePointerClick size={18} aria-hidden="true" /> Faciliter vos démarches en ligne</li>
-                <li><Sparkles size={18} aria-hidden="true" /> Un accompagnement 100 % gratuit</li>
-                <li><CheckCircle2 size={18} aria-hidden="true" /> Gagner en autonomie numérique</li>
-              </ul>
+
+              <div className="K-digital-panel">
+                <div className="K-digital-head">
+                  <span className="K-digital-tag">
+                    <Laptop size={14} strokeWidth={2.4} aria-hidden="true" />
+                    Aide digitale
+                  </span>
+                  <h2 id="k-digital-title" className="K-digital-title">
+                    Un service pensé pour vous accompagner
+                  </h2>
+                  <p className="K-digital-text">
+                    Le Kafé Retraite vous propose une aide digitale gratuite pour faciliter vos démarches
+                    en ligne et vous aider à gagner en autonomie avec les outils numériques.
+                  </p>
+                </div>
+
+                <div className="K-digital-features">
+                  <article className="K-digital-feature">
+                    <span className="K-digital-feature-ico" aria-hidden="true">
+                      <MousePointerClick size={20} />
+                    </span>
+                    <strong>Démarches en ligne</strong>
+                    <span>Guidées pas à pas</span>
+                  </article>
+                  <article className="K-digital-feature">
+                    <span className="K-digital-feature-ico" aria-hidden="true">
+                      <Sparkles size={20} />
+                    </span>
+                    <strong>Accompagnement</strong>
+                    <span>Simple et humain</span>
+                  </article>
+                  <article className="K-digital-feature">
+                    <span className="K-digital-feature-ico" aria-hidden="true">
+                      <CheckCircle2 size={20} />
+                    </span>
+                    <strong>Autonomie</strong>
+                    <span>Avec les outils numériques</span>
+                  </article>
+                </div>
+
+                <button type="button" className="K-digital-cta" onClick={() => navigate('/contact')}>
+                  Bénéficier de l&apos;aide digitale
+                  <ArrowRight size={16} />
+                </button>
+              </div>
             </div>
           </section>
 
