@@ -8,7 +8,7 @@ import grp2 from '../../assets/grp2.png';
 import meeting55 from '../../assets/meeting55.jpg';
 import meeting66 from '../../assets/meeting66.jpg';
 import couple9 from '../../assets/couple9.png';
-import women2 from '../../assets/women2.jpg';
+import kafeAideDigitale from '../../assets/kafe-aide-digitale.jpg';
 
 const pillarData = [
   { text: "D’explications claires et pédagogiques" },
@@ -247,8 +247,8 @@ export default function KafeRetraite() {
               </div>
               <figure className="K-digital-photo-wrap">
                 <img
-                  src={women2}
-                  alt="Accompagnement digital pour les démarches retraite en ligne"
+                  src={kafeAideDigitale}
+                  alt="Personne senior utilisant un ordinateur portable pour ses démarches en ligne"
                   className="K-digital-photo"
                   loading="lazy"
                   decoding="async"
