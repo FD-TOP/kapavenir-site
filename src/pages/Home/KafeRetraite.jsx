@@ -8,6 +8,7 @@ import grp2 from '../../assets/grp2.png';
 import meeting55 from '../../assets/meeting55.jpg';
 import meeting66 from '../../assets/meeting66.jpg';
 import couple9 from '../../assets/couple9.png';
+import women2 from '../../assets/women2.jpg';
 
 const pillarData = [
   { text: "D’explications claires et pédagogiques" },
@@ -244,6 +245,15 @@ export default function KafeRetraite() {
                   Bénéficier de l&apos;aide digitale <ArrowRight size={16} />
                 </button>
               </div>
+              <figure className="K-digital-photo-wrap">
+                <img
+                  src={women2}
+                  alt="Accompagnement digital pour les démarches retraite en ligne"
+                  className="K-digital-photo"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
               <ul className="K-digital-points">
                 <li><MousePointerClick size={18} aria-hidden="true" /> Faciliter vos démarches en ligne</li>
                 <li><Sparkles size={18} aria-hidden="true" /> Un accompagnement 100 % gratuit</li>
