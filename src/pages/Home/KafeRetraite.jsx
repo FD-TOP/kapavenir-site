@@ -237,10 +237,6 @@ export default function KafeRetraite() {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="K-digital-float-badge">
-                  <Sparkles size={14} aria-hidden="true" />
-                  100 % gratuit
-                </span>
               </figure>
 
               <div className="K-digital-panel">
@@ -282,9 +278,8 @@ export default function KafeRetraite() {
                   </article>
                 </div>
 
-                <button type="button" className="K-digital-cta" onClick={() => navigate('/contact')}>
-                  Bénéficier de l&apos;aide digitale
-                  <ArrowRight size={16} />
+                <button type="button" className="K-btn-premium" onClick={() => navigate('/contact')}>
+                  Bénéficier de l&apos;aide digitale <ArrowRight size={18} />
                 </button>
               </div>
             </div>
