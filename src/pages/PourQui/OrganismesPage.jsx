@@ -132,7 +132,7 @@ export default function OrganismesPage() {
           <div className="OR-Sv-Left">
             <span className="OR-Label">Nos solutions</span>
             <h2 className="OR-Title">
-              Des services <Grad className="OR-Grad">modulables</Grad>
+              Des <Grad className="OR-Grad">services</Grad> <Grad className="OR-Grad">modulables</Grad>
               <br />
               selon vos <Grad className="OR-Green">besoins</Grad>
             </h2>
