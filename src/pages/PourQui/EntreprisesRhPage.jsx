@@ -90,7 +90,6 @@ export default function EntreprisesRhPage() {
                       onMouseEnter={() => setActiveEnj(i)}
                       aria-pressed={activeEnj === i}
                     >
-                      <span className="ER-Enj-Index">0{i + 1}</span>
                       <span className="ER-Enj-Label">{e.title}</span>
                     </button>
                   ))}
