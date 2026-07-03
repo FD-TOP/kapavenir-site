@@ -105,9 +105,9 @@ export default function EntreprisesRhPage() {
           <div className="ER-Sv-Left">
             <span className="ER-Label">Nos solutions</span>
             <h2 className="ER-Title">
-              Des services <Grad className="OR-Grad">modulables</Grad>
+              Des <Grad className="OR-Grad">services</Grad> <Grad className="OR-Grad">modulables</Grad>
               <br />
-              selon vos besoins
+              selon vos <Grad className="OR-Green">besoins</Grad>
             </h2>
             <p className="ER-Sub">Chaque entreprise est unique. Nous adaptons notre approche à votre structure et vos objectifs RH.</p>
           </div>
