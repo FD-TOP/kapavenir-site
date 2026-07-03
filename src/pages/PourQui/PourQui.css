@@ -2696,12 +2696,17 @@
 .ER-Ou-GaugeSub { display:block;font-size:.65rem;font-weight:600;color:var(--k-muted);margin-top:2px; }
 
 /* ER Bénéfices */
+.ER-Bn-Stage {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
 .ER-Bn-Deck {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
-  max-width: 1160px;
-  margin: 0 auto;
 }
 .ER-Bn-Item {
   position: relative;
@@ -2712,10 +2717,23 @@
   background: #ffffff;
   box-shadow: 0 10px 22px rgba(67,129,193,.12), 0 2px 8px rgba(15,23,42,.05);
   opacity: 0;
-  transform: translateY(12px) scale(.98);
-  transition: opacity .5s, transform .5s, box-shadow .3s, border-color .3s;
+  transform: translateY(24px) scale(.94);
+  cursor: pointer;
+  transition:
+    opacity .45s ease,
+    transform .45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow .35s ease,
+    border-color .35s ease,
+    filter .35s ease;
 }
-.ER-Block.is-vis .ER-Bn-Item { opacity: 1; transform: none; }
+.ER-Block.is-vis .ER-Bn-Item {
+  animation: erBnItemIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 0.11s + 0.1s);
+}
+@keyframes erBnItemIn {
+  from { opacity: 0; transform: translateY(28px) scale(.92); }
+  to   { opacity: 1; transform: none; }
+}
 .ER-Bn-Item::before {
   content: "";
   position: absolute;
@@ -2724,6 +2742,22 @@
   height: 4px;
   background: var(--bc);
   pointer-events: none;
+  transition: height .35s ease;
+}
+.ER-Bn-Bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--bc), color-mix(in srgb, var(--bc) 55%, #00b6de));
+  border-radius: 0 0 18px 18px;
+  animation: erBnBarFill 2.8s linear forwards;
+  z-index: 2;
+}
+@keyframes erBnBarFill {
+  from { width: 0%; }
+  to   { width: 100%; }
 }
 .ER-Bn-Pulse {
   position: absolute;
@@ -2733,7 +2767,8 @@
   height: 9px;
   border-radius: 999px;
   background: var(--bc);
-  box-shadow: 0 0 0 0 rgba(0, 182, 222, 0.35);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--bc) 40%, transparent);
+  transition: transform .35s ease;
 }
 .ER-Bn-ItemBody {
   display: flex;
@@ -2752,6 +2787,12 @@
   align-items: center;
   justify-content: center;
   color: #0071bc;
+  transition:
+    transform .4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow .4s ease,
+    background .4s ease,
+    border-color .4s ease,
+    color .4s ease;
 }
 .ER-Bn-Icon {
   display: inline-flex;
@@ -2775,35 +2816,85 @@
   color: var(--k-dark);
   text-align: center;
   line-height: 1.35;
+  transition: color .35s ease, transform .35s ease;
+}
+.ER-Bn-Item:hover:not(.is-active) {
+  transform: translateY(-4px) scale(1.01);
+  border-color: #b8d9f0;
+  box-shadow: 0 14px 30px rgba(67, 129, 193, 0.16);
 }
 .ER-Bn-Item.is-active {
-  transform: translateY(-5px) scale(1.02);
-  border-color: #96c9ea;
-  box-shadow: 0 16px 34px rgba(0, 113, 188, 0.18), 0 0 0 2px rgba(0, 182, 222, 0.14);
-  background: linear-gradient(150deg, #f1faff 0%, #ffffff 62%);
+  transform: translateY(-8px) scale(1.04);
+  border-color: color-mix(in srgb, var(--bc) 45%, #ffffff);
+  box-shadow:
+    0 20px 44px color-mix(in srgb, var(--bc) 22%, transparent),
+    0 0 0 2px color-mix(in srgb, var(--bc) 18%, transparent);
+  background: linear-gradient(155deg, color-mix(in srgb, var(--bc) 6%, #ffffff) 0%, #ffffff 65%);
+  z-index: 1;
+}
+.ER-Bn-Item.is-active::before {
+  height: 5px;
 }
 .ER-Bn-Item.is-active .ER-Bn-Pulse {
-  animation: erBnPulse 1.5s ease-out infinite;
+  animation: erBnPulse 1.6s ease-out infinite;
+  transform: scale(1.15);
 }
 @keyframes erBnPulse {
-  0% { box-shadow: 0 0 0 0 rgba(0, 182, 222, 0.35); }
-  70% { box-shadow: 0 0 0 10px rgba(0, 182, 222, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 182, 222, 0); }
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--bc) 45%, transparent); }
+  70%  { box-shadow: 0 0 0 10px color-mix(in srgb, var(--bc) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--bc) 0%, transparent); }
 }
 .ER-Bn-Item.is-active .ER-Bn-IconWrap {
+  transform: translateY(-4px) scale(1.08);
+  background: color-mix(in srgb, var(--bc) 14%, #ffffff);
+  border-color: color-mix(in srgb, var(--bc) 38%, #cfe3f3);
+  color: var(--bc);
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--bc) 28%, transparent);
+  animation: erBnIconFloat 2.8s ease-in-out infinite;
+}
+@keyframes erBnIconFloat {
+  0%, 100% { transform: translateY(-4px) scale(1.08); }
+  50%      { transform: translateY(-7px) scale(1.1); }
+}
+.ER-Bn-Item.is-active .ER-Bn-Label {
+  color: color-mix(in srgb, var(--bc) 55%, #0f172a);
   transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(0, 113, 188, 0.2);
-  color: #005b9a;
 }
 .ER-Bn-Deck:has(.is-active) .ER-Bn-Item:not(.is-active) {
-  opacity: .92;
-  transform: scale(.99);
+  opacity: .52;
+  transform: scale(.96);
+  filter: saturate(.75);
+}
+.ER-Bn-Dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.ER-Bn-Dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: none;
+  padding: 0;
+  background: #c8dce9;
+  cursor: pointer;
+  transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+}
+.ER-Bn-Dot.is-active {
+  background: var(--bc);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--bc) 25%, transparent);
+}
+.ER-Bn-Dot:hover:not(.is-active) {
+  background: color-mix(in srgb, var(--bc) 45%, #c8dce9);
+  transform: scale(1.15);
 }
 @media (max-width: 980px) {
   .ER-Bn-Deck { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
   .ER-Bn-Deck { grid-template-columns: 1fr; gap: 14px; }
+  .ER-Bn-Stage { gap: 22px; }
 }
 
 /* ER Différenciation (light block + dark panel) */

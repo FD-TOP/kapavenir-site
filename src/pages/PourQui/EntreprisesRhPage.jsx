@@ -32,7 +32,7 @@ export default function EntreprisesRhPage() {
 
   const [activeEnj, setActiveEnj] = useAutoCycle(enjVis, ER_ENJEUX_ORDERED.length, 2600);
   const [activeErSv, setActiveErSv] = useAutoCycle(svVis, ER_SERVICES.length, 2800);
-  const [activeErBn, setActiveErBn] = useAutoCycle(bnVis, ER_BENEFITS.length, 2000);
+  const [activeErBn, setActiveErBn] = useAutoCycle(bnVis, ER_BENEFITS.length, 2800);
   const revealedER = useSequentialReveal(dfVis, ER_DIFFS.length, 460);
 
   return (
@@ -182,24 +182,45 @@ export default function EntreprisesRhPage() {
               Ce que vous <Grad className="ER-Cyan">y gagnez</Grad>
             </h2>
           </div>
-          <div className="ER-Bn-Deck">
-            {ER_BENEFITS.map((b, i) => (
-              <div
-                key={i}
-                className={`ER-Bn-Item ${activeErBn === i ? 'is-active' : ''}`}
-                style={{ '--bc': b.color, transitionDelay: bnVis ? `${i * 110}ms` : '0ms' }}
-                onMouseEnter={() => setActiveErBn(i)}
-                onClick={() => setActiveErBn(i)}
-              >
-                <span className="ER-Bn-Pulse" aria-hidden="true" />
-                <div className="ER-Bn-ItemBody">
-                  <div className="ER-Bn-IconWrap">
-                    <span className="ER-Bn-Icon">{b.icon}</span>
+          <div className="ER-Bn-Stage">
+            <div className="ER-Bn-Deck">
+              {ER_BENEFITS.map((b, i) => (
+                <div
+                  key={i}
+                  className={`ER-Bn-Item ${activeErBn === i ? 'is-active' : ''}`}
+                  style={{ '--bc': b.color, '--i': i }}
+                  onMouseEnter={() => setActiveErBn(i)}
+                  onClick={() => setActiveErBn(i)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') setActiveErBn(i);
+                  }}
+                  aria-pressed={activeErBn === i}
+                >
+                  {activeErBn === i && <div className="ER-Bn-Bar" aria-hidden="true" key={`erbnbar-${i}`} />}
+                  <span className="ER-Bn-Pulse" aria-hidden="true" />
+                  <div className="ER-Bn-ItemBody">
+                    <div className="ER-Bn-IconWrap">
+                      <span className="ER-Bn-Icon">{b.icon}</span>
+                    </div>
+                    <strong className="ER-Bn-Label">{b.title}</strong>
                   </div>
-                  <strong className="ER-Bn-Label">{b.title}</strong>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="ER-Bn-Dots" aria-hidden="true">
+              {ER_BENEFITS.map((b, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className={`ER-Bn-Dot${activeErBn === i ? ' is-active' : ''}`}
+                  style={{ '--bc': b.color }}
+                  onClick={() => setActiveErBn(i)}
+                  aria-label={`Voir ${b.title}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
