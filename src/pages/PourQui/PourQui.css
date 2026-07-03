@@ -1360,6 +1360,8 @@
 }
 .PQ-Bn-IcoWrap svg,
 .PQ-Bn-IcoWrap svg * {
+  stroke: currentColor !important;
+  color: currentColor !important;
   stroke-width: 2.2 !important;
   opacity: 1 !important;
 }
