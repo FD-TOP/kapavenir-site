@@ -1,40 +1,42 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, X } from 'lucide-react';
 import './HomeKafeBanner.css';
 
-const STORAGE_KEY = 'kap-home-kafe-banner-dismissed';
+const STORAGE_KEY = 'kap-home-kafe-banner-v2';
 
 export default function HomeKafeBanner() {
   const navigate = useNavigate();
+  const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
 
   useEffect(() => {
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      const t = setTimeout(() => setVisible(true), 1000);
-      return () => clearTimeout(t);
-    }
+    setMounted(true);
+    if (sessionStorage.getItem(STORAGE_KEY)) return undefined;
+    const t = setTimeout(() => setVisible(true), 800);
+    return () => clearTimeout(t);
   }, []);
 
   const goAideDigitale = () => {
     navigate('/kafe-retraite#aide-digitale');
     setTimeout(() => {
       document.getElementById('aide-digitale')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 350);
+    }, 400);
   };
 
   const dismiss = () => {
     setClosing(true);
     setTimeout(() => {
-      localStorage.setItem(STORAGE_KEY, '1');
+      sessionStorage.setItem(STORAGE_KEY, '1');
       setVisible(false);
     }, 320);
   };
 
-  if (!visible) return null;
+  if (!mounted || !visible) return null;
 
-  return (
+  return createPortal(
     <aside
       className={`HKB-popup${closing ? ' is-closing' : ''}`}
       role="dialog"
@@ -50,6 +52,7 @@ export default function HomeKafeBanner() {
       <button type="button" className="HKB-close" onClick={dismiss} aria-label="Fermer">
         <X size={17} />
       </button>
-    </aside>
+    </aside>,
+    document.body
   );
 }

@@ -180,44 +180,6 @@ export default function KafeRetraite() {
             </div>
           </section>
 
-          <section
-            id="aide-digitale"
-            className="K-digital K-animate"
-            aria-labelledby="k-digital-title"
-          >
-            <div className="K-digital-glow" aria-hidden="true" />
-            <div className="K-digital-inner">
-              <div className="K-digital-visual">
-                <div className="K-digital-orbit" aria-hidden="true">
-                  <span className="K-digital-orbit-dot K-digital-orbit-dot--1" />
-                  <span className="K-digital-orbit-dot K-digital-orbit-dot--2" />
-                  <span className="K-digital-orbit-dot K-digital-orbit-dot--3" />
-                </div>
-                <div className="K-digital-icon-wrap">
-                  <Laptop size={34} strokeWidth={1.8} />
-                </div>
-                <ul className="K-digital-tags">
-                  <li><MousePointerClick size={14} aria-hidden="true" /> Démarches en ligne</li>
-                  <li><Sparkles size={14} aria-hidden="true" /> 100 % gratuit</li>
-                  <li><CheckCircle2 size={14} aria-hidden="true" /> Autonomie numérique</li>
-                </ul>
-              </div>
-              <div className="K-digital-copy">
-                <span className="K-digital-badge">Aide digitale</span>
-                <h2 id="k-digital-title" className="K-digital-title">
-                  Un service pensé pour vous accompagner
-                </h2>
-                <p className="K-digital-text">
-                  Le Kafé Retraite vous propose une aide digitale gratuite pour faciliter vos démarches
-                  en ligne et vous aider à gagner en autonomie avec les outils numériques.
-                </p>
-                <button type="button" className="K-digital-cta" onClick={() => navigate('/contact')}>
-                  Bénéficier de l&apos;aide digitale <ArrowRight size={16} />
-                </button>
-              </div>
-            </div>
-          </section>
-
           <div className="K-info-section">
             <article className="K-info-card K-animate">
               <div className="K-info-content">
@@ -259,6 +221,36 @@ export default function KafeRetraite() {
             <img src={grp2} alt="Resultats Kafe Retraite" className="K-info-image" />
             </article>
           </div>
+
+          <section
+            id="aide-digitale"
+            className="K-digital K-animate"
+            aria-labelledby="k-digital-title"
+          >
+            <div className="K-digital-layout">
+              <div className="K-digital-main">
+                <p className="K-digital-eyebrow">
+                  <Laptop size={15} strokeWidth={2.2} aria-hidden="true" />
+                  Aide digitale gratuite
+                </p>
+                <h2 id="k-digital-title" className="K-digital-title">
+                  Un service pensé pour vous accompagner
+                </h2>
+                <p className="K-digital-text">
+                  Le Kafé Retraite vous propose une aide digitale gratuite pour faciliter vos démarches
+                  en ligne et vous aider à gagner en autonomie avec les outils numériques.
+                </p>
+                <button type="button" className="K-digital-cta" onClick={() => navigate('/contact')}>
+                  Bénéficier de l&apos;aide digitale <ArrowRight size={16} />
+                </button>
+              </div>
+              <ul className="K-digital-points">
+                <li><MousePointerClick size={18} aria-hidden="true" /> Faciliter vos démarches en ligne</li>
+                <li><Sparkles size={18} aria-hidden="true" /> Un accompagnement 100 % gratuit</li>
+                <li><CheckCircle2 size={18} aria-hidden="true" /> Gagner en autonomie numérique</li>
+              </ul>
+            </div>
+          </section>
 
           <section className="K-final-cta K-animate" aria-label="CTA final Kafe Retraite">
             <img src={couple9} alt="" className="K-final-cta-bg" loading="eager" decoding="async" />

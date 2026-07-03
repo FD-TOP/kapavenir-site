@@ -28,9 +28,9 @@ const Home = () => {
         <Testimonials />
         <KafeRetraiteHome />
         <PreFooter/>
-        <HomeKafeBanner />
         {/* Tu peux ajouter les autres ici */}
       </div>
+      <HomeKafeBanner />
     </div>
   );
 };

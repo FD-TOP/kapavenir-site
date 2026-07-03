@@ -586,150 +586,61 @@
   }
 }
 
-/* ── Aide digitale — bandeau distinct ── */
+/* ── Aide digitale — pleine largeur, sans conteneur ── */
 .K-digital {
   position: relative;
-  margin: 48px 0 56px;
-  padding: 0;
-  border-radius: 0;
   scroll-margin-top: 110px;
-  overflow: hidden;
-}
-
-.K-digital-glow {
-  position: absolute;
-  inset: -40% -20%;
+  margin: 56px calc(-5vw) 64px;
+  padding: 52px 5vw 56px;
   background:
-    radial-gradient(circle at 20% 50%, rgba(0, 182, 222, 0.35), transparent 45%),
-    radial-gradient(circle at 80% 30%, rgba(0, 191, 99, 0.28), transparent 40%);
-  pointer-events: none;
+    linear-gradient(105deg, rgba(0, 182, 222, 0.07) 0%, transparent 42%, rgba(0, 191, 99, 0.06) 100%);
+  border-top: 1px solid rgba(0, 182, 222, 0.16);
+  border-bottom: 1px solid rgba(0, 191, 99, 0.14);
 }
 
-.K-digital-inner {
-  position: relative;
+.K-digital-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 40px 56px;
   align-items: center;
-  padding: 44px 48px;
-  border-radius: 24px;
-  background: linear-gradient(125deg, #0b1f3a 0%, #0f3058 42%, #0a4a6e 100%);
-  border: 1px solid rgba(0, 182, 222, 0.28);
-  box-shadow:
-    0 28px 64px rgba(8, 28, 56, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
-.K-digital-visual {
+.K-digital-main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 22px;
-  position: relative;
+  align-items: flex-start;
+  gap: 0;
 }
 
-.K-digital-orbit {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 160px;
-  height: 160px;
-  transform: translate(-50%, -58%);
-  border: 1px dashed rgba(0, 182, 222, 0.35);
-  border-radius: 50%;
-  animation: k-digital-spin 18s linear infinite;
-}
-
-.K-digital-orbit-dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #00b6de;
-  box-shadow: 0 0 12px rgba(0, 182, 222, 0.8);
-}
-
-.K-digital-orbit-dot--1 { top: -4px; left: 50%; transform: translateX(-50%); }
-.K-digital-orbit-dot--2 { bottom: 18%; right: -2px; }
-.K-digital-orbit-dot--3 { bottom: 18%; left: -2px; background: #00bf63; box-shadow: 0 0 12px rgba(0, 191, 99, 0.8); }
-
-@keyframes k-digital-spin {
-  to { transform: translate(-50%, -58%) rotate(360deg); }
-}
-
-.K-digital-icon-wrap {
-  position: relative;
-  z-index: 1;
-  width: 88px;
-  height: 88px;
-  border-radius: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  background: linear-gradient(145deg, rgba(0, 182, 222, 0.25), rgba(0, 191, 99, 0.2));
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-}
-
-.K-digital-tags {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  max-width: 260px;
-}
-
-.K-digital-tags li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.92);
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(6px);
-}
-
-.K-digital-copy {
-  position: relative;
-  z-index: 1;
-}
-
-.K-digital-badge {
+.K-digital-eyebrow {
   display: inline-flex;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 0.68rem;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #7ae8ff;
-  background: rgba(0, 182, 222, 0.14);
-  border: 1px solid rgba(0, 182, 222, 0.35);
-  margin-bottom: 14px;
+  color: #0071bc;
 }
 
 .K-digital-title {
   margin: 0 0 16px;
-  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
   font-weight: 800;
-  line-height: 1.25;
-  color: #ffffff;
+  line-height: 1.22;
+  color: #0f172a;
+  max-width: 22ch;
 }
 
 .K-digital-text {
   margin: 0 0 24px;
-  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-  line-height: 1.75;
-  color: rgba(226, 240, 255, 0.88);
-  max-width: 54ch;
+  font-size: clamp(0.96rem, 1.45vw, 1.06rem);
+  line-height: 1.78;
+  color: #475569;
+  max-width: 58ch;
 }
 
 .K-digital-cta {
@@ -739,18 +650,43 @@
   padding: 12px 20px;
   border: none;
   border-radius: 999px;
-  background: linear-gradient(135deg, #00b6de, #00bf63);
+  background: var(--kap-premium-gradient, linear-gradient(135deg, #0071bc, #00b6de 55%, #00bf63));
   color: #fff;
   font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 12px 28px rgba(0, 182, 222, 0.35);
+  box-shadow: var(--kap-btn-glow);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .K-digital-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 34px rgba(0, 182, 222, 0.45);
+  box-shadow: 0 14px 32px rgba(0, 113, 188, 0.32);
+}
+
+.K-digital-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.K-digital-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #0f172a;
+}
+
+.K-digital-points li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #00b6de;
 }
 
 @media (max-width: 1080px) {
@@ -758,9 +694,7 @@
   .K-promises-footer { margin-top: 18px; }
   .K-flip-grid { grid-template-columns: 1fr; }
   .K-info-card { grid-template-columns: 1fr; }
-  .K-digital-inner { grid-template-columns: 1fr; gap: 28px; padding: 36px 32px; }
-  .K-digital-visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
-  .K-digital-tags { max-width: none; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .K-digital-layout { grid-template-columns: 1fr; gap: 28px; }
 }
 
 @media (max-width: 768px) {
@@ -780,9 +714,7 @@
   .K-final-cta-content p { font-size: .96rem; }
   .K-final-cta-actions { flex-direction: column; }
   .K-final-cta-btn { width: 100%; min-width: 0; }
-  .K-digital-inner { padding: 28px 20px; border-radius: 20px; }
-  .K-digital-visual { flex-direction: column; }
-  .K-digital-tags { flex-direction: column; align-items: stretch; }
+  .K-digital { margin-left: -5%; margin-right: -5%; padding: 40px 5%; }
   .K-digital-cta { width: 100%; justify-content: center; }
 }
 
