@@ -622,6 +622,7 @@
 .K-digital-panel {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
   gap: 28px;
   padding: 8px 0;
@@ -755,7 +756,6 @@
   .K-final-cta-btn { width: 100%; min-width: 0; }
   .K-digital { margin: 48px 0 56px; }
   .K-digital-photo { border-radius: 48px 20px 20px 20px; }
-  .K-digital-panel .K-btn-premium { width: 100%; justify-content: center; }
 }
 
 @media (max-width: 480px) {
