@@ -221,7 +221,7 @@ export default function OrganismesPage() {
           <h2 className="OR-CTA-Title">
             <span className="OR-CTA-Title--grad">Construisons</span> votre offre retraite
           </h2>
-          <p className="OR-CTA-Sub">Mutuelles, assureurs, caisses complémentaires, parlons de vos besoins.</p>
+          <p className="OR-CTA-Sub">Mutuelles, assureurs, caisses complémentaires : parlons de vos besoins.</p>
           <div className="OR-CTA-Btns">
             <button type="button" className="OR-Btn OR-Btn--solid" onClick={() => navigate('/contact')}>
               Contacter un expert
