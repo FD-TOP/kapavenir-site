@@ -129,7 +129,7 @@ export default function APropos() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveEng((prev) => (prev + 1) % engagements.length);
-    }, 2800);
+    }, 4200);
     return () => clearInterval(timer);
   }, []);
 

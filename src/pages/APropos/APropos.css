@@ -626,7 +626,7 @@
   border: 1px solid rgba(0, 191, 99, 0.22);
   background: linear-gradient(135deg, rgba(0, 191, 99, 0.08), rgba(0, 182, 222, 0.06));
   box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
-  animation: ap-eng-detail-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: ap-eng-detail-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes ap-eng-detail-in {
