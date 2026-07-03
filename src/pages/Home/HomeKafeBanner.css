@@ -1,0 +1,108 @@
+.HKB-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: min(760px, calc(100% - 32px));
+  padding: 16px 52px 16px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 10px 36px rgba(0, 113, 188, 0.1),
+    0 2px 10px rgba(15, 23, 42, 0.06);
+  transform: translateX(-50%) translateY(0);
+  animation: hkbSlideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hkbSlideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.HKB-text {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(0.84rem, 1.4vw, 0.95rem);
+  font-weight: 600;
+  line-height: 1.45;
+  color: #0f172a;
+}
+
+.HKB-cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--kap-premium-gradient, linear-gradient(135deg, #0071bc, #00b6de 55%, #00bf63));
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: var(--kap-btn-glow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.HKB-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 113, 188, 0.32);
+}
+
+.HKB-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  color: #475569;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.HKB-close:hover {
+  background: rgba(15, 23, 42, 0.12);
+  color: #0f172a;
+}
+
+@media (max-width: 680px) {
+  .HKB-popup {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 18px 44px 18px 18px;
+    bottom: 14px;
+  }
+
+  .HKB-cta {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .HKB-popup {
+    animation: none;
+  }
+}

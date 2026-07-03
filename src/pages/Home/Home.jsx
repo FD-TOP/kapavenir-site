@@ -9,6 +9,7 @@ import AnimatedBG from "../../components/Common/AnimatedBG";
 import './Home.css';
 import Testimonials from './Testimonials';
 import PreFooter from './PreFooter';
+import HomeKafeBanner from './HomeKafeBanner';
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
         <Testimonials />
         <KafeRetraiteHome />
         <PreFooter/>
+        <HomeKafeBanner />
         {/* Tu peux ajouter les autres ici */}
       </div>
     </div>
