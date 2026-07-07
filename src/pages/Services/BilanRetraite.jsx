@@ -21,7 +21,7 @@ const packs = [
     modalDetail: {
       comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Entretien individuel de 1h en présentiel ou à distance',
+        'Entretien individuel de 1h à distance',
         'Analyse complète de votre relevé de carrière',
         'Estimation de votre âge et montant de départ',
         'Détection des erreurs et périodes manquantes',
@@ -45,7 +45,7 @@ const packs = [
       ],
     },
     features: [
-      'Entretien individuel de 1h en présentiel ou à distance',
+      'Entretien individuel de 1h à distance',
       'Analyse complète de votre relevé de carrière',
       'Estimation de votre âge et montant de départ',
       'Détection des erreurs et périodes manquantes',
@@ -65,7 +65,7 @@ const packs = [
     modalDetail: {
       comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Entretien personnalisé approfondi (1h30) en présentiel ou à distance',
+        'Entretien personnalisé approfondi (1h30) à distance',
         'Analyse complète de votre relevé de carrière',
         'Diagnostic retraite détaillé et personnalisé',
         'Détection des anomalies et incohérences',
@@ -96,7 +96,7 @@ const packs = [
       ],
     },
     features: [
-      'Entretien personnalisé approfondi (1h30) en présentiel ou à distance',
+      'Entretien personnalisé approfondi (1h30) à distance',
       'Analyse complète de votre relevé de carrière',
       'Diagnostic retraite détaillé et personnalisé',
       'Détection des anomalies et incohérences',
@@ -117,7 +117,7 @@ const packs = [
     modalDetail: {
       comprendTitle: 'Ce que comprend le pack :',
       comprend: [
-        'Entretien personnalisé (1h30) en présentiel ou à distance',
+        'Entretien personnalisé (1h30) à distance',
         'Diagnostic retraite approfondi',
         'Reconstitution complète de carrière',
         'Régularisation des anomalies auprès des caisses',
