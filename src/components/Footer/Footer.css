@@ -21,7 +21,7 @@
   --ft-green: #b8f5d4;
   --ft-pad: clamp(20px, 4vw, 56px);
   --ft-max: 1280px;
-  --ft-advisor-w: clamp(250px, 22vw, 330px);
+  --ft-advisor-w: clamp(280px, 24vw, 360px);
 
   position: relative;
   z-index: 30;
@@ -109,6 +109,12 @@
   grid-template-columns: minmax(260px, 1.2fr) minmax(150px, 0.75fr) minmax(180px, 0.85fr) minmax(220px, 0.7fr);
   gap: clamp(24px, 3.5vw, 40px);
   align-items: start;
+}
+
+@media (min-width: 1025px) {
+  .FT-Grid {
+    align-items: end;
+  }
 }
 
 /* ─── Panneau marque ────────────────────────────────────────── */
@@ -241,46 +247,30 @@ a.FT-ContactLink:hover {
   line-height: 1.5;
 }
 
-/* ─── Visuel conseillère — photo peut dépasser haut / côtés ─── */
+/* ─── Visuel conseillère ─────────────────────────────────────── */
 .FT-Visual {
   align-self: start;
   width: min(100%, var(--ft-advisor-w));
   margin: 0 0 0 auto;
-  transform: translateX(44px);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .FT-VisualBody {
   position: relative;
   width: 100%;
-  height: clamp(360px, 35vw, 460px);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .FT-Advisor {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  bottom: -35px;
-  transform: translateX(-50%) scale(1.22);
-  transform-origin: bottom center;
+  display: block;
   width: auto;
-  height: 114%;
   max-width: none;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.2));
   pointer-events: none;
 }
 
 .FT-AdvisorCard {
-  position: absolute;
-  z-index: 3;
-  left: 12px;
-  right: 12px;
-  bottom: 14px;
-  max-width: 192px;
-  margin: 0;
   padding: 12px 14px;
   border-radius: 14px;
   background: #fff;
@@ -374,7 +364,48 @@ a.FT-ContactLink:hover {
 }
 
 /* ─── Responsive ────────────────────────────────────────────── */
-@media (max-width: 1024px) {
+
+/* PC — photo pleine largeur de colonne, PNG transparent, badge en overlay */
+@media (min-width: 1025px) {
+  .FT-Visual {
+    width: min(100%, var(--ft-advisor-w));
+    margin: 0 0 0 auto;
+    transform: none;
+    align-self: end;
+  }
+
+  .FT-VisualBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 0;
+  }
+
+  .FT-Advisor {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    margin: 0 0 -46px;
+    transform: none;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.18));
+  }
+
+  .FT-AdvisorCard {
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
+    width: calc(100% - 10px);
+    max-width: 196px;
+    margin: 0 0 0 8px;
+  }
+}
+
+/* Tablette — colonne centrée, sans cadre ni blend */
+@media (min-width: 721px) and (max-width: 1024px) {
   .FT-Grid {
     grid-template-columns: 1fr 1fr;
     gap: 28px;
@@ -386,19 +417,44 @@ a.FT-ContactLink:hover {
 
   .FT-Visual {
     grid-column: 1 / -1;
-    width: min(100%, 300px);
+    width: min(100%, 400px);
     margin: 0 auto;
     transform: none;
   }
 
   .FT-VisualBody {
-    height: clamp(350px, 58vw, 430px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 0 4px 6px;
   }
 
   .FT-Advisor {
-    bottom: -34px;
-    height: 112%;
-    transform: translateX(-50%) scale(1.16);
+    position: relative;
+    z-index: 1;
+    width: min(380px, 92%);
+    height: auto;
+    margin: 0 auto -40px;
+    transform: none;
+    object-position: center bottom;
+  }
+
+  .FT-AdvisorCard {
+    position: relative;
+    z-index: 2;
+    width: min(300px, 96%);
+    max-width: none;
+    margin: 0 auto;
+    padding: 14px 16px;
+  }
+
+  .FT-AdvisorLogo {
+    height: 38px;
+  }
+
+  .FT-AdvisorQuote {
+    font-size: 0.82rem;
   }
 }
 
@@ -434,7 +490,7 @@ a.FT-ContactLink:hover {
 
   .FT-Visual {
     width: 100%;
-    max-width: 360px;
+    max-width: 440px;
     margin: 12px auto 0;
     overflow: visible;
   }
@@ -454,10 +510,10 @@ a.FT-ContactLink:hover {
     left: auto;
     bottom: auto;
     z-index: 1;
-    width: min(320px, 92vw);
+    width: min(420px, 98vw);
     height: auto;
     max-width: none;
-    margin: 0 auto -36px;
+    margin: 0 auto -40px;
     transform: none;
     object-fit: contain;
     object-position: center bottom;
@@ -500,8 +556,8 @@ a.FT-ContactLink:hover {
   }
 
   .FT-Advisor {
-    width: min(300px, 94vw);
-    margin-bottom: -32px;
+    width: min(400px, 100vw);
+    margin-bottom: -38px;
   }
 
   .FT-AdvisorCard {
