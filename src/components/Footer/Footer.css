@@ -376,13 +376,17 @@ a.FT-ContactLink:hover {
 
 /* ─── Responsive ────────────────────────────────────────────── */
 
-/* PC — photo grande, hauteur pleine colonne droite */
+/* PC — photo grande, ancrée sur la bande du bas */
 @media (min-width: 1025px) {
+  .FT-Grid {
+    margin-bottom: 0;
+  }
+
   .FT-Visual {
     grid-column: 4;
     grid-row: 1;
     width: 100%;
-    margin: 0;
+    margin: 0 0 calc(-1 * clamp(24px, 3vw, 36px));
     transform: none;
     align-self: stretch;
     display: flex;
@@ -394,7 +398,7 @@ a.FT-ContactLink:hover {
     position: relative;
     flex: 1;
     width: 100%;
-    min-height: clamp(460px, 38vw, 580px);
+    min-height: clamp(480px, 40vw, 600px);
     padding: 0;
     overflow: visible;
   }
@@ -403,8 +407,8 @@ a.FT-ContactLink:hover {
     position: absolute;
     bottom: 0;
     left: 50%;
-    z-index: 1;
-    height: 125%;
+    z-index: 2;
+    height: 150%;
     width: auto;
     max-width: none;
     margin: 0;
@@ -417,12 +421,17 @@ a.FT-ContactLink:hover {
   .FT-AdvisorCard {
     position: absolute;
     z-index: 3;
-    bottom: 16px;
+    bottom: clamp(20px, 2.5vw, 32px);
     left: 12px;
     width: auto;
     max-width: min(220px, 78%);
     margin: 0;
     pointer-events: auto;
+  }
+
+  .FT-Bar {
+    margin-top: 0;
+    z-index: 4;
   }
 }
 
