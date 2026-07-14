@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import ScrollRestoration from './components/ScrollRestoration/ScrollRestoration';
 import SkipLink from './components/SkipLink/SkipLink';
 import DocumentTitle from './components/DocumentTitle/DocumentTitle';
 import { preloadImage } from './utils/preloadImage';
@@ -80,6 +81,7 @@ function App() {
 
       <SkipLink />
       <DocumentTitle />
+      <ScrollRestoration />
       <Navbar />
 
       <main id="main-content" tabIndex={-1} className="app-main">

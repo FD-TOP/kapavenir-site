@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Footer.css';
 import '../Navbar/Navbar.css';
 
@@ -17,8 +17,20 @@ const NAV = [
   { label: 'Contact', to: '/contact' },
 ];
 
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 export default function Footer() {
+  const { pathname } = useLocation();
   const year = new Date().getFullYear();
+
+  const handleNavClick = (to) => (event) => {
+    if (pathname === to) {
+      event.preventDefault();
+      scrollToTop();
+    }
+  };
 
   return (
     <footer className="FT" aria-label="Pied de page KapAvenir">
@@ -32,7 +44,7 @@ export default function Footer() {
       <div className="FT-Inner">
         <div className="FT-Grid">
           <div className="FT-BrandPanel">
-            <Link to="/" className="nav-logo FT-BrandLogo" aria-label="KapAvenir — Accueil">
+            <Link to="/" className="nav-logo FT-BrandLogo" aria-label="KapAvenir — Accueil" onClick={handleNavClick('/')}>
               <img src={logoImg} alt="KapAvenir" className="nav-logo-img" draggable={false} />
             </Link>
 
@@ -53,7 +65,7 @@ export default function Footer() {
             <ul className="FT-NavList">
               {NAV.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="FT-NavLink">
+                  <Link to={link.to} className="FT-NavLink" onClick={handleNavClick(link.to)}>
                     {link.label}
                   </Link>
                 </li>
@@ -111,10 +123,10 @@ export default function Footer() {
             © {year} KapAvenir. Tous droits réservés.
           </p>
           <nav className="FT-Legal" aria-label="Informations légales">
-            <Link to="/accessibilite">Accessibilité</Link>
-            <Link to="/mentions">Mentions légales</Link>
-            <Link to="/rgpd">RGPD</Link>
-            <Link to="/cgv">CGV / CGU</Link>
+            <Link to="/accessibilite" onClick={handleNavClick('/accessibilite')}>Accessibilité</Link>
+            <Link to="/mentions" onClick={handleNavClick('/mentions')}>Mentions légales</Link>
+            <Link to="/rgpd" onClick={handleNavClick('/rgpd')}>RGPD</Link>
+            <Link to="/cgv" onClick={handleNavClick('/cgv')}>CGV / CGU</Link>
           </nav>
         </div>
       </div>
