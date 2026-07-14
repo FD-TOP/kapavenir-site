@@ -28,7 +28,8 @@
   margin-top: auto;
   color: var(--ft-text);
   font-family: 'Inter', system-ui, sans-serif;
-  overflow: visible;
+  overflow-x: hidden;
+  overflow-x: clip;
   padding-top: 0;
   background: var(--ft-nav-bg);
   box-shadow: 0 -8px 32px rgba(0, 113, 188, 0.15);
@@ -40,6 +41,7 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
 .FT-Orb {
@@ -98,7 +100,7 @@
   max-width: var(--ft-max);
   margin: 0 auto;
   padding: clamp(36px, 5vw, 52px) var(--ft-pad) 0;
-  overflow: visible;
+  overflow-x: clip;
 }
 
 /* ─── Grille principale ─────────────────────────────────────── */
@@ -107,7 +109,6 @@
   grid-template-columns: minmax(260px, 1.2fr) minmax(150px, 0.75fr) minmax(180px, 0.85fr) minmax(220px, 0.7fr);
   gap: clamp(24px, 3.5vw, 40px);
   align-items: start;
-  overflow: visible;
 }
 
 /* ─── Panneau marque ────────────────────────────────────────── */
@@ -246,14 +247,14 @@ a.FT-ContactLink:hover {
   width: min(100%, var(--ft-advisor-w));
   margin: 0 0 0 auto;
   transform: translateX(44px);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .FT-VisualBody {
   position: relative;
   width: 100%;
   height: clamp(360px, 35vw, 460px);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .FT-Advisor {
@@ -402,6 +403,19 @@ a.FT-ContactLink:hover {
 }
 
 @media (max-width: 720px) {
+  .FT-Orb--1 {
+    width: 280px;
+    height: 280px;
+    top: -40px;
+    left: -40px;
+  }
+
+  .FT-Orb--3 {
+    width: 200px;
+    height: 200px;
+    right: -20px;
+  }
+
   .FT-Orb--2 {
     display: none;
   }
@@ -431,6 +445,7 @@ a.FT-ContactLink:hover {
   .FT-Advisor {
     bottom: -34px;
     height: 112%;
+    max-width: 100%;
     transform: translateX(-50%) scale(1.14);
   }
 
