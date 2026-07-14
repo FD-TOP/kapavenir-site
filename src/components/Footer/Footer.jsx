@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { scrollToPageTop } from '../../utils/scrollNavigation';
 import './Footer.css';
 import '../Navbar/Navbar.css';
 
@@ -17,10 +18,6 @@ const NAV = [
   { label: 'Contact', to: '/contact' },
 ];
 
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
 export default function Footer() {
   const { pathname } = useLocation();
   const year = new Date().getFullYear();
@@ -28,7 +25,7 @@ export default function Footer() {
   const handleNavClick = (to) => (event) => {
     if (pathname === to) {
       event.preventDefault();
-      scrollToTop();
+      scrollToPageTop();
     }
   };
 

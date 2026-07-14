@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useId } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, X, Menu, ArrowRight } from 'lucide-react';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
+import { scrollToHash } from '../../utils/scrollNavigation';
 import './Navbar.css';
 import logoImg from '../../assets/logo.png';
 
@@ -21,10 +22,7 @@ const Navbar = () => {
     setActiveDropdown(null);
     if (hash) {
       navigate(url || '/pour-qui');
-      setTimeout(() => {
-        const el = document.getElementById(hash);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 80);
+      scrollToHash(`#${hash}`);
     } else {
       navigate(path);
     }
@@ -35,7 +33,6 @@ const Navbar = () => {
     setIsMobileOpen(false);
     setActiveDropdown(null);
     navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openMobileMenu = () => {

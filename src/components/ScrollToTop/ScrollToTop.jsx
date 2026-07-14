@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { scrollToPageTop } from '../../utils/scrollNavigation';
 import './ScrollToTop.css';
 
 export default function ScrollToTop() {
@@ -16,7 +17,7 @@ export default function ScrollToTop() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const goTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const goTop = () => scrollToPageTop({ focusMain: false });
 
   const R    = 22;
   const circ = 2 * Math.PI * R;
