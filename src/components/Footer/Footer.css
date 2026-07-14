@@ -433,27 +433,55 @@ a.FT-ContactLink:hover {
   }
 
   .FT-Visual {
-    width: min(100%, 280px);
-    margin: 0 auto;
-    transform: none;
+    width: 100%;
+    max-width: 360px;
+    margin: 12px auto 0;
+    overflow: visible;
   }
 
   .FT-VisualBody {
-    height: clamp(320px, 78vw, 390px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 0;
+    padding: 0 4px 6px;
+    overflow: visible;
   }
 
   .FT-Advisor {
-    bottom: -34px;
-    height: 112%;
-    max-width: 100%;
-    transform: translateX(-50%) scale(1.14);
+    position: relative;
+    left: auto;
+    bottom: auto;
+    z-index: 1;
+    width: min(320px, 92vw);
+    height: auto;
+    max-width: none;
+    margin: 0 auto -36px;
+    transform: none;
+    object-fit: contain;
+    object-position: center bottom;
   }
 
   .FT-AdvisorCard {
-    left: 50%;
+    position: relative;
+    left: auto;
     right: auto;
-    transform: translateX(-50%);
-    max-width: min(240px, calc(100% - 24px));
+    bottom: auto;
+    z-index: 2;
+    transform: none;
+    width: min(300px, 96%);
+    max-width: none;
+    margin: 0 auto;
+    padding: 14px 16px;
+  }
+
+  .FT-AdvisorLogo {
+    height: 38px;
+  }
+
+  .FT-AdvisorQuote {
+    font-size: 0.82rem;
   }
 
   .FT-BarInner {
@@ -463,6 +491,21 @@ a.FT-ContactLink:hover {
 
   .FT-Legal {
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .FT-Visual {
+    max-width: 100%;
+  }
+
+  .FT-Advisor {
+    width: min(300px, 94vw);
+    margin-bottom: -32px;
+  }
+
+  .FT-AdvisorCard {
+    width: min(280px, 98%);
   }
 }
 
