@@ -118,9 +118,13 @@
 }
 
 @media (min-width: 1025px) {
+  .FT {
+    overflow: visible;
+  }
+
   .FT-Grid {
     align-items: stretch;
-    grid-template-columns: minmax(260px, 1.2fr) minmax(150px, 0.75fr) minmax(180px, 0.85fr) minmax(300px, 1fr);
+    grid-template-columns: minmax(260px, 1.2fr) minmax(150px, 0.75fr) minmax(180px, 0.85fr) minmax(320px, 1.15fr);
   }
 }
 
@@ -372,7 +376,7 @@ a.FT-ContactLink:hover {
 
 /* ─── Responsive ────────────────────────────────────────────── */
 
-/* PC — photo pleine hauteur de la colonne droite */
+/* PC — photo grande, hauteur pleine colonne droite */
 @media (min-width: 1025px) {
   .FT-Visual {
     grid-column: 4;
@@ -383,41 +387,42 @@ a.FT-ContactLink:hover {
     align-self: stretch;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
     overflow: visible;
   }
 
   .FT-VisualBody {
     position: relative;
     flex: 1;
-    display: block;
     width: 100%;
-    min-height: clamp(420px, 40vw, 540px);
+    min-height: clamp(460px, 38vw, 580px);
     padding: 0;
     overflow: visible;
   }
 
   .FT-Advisor {
     position: absolute;
-    inset: 0;
+    bottom: 0;
+    left: 50%;
     z-index: 1;
-    width: 100%;
-    height: 100%;
+    height: 125%;
+    width: auto;
+    max-width: none;
     margin: 0;
-    transform: none;
+    transform: translateX(-50%);
     object-fit: contain;
     object-position: bottom center;
-    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.18));
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.2));
   }
 
   .FT-AdvisorCard {
     position: absolute;
-    z-index: 2;
-    bottom: 14px;
-    left: 10px;
+    z-index: 3;
+    bottom: 16px;
+    left: 12px;
     width: auto;
-    max-width: calc(100% - 20px);
+    max-width: min(220px, 78%);
     margin: 0;
+    pointer-events: auto;
   }
 }
 
