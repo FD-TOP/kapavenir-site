@@ -296,6 +296,7 @@ export default function KafeRetraite() {
               <div className="K-final-cta-divider" aria-hidden="true" />
               <p>
                 Un simple échange peut faire toute la différence sur vos revenus futurs.
+                <br />
                 Nos experts sont là pour transformer vos questions en certitudes.
               </p>
               <div className="K-final-cta-actions">
