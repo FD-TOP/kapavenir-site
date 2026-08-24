@@ -1255,7 +1255,7 @@
   gap: 24px;
   position: relative;
   padding: 32px 0 24px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 /* Horizontal rail — sits between badge bottom and card top */
 .PQ-TL-Rail {
@@ -1278,6 +1278,7 @@
 .PQ-TStep {
   display: flex; flex-direction: column; align-items: center; gap: 18px;
   position: relative; z-index: 2;
+  height: 100%;
 }
 .PQ-TStep--down { padding-top: 0; }   /* remove zigzag — clean horizontal */
 .PQ-TStep-Badge {
@@ -1307,6 +1308,9 @@
   padding: 22px 18px 18px;
   text-align: center;
   width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   position: relative; overflow: hidden;
   box-shadow: 0 6px 24px rgba(0,0,0,.18);
   transition: border-color .3s, box-shadow .3s, transform .35s cubic-bezier(.175,.885,.32,1.275);
@@ -1317,7 +1321,7 @@
   transform: translateY(-6px);
 }
 .PQ-TStep-Title { font-size: .88rem; font-weight: 800; color: var(--k-dark); margin: 0 0 6px; line-height: 1.3; }
-.PQ-TStep-Desc  { font-size: .74rem; color: var(--k-muted); line-height: 1.55; margin: 0; }
+.PQ-TStep-Desc  { font-size: .74rem; color: var(--k-muted); line-height: 1.55; margin: 0; min-height: calc(1.55em * 2); }
 
 /* 6 — Bénéfices */
 .PQ-Bn-Grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; max-width: 900px; margin: 0 auto; }
