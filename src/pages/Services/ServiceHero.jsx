@@ -1,14 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { PieChart } from 'lucide-react';
 import './ServiceHero.css';
 import LogoSticker from '../../components/Common/LogoSticker';
+import { scrollToHash } from '../../utils/scrollNavigation';
 
 import servicesHeroVideo from '../../assets/vidéoservices.mp4';
 
 export default function ServiceHero() {
-  const navigate = useNavigate();
-
   return (
     <section className="SH-Hero-Section">
       <div className="SH-Video-Bg" aria-hidden="true">
@@ -41,7 +39,7 @@ export default function ServiceHero() {
           </p>
 
           <div className="SH-Cta-Group">
-            <button type="button" className="SH-Btn-Gradient" onClick={() => navigate('/services/bilan')}>
+            <button type="button" className="SH-Btn-Gradient" onClick={() => scrollToHash('#forfaits')}>
               <div className="SH-Icon-Circle">
                 <PieChart size={20} />
               </div>

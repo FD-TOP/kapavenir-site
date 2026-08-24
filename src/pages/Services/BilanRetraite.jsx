@@ -387,7 +387,7 @@ export default function BilanRetraite() {
           </div>
         </div>
 
-        <div className="BR-Grid">
+        <div id="forfaits" className="BR-Grid">
           {packs.map((pack) => (
             <div key={pack.id} className="BR-CardShell">
               {pack.badge && (
