@@ -40,7 +40,8 @@ export default function PreFooter() {
             </header>
 
             <p className="F-description">
-              Un simple échange peut faire toute la différence sur vos revenus futurs. 
+              Un simple échange peut faire toute la différence sur vos revenus futurs.
+              <br />
               Nos experts sont là pour transformer vos questions en certitudes.
             </p>
 
