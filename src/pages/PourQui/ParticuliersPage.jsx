@@ -27,7 +27,6 @@ export default function ParticuliersPage() {
 
   const [introRef, introVis] = useReveal(0.2);
   const age = useCounter(62, 1600, introVis);
-  const montant = useCounter(1840, 2000, introVis);
   const [pbRef, pbVis] = useReveal();
   const [svRef, svVis] = useReveal();
   const [stRef, stVis] = useReveal();
@@ -55,7 +54,7 @@ export default function ParticuliersPage() {
             <h2 className="PQ-Block-Title">
               Des repères <Grad className="PQ-Grad">concrets</Grad> pour décider
             </h2>
-            <p className="PQ-Block-Sub">L’âge moyen de départ et le montant de pension vous aident à situer votre situation.</p>
+            <p className="PQ-Block-Sub">L’âge moyen de départ vous aide à situer votre situation.</p>
           </div>
           <div className="PQ-Counters">
             <div className="PQ-Counter PQ-Counter--a">
@@ -71,21 +70,6 @@ export default function ParticuliersPage() {
               <div className="PQ-Counter-Track">
                 <div className="PQ-Counter-Fill PQ-Counter-Fill--a" style={{ width: introVis ? `${Math.round((age / 70) * 100)}%` : '0%' }} />
                 <span className="PQ-Counter-Pct">{introVis ? Math.round((age / 70) * 100) : 0}%</span>
-              </div>
-            </div>
-            <div className="PQ-Counter PQ-Counter--b">
-              <div className="PQ-Counter-Header">
-                <div className="PQ-Counter-IcoWrap PQ-Counter-IcoWrap--b">{Icon.wallet}</div>
-                <span className="PQ-Counter-Tag">Pension mensuelle estimée</span>
-              </div>
-              <div className="PQ-Counter-ValRow">
-                <span className="PQ-Counter-Big">{montant.toLocaleString('fr-FR')}</span>
-                <span className="PQ-Counter-Unit">€/mois</span>
-              </div>
-              <p className="PQ-Counter-Hint">Montant moyen de retraite tous régimes confondus</p>
-              <div className="PQ-Counter-Track">
-                <div className="PQ-Counter-Fill PQ-Counter-Fill--b" style={{ width: introVis ? `${Math.round((montant / 2000) * 100)}%` : '0%' }} />
-                <span className="PQ-Counter-Pct">{introVis ? Math.round((montant / 2000) * 100) : 0}%</span>
               </div>
             </div>
           </div>
